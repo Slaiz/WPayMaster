@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseService", "DataBaseService\DataBaseService.csproj", "{0D3675FE-6C0D-4DE9-B612-3C70522FDEB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{7745E230-A074-4757-B466-73A4A83B97EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Project", "WPF_Project\WPF_Project.csproj", "{AD4EE581-FD3F-46CC-A2C8-E0A7D06C1F82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D3675FE-6C0D-4DE9-B612-3C70522FDEB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D3675FE-6C0D-4DE9-B612-3C70522FDEB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D3675FE-6C0D-4DE9-B612-3C70522FDEB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D3675FE-6C0D-4DE9-B612-3C70522FDEB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7745E230-A074-4757-B466-73A4A83B97EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7745E230-A074-4757-B466-73A4A83B97EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7745E230-A074-4757-B466-73A4A83B97EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7745E230-A074-4757-B466-73A4A83B97EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD4EE581-FD3F-46CC-A2C8-E0A7D06C1F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4EE581-FD3F-46CC-A2C8-E0A7D06C1F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD4EE581-FD3F-46CC-A2C8-E0A7D06C1F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD4EE581-FD3F-46CC-A2C8-E0A7D06C1F82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
