@@ -25,25 +25,29 @@ namespace WPF_Project.ViewModel
         public string Password { get; set; }
 
         public LoginViewModel()
-        { 
+        {
             UserList = new ObservableCollection<User>(DWork.GetUsersList());
             LogInCommand = new MainCommand(arg => LogIn());
         }
 
         private void LogIn()
         {
-            foreach (var user in UserList)
+            if (Login != null && Password != null)
             {
-                if (user.NameUser.Contains(Login) && user.Password.Contains(Password))
+                foreach (var user in UserList)
                 {
-                    if (user.Post.Contains("Адміністратор"))
-                        DoOnLogIn(TypeView.AdminView);
-                    else DoOnLogIn(TypeView.OrderView);
-                    return;                    
+                    if (user.NameUser.Contains(Login) && user.Password.Contains(Password))
+                    {
+                        if (user.Post.Contains("Адміністратор"))
+                            DoOnLogIn(TypeView.AdminView);
+                        else DoOnLogIn(TypeView.OrderView);
+                        return;
+                    }
                 }
-            }
 
-            MessageBox.Show("Ви ввели неправильний пароль або логін");
+                MessageBox.Show("Ви ввели неправильний логін або пароль", "Error");
+            }
+            else MessageBox.Show("Введіть будь ласка логін і пароль", "Error");
         }
 
         private static void DoOnLogIn(TypeView e)

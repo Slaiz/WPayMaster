@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Project"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" 
         Title="Login" MinHeight="420" Height="420" MaxHeight="420" MinWidth="650" Width="650" MaxWidth="650" Background="Teal">
     <Grid>
         <Grid.RowDefinitions>

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Project.View"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="AdminView" MinHeight="300" Height="300" MaxHeight="300" MinWidth="300" Width="300" MaxWidth="300">
     <Grid>
         <Grid.RowDefinitions>
