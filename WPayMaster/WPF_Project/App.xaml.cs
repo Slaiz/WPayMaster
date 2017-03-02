@@ -13,5 +13,10 @@ namespace WPF_Project
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            WindowsFactory windowsFactory = new WindowsFactory();
+            windowsFactory.StartLoginView();
+        }
     }
 }

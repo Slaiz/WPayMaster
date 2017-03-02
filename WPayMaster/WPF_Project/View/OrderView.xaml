@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Project.View"
         mc:Ignorable="d"
-        Title="OrderView" Height="300" Width="300">
+        Title="OrderView" MinHeight="300" Height="300" MaxHeight="300" MinWidth="300" Width="300" MaxWidth="300">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Image Grid.Row="0" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Icon/LogOutIcon.jpg"/>
+        <Button Grid.Row="0" Background="Transparent" Focusable="False" Height="40" Width="40" HorizontalAlignment="Right" 
+                VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="WhiteSmoke" Command="{Binding LogOutCommand}"/>
     </Grid>
 </Window>
