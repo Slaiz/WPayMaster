@@ -23,8 +23,8 @@ namespace DataBaseService
             {
                 User user = new User();
 
-                user.NameUser = name;
-                user.SurnameUser = surname;
+                user.UserName = name;
+                user.Surname = surname;
                 user.Post = post;
                 user.Password = password;
 

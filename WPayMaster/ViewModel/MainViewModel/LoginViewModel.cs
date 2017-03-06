@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 using DataBaseService;
 using DataBaseService.Model;
@@ -8,7 +8,7 @@ using PropertyChanged;
 using Shared.Command;
 using Shared.Enum;
 
-namespace WPF_Project.ViewModel
+namespace ViewModel
 {
     [ImplementPropertyChanged]
     public class LoginViewModel
@@ -36,7 +36,7 @@ namespace WPF_Project.ViewModel
             {
                 foreach (var user in UserList)
                 {
-                    if (user.NameUser.Contains(Login) && user.Password.Contains(Password))
+                    if (user.UserName.Contains(Login) && user.Password.Contains(Password))
                     {
                         if (user.Post.Contains("Адміністратор"))
                             DoOnLogIn(TypeView.AdminView);

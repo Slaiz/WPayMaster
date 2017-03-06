@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF_Project
+namespace WPF_Project.View.UserControl
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for FoodUserControl.xaml
     /// </summary>
-    public partial class LoginView : Window
+    public partial class FoodUserControl : System.Windows.Controls.UserControl
     {
-        public LoginView()
+        public FoodUserControl()
         {
             InitializeComponent();
         }

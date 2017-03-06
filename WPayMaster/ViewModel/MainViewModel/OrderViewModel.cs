@@ -3,21 +3,21 @@ using System.Windows.Input;
 using Shared.Command;
 using Shared.Enum;
 
-namespace WPF_Project.ViewModel
+namespace ViewModel
 {
-    public class AdminViewModel
+    public class OrderViewModel
     {
         public static event EventHandler<TypeView> OnLogOut;
         public ICommand LogOutCommand { get; set; }
 
-        public AdminViewModel()
+        public OrderViewModel()
         {
             LogOutCommand = new MainCommand(arg =>LogOut());
         }
 
         private void LogOut()
         {
-            DoOnLogOut(TypeView.AdminView);
+            DoOnLogOut(TypeView.OrderView);
         }
 
         private static void DoOnLogOut(TypeView e)

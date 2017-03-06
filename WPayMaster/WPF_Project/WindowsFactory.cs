@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Net;
 using System.Windows;
 using Shared.Enum;
+using ViewModel;
 using WPF_Project.View;
-using WPF_Project.ViewModel;
 
 namespace WPF_Project
 {

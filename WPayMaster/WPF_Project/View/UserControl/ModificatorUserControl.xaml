@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="WPF_Project.View.UserControl.ModificatorUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_Project.View.UserControl"
+             mc:Ignorable="d" 
+            d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="410"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0"  AutoGenerateColumns="False" IsReadOnly="True" ItemsSource = "{Binding ModificatorList}"
+                      Height="Auto" Width="Auto" Margin="0 10 0 0" FontSize="20" FontWeight="Bold" Foreground="Tomato">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ModificatorId}" Header="Id" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorName}" Header="Name" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorPrice}" Header="Price" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorWeight}" Header="Weight" FontSize="16" FontWeight="Bold" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock  Height="30" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" FontWeight="Medium" Foreground="DarkGray" 
+                        Text="Count:" Padding="5"/>
+            <TextBlock  Height="30" Width="Auto" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" FontWeight="Medium" Foreground="DarkGray" 
+                        Text="{Binding CountItem}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
+
