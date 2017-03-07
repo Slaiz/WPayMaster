@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Windows.Input;
-using Shared.Command;
+using PropertyChanged;
+using Shared;
 using Shared.Enum;
 
-namespace ViewModel
+namespace ViewModel.MainViewModel
 {
+    [ImplementPropertyChanged]
     public class OrderViewModel
     {
         public static event EventHandler<TypeView> OnLogOut;
@@ -12,7 +14,7 @@ namespace ViewModel
 
         public OrderViewModel()
         {
-            LogOutCommand = new MainCommand(arg =>LogOut());
+            LogOutCommand = new CommandHandler(arg =>LogOut());
         }
 
         private void LogOut()

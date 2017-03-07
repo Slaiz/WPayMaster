@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Shared.Command
+namespace Shared
 {
-    public class MainCommand : ICommand
+    public class CommandHandler : ICommand
     {
-        public MainCommand(Action<object> action)
+        public CommandHandler(Action<object> action)
         {
             ExecuteDelegate = action;
         }

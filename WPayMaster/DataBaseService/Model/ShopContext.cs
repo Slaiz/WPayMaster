@@ -12,6 +12,8 @@ namespace DataBaseService.Model
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Food> Foods { get; set; } 
+        public DbSet<Food> Foods { get; set; }
+        public DbSet<Drink> Drinks { get; set; }
+        public DbSet<Modificator> Modificators { get; set; }
     }
 }

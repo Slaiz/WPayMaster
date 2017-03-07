@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Windows.Forms;
+using System.Windows;
 using System.Windows.Input;
 using DataBaseService;
 using DataBaseService.Model;
 using PropertyChanged;
-using Shared.Command;
+using Shared;
 using Shared.Enum;
 
-namespace ViewModel
+namespace ViewModel.MainViewModel
 {
     [ImplementPropertyChanged]
     public class LoginViewModel
@@ -27,7 +27,7 @@ namespace ViewModel
         public LoginViewModel()
         {
             UserList = new ObservableCollection<User>(DWork.GetUsersList());
-            LogInCommand = new MainCommand(arg => LogIn());
+            LogInCommand = new CommandHandler(arg => LogIn());
         }
 
         private void LogIn()

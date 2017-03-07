@@ -63,8 +63,18 @@
     <Compile Include="Migrations\201703061513371_FoodTable.Designer.cs">
       <DependentUpon>201703061513371_FoodTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703071300227_DrinkTable.cs" />
+    <Compile Include="Migrations\201703071300227_DrinkTable.Designer.cs">
+      <DependentUpon>201703071300227_DrinkTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703071306025_ModificatorTable.cs" />
+    <Compile Include="Migrations\201703071306025_ModificatorTable.Designer.cs">
+      <DependentUpon>201703071306025_ModificatorTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Drink.cs" />
     <Compile Include="Model\Food.cs" />
+    <Compile Include="Model\Modificator.cs" />
     <Compile Include="Model\ShopContext.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +95,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703061513371_FoodTable.resx">
       <DependentUpon>201703061513371_FoodTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703071300227_DrinkTable.resx">
+      <DependentUpon>201703071300227_DrinkTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703071306025_ModificatorTable.resx">
+      <DependentUpon>201703071306025_ModificatorTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

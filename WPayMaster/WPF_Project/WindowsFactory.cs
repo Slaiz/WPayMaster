@@ -4,6 +4,7 @@ using System.Net;
 using System.Windows;
 using Shared.Enum;
 using ViewModel;
+using ViewModel.MainViewModel;
 using WPF_Project.View;
 
 namespace WPF_Project
