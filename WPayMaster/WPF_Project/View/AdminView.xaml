@@ -42,10 +42,10 @@
         </Rectangle>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Height="30" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
-                 FontSize="20" FontWeight="Bold" Text="Admin Admin"/>
+                 FontSize="20" FontWeight="Bold" Text="{Binding NameAdmin}"/>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Height="25" Width="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Transparent"
-                 FontSize="20" FontWeight="Bold" Text="Date Date"/>
+                 FontSize="20" FontWeight="Bold" Text="{Binding CurrentTime, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="0" Background="DodgerBlue" Command="{Binding OpenUserUserControlCommand}" Click="Button_Click">
             <Grid>
@@ -119,7 +119,7 @@
 
 
         <Button Grid.Row="3" Grid.Column="1" Height="90" Width="90" HorizontalAlignment="Left" VerticalAlignment="Center" Focusable="False" Background="SlateGray"
-                BorderBrush="SlateGray" Command="{Binding LogOutCommand}">
+                BorderBrush="SlateGray" Command="{Binding OpenItemViewCommand}">
             <StackPanel Orientation="Vertical">
                 <Image IsEnabled="False" Height="60" Width="60" HorizontalAlignment="Center" VerticalAlignment="Top"  Source="Icon/AddDocIcon.ico"/>
                 <TextBlock IsEnabled="False" Height="30" Width="80" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent" FontSize="18" FontWeight="Bold" 
@@ -128,7 +128,7 @@
         </Button>
 
         <Button Grid.Row="3" Grid.Column="1" Height="90" Width="90"  HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="False" Background="Transparent"
-                BorderBrush="Transparent" Command="{Binding LogOutCommand}">
+                BorderBrush="Transparent" Command="{Binding OpenEditViewCommand}">
             <StackPanel>
                 <Image Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Top" Source="Icon/EditDocIcon.png"/>
                 <TextBlock IsEnabled="False" Height="30" Width="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent" FontSize="15" FontWeight="Bold" 
@@ -137,7 +137,7 @@
         </Button>
 
         <Button Grid.Row="3" Grid.Column="1" Height="90" Width="90"  HorizontalAlignment="Right" VerticalAlignment="Center" Focusable="False" Background="Transparent"
-                BorderBrush="Transparent" Command="{Binding LogOutCommand}">
+                BorderBrush="Transparent" Command="{Binding DeleteItemCommand}">
             <StackPanel>
                 <Image Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="Icon/DeleteDocIcon.png"/>
                 <TextBlock IsEnabled="False" Height="30" Width="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent" FontSize="17" FontWeight="Bold" 
@@ -146,7 +146,7 @@
         </Button>
 
         <Button Grid.Row="3" Grid.Column="2" Height="90" Width="90"  HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="False" Background="Transparent"
-               BorderBrush="SlateGray" BorderThickness="2" Command="{Binding LogOutCommand}">
+                Command="{Binding LogOutCommand}">
             <StackPanel>
                 <Image Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="Icon/ViewDocIcon.png"/>
                 <TextBlock IsEnabled="False" Height="30" Width="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent" FontSize="17" FontWeight="Bold" 

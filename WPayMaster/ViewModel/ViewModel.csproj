@@ -53,6 +53,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdditionalViewModel\AddDrinkViewModel.cs" />
+    <Compile Include="AdditionalViewModel\AddFoodViewModel.cs" />
+    <Compile Include="AdditionalViewModel\AddModificatorViewModel.cs" />
+    <Compile Include="AdditionalViewModel\AddUserViewModel.cs" />
+    <Compile Include="AdditionalViewModel\EditDrinkViewModel.cs" />
+    <Compile Include="AdditionalViewModel\EditFoodViewModel.cs" />
+    <Compile Include="AdditionalViewModel\EditModificatorViewModel.cs" />
+    <Compile Include="AdditionalViewModel\EditUserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MainViewModel\AdminViewModel.cs" />
     <Compile Include="MainViewModel\LoginViewModel.cs" />

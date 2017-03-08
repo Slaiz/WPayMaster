@@ -13,9 +13,9 @@ namespace ViewModel.MainViewModel
     [ImplementPropertyChanged]
     public class LoginViewModel
     {
-        public DbService DbService = new DbService();
+        public static event Action<TypeView, string> OnLogIn;
 
-        public static event EventHandler<TypeView> OnLogIn;
+        public DbService DbService = new DbService();
 
         public ICommand LogInCommand { get; set; }
 
@@ -35,12 +35,12 @@ namespace ViewModel.MainViewModel
             if (Login != null && Password != null)
             {
                 foreach (var user in UserList)
-                {
+                {                    
                     if (user.UserName.Contains(Login) && user.Password.Contains(Password))
                     {
                         if (user.Post.Contains("Адміністратор"))
-                            DoOnLogIn(TypeView.AdminView);
-                        else DoOnLogIn(TypeView.OrderView);
+                            DoOnLogIn(TypeView.AdminView, user.UserName + " " + user.Surname);
+                        else DoOnLogIn(TypeView.OrderView, user.UserName + " " + user.Surname);
                         return;
                     }
                 }
@@ -50,9 +50,10 @@ namespace ViewModel.MainViewModel
             else MessageBox.Show("Введіть будь ласка логін і пароль", "Error");
         }
 
-        private static void DoOnLogIn(TypeView e)
+
+        private static void DoOnLogIn(TypeView arg1, string arg2)
         {
-            OnLogIn?.Invoke(null, e);
+            OnLogIn?.Invoke(arg1, arg2);
         }
     }
 }

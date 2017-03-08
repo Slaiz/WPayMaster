@@ -15,11 +15,11 @@
         <DataGrid Grid.Row="0"  AutoGenerateColumns="False" IsReadOnly="True" ItemsSource = "{Binding ModificatorList}"
                       Height="Auto" Width="Auto" Margin="0 10 0 0" FontSize="20" FontWeight="Bold" Foreground="Tomato">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding ModificatorId}" Header="Id" FontSize="16" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding ModificatorName}" Header="Name" FontSize="16" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding ModificatorType}" Header="Type" FontSize="16" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding ModificatorPrice}" Header="Price" FontSize="16" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding ModificatorWeight}" Header="Weight" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorId}" Header="№" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorName}" Header="Назва" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorType}" Header="Тип" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorPrice}" Header="ціна" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorWeight}" Header="Вага" FontSize="16" FontWeight="Bold" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -27,7 +27,7 @@
             <TextBlock  Height="30" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" FontWeight="Medium" Foreground="DarkGray" 
                         Text="Count:" Padding="5"/>
             <TextBlock  Height="30" Width="Auto" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" FontWeight="Medium" Foreground="DarkGray" 
-                        Text="{Binding Count}"/>
+                        TextAlignment="Center" Text="{Binding Count}"/>
         </StackPanel>
     </Grid>
 </UserControl>

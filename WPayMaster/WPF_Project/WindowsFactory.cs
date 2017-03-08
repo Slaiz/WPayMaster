@@ -11,8 +11,9 @@ namespace WPF_Project
 {
     public class WindowsFactory
     {
-        private LoginViewModel loginViewModel;
         private LoginView loginView;
+        private OrderView orderView;
+        private AdminView adminView;
         private List<Window> ViewList = new List<Window>(); 
 
         public WindowsFactory()
@@ -22,49 +23,49 @@ namespace WPF_Project
 
         public void StartLoginView()
         {
-            loginViewModel = new LoginViewModel();
-            LoginViewModel.OnLogIn += LoginViewModel_OnLogIn;
+            LoginViewModel.OnLogIn += LoginViewModelOnOnLogIn;
             loginView = new LoginView();
-            loginView.DataContext = loginViewModel;
+            loginView.DataContext = new LoginViewModel();
             loginView.Show();
             AddView(loginView, null);
         }
 
-        private void LoginViewModel_OnLogIn(object sender, TypeView e)
+        private void LoginViewModelOnOnLogIn(TypeView typeView, string s)
         {
-            switch (e)
+            switch (typeView)
             {
                 case TypeView.OrderView:
                     {
-                        OrderView orderView = new OrderView();
-                        orderView.DataContext = new OrderViewModel();
+                        orderView = new OrderView();
+                        orderView.DataContext = new OrderViewModel(s);
                         loginView.Close();
                         orderView.Show();
                         AddView(orderView, loginView);
-                        OrderViewModel.OnLogOut+=MethodOnLogOut;
+                        OrderViewModel.OnLogOut += MethodOnLogOut;
                         break;
                     }
                 case TypeView.AdminView:
-                {
-                        AdminView adminView = new AdminView();
-                        adminView.DataContext = new AdminViewModel();
+                    {
+                        adminView = new AdminView();
+                        adminView.DataContext = new AdminViewModel(s);
                         loginView.Close();
                         adminView.Show();
-                        AddView(adminView,loginView);
+                        AddView(adminView, loginView);
                         AdminViewModel.OnLogOut += MethodOnLogOut;
                         break;
-                }
-                default:
-                    break;
+                    }
             }
         }
 
         private void MethodOnLogOut(object sender, TypeView typeView)
         {
-            loginViewModel = new LoginViewModel();
+            OrderViewModel.OnLogOut -= MethodOnLogOut;
+            AdminViewModel.OnLogOut -= MethodOnLogOut;
+
             loginView = new LoginView();
-            loginView.DataContext = loginViewModel;
+            loginView.DataContext = new LoginViewModel();
             CloseAllView();
+            AddView(loginView, null);
             loginView.Show();
         }
 
@@ -74,6 +75,8 @@ namespace WPF_Project
             {
                 view.Close();
             }
+
+            ViewList.Clear();
         }
 
         public void KillAllView()

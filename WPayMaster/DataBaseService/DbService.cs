@@ -48,7 +48,7 @@ namespace DataBaseService
             }
         }
 
-        public void AddUser(string name, string surname, int passportNumber, string post, string password, int salary, int workingTime)
+        public void AddUser(string name, string surname, int passportNumber, string post, string password, int salary)
         {
             using (var context = new ShopContext())
             {
@@ -60,7 +60,7 @@ namespace DataBaseService
                 user.Post = post;
                 user.Password = password;
                 user.Salary = salary;
-                user.WorkingTime = workingTime;
+                user.WorkingTime = 0;
 
                 context.Users.Add(user);
 
@@ -68,19 +68,56 @@ namespace DataBaseService
             }
         }
 
-        public void AddFood(string name, string type, int price, int cookTime, int foodWeight)
+        public void AddFood(string name, string type, int price, int cookTime, int weight)
         {
-            throw new System.NotImplementedException();
+            using (var context = new ShopContext())
+            {
+                Food food = new Food();
+
+                food.FoodName = name;
+                food.FoodType = type;
+                food.FoodPrice = price;
+                food.CookTime = cookTime;
+                food.FoodWeight = weight;
+
+                context.Foods.Add(food);;
+
+                context.SaveChanges();
+            }
         }
 
         public void AddDrink(string name, string type, int price, int volume)
         {
-            throw new System.NotImplementedException();
+            using (var context = new ShopContext())
+            {
+                Drink drink = new Drink();
+
+                drink.DrinkName = name;
+                drink.DrinkType = type;
+                drink.DrinkPrice = price;
+                drink.Volume = volume;
+
+                context.Drinks.Add(drink);
+
+                context.SaveChanges();
+            }
         }
 
-        public void AddModificator(string name, string type, int price, int foodWeight)
+        public void AddModificator(string name, string type, int price, int weight)
         {
-            throw new System.NotImplementedException();
+            using (var context = new ShopContext())
+            {
+                Modificator modificator = new Modificator();
+
+                modificator.ModificatorName = name;
+                modificator.ModificatorType = type;
+                modificator.ModificatorPrice = price;
+                modificator.ModificatorWeight = weight;
+
+                context.Modificators.Add(modificator);
+
+                context.SaveChanges();
+            }
         }
 
         public int GetCount(TypeUserControl typeUserControl)

@@ -4,6 +4,8 @@
     {
         AdminView,
         LoginView,
-        OrderView
+        OrderView,
+        AddUserView,
+        EditUserView       
     }
 }
