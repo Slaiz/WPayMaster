@@ -22,6 +22,7 @@ namespace WPF_Project.View
         public AdminView()
         {
             InitializeComponent();
+            TextBox1.Visibility = Visibility.Visible;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

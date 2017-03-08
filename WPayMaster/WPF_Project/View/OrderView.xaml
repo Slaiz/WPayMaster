@@ -10,12 +10,63 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-        <Image Grid.Row="0" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Icon/LogOutIcon.png"/>
-        <Button Grid.Row="0" Background="Transparent" Focusable="False" Height="40" Width="40" HorizontalAlignment="Right" 
-                VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="WhiteSmoke" Command="{Binding LogOutCommand}"/>
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="2" Height="55" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush>
+                    <GradientStop Color="SlateGray" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Height="30" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
+                 FontSize="20" FontWeight="Bold" Text="Cashier Cashier"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Height="25" Width="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Transparent"
+                 FontSize="20" FontWeight="Bold" Text="Date Date"/>
+
+        <TabControl Grid.Row="1" Grid.Column="0">
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock FontSize="18" FontWeight="Bold" Background="YellowGreen" Foreground="White" Text="Активні закази" />
+                </TabItem.Header>
+                <TabItem.Content>
+                    <TextBlock Text="Content"/>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock FontSize="18" FontWeight="Bold" Background="RoyalBlue" Foreground="White" Text="Завершені закази" />
+                </TabItem.Header>
+                <TabItem.Content>
+                    <TextBlock Text="Content"/>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+
+        <ToolBarTray Grid.Row="1" Grid.Column="1" Orientation="Vertical" Width="85" HorizontalAlignment="Left">
+            <ToolBar HorizontalAlignment="Left" Width="85">
+                <Button Background="Transparent" Focusable="False" Height="70" Width="70" FontSize="20" FontWeight="Bold" Margin="5"
+                        BorderBrush="Red" BorderThickness="2" Command="{Binding LogOutCommand}">
+                    <Image Height="65" Width="65" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Icon/LogOutIcon.png"/>
+                </Button>
+                <Button Background="Transparent" Focusable="False" Height="70" Width="70" FontSize="20" FontWeight="Bold" Margin="5" 
+                        BorderBrush="Yellow" BorderThickness="2" Command="{Binding LogOutCommand}">
+                    <Image Height="55" Width="55" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Icon/TimeBreakIcon.png"/>
+                </Button>
+                <Button Background="Transparent" Focusable="False" Height="70" Width="70" FontSize="20" FontWeight="Bold" Margin="5"
+                        BorderBrush="YellowGreen" BorderThickness="2" Command="{Binding LogOutCommand}">
+                    <Image Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Icon/AddOrderIcon.png"/>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+
     </Grid>
 </Window>

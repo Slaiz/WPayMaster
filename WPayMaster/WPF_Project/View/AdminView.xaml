@@ -23,7 +23,7 @@
             <RowDefinition Height="55"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="570"></RowDefinition>
-            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="95"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -41,8 +41,11 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <TextBox Grid.Row="0" Grid.Column="0" Height="55" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
-                 FontSize="20" FontWeight="Bold" Text="Admin Admin &#xa;Date Date" BorderBrush="Transparent"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Height="30" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
+                 FontSize="20" FontWeight="Bold" Text="Admin Admin"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Height="25" Width="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Transparent"
+                 FontSize="20" FontWeight="Bold" Text="Date Date"/>
 
         <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="0" Background="DodgerBlue" Command="{Binding OpenUserUserControlCommand}" Click="Button_Click">
             <Grid>
@@ -104,7 +107,7 @@
             </Grid>
         </Button>
 
-        <ContentPresenter Grid.Row="2" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding CurrentUserControl}"/>
+        <ContentPresenter Grid.Row="2" Grid.ColumnSpan="5" Height="550" Width="1300" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding CurrentUserControl}"/>
 
         <Rectangle Grid.Row="3" Grid.ColumnSpan="5">
             <Rectangle.Fill>
@@ -114,24 +117,46 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Image Grid.Row="3" Grid.Column="1" Height="60" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Source="Icon/AddDocIcon.ico"/>
-        <Button Grid.Row="3" Grid.Column="1" Height="60" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Focusable="False" Background="Transparent"
-                FontSize="20" FontWeight="Bold" BorderBrush="Transparent" Command="{Binding LogOutCommand}"/>
 
-        <Image Grid.Row="3" Grid.Column="1" Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="Icon/EditDocIcon.png"/>
-        <Button Grid.Row="3" Grid.Column="1" Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="False" Background="Transparent"
-                FontSize="20" FontWeight="Bold" BorderBrush="Transparent" Command="{Binding LogOutCommand}"/>
+        <Button Grid.Row="3" Grid.Column="1" Height="90" Width="90" HorizontalAlignment="Left" VerticalAlignment="Center" Focusable="False" Background="SlateGray"
+                BorderBrush="SlateGray" Command="{Binding LogOutCommand}">
+            <StackPanel Orientation="Vertical">
+                <Image IsEnabled="False" Height="60" Width="60" HorizontalAlignment="Center" VerticalAlignment="Top"  Source="Icon/AddDocIcon.ico"/>
+                <TextBlock IsEnabled="False" Height="30" Width="80" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent" FontSize="18" FontWeight="Bold" 
+                         Foreground="White" Text=" Додати"/>
+            </StackPanel>
+        </Button>
 
-        <Image Grid.Row="3" Grid.Column="1" Height="60" Width="60"  HorizontalAlignment="Right" VerticalAlignment="Center" Source="Icon/DeleteDocIcon.png"/>
-        <Button Grid.Row="3" Grid.Column="1" Height="60" Width="60"  HorizontalAlignment="Right" VerticalAlignment="Center" Focusable="False" Background="Transparent"
-                FontSize="20" FontWeight="Bold" BorderBrush="Transparent" Command="{Binding LogOutCommand}"/>
+        <Button Grid.Row="3" Grid.Column="1" Height="90" Width="90"  HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="False" Background="Transparent"
+                BorderBrush="Transparent" Command="{Binding LogOutCommand}">
+            <StackPanel>
+                <Image Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Top" Source="Icon/EditDocIcon.png"/>
+                <TextBlock IsEnabled="False" Height="30" Width="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent" FontSize="15" FontWeight="Bold" 
+                         Foreground="White" Text=" Редагувати"/>
+            </StackPanel>
+        </Button>
 
-        <Image Grid.Row="3" Grid.Column="2" Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="Icon/ViewDocIcon.png"/>
-        <Button Grid.Row="3" Grid.Column="2" Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="False" Background="Transparent"
-                FontSize="20" FontWeight="Bold" BorderBrush="Transparent" Command="{Binding LogOutCommand}"/>
+        <Button Grid.Row="3" Grid.Column="1" Height="90" Width="90"  HorizontalAlignment="Right" VerticalAlignment="Center" Focusable="False" Background="Transparent"
+                BorderBrush="Transparent" Command="{Binding LogOutCommand}">
+            <StackPanel>
+                <Image Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="Icon/DeleteDocIcon.png"/>
+                <TextBlock IsEnabled="False" Height="30" Width="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent" FontSize="17" FontWeight="Bold" 
+                         Foreground="White" Text=" Видалити"/>
+            </StackPanel>
+        </Button>
 
-        <Image Grid.Row="0" Grid.Column="4" Height="45" Width="45" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Icon/LogOutIcon.png"/>
-        <Button Grid.Row="0" Grid.Column="4" Height="45" Width="45" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent" Focusable="False"
-                FontSize="20" FontWeight="Bold" BorderBrush="Transparent" Command="{Binding LogOutCommand}"/>
+        <Button Grid.Row="3" Grid.Column="2" Height="90" Width="90"  HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="False" Background="Transparent"
+               BorderBrush="SlateGray" BorderThickness="2" Command="{Binding LogOutCommand}">
+            <StackPanel>
+                <Image Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="Icon/ViewDocIcon.png"/>
+                <TextBlock IsEnabled="False" Height="30" Width="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent" FontSize="17" FontWeight="Bold" 
+                         Foreground="White" Text=" Перегляд"/>
+            </StackPanel>
+        </Button>
+
+        <Button Grid.Row="0" Grid.Column="4" Height="45" Width="45" HorizontalAlignment="Right" VerticalAlignment="Top" Background="SlateGray" Focusable="False"
+                FontSize="20" FontWeight="Bold" BorderBrush="SlateGray" Command="{Binding LogOutCommand}">
+            <Image Height="45" Width="45" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Icon/LogOutIcon.png"/>
+        </Button>
     </Grid>
 </Window>
