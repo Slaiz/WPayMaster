@@ -2,10 +2,11 @@
 using System.Linq;
 using DataBaseService.Interface;
 using DataBaseService.Model;
+using Shared.Enum;
 
 namespace DataBaseService
 {
-    public class DataWork:IDataWork
+    public class DbService:IDbService
     {
         public List<User> GetUsersList()
         {
@@ -19,17 +20,32 @@ namespace DataBaseService
 
         public List<Food> GetFoodsList()
         {
-            throw new System.NotImplementedException();
+            using (var context = new ShopContext())
+            {
+                var foods = context.Foods.ToList();
+
+                return foods;
+            }
         }
 
         public List<Drink> GetDrinksList()
         {
-            throw new System.NotImplementedException();
+            using (var context = new ShopContext())
+            {
+                var drinks = context.Drinks.ToList();
+
+                return drinks;
+            }
         }
 
         public List<Modificator> GetModificatorsList()
         {
-            throw new System.NotImplementedException();
+            using (var context = new ShopContext())
+            {
+                var modificators = context.Modificators.ToList();
+
+                return modificators;
+            }
         }
 
         public void AddUser(string name, string surname, int passportNumber, string post, string password, int salary, int workingTime)
@@ -65,6 +81,40 @@ namespace DataBaseService
         public void AddModificator(string name, string type, int price, int foodWeight)
         {
             throw new System.NotImplementedException();
+        }
+
+        public int GetCount(TypeUserControl typeUserControl)
+        {
+            using (var context = new ShopContext())
+            {
+                int count = 0;
+
+                switch (typeUserControl)
+                {
+                    case TypeUserControl.UserUserControl:
+                    {
+                        count = context.Users.Count();
+                        break;
+                    }
+                    case TypeUserControl.FoodUserControl:
+                    {
+                        count = context.Foods.Count();
+                        break;
+                    }
+                    case TypeUserControl.DrinkUserControl:
+                    {
+                        count = context.Drinks.Count();
+                        break;
+                    }
+                    case TypeUserControl.ModificatorUserControl:
+                    {
+                        count = context.Modificators.Count();
+                        break;
+                    }
+                }
+
+                return count;
+            }
         }
     }
 }

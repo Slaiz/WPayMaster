@@ -13,20 +13,20 @@ namespace ViewModel.MainViewModel
     [ImplementPropertyChanged]
     public class LoginViewModel
     {
-        public DataWork DWork = new DataWork();
+        public DbService DbService = new DbService();
 
         public static event EventHandler<TypeView> OnLogIn;
 
         public ICommand LogInCommand { get; set; }
 
-        private ObservableCollection<User> UserList;
+        private ObservableCollection<User> UserList { get; set; }
 
         public string Login { get; set; }
         public string Password { get; set; }
 
         public LoginViewModel()
         {
-            UserList = new ObservableCollection<User>(DWork.GetUsersList());
+            UserList = new ObservableCollection<User>(DbService.GetUsersList());
             LogInCommand = new CommandHandler(arg => LogIn());
         }
 

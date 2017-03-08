@@ -1,19 +1,21 @@
 ﻿using System.Collections.ObjectModel;
 using DataBaseService;
 using DataBaseService.Model;
+using Shared.Enum;
 
 namespace ViewModel.UserControlViewModel
 {
     public class UserViewModel
     {
-        public ObservableCollection<User> UserList;
+        public int Count { get; set; }
+        public ObservableCollection<User> UserList { get; set; }
 
-        public DataWork DWork;
-
+        public DbService DbService = new DbService();
 
         public UserViewModel()
         {
-            UserList = new ObservableCollection<User>(DWork.GetUsersList());
+            UserList = new ObservableCollection<User>(DbService.GetUsersList());
+            Count = UserList.Count;
         }
     }
 }

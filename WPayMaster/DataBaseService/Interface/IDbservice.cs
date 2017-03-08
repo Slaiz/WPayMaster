@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using DataBaseService.Model;
+using Shared.Enum;
 
 namespace DataBaseService.Interface
 {
-    public interface IDataWork
+    public interface IDbService
     {
         List<User> GetUsersList();
         List<Food> GetFoodsList();
@@ -13,5 +14,6 @@ namespace DataBaseService.Interface
         void AddFood(string name, string type, int price, int cookTime, int foodWeight);
         void AddDrink(string name, string type, int price, int volume);
         void AddModificator(string name, string type, int price, int foodWeight);
+        int GetCount(TypeUserControl typeUserControl);
     }
 }

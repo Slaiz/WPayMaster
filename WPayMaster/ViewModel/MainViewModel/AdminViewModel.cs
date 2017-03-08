@@ -4,6 +4,7 @@ using System.Windows.Input;
 using PropertyChanged;
 using Shared;
 using Shared.Enum;
+using ViewModel.UserControlViewModel;
 using WPF_Project.View.UserControl;
 
 namespace ViewModel.MainViewModel
@@ -18,41 +19,54 @@ namespace ViewModel.MainViewModel
         public ICommand OpenDrinkUserControlCommand { get; set; }
         public ICommand OpenModificatorUserControlCommand { get; set; }
 
+        public UserViewModel userViewModel;
+        public FoodViewModel foodViewModel;
+        public DrinkViewModel drinkViewModel;
+        public ModificatorViewModel modificatorViewModel;
+
         public UserControl CurrentUserControl { get; set; }
 
         public AdminViewModel()
         {
-            CurrentUserControl = new UserUserControl();
+            OpenUserControl(TypeUserControl.UserUserControl);
 
             LogOutCommand = new CommandHandler(arg =>LogOut());
-            OpenUserUserControlCommand = new CommandHandler(arg => OpenUserControl(1));
-            OpenFoodUserControlCommand = new CommandHandler(arg => OpenUserControl(2));
-            OpenDrinkUserControlCommand = new CommandHandler(arg => OpenUserControl(3));
-            OpenModificatorUserControlCommand = new CommandHandler(arg => OpenUserControl(4));
+            OpenUserUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.UserUserControl));
+            OpenFoodUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.FoodUserControl));
+            OpenDrinkUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.DrinkUserControl));
+            OpenModificatorUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.ModificatorUserControl));
         }
 
-        private void OpenUserControl(int k)
+        private void OpenUserControl(TypeUserControl typeUserControl)
         {
-            switch (k)
+            switch (typeUserControl)
             {
-                case 1:
+                case TypeUserControl.UserUserControl:
                 {
                     CurrentUserControl = new UserUserControl();
+                    userViewModel = new UserViewModel();
+                    CurrentUserControl.DataContext = userViewModel;
                     break;
                 }
-                case 2:
+                case TypeUserControl.FoodUserControl:
                 {
                     CurrentUserControl = new FoodUserControl();
+                    foodViewModel = new FoodViewModel();
+                    CurrentUserControl.DataContext = foodViewModel;
                     break;
                 }
-                case 3:
+                case TypeUserControl.DrinkUserControl:
                 {
                     CurrentUserControl = new DrinkUserControl();
+                    drinkViewModel = new DrinkViewModel();
+                    CurrentUserControl.DataContext = drinkViewModel;
                     break;
                 }
-                case 4:
+                case TypeUserControl.ModificatorUserControl:
                 {
                     CurrentUserControl = new ModificatorUserControl();
+                    modificatorViewModel = new ModificatorViewModel();
+                    CurrentUserControl.DataContext = modificatorViewModel;
                     break;
                 }
             }

@@ -53,8 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataWork.cs" />
-    <Compile Include="Interface\IDataWork.cs" />
+    <Compile Include="DbService.cs" />
+    <Compile Include="Interface\IDbService.cs" />
     <Compile Include="Migrations\201703021302553_InitialCreate.cs" />
     <Compile Include="Migrations\201703021302553_InitialCreate.Designer.cs">
       <DependentUpon>201703021302553_InitialCreate.cs</DependentUpon>
