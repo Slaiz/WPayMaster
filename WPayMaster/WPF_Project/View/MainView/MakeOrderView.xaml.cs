@@ -11,17 +11,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataBaseService.Interface;
 
 namespace WPF_Project.View
 {
     /// <summary>
-    /// Interaction logic for AddFoodView.xaml
+    /// Interaction logic for MakeOrderView.xaml
     /// </summary>
-    public partial class AddFoodView : Window
+    public partial class MakeOrderView : Window,IView
     {
-        public AddFoodView()
+        public MakeOrderView()
         {
             InitializeComponent();
+        }
+
+        public void ShowView()
+        {
+            Show();
         }
     }
 }

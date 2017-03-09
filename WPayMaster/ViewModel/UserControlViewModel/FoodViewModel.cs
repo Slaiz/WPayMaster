@@ -7,6 +7,7 @@ namespace ViewModel.UserControlViewModel
 {
     public class FoodViewModel
     {
+        public static Food SelectedItem { get; set; }
         public int Count { get; set; }
 
         public ObservableCollection<Food> FoodList { get; set; }

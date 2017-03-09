@@ -42,13 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandHandler.cs" />
+    <Compile Include="Enum\DrinkType.cs" />
+    <Compile Include="Enum\FoodType.cs" />
+    <Compile Include="Enum\ModificatorType.cs" />
     <Compile Include="Enum\TypeUserControl.cs" />
     <Compile Include="Enum\TypeView.cs" />
+    <Compile Include="Enum\UserPost.cs" />
+    <Compile Include="Interface\IView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

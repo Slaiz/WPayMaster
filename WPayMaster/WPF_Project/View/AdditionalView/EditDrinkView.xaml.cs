@@ -11,17 +11,27 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataBaseService.Interface;
+using DataBaseService.Model;
+using ViewModel.AdditionalViewModel;
 
 namespace WPF_Project.View
 {
     /// <summary>
-    /// Interaction logic for EditFoodView.xaml
+    /// Interaction logic for EditDrinkView.xaml
     /// </summary>
-    public partial class EditFoodView : Window
+    public partial class EditDrinkView : Window, IView
     {
-        public EditFoodView()
+        public EditDrinkView(EditDrinkViewModel editDrinkViewModel)
         {
+            DataContext = editDrinkViewModel;
+
             InitializeComponent();
+        }
+
+        public void ShowView()
+        {
+            Show();
         }
     }
 }

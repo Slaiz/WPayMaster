@@ -11,17 +11,26 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataBaseService.Interface;
+using ViewModel.AdditionalViewModel;
 
 namespace WPF_Project.View
 {
     /// <summary>
-    /// Interaction logic for EditUserView.xaml
+    /// Interaction logic for AddModificatorView.xaml
     /// </summary>
-    public partial class EditUserView : Window
+    public partial class AddModificatorView : Window,IView
     {
-        public EditUserView()
+        public AddModificatorView(AddModificatorViewModel addModificatorViewModel)
         {
+            DataContext = addModificatorViewModel;
+
             InitializeComponent();
+        }
+
+        public void ShowView()
+        {
+            Show();
         }
     }
 }

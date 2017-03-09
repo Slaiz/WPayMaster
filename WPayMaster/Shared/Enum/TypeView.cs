@@ -5,7 +5,14 @@
         AdminView,
         LoginView,
         OrderView,
+        MakeOrderView,
         AddUserView,
-        EditUserView       
+        AddFoodView,
+        AddDrinkView,
+        AddModificatorView,
+        EditUserView,
+        EditFoodView,
+        EditDrinkView,
+        EditModificatorView       
     }
 }

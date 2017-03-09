@@ -6,7 +6,7 @@ using Shared.Enum;
 
 namespace DataBaseService
 {
-    public class DbService:IDbService
+    public class DbService: IDbService
     {
         public List<User> GetUsersList()
         {
@@ -118,6 +118,51 @@ namespace DataBaseService
 
                 context.SaveChanges();
             }
+        }
+
+        public void UpdateUser(User item, string name, string surname, int passportNumber, string post, string password, int salary)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateFood(Food item, string name, string type, int price, int cookTime, int weight)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateDrink(Drink item, string name, string type, int price, int volume)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateModificator(Modificator item, string name, string type, int price, int weight)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteUser(User item)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteFood(Food item)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteDrink(Drink item)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteModificator(Modificator item)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<string> CreateTypeList(List<string> list, TypeView typeView)
+        {
+            throw new System.NotImplementedException();
         }
 
         public int GetCount(TypeUserControl typeUserControl)

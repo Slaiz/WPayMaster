@@ -2,9 +2,11 @@
 using System.Data;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
+using DataBaseService.Interface;
 using PropertyChanged;
 using Shared;
 using Shared.Enum;
@@ -31,12 +33,16 @@ namespace ViewModel.MainViewModel
         public DrinkViewModel drinkViewModel;
         public ModificatorViewModel modificatorViewModel;
 
+        public Func<object, TypeView, IView> CreateViewAction { get; set; }
+
         public string NameAdmin { get; set; }
         public DateTime CurrentTime { get; set; }
 
         public UserControl CurrentUserControl { get; set; }
+        private TypeView TypeAddViewItem { get; set; }
+        private TypeView TypeEditViewItem { get; set; }
 
-        public AdminViewModel(string nameAdmin)
+        public AdminViewModel(string nameAdmin, Func<object, TypeView, IView> createViewAction)
         {
             NameAdmin = nameAdmin;
 
@@ -44,30 +50,62 @@ namespace ViewModel.MainViewModel
             DispatcherPriority.Normal,
             delegate
             {
-                 CurrentTime = DateTime.Now;
-            }, 
-            Dispatcher.CurrentDispatcher );
+                CurrentTime = DateTime.Now;
+            },
+            Dispatcher.CurrentDispatcher);
 
             OpenUserControl(TypeUserControl.UserUserControl);
+
+            CreateViewAction = createViewAction;
 
             LogOutCommand = new CommandHandler(arg => LogOut());
             OpenUserUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.UserUserControl));
             OpenFoodUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.FoodUserControl));
             OpenDrinkUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.DrinkUserControl));
             OpenModificatorUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.ModificatorUserControl));
-            OpenAddItemViewCommand = new CommandHandler(arg => OpenAddUserView());
+            OpenAddItemViewCommand = new CommandHandler(arg => OpenAddItemView());
             OpenEditItemViewCommand = new CommandHandler(arg => OpenEditItemView());
             DeleteItemCommand = new CommandHandler(arg => DeleteItem());
         }
 
-        private void OpenAddUserView()
+        private void OpenAddItemView()
         {
-            throw new NotImplementedException();
+            CreateViewAction.Invoke(null, TypeAddViewItem);
         }
 
         private void OpenEditItemView()
         {
-            throw new NotImplementedException();
+            switch (TypeEditViewItem)
+            {
+                case TypeView.EditUserView:
+                {
+                    if (UserViewModel.SelectedItem != null)
+                        CreateViewAction.Invoke(UserViewModel.SelectedItem, TypeEditViewItem);
+                    else MessageBox.Show("Будь ласка виберіть користувача","Помилка");
+                        break; 
+                    }
+                case TypeView.EditFoodView:
+                    {
+                        if (FoodViewModel.SelectedItem != null)
+                            CreateViewAction.Invoke(FoodViewModel.SelectedItem, TypeEditViewItem);
+                        else MessageBox.Show("Будь ласка виберіть їжу", "Помилка");
+                        break; 
+                    }
+                case TypeView.EditDrinkView:
+                    {
+                        if (DrinkViewModel.SelectedItem != null)
+                        CreateViewAction.Invoke(DrinkViewModel.SelectedItem, TypeEditViewItem);
+                        else MessageBox.Show("Будь ласка виберіть напиток", "Помилка");
+                        break; 
+                    }
+                case TypeView.EditModificatorView:
+                    {
+                        if (ModificatorViewModel.SelectedItem != null)
+                            CreateViewAction.Invoke(ModificatorViewModel.SelectedItem, TypeEditViewItem);
+                        else MessageBox.Show("Будь ласка виберіть додаткове", "Помилка");
+                        break; 
+                    }
+            }
         }
 
         private void DeleteItem()
@@ -84,6 +122,8 @@ namespace ViewModel.MainViewModel
                         CurrentUserControl = new UserUserControl();
                         userViewModel = new UserViewModel();
                         CurrentUserControl.DataContext = userViewModel;
+                        TypeAddViewItem = TypeView.AddUserView;
+                        TypeEditViewItem = TypeView.EditUserView;
                         break;
                     }
                 case TypeUserControl.FoodUserControl:
@@ -91,6 +131,8 @@ namespace ViewModel.MainViewModel
                         CurrentUserControl = new FoodUserControl();
                         foodViewModel = new FoodViewModel();
                         CurrentUserControl.DataContext = foodViewModel;
+                        TypeAddViewItem = TypeView.AddFoodView;
+                        TypeEditViewItem = TypeView.EditFoodView;
                         break;
                     }
                 case TypeUserControl.DrinkUserControl:
@@ -98,6 +140,8 @@ namespace ViewModel.MainViewModel
                         CurrentUserControl = new DrinkUserControl();
                         drinkViewModel = new DrinkViewModel();
                         CurrentUserControl.DataContext = drinkViewModel;
+                        TypeAddViewItem = TypeView.AddDrinkView;
+                        TypeEditViewItem = TypeView.EditDrinkView;
                         break;
                     }
                 case TypeUserControl.ModificatorUserControl:
@@ -105,6 +149,8 @@ namespace ViewModel.MainViewModel
                         CurrentUserControl = new ModificatorUserControl();
                         modificatorViewModel = new ModificatorViewModel();
                         CurrentUserControl.DataContext = modificatorViewModel;
+                        TypeAddViewItem = TypeView.AddModificatorView;
+                        TypeEditViewItem = TypeView.EditModificatorView;
                         break;
                     }
             }

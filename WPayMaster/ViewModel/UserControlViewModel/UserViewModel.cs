@@ -7,6 +7,7 @@ namespace ViewModel.UserControlViewModel
 {
     public class UserViewModel
     {
+        public static User SelectedItem { get; set; }
         public int Count { get; set; }
         public ObservableCollection<User> UserList { get; set; }
 

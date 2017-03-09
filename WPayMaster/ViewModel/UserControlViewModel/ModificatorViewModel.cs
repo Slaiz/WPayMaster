@@ -7,6 +7,7 @@ namespace ViewModel.UserControlViewModel
 {
     public class ModificatorViewModel
     {
+        public static Modificator SelectedItem { get; set; }
         public int Count { get; set; }
 
         public ObservableCollection<Modificator> ModificatorList { get; set; }

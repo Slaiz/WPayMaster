@@ -1,7 +1,11 @@
-﻿namespace ViewModel.AdditionalViewModel
+﻿using DataBaseService;
+
+namespace ViewModel.AdditionalViewModel
 {
     public class AddUserViewModel
     {
+        public DbService DbService = new DbService();
+
         public string Name { get; set; }
         public string Surname { get; set; }
         public int PassportNumber { get; set; }
