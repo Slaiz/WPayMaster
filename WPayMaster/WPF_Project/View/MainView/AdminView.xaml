@@ -53,7 +53,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Image IsEnabled="False" Grid.Row="0" Height="37" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top"
-                Source="Icon/CubeIcon.jpg" Margin="7 3 0 0"/>
+                Source="../Icon/CubeIcon.jpg" Margin="7 3 0 0"/>
                 <TextBlock IsEnabled="False" Grid.Row="1" Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" FontSize="20" FontWeight="Bold" 
                          Foreground="White" Text="Робітники" Margin="7 3 0 0"/>
                 <TextBox x:Name="TextBox1" Visibility="Hidden" IsReadOnly="True" Cursor="Hand" Grid.RowSpan="2" Height="71" Width="191" HorizontalAlignment="Center" VerticalAlignment="Center" 
@@ -68,7 +68,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Image IsEnabled="False" Grid.Row="0" Height="37" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top"
-                Source="Icon/CubeIcon.jpg" Margin="7 3 0 0"/>
+                Source="../Icon/CubeIcon.jpg" Margin="7 3 0 0"/>
                 <TextBlock IsEnabled="False" Grid.Row="1" Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" FontSize="20" FontWeight="Bold" 
                          Foreground="White" Text="Їжа" Margin="7 3 0 0"/>
                 <TextBox x:Name="TextBox2" Visibility="Hidden" IsReadOnly="True" Cursor="Hand" Grid.RowSpan="2" Height="71" Width="191" HorizontalAlignment="Center" VerticalAlignment="Center" 
@@ -83,7 +83,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Image IsEnabled="False" Grid.Row="0" Height="37" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top"
-                Source="Icon/CubeIcon.jpg" Margin="7 3 0 0"/>
+                Source="../Icon/CubeIcon.jpg" Margin="7 3 0 0"/>
                 <TextBlock IsEnabled="False" Grid.Row="1" Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" FontSize="20" FontWeight="Bold" 
                          Foreground="White" Text="Напитки" Margin="7 3 0 0"/>
                 <TextBox x:Name="TextBox3" Visibility="Hidden" IsReadOnly="True" Cursor="Hand" Grid.RowSpan="2" Height="71" Width="191" HorizontalAlignment="Center" VerticalAlignment="Center" 
@@ -98,7 +98,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Image IsEnabled="False" Grid.Row="0" Height="37" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top"
-                Source="Icon/CubeIcon.jpg" Margin="7 3 0 0"/>
+                Source="../Icon/CubeIcon.jpg" Margin="7 3 0 0"/>
                 <TextBlock IsEnabled="False" Grid.Row="1" Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" FontSize="20" FontWeight="Bold" 
                          Foreground="White" Text="Додаткове" Margin="7 3 0 0"/>
                 <TextBox x:Name="TextBox4" Visibility="Hidden" IsReadOnly="True" Cursor="Hand" Grid.RowSpan="2" Height="71" Width="191" HorizontalAlignment="Center" VerticalAlignment="Center" 
@@ -120,7 +120,7 @@
         <Button Grid.Row="3" Grid.Column="1" Height="90" Width="90" HorizontalAlignment="Left" VerticalAlignment="Center" Focusable="False" Background="SlateGray"
                 BorderBrush="SlateGray" Command="{Binding OpenAddItemViewCommand}">
             <StackPanel Orientation="Vertical">
-                <Image IsEnabled="False" Height="60" Width="60" HorizontalAlignment="Center" VerticalAlignment="Top"  Source="Icon/AddDocIcon.ico"/>
+                <Image IsEnabled="False" Height="60" Width="60" HorizontalAlignment="Center" VerticalAlignment="Top"  Source="../Icon/AddDocIcon.ico"/>
                 <TextBlock IsEnabled="False" Height="30" Width="80" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent" FontSize="18" FontWeight="Bold" 
                          Foreground="White" Text=" Додати"/>
             </StackPanel>
@@ -129,7 +129,7 @@
         <Button Grid.Row="3" Grid.Column="1" Height="90" Width="90"  HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="False" Background="Transparent"
                 BorderBrush="Transparent" Command="{Binding OpenEditItemViewCommand}">
             <StackPanel>
-                <Image Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Top" Source="Icon/EditDocIcon.png"/>
+                <Image Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Top" Source="../Icon/EditDocIcon.png"/>
                 <TextBlock IsEnabled="False" Height="30" Width="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent" FontSize="15" FontWeight="Bold" 
                          Foreground="White" Text=" Редагувати"/>
             </StackPanel>
@@ -138,7 +138,7 @@
         <Button Grid.Row="3" Grid.Column="1" Height="90" Width="90"  HorizontalAlignment="Right" VerticalAlignment="Center" Focusable="False" Background="Transparent"
                 BorderBrush="Transparent" Command="{Binding DeleteItemCommand}">
             <StackPanel>
-                <Image Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="Icon/DeleteDocIcon.png"/>
+                <Image Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Icon/DeleteDocIcon.png"/>
                 <TextBlock IsEnabled="False" Height="30" Width="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent" FontSize="17" FontWeight="Bold" 
                          Foreground="White" Text=" Видалити"/>
             </StackPanel>
@@ -147,7 +147,7 @@
         <Button Grid.Row="3" Grid.Column="2" Height="90" Width="90"  HorizontalAlignment="Center" VerticalAlignment="Center" Focusable="False" Background="Transparent"
                 Command="{Binding LogOutCommand}">
             <StackPanel>
-                <Image Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="Icon/ViewDocIcon.png"/>
+                <Image Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Icon/ViewDocIcon.png"/>
                 <TextBlock IsEnabled="False" Height="30" Width="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent" FontSize="17" FontWeight="Bold" 
                          Foreground="White" Text=" Перегляд"/>
             </StackPanel>
@@ -155,7 +155,7 @@
 
         <Button Grid.Row="0" Grid.Column="4" Height="45" Width="45" HorizontalAlignment="Right" VerticalAlignment="Top" Background="SlateGray" Focusable="False"
                 FontSize="20" FontWeight="Bold" BorderBrush="SlateGray" Command="{Binding LogOutCommand}">
-            <Image Height="45" Width="45" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Icon/LogOutIcon.png"/>
+            <Image Height="45" Width="45" HorizontalAlignment="Right" VerticalAlignment="Top" Source="../Icon/LogOutIcon.png"/>
         </Button>
     </Grid>
 </Window>

@@ -80,7 +80,7 @@
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="1" Text="Зарплата"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="1" Text="{Binding Salary, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="Teal" Command="{Binding AddUserCommand}" Content="Зберегти" />
+        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="Teal" Command="{Binding SaveItemCommand}" Content="Зберегти" />
 
         <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"  Margin="0 0 100 0" Background="#FFD30C0C" Command="{Binding CancelCommand}"  Content="Відмінити" />
 

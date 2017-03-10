@@ -26,8 +26,8 @@
             <Run FontSize="30" Foreground="White" FontWeight="Bold">Вхід</Run>
         </TextBlock>
 
-        <Image Grid.Row="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Source="Icon/UserIcon.png" Margin="160,0,0,0"/>
-        <Image Grid.Row="3" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Source="Icon/PasswordIcon.png" Margin="160,0,0,0"/>
+        <Image Grid.Row="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Source="../Icon/UserIcon.png" Margin="160,0,0,0"/>
+        <Image Grid.Row="3" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Source="../Icon/PasswordIcon.png" Margin="160,0,0,0"/>
 
         <TextBox Grid.Row="2" Height="35" Width="240" HorizontalAlignment="Center" FontSize="22"  Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Row="3" Height="35" Width="240" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" 

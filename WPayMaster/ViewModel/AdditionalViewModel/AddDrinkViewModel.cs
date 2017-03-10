@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Input;
 using DataBaseService;
 using PropertyChanged;
+using Shared;
 
 namespace ViewModel.AdditionalViewModel
 {
@@ -8,6 +10,10 @@ namespace ViewModel.AdditionalViewModel
     public class AddDrinkViewModel
     {
         public DbService DbService = new DbService();
+
+        public ICommand AddItemCommand { get; set; }
+        public ICommand CancelCommand { get; set; }
+
         public string Name { get; set; }
         public string Type { get; set; }
         public int Price { get; set; }
@@ -17,12 +23,21 @@ namespace ViewModel.AdditionalViewModel
 
         public AddDrinkViewModel()
         {
-            DrinkTypeList = new List<string>();
+            AddItemCommand = new CommandHandler(arg => AddItem());
+            CancelCommand = new CommandHandler(arg =>Cancel());
+        }
 
-            foreach (var drink in DbService.GetDrinksList())
-            {
-                DrinkTypeList.Add(drink.DrinkType);
-            }
-        } 
+        private void AddItem()
+        {
+            DbService.AddDrink(Name, Type, Price, Volume);
+        }
+
+        private void Cancel()
+        {
+            Name = " ";
+            Type = " ";
+            Price = 0;
+            Volume = 0;
+        }
     }
 }

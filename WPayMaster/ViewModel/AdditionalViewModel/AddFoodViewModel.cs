@@ -1,11 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Input;
 using DataBaseService;
+using Shared;
 
 namespace ViewModel.AdditionalViewModel
 {
     public class AddFoodViewModel
     {
         public DbService DbService = new DbService();
+
+        public ICommand AddItemCommand { get; set; }
+        public ICommand CancelCommand { get; set; }
 
         public string Name { get; set; }
         public string Type { get; set; }
@@ -17,12 +22,22 @@ namespace ViewModel.AdditionalViewModel
 
         public AddFoodViewModel()
         {
-            FoodTypeList = new List<string>();
+            AddItemCommand = new CommandHandler(arg => AddItem());
+            CancelCommand = new CommandHandler(arg => Cancel());
+        }
 
-            foreach (var food in DbService.GetFoodsList())
-            {
-                FoodTypeList.Add(food.FoodType);
-            }
+        private void AddItem()
+        {
+            DbService.AddFood(Name, Type, Price, CookTime, Weight);
+        }
+
+        private void Cancel()
+        {
+            Name = " ";
+            Type = " ";
+            Price = 0;
+            CookTime = 0;
+            Weight = 0;
         }
     }
 }

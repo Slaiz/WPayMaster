@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DataBaseService.Interface;
+using ViewModel.MainViewModel;
 
 namespace WPF_Project.View
 {
@@ -20,8 +21,10 @@ namespace WPF_Project.View
     /// </summary>
     public partial class MakeOrderView : Window,IView
     {
-        public MakeOrderView()
+        public MakeOrderView(MakeOrderViewModel makeOrderViewModel)
         {
+            DataContext = makeOrderViewModel;
+
             InitializeComponent();
         }
 

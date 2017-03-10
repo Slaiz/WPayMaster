@@ -22,7 +22,6 @@ namespace DataBaseService.Interface
         void DeleteFood(Food item);
         void DeleteDrink(Drink item);
         void DeleteModificator(Modificator item);
-        List<string> CreateTypeList(List<string> list, TypeView typeView); 
-        int GetCount(TypeUserControl typeUserControl);
+        List<string> CreateTypeList(TypeView typeView); 
     }
 }

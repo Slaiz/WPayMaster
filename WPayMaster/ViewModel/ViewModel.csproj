@@ -61,6 +61,7 @@
     <Compile Include="AdditionalViewModel\EditFoodViewModel.cs" />
     <Compile Include="AdditionalViewModel\EditModificatorViewModel.cs" />
     <Compile Include="AdditionalViewModel\EditUserViewModel.cs" />
+    <Compile Include="MainViewModel\MakeOrderViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MainViewModel\AdminViewModel.cs" />
     <Compile Include="MainViewModel\LoginViewModel.cs" />

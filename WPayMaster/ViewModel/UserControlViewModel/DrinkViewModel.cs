@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using DataBaseService;
 using DataBaseService.Model;
 using Shared.Enum;
@@ -18,6 +20,29 @@ namespace ViewModel.UserControlViewModel
         {
             DrinkList = new ObservableCollection<Drink>();
             Count = DrinkList.Count;
+
+            DbService.OnAddDrink += DoOnAddDrink;
+            DbService.OnUpdateDrink += DoOnUpdateDrink;
+            DbService.OnDeleteDrink += DoOnDeleteDrink;
+        }
+
+        private void DoOnAddDrink(object sender, Drink drink)
+        {
+            DrinkList.Add(drink);
+        }
+
+        private void DoOnUpdateDrink(Drink oldItem, Drink newItem)
+        {
+            var drink = DrinkList.First(x => x.DrinkId == oldItem.DrinkId);
+            int index = DrinkList.IndexOf(drink);
+
+            DrinkList.RemoveAt(index);
+            DrinkList.Insert(index, newItem);
+        }
+
+        private void DoOnDeleteDrink(object sender, Drink drink)
+        {
+            DrinkList.Remove(drink);
         }
     }
 }

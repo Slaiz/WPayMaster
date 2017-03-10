@@ -73,7 +73,7 @@
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Text="Вага"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="1" Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="Teal" Command="{Binding AddModificatorCommand}" Content="Додати" />
+        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="Teal" Command="{Binding AddItemCommand}" Content="Додати" />
 
         <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"  Margin="0 0 100 0" Padding="7" Background="#FFD30C0C" Command="{Binding CancelCommand}"  Content="Відмінити" />
 

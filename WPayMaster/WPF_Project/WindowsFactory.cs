@@ -40,7 +40,7 @@ namespace WPF_Project
                 case TypeView.OrderView:
                     {
                         orderView = new OrderView();
-                        orderView.DataContext = new OrderViewModel(s);
+                        orderView.DataContext = new OrderViewModel(CreateViewAction, s);
                         loginView.Close();
                         orderView.Show();
                         AddView(orderView, loginView);
@@ -50,7 +50,7 @@ namespace WPF_Project
                 case TypeView.AdminView:
                     {
                         adminView = new AdminView();
-                        adminView.DataContext = new AdminViewModel(s, CreateViewAction);
+                        adminView.DataContext = new AdminViewModel(CreateViewAction, s);
                         loginView.Close();
                         adminView.Show();
                         AddView(adminView, loginView);
@@ -74,72 +74,73 @@ namespace WPF_Project
 
         public static IView CreateViewAction(object o, TypeView typeView)
         {
-            IView viewEmpty;
+            IView view;
 
             switch (typeView)
             {
                 case TypeView.AddUserView:
                     {
-                        viewEmpty = new AddUserView(new AddUserViewModel());
-                        viewEmpty.ShowView();
+                        view = new AddUserView(new AddUserViewModel());
+                        view.ShowView();
                         break;
                     }
 
                 case TypeView.AddFoodView:
                     {
-                        viewEmpty = new AddFoodView(new AddFoodViewModel());
-                        viewEmpty.ShowView();
+                        view = new AddFoodView(new AddFoodViewModel());
+                        view.ShowView();
                         break;
                     }
                 case TypeView.AddDrinkView:
                     {
-                        viewEmpty = new AddDrinkView(new AddDrinkViewModel());
-                        viewEmpty.ShowView();
+                        view = new AddDrinkView(new AddDrinkViewModel());
+                        view.ShowView();
                         break;
                     }
                 case TypeView.AddModificatorView:
                     {
-                        viewEmpty = new AddModificatorView(new AddModificatorViewModel());
-                        viewEmpty.ShowView();
+                        view = new AddModificatorView(new AddModificatorViewModel());
+                        view.ShowView();
                         break;
                     }
                 case TypeView.EditUserView:
                     {
-                        viewEmpty = new EditUserView(new EditUserViewModel((User)o));
-                        viewEmpty.ShowView();
+                        view = new EditUserView(new EditUserViewModel((User)o));
+                        view.ShowView();
                         break;
                     }
                 case TypeView.EditFoodView:
                     {
-                        viewEmpty = new EditFoodView(new EditFoodViewModel((Food)o));
-                        viewEmpty.ShowView();
+                        view = new EditFoodView(new EditFoodViewModel((Food)o));
+                        view.ShowView();
                         break;
                     }
                 case TypeView.EditDrinkView:
                     {
-                        viewEmpty = new EditDrinkView(new EditDrinkViewModel((Drink)o));
-                        viewEmpty.ShowView();
+                        view = new EditDrinkView(new EditDrinkViewModel((Drink)o));
+                        view.ShowView();
                         break;
                     }
                 case TypeView.EditModificatorView:
                     {
-                        viewEmpty = new EditModificatorView(new EditModificatorViewModel((Modificator)o));
-                        viewEmpty.ShowView();
+                        view = new EditModificatorView(new EditModificatorViewModel((Modificator)o));
+                        view.ShowView();
                         break;
                     }
                 case TypeView.MakeOrderView:
                     {
-                        viewEmpty = new MakeOrderView();
+                        view = new MakeOrderView(new MakeOrderViewModel());
+                        view.ShowView();
                         break;
                     }
                 default:
                     {
-                        viewEmpty = null;
+                        view = null;
                         break;
                     }
             }
 
-            return viewEmpty;
+            return view;
         }
 
         public void CloseAllView()

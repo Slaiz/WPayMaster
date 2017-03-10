@@ -42,8 +42,10 @@ namespace ViewModel.MainViewModel
         private TypeView TypeAddViewItem { get; set; }
         private TypeView TypeEditViewItem { get; set; }
 
-        public AdminViewModel(string nameAdmin, Func<object, TypeView, IView> createViewAction)
+        public AdminViewModel(Func<object, TypeView, IView> createViewAction, string nameAdmin)
         {
+            CreateViewAction = createViewAction;
+            
             NameAdmin = nameAdmin;
 
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1),
@@ -55,8 +57,6 @@ namespace ViewModel.MainViewModel
             Dispatcher.CurrentDispatcher);
 
             OpenUserControl(TypeUserControl.UserUserControl);
-
-            CreateViewAction = createViewAction;
 
             LogOutCommand = new CommandHandler(arg => LogOut());
             OpenUserUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.UserUserControl));
