@@ -1,6 +1,9 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Input;
 using DataBaseService;
 using Shared;
+using Shared.Enum;
 
 namespace ViewModel.AdditionalViewModel
 {
@@ -18,8 +21,12 @@ namespace ViewModel.AdditionalViewModel
         public string Password { get; set; }
         public int Salary { get; set; }
 
+        public List<string> UserPostList { get; set; }
+
         public AddUserViewModel()
         {
+            UserPostList = new List<string>(DbService.CreateTypeList(TypeView.AddUserView));
+
             AddItemCommand = new CommandHandler(arg => AddItem());
             CancelCommand = new CommandHandler(arg => Cancel());
         }
@@ -27,6 +34,9 @@ namespace ViewModel.AdditionalViewModel
         private void AddItem()
         {
             DbService.AddUser(Name, Surname, PassportNumber, Post, Password, Salary);
+
+
+            MessageBox.Show("Запис додано", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Cancel()

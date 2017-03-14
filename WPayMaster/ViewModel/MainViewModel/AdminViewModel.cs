@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Data;
-using System.Runtime.InteropServices.ComTypes;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -45,7 +42,7 @@ namespace ViewModel.MainViewModel
         public AdminViewModel(Func<object, TypeView, IView> createViewAction, string nameAdmin)
         {
             CreateViewAction = createViewAction;
-            
+
             NameAdmin = nameAdmin;
 
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1),
@@ -78,32 +75,44 @@ namespace ViewModel.MainViewModel
             switch (TypeEditViewItem)
             {
                 case TypeView.EditUserView:
-                {
-                    if (UserViewModel.SelectedItem != null)
-                        CreateViewAction.Invoke(UserViewModel.SelectedItem, TypeEditViewItem);
-                    else MessageBox.Show("Будь ласка виберіть користувача","Помилка");
-                        break; 
+                    {
+                        if (UserViewModel.SelectedItem != null)
+                        {
+                            CreateViewAction.Invoke(UserViewModel.SelectedItem, TypeEditViewItem);
+                            UserViewModel.SelectedItem = null;
+                        }
+                        else MessageBox.Show("Будь ласка виберіть користувача", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
                     }
                 case TypeView.EditFoodView:
                     {
                         if (FoodViewModel.SelectedItem != null)
+                        {
                             CreateViewAction.Invoke(FoodViewModel.SelectedItem, TypeEditViewItem);
-                        else MessageBox.Show("Будь ласка виберіть їжу", "Помилка");
-                        break; 
+                            FoodViewModel.SelectedItem = null;
+                        }
+                        else MessageBox.Show("Будь ласка виберіть їжу", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
                     }
                 case TypeView.EditDrinkView:
                     {
                         if (DrinkViewModel.SelectedItem != null)
-                        CreateViewAction.Invoke(DrinkViewModel.SelectedItem, TypeEditViewItem);
-                        else MessageBox.Show("Будь ласка виберіть напиток", "Помилка");
-                        break; 
+                        {
+                            CreateViewAction.Invoke(DrinkViewModel.SelectedItem, TypeEditViewItem);
+                            DrinkViewModel.SelectedItem = null;
+                        }
+                        else MessageBox.Show("Будь ласка виберіть напиток", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
                     }
                 case TypeView.EditModificatorView:
                     {
                         if (ModificatorViewModel.SelectedItem != null)
+                        {
                             CreateViewAction.Invoke(ModificatorViewModel.SelectedItem, TypeEditViewItem);
-                        else MessageBox.Show("Будь ласка виберіть додаткове", "Помилка");
-                        break; 
+                            ModificatorViewModel.SelectedItem = null;
+                        }
+                        else MessageBox.Show("Будь ласка виберіть додаткове", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
                     }
             }
         }

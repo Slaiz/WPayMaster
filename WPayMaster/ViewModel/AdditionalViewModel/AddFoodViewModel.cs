@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Input;
 using DataBaseService;
 using Shared;
+using Shared.Enum;
 
 namespace ViewModel.AdditionalViewModel
 {
@@ -22,6 +24,8 @@ namespace ViewModel.AdditionalViewModel
 
         public AddFoodViewModel()
         {
+            FoodTypeList = new List<string>(DbService.CreateTypeList(TypeView.AddFoodView));
+                
             AddItemCommand = new CommandHandler(arg => AddItem());
             CancelCommand = new CommandHandler(arg => Cancel());
         }
@@ -29,6 +33,9 @@ namespace ViewModel.AdditionalViewModel
         private void AddItem()
         {
             DbService.AddFood(Name, Type, Price, CookTime, Weight);
+
+
+            MessageBox.Show("Запис додано", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Cancel()

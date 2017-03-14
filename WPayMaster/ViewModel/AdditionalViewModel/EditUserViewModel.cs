@@ -1,7 +1,10 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Input;
 using DataBaseService;
 using DataBaseService.Model;
 using Shared;
+using Shared.Enum;
 using ViewModel.UserControlViewModel;
 
 namespace ViewModel.AdditionalViewModel
@@ -20,6 +23,8 @@ namespace ViewModel.AdditionalViewModel
         public string Password { get; set; }
         public int Salary { get; set; }
 
+        public List<string> UserPostList { get; set; }
+
         public EditUserViewModel(User item)
         {
             Name = item.UserName;
@@ -29,6 +34,8 @@ namespace ViewModel.AdditionalViewModel
             Password = item.Password;
             Salary = item.Salary;
 
+            UserPostList = new List<string>(DbService.CreateTypeList(TypeView.AddUserView));
+
             SaveItemCommand = new CommandHandler(arg => SaveItem());
             CancelCommand = new CommandHandler(arg => Cancel());
         }
@@ -36,6 +43,8 @@ namespace ViewModel.AdditionalViewModel
         private void SaveItem()
         {
             DbService.UpdateUser(UserViewModel.SelectedItem, Name, Surname, PassportNumber, Post, Password, Salary);
+
+            MessageBox.Show("Запис оновлено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Cancel()

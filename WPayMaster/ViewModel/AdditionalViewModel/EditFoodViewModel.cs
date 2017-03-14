@@ -1,8 +1,11 @@
-﻿using System.IO.Packaging;
+﻿using System.Collections.Generic;
+using System.IO.Packaging;
+using System.Windows;
 using System.Windows.Input;
 using DataBaseService;
 using DataBaseService.Model;
 using Shared;
+using Shared.Enum;
 using ViewModel.UserControlViewModel;
 
 namespace ViewModel.AdditionalViewModel
@@ -20,6 +23,8 @@ namespace ViewModel.AdditionalViewModel
         public int CookTime { get; set; }
         public int Weight { get; set; }
 
+        public List<string> FoodTypeList { get; set;}
+
         public EditFoodViewModel(Food item)
         {
             Name = item.FoodName;
@@ -28,6 +33,8 @@ namespace ViewModel.AdditionalViewModel
             CookTime = item.CookTime;
             Weight = item.FoodWeight;
 
+            FoodTypeList = new List<string>(DbService.CreateTypeList(TypeView.AddFoodView));
+
             SaveItemCommand = new CommandHandler(arg => SaveItem());
             CancelCommand = new CommandHandler(arg => Cancel());
         }
@@ -35,6 +42,8 @@ namespace ViewModel.AdditionalViewModel
         private void SaveItem()
         {
             DbService.UpdateFood(FoodViewModel.SelectedItem, Name, Type, Price, CookTime, Weight);
+
+            MessageBox.Show("Запис оновлено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Cancel()

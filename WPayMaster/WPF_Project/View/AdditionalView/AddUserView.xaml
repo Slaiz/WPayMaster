@@ -72,7 +72,7 @@
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="0" Text="{Binding PassportNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Посада"/>
-        <ComboBox Style="{StaticResource TextBoxStyle}" Grid.Row="0" Grid.Column="1" Text="{Binding Post, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox Style="{StaticResource TextBoxStyle}" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding UserPostList}" SelectedItem="{Binding Post, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Text="Пароль"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="1" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>

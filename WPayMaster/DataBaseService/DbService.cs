@@ -280,11 +280,29 @@ namespace DataBaseService
 
         public List<string> CreateTypeList(TypeView typeView)
         {
-            List<string> list = new List<string>;
+            List<string> list = new List<string>();
 
             switch (typeView)
             {
                 case TypeView.AddUserView:
+                    {
+                        list.Add(UserPost.Адміністратор.ToString());
+                        list.Add(UserPost.Касир.ToString());
+                        break;
+                    }
+                case TypeView.AddFoodView:
+                    {
+                        list.Add(UserPost.Адміністратор.ToString());
+                        list.Add(UserPost.Касир.ToString());
+                        break;
+                    }
+                case TypeView.AddDrinkView:
+                    {
+                        list.Add(UserPost.Адміністратор.ToString());
+                        list.Add(UserPost.Касир.ToString());
+                        break;
+                    }
+                case TypeView.AddModificatorView:
                     {
                         list.Add(UserPost.Адміністратор.ToString());
                         list.Add(UserPost.Касир.ToString());

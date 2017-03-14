@@ -1,7 +1,10 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Input;
 using DataBaseService;
 using DataBaseService.Model;
 using Shared;
+using Shared.Enum;
 using ViewModel.UserControlViewModel;
 
 namespace ViewModel.AdditionalViewModel
@@ -18,12 +21,16 @@ namespace ViewModel.AdditionalViewModel
         public int Price { get; set; }
         public int Weight { get; set; }
 
+        public List<string> ModificatorTypeList { get; set; }
+
         public EditModificatorViewModel(Modificator item)
         {
             Name = item.ModificatorName;
             Type = item.ModificatorType;
             Price = item.ModificatorPrice;
             Weight = item.ModificatorWeight;
+
+            ModificatorTypeList = new List<string>(DbService.CreateTypeList(TypeView.AddModificatorView));
 
             SaveItemCommand = new CommandHandler(arg => SaveItem());
             CancelCommand = new CommandHandler(arg => Cancel());
@@ -32,6 +39,8 @@ namespace ViewModel.AdditionalViewModel
         private void SaveItem()
         {
             DbService.UpdateModificator(ModificatorViewModel.SelectedItem, Name, Type, Price, Weight);
+
+            MessageBox.Show("Запис оновлено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Cancel()
