@@ -16,14 +16,14 @@ namespace ViewModel.MainViewModel
         public ICommand LogOutCommand { get; set; }
         public ICommand OpenMakeOrderViewCommand { get; set; }
 
-        public string NameCashier { get; set; }
+        public string CashierName { get; set; }
         public DateTime CurrentTime { get; set; }
 
-        public OrderViewModel(Func<object, TypeView, IView>  createViewAction,string nameCashier)
+        public OrderViewModel(Func<object, TypeView, IView>  createViewAction,string cashierName)
         {
             CreateViewAction = createViewAction;
 
-            NameCashier = nameCashier;
+            CashierName = cashierName;
 
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1),
             DispatcherPriority.Normal,

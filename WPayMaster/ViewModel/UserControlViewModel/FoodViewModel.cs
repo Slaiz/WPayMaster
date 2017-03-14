@@ -3,10 +3,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using DataBaseService;
 using DataBaseService.Model;
+using PropertyChanged;
 using Shared.Enum;
 
 namespace ViewModel.UserControlViewModel
 {
+    [ImplementPropertyChanged]
     public class FoodViewModel
     {
         public static Food SelectedItem { get; set; }
@@ -28,6 +30,7 @@ namespace ViewModel.UserControlViewModel
         private void DoOnAddFood(object sender, Food food)
         {
             FoodList.Add(food);
+            Count = FoodList.Count;
         }
 
         private void DoOnUpdateFood(Food oldFood, Food newFood)
@@ -42,6 +45,7 @@ namespace ViewModel.UserControlViewModel
         private void DoOnDeleteFood(object sender, Food food)
         {
             FoodList.Remove(food);
+            Count = FoodList.Count;
         }
 
     }

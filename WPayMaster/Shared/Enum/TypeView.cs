@@ -13,6 +13,7 @@
         EditUserView,
         EditFoodView,
         EditDrinkView,
-        EditModificatorView       
+        EditModificatorView,
+        SoupView       
     }
 }

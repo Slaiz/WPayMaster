@@ -32,18 +32,18 @@ namespace ViewModel.MainViewModel
 
         public Func<object, TypeView, IView> CreateViewAction { get; set; }
 
-        public string NameAdmin { get; set; }
+        public string AdminName { get; set; }
         public DateTime CurrentTime { get; set; }
 
         public UserControl CurrentUserControl { get; set; }
         private TypeView TypeAddViewItem { get; set; }
         private TypeView TypeEditViewItem { get; set; }
 
-        public AdminViewModel(Func<object, TypeView, IView> createViewAction, string nameAdmin)
+        public AdminViewModel(Func<object, TypeView, IView> createViewAction, string adminName)
         {
             CreateViewAction = createViewAction;
 
-            NameAdmin = nameAdmin;
+            AdminName = adminName;
 
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1),
             DispatcherPriority.Normal,
@@ -60,6 +60,7 @@ namespace ViewModel.MainViewModel
             OpenFoodUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.FoodUserControl));
             OpenDrinkUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.DrinkUserControl));
             OpenModificatorUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.ModificatorUserControl));
+
             OpenAddItemViewCommand = new CommandHandler(arg => OpenAddItemView());
             OpenEditItemViewCommand = new CommandHandler(arg => OpenEditItemView());
             DeleteItemCommand = new CommandHandler(arg => DeleteItem());
@@ -119,7 +120,7 @@ namespace ViewModel.MainViewModel
 
         private void DeleteItem()
         {
-            throw new NotImplementedException();
+            
         }
 
         private void OpenUserControl(TypeUserControl typeUserControl)

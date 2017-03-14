@@ -2,11 +2,13 @@
 using System.Windows;
 using System.Windows.Input;
 using DataBaseService;
+using PropertyChanged;
 using Shared;
 using Shared.Enum;
 
 namespace ViewModel.AdditionalViewModel
 {
+    [ImplementPropertyChanged]
     public class AddModificatorViewModel
     {
         public DbService DbService = new DbService();
@@ -40,7 +42,7 @@ namespace ViewModel.AdditionalViewModel
         private void Cancel()
         {
             Name = " ";
-            Type = " ";
+            Type = null;
             Price = 0;
             Weight = 0;
         }

@@ -3,10 +3,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using DataBaseService;
 using DataBaseService.Model;
+using PropertyChanged;
 using Shared.Enum;
 
 namespace ViewModel.UserControlViewModel
 {
+    [ImplementPropertyChanged]
     public class UserViewModel
     {
         public static User SelectedItem { get; set; }

@@ -42,7 +42,7 @@ namespace ViewModel.AdditionalViewModel
         private void Cancel()
         {
             Name = " ";
-            Type = " ";
+            Type = null;
             Price = 0;
             Volume = 0;
         }

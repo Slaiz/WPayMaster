@@ -59,6 +59,7 @@
             <Setter Property="Image.Width" Value="60"/>
             <Setter Property="Image.HorizontalAlignment" Value="Left"/>
             <Setter Property="Image.VerticalAlignment" Value="Center"/>
+            <Setter Property="Image.IsEnabled" Value="False"/>
         </Style>
     </Window.Resources>
     <Grid>
@@ -86,86 +87,86 @@
         <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="4" Grid.Column="0" Text="Напої"/>
         <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="6" Grid.Column="0" Text="Додаткове"/>
         
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="0" Background="Red">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="0" Background="Red" Command="{Binding OpenSoupViewCommand}" >
             <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icon/CubeIcon.jpg"/>
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="1">
             <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icon/CubeIcon.jpg"/>
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="2">
             <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icon/CubeIcon.jpg"/>
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="0">
             <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icon/CubeIcon.jpg"/>
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="1">
             <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icon/CubeIcon.jpg"/>
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="2">
             <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icon/CubeIcon.jpg"/>
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="0">
             <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icon/CubeIcon.jpg"/>
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="1">
             <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icon/CubeIcon.jpg"/>
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="2">
             <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icon/CubeIcon.jpg"/>
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="7" Grid.Column="0">
             <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icon/CubeIcon.jpg"/>
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="7" Grid.Column="1">
             <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icon/CubeIcon.jpg"/>
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="7" Grid.Column="2">
             <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icon/CubeIcon.jpg"/>
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>

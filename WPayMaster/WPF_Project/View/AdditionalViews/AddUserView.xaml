@@ -1,12 +1,11 @@
-﻿<Window x:Class="WPF_Project.View.EditUserView"
+﻿<Window x:Class="WPF_Project.View.AddUserView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPF_Project.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="EditUserView" Height="500" Width="1400">
+        Title="AddUserView" Height="500" Width="1400">
 
     <Window.Resources>
         <Style x:Key="ButtonStyle">
@@ -47,7 +46,7 @@
             <Setter Property="TextBlock.Padding" Value="7"></Setter>
         </Style>
     </Window.Resources>
-
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -56,19 +55,19 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
+        
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="0" Text="Імя"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="0" Grid.Column="0" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Прізвище"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="0" Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Серія паспорта" />
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Номер паспорта" />
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="0" Text="{Binding PassportNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Посада"/>
@@ -80,9 +79,9 @@
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="1" Text="Зарплата"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="1" Text="{Binding Salary, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="Teal" Command="{Binding SaveItemCommand}" Content="Зберегти" />
+        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="Teal" Command="{Binding AddItemCommand}" Content="Додати" />
 
-        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"  Margin="0 0 100 0" Background="#FFD30C0C" Command="{Binding CancelCommand}"  Content="Відмінити" />
-
+        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"  Margin="0 0 100 0" Background="#FFD30C0C" Command="{Binding CancelCommand}" Content="Відмінити" />
+        
     </Grid>
 </Window>

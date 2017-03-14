@@ -3,10 +3,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using DataBaseService;
 using DataBaseService.Model;
+using PropertyChanged;
 using Shared.Enum;
 
 namespace ViewModel.UserControlViewModel
 {
+    [ImplementPropertyChanged]
     public class ModificatorViewModel
     {
         public static Modificator SelectedItem { get; set; }
@@ -29,6 +31,7 @@ namespace ViewModel.UserControlViewModel
         private void DoOnAddModificator(object sender, Modificator modificator)
         {
             ModificatorList.Add(modificator);
+            Count = ModificatorList.Count;
         }
 
         private void DoOnUpdateModificator(Modificator oldModificator, Modificator newModificator)
@@ -44,6 +47,7 @@ namespace ViewModel.UserControlViewModel
         private void DoOnDeleteModificator(object sender, Modificator modificator)
         {
             ModificatorList.Remove(modificator);
+            Count = ModificatorList.Count;
         }
 
     }

@@ -2,11 +2,13 @@
 using System.Windows;
 using System.Windows.Input;
 using DataBaseService;
+using PropertyChanged;
 using Shared;
 using Shared.Enum;
 
 namespace ViewModel.AdditionalViewModel
 {
+    [ImplementPropertyChanged]
     public class AddUserViewModel
     {
         public DbService DbService = new DbService();
@@ -44,7 +46,7 @@ namespace ViewModel.AdditionalViewModel
             Name = " ";
             Surname = " ";
             PassportNumber = 0;
-            Post = " ";
+            Post = null;
             Password = " ";
             Salary = 0;
         }

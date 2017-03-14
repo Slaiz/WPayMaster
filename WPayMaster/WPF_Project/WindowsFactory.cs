@@ -7,8 +7,10 @@ using DataBaseService.Model;
 using Shared.Enum;
 using ViewModel;
 using ViewModel.AdditionalViewModel;
+using ViewModel.ItemListViewModel;
 using ViewModel.MainViewModel;
 using WPF_Project.View;
+using WPF_Project.View.ListOrederView;
 
 namespace WPF_Project
 {
@@ -129,7 +131,13 @@ namespace WPF_Project
                     }
                 case TypeView.MakeOrderView:
                     {
-                        view = new MakeOrderView(new MakeOrderViewModel());
+                        view = new MakeOrderView(new MakeOrderViewModel(CreateViewAction));
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.SoupView:
+                    {
+                        view = new SoupView(new SoupViewModel());
                         view.ShowView();
                         break;
                     }

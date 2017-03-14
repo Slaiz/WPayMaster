@@ -68,74 +68,81 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\AdditionalView\AddDrinkView.xaml.cs">
+    <Compile Include="View\AdditionalViews\AddDrinkView.xaml.cs">
       <DependentUpon>AddDrinkView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AdditionalView\AddFoodView.xaml.cs">
+    <Compile Include="View\AdditionalViews\AddFoodView.xaml.cs">
       <DependentUpon>AddFoodView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AdditionalView\AddModificatorView.xaml.cs">
+    <Compile Include="View\AdditionalViews\AddModificatorView.xaml.cs">
       <DependentUpon>AddModificatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AdditionalView\AddUserView.xaml.cs">
+    <Compile Include="View\AdditionalViews\AddUserView.xaml.cs">
       <DependentUpon>AddUserView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AdditionalView\EditDrinkView.xaml.cs">
+    <Compile Include="View\AdditionalViews\EditDrinkView.xaml.cs">
       <DependentUpon>EditDrinkView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AdditionalView\EditFoodView.xaml.cs">
+    <Compile Include="View\AdditionalViews\EditFoodView.xaml.cs">
       <DependentUpon>EditFoodView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AdditionalView\EditModificatorView.xaml.cs">
+    <Compile Include="View\AdditionalViews\EditModificatorView.xaml.cs">
       <DependentUpon>EditModificatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AdditionalView\EditUserView.xaml.cs">
+    <Compile Include="View\AdditionalViews\EditUserView.xaml.cs">
       <DependentUpon>EditUserView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainView\MakeOrderView.xaml.cs">
+    <Compile Include="View\ItemListViews\SoupView.xaml.cs">
+      <DependentUpon>SoupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainViews\MakeOrderView.xaml.cs">
       <DependentUpon>MakeOrderView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainView\OrderView.xaml.cs">
+    <Compile Include="View\MainViews\OrderView.xaml.cs">
       <DependentUpon>OrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowsFactory.cs" />
-    <Page Include="View\AdditionalView\AddDrinkView.xaml">
+    <Page Include="View\AdditionalViews\AddDrinkView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AdditionalView\AddFoodView.xaml">
+    <Page Include="View\AdditionalViews\AddFoodView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AdditionalView\AddModificatorView.xaml">
+    <Page Include="View\AdditionalViews\AddModificatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AdditionalView\AddUserView.xaml">
+    <Page Include="View\AdditionalViews\AddUserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainView\AdminView.xaml">
+    <Page Include="View\ItemListViews\SoupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AdditionalView\EditDrinkView.xaml">
+    <Page Include="View\MainViews\AdminView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AdditionalView\EditFoodView.xaml">
+    <Page Include="View\AdditionalViews\EditDrinkView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AdditionalView\EditModificatorView.xaml">
+    <Page Include="View\AdditionalViews\EditFoodView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AdditionalView\EditUserView.xaml">
+    <Page Include="View\AdditionalViews\EditModificatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainView\LoginView.xaml">
+    <Page Include="View\AdditionalViews\EditUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainViews\LoginView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -143,18 +150,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\MainView\AdminView.xaml.cs">
+    <Compile Include="View\MainViews\AdminView.xaml.cs">
       <DependentUpon>AdminView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainView\LoginView.xaml.cs">
+    <Compile Include="View\MainViews\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\MainView\MakeOrderView.xaml">
+    <Page Include="View\MainViews\MakeOrderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainView\OrderView.xaml">
+    <Page Include="View\MainViews\OrderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,10 +195,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icon\UserIcon.png" />
+    <Resource Include="View\Icons\UserIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icon\PasswordIcon.png" />
+    <Resource Include="View\Icons\PasswordIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataBaseService\DataBaseService.csproj">
@@ -213,23 +220,29 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icon\AddOrderIcon.png" />
-    <Resource Include="View\Icon\BreakIcon.jpg" />
+    <Resource Include="View\Icons\AddOrderIcon.png" />
+    <Resource Include="View\Icons\BreakIcon.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icon\CubeIcon.jpg" />
+    <Resource Include="View\Icons\CubeIcon.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icon\AddDocIcon.ico" />
-    <Resource Include="View\Icon\DeleteDocIcon.png" />
-    <Resource Include="View\Icon\EditDocIcon.png" />
-    <Resource Include="View\Icon\ViewDocIcon.png" />
+    <Resource Include="View\Icons\AddDocIcon.ico" />
+    <Resource Include="View\Icons\DeleteDocIcon.png" />
+    <Resource Include="View\Icons\EditDocIcon.png" />
+    <Resource Include="View\Icons\ViewDocIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icon\LogOutIcon.png" />
+    <Resource Include="View\Icons\LogOutIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icon\TimeBreakIcon.png" />
+    <Resource Include="View\Icons\TimeBreakIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\StatisticsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\HistoryIcon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

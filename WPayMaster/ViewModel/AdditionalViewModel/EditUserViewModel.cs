@@ -3,12 +3,14 @@ using System.Windows;
 using System.Windows.Input;
 using DataBaseService;
 using DataBaseService.Model;
+using PropertyChanged;
 using Shared;
 using Shared.Enum;
 using ViewModel.UserControlViewModel;
 
 namespace ViewModel.AdditionalViewModel
 {
+    [ImplementPropertyChanged]
     public class EditUserViewModel
     {
         public DbService DbService = new DbService();
@@ -16,6 +18,7 @@ namespace ViewModel.AdditionalViewModel
         public ICommand SaveItemCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
+        public User SelectedItem { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public int PassportNumber { get; set; }
@@ -27,6 +30,8 @@ namespace ViewModel.AdditionalViewModel
 
         public EditUserViewModel(User item)
         {
+            SelectedItem = UserViewModel.SelectedItem;
+
             Name = item.UserName;
             Surname = item.Surname;
             PassportNumber = item.PassportNumber;
@@ -42,7 +47,7 @@ namespace ViewModel.AdditionalViewModel
 
         private void SaveItem()
         {
-            DbService.UpdateUser(UserViewModel.SelectedItem, Name, Surname, PassportNumber, Post, Password, Salary);
+            DbService.UpdateUser(SelectedItem, Name, Surname, PassportNumber, Post, Password, Salary);
 
             MessageBox.Show("Запис оновлено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -52,7 +57,7 @@ namespace ViewModel.AdditionalViewModel
             Name = " ";
             Surname = " ";
             PassportNumber = 0;
-            Post = " ";
+            Post = null;
             Password = " ";
             Salary = 0;
         }

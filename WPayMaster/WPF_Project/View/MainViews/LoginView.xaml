@@ -10,13 +10,13 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" TextAlignment="Center" Height="Auto" Width="Auto" VerticalAlignment="Top">
+        <TextBlock Grid.Row="0" TextAlignment="Center" Height="Auto" Width="Auto" VerticalAlignment="Bottom">
             <Run FontSize="70" Foreground="GreenYellow" FontWeight="Bold">W</Run>
             <Run FontSize="70" Foreground="Aqua" FontWeight="DemiBold" FontStyle="Italic">Pay</Run>
             <Run FontSize="70" Foreground="White" FontWeight="Bold">Master</Run>
@@ -26,8 +26,8 @@
             <Run FontSize="30" Foreground="White" FontWeight="Bold">Вхід</Run>
         </TextBlock>
 
-        <Image Grid.Row="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Source="../Icon/UserIcon.png" Margin="160,0,0,0"/>
-        <Image Grid.Row="3" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Source="../Icon/PasswordIcon.png" Margin="160,0,0,0"/>
+        <Image Grid.Row="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Source="../Icons/UserIcon.png" Margin="160,0,0,0"/>
+        <Image Grid.Row="3" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Source="../Icons/PasswordIcon.png" Margin="160,0,0,0"/>
 
         <TextBox Grid.Row="2" Height="35" Width="240" HorizontalAlignment="Center" FontSize="22"  Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Row="3" Height="35" Width="240" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" 

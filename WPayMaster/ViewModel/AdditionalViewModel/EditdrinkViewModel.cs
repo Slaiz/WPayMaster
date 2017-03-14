@@ -3,12 +3,14 @@ using System.Windows;
 using System.Windows.Input;
 using DataBaseService;
 using DataBaseService.Model;
+using PropertyChanged;
 using Shared;
 using Shared.Enum;
 using ViewModel.UserControlViewModel;
 
 namespace ViewModel.AdditionalViewModel
 {
+    [ImplementPropertyChanged]
     public class EditDrinkViewModel
     {
         public DbService DbService = new DbService();
@@ -47,7 +49,7 @@ namespace ViewModel.AdditionalViewModel
         private void Cancel()
         {
             Name = " ";
-            Type = " ";
+            Type = null;
             Price = 0;
             Volume = 0;
         }

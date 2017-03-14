@@ -27,7 +27,7 @@
             <TextBlock  Height="30" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" FontWeight="Medium" Foreground="DarkGray" 
                         Text="Count:" Padding="5"/>
             <TextBlock  Height="30" Width="Auto" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" FontWeight="Medium" Foreground="DarkGray" 
-                        TextAlignment="Center" Text="{Binding Count}"/>
+                        TextAlignment="Center" Padding="5"  Text="{Binding Count}"/>
         </StackPanel>
     </Grid>
 </UserControl>
