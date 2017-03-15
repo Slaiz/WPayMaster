@@ -156,8 +156,6 @@ namespace DataBaseService
                 user.Salary = salary;
                 user.WorkingTime = 0;
 
-                context.Users.Add(user);
-
                 context.SaveChanges();
 
                 DoOnUpdateUser(item, user);
@@ -176,8 +174,6 @@ namespace DataBaseService
                 food.CookTime = cookTime;
                 food.FoodWeight = weight;
 
-                context.Foods.Add(food);
-
                 context.SaveChanges();
 
                 DoOnUpdateFood(item, food);
@@ -195,8 +191,6 @@ namespace DataBaseService
                 drink.DrinkPrice = price;
                 drink.Volume = volume;
 
-                context.Drinks.Add(drink);
-
                 context.SaveChanges();
 
                 DoOnUpdateDrink(item, drink);
@@ -213,8 +207,6 @@ namespace DataBaseService
                 modificator.ModificatorType = type;
                 modificator.ModificatorPrice = price;
                 modificator.ModificatorWeight = weight;
-
-                context.Modificators.Add(modificator);
 
                 context.SaveChanges();
 
@@ -292,20 +284,28 @@ namespace DataBaseService
                     }
                 case TypeView.AddFoodView:
                     {
-                        list.Add(UserPost.Адміністратор.ToString());
-                        list.Add(UserPost.Касир.ToString());
+                        list.Add("Салат");
+                        list.Add("Перша страва");
+                        list.Add("М'ясна страва");
+                        list.Add("Рибна страва");
+                        list.Add("Гарнір");
+                        list.Add("Піца");
+                        list.Add("Паста");
+                        list.Add("Борошняний виріб");
+                        list.Add("Десерт");
                         break;
                     }
                 case TypeView.AddDrinkView:
                     {
-                        list.Add(UserPost.Адміністратор.ToString());
-                        list.Add(UserPost.Касир.ToString());
+                        list.Add("Сік");
+                        list.Add("Гарячий напій");
+                        list.Add("Холодний напій");
                         break;
                     }
                 case TypeView.AddModificatorView:
                     {
-                        list.Add(UserPost.Адміністратор.ToString());
-                        list.Add(UserPost.Касир.ToString());
+                        list.Add("Закуска");
+                        list.Add("Соуси");
                         break;
                     }
 

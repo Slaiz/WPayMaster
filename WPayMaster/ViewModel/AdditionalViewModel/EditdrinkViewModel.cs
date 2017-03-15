@@ -18,6 +18,7 @@ namespace ViewModel.AdditionalViewModel
         public ICommand SaveItemCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
+        public Drink SelectedItem { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public int Price { get; set; }
@@ -27,6 +28,8 @@ namespace ViewModel.AdditionalViewModel
 
         public EditDrinkViewModel(Drink item)
         {
+            SelectedItem = item;
+
             Name = item.DrinkName;
             Type = item.DrinkType;
             Price = item.DrinkPrice;
@@ -40,7 +43,7 @@ namespace ViewModel.AdditionalViewModel
 
         private void SaveItem()
         {
-            DbService.UpdateDrink(DrinkViewModel.SelectedItem, Name, Type, Price, Volume);
+            DbService.UpdateDrink(SelectedItem, Name, Type, Price, Volume);
 
 
             MessageBox.Show("Запис оновлено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);

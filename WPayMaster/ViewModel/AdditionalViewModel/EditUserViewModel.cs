@@ -30,7 +30,7 @@ namespace ViewModel.AdditionalViewModel
 
         public EditUserViewModel(User item)
         {
-            SelectedItem = UserViewModel.SelectedItem;
+            SelectedItem = item;
 
             Name = item.UserName;
             Surname = item.Surname;

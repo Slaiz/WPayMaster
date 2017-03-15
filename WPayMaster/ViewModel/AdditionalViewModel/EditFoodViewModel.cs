@@ -19,6 +19,7 @@ namespace ViewModel.AdditionalViewModel
         public ICommand SaveItemCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
+        public Food SelectedItem { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public int Price { get; set; }
@@ -29,6 +30,8 @@ namespace ViewModel.AdditionalViewModel
 
         public EditFoodViewModel(Food item)
         {
+            SelectedItem = item;
+
             Name = item.FoodName;
             Type = item.FoodType;
             Price = item.FoodPrice;
@@ -43,7 +46,7 @@ namespace ViewModel.AdditionalViewModel
 
         private void SaveItem()
         {
-            DbService.UpdateFood(FoodViewModel.SelectedItem, Name, Type, Price, CookTime, Weight);
+            DbService.UpdateFood(SelectedItem, Name, Type, Price, CookTime, Weight);
 
             MessageBox.Show("Запис оновлено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }

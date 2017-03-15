@@ -3,7 +3,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
+using DataBaseService;
 using DataBaseService.Interface;
+using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
 using Shared.Enum;
@@ -30,10 +32,13 @@ namespace ViewModel.MainViewModel
         public DrinkViewModel drinkViewModel;
         public ModificatorViewModel modificatorViewModel;
 
+        public DbService DbService = new DbService();
+
         public Func<object, TypeView, IView> CreateViewAction { get; set; }
 
         public string AdminName { get; set; }
         public DateTime CurrentTime { get; set; }
+        public object SelectedItem { get; set; }
 
         public UserControl CurrentUserControl { get; set; }
         private TypeView TypeAddViewItem { get; set; }
@@ -120,7 +125,55 @@ namespace ViewModel.MainViewModel
 
         private void DeleteItem()
         {
-            
+            switch (TypeEditViewItem)
+            {
+                case TypeView.EditUserView:
+                    {
+                        if (UserViewModel.SelectedItem != null)
+                        {
+                            var selectedItem = UserViewModel.SelectedItem;
+                            DbService.DeleteUser(selectedItem);
+                            UserViewModel.SelectedItem = null;
+                        }
+                        else MessageBox.Show("Будь ласка виберіть користувача", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
+                    }
+                case TypeView.EditFoodView:
+                    {
+                        if (FoodViewModel.SelectedItem != null)
+                        {
+                            SelectedItem = FoodViewModel.SelectedItem;
+                            DbService.DeleteFood((Food)SelectedItem);
+                            FoodViewModel.SelectedItem = null;
+                        }
+                        else MessageBox.Show("Будь ласка виберіть їжу", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
+                    }
+                case TypeView.EditDrinkView:
+                    {
+                        if (DrinkViewModel.SelectedItem != null)
+                        {
+                            SelectedItem = DrinkViewModel.SelectedItem;
+                            DbService.DeleteDrink((Drink)SelectedItem);
+                            DrinkViewModel.SelectedItem = null;
+                        }
+                        else MessageBox.Show("Будь ласка виберіть напиток", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
+                    }
+                case TypeView.EditModificatorView:
+                    {
+                        if (ModificatorViewModel.SelectedItem != null)
+                        {
+                            SelectedItem = ModificatorViewModel.SelectedItem;
+                            DbService.DeleteModificator((Modificator)SelectedItem);
+                            ModificatorViewModel.SelectedItem = null;
+                        }
+                        else MessageBox.Show("Будь ласка виберіть додаткове", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
+                    }
+            }
+
+            MessageBox.Show("Запис видалено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void OpenUserControl(TypeUserControl typeUserControl)

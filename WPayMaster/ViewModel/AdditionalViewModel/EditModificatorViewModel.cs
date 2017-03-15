@@ -18,6 +18,7 @@ namespace ViewModel.AdditionalViewModel
         public ICommand SaveItemCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
+        public Modificator SelectedItem { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public int Price { get; set; }
@@ -27,6 +28,8 @@ namespace ViewModel.AdditionalViewModel
 
         public EditModificatorViewModel(Modificator item)
         {
+            SelectedItem = item;
+
             Name = item.ModificatorName;
             Type = item.ModificatorType;
             Price = item.ModificatorPrice;

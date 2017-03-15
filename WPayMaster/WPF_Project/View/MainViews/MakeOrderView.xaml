@@ -8,40 +8,39 @@
         Title="MakeOrderView" MinHeight="900" Height="900" MaxHeight="900" MinWidth="1400" Width="1400" MaxWidth="1400">
 
     <Window.Resources>
-        <Style x:Key="ButtonStyle">
-            <Setter Property="Button.Height" Value="80"/>
-            <Setter Property="Button.Width" Value="220"/>
-            <Setter Property="Button.VerticalAlignment" Value="Center"/>
-            <Setter Property="Button.Focusable" Value="False"/>
-            <Setter Property="Button.BorderBrush" Value="White"/>
-            <Setter Property="Button.FontSize" Value="20"></Setter>
-            <Setter Property="Button.FontWeight" Value="Bold"></Setter>
-            <Setter Property="Button.Foreground" Value="White"></Setter>
-            <Setter Property="Button.Padding" Value="5"></Setter>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="180"/>
+            <Setter Property="Width" Value="230"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
         </Style>
-        <Style x:Key="TextBoxStyle">
-            <Setter Property="TextBox.Height" Value="40"/>
-            <Setter Property="TextBox.Width" Value="350"/>
-            <Setter Property="TextBox.HorizontalAlignment" Value="Center"/>
-            <Setter Property="TextBox.VerticalAlignment" Value="Center"/>
-            <Setter Property="TextBox.FontSize" Value="20"></Setter>
-            <Setter Property="TextBox.FontWeight" Value="Bold"></Setter>
-            <Setter Property="TextBox.Background" Value="White"></Setter>
-            <Setter Property="TextBox.Foreground" Value="Black"></Setter>
-            <Setter Property="TextBox.TextAlignment" Value="Center"></Setter>
-            <Setter Property="TextBox.Padding" Value="7"></Setter>
-            <Setter Property="TextBox.BorderBrush" Value="RoyalBlue"></Setter>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="550"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+            <Setter Property="Padding" Value="7"></Setter>
+            <Setter Property="BorderBrush" Value="RoyalBlue"></Setter>
         </Style>
         <Style x:Key="ButtonTextBlockStyle">
-            <Setter Property="TextBlock.Height" Value="75"/>
-            <Setter Property="TextBlock.Width" Value="145"/>
+            <Setter Property="TextBlock.Height" Value="80"/>
+            <Setter Property="TextBlock.Width" Value="205"/>
             <Setter Property="TextBlock.HorizontalAlignment" Value="Left"/>
-            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.VerticalAlignment" Value="Bottom"/>
             <Setter Property="TextBlock.FontSize" Value="20"></Setter>
             <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
             <Setter Property="TextBlock.Foreground" Value="White"></Setter>
-            <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
-            <Setter Property="TextBlock.Padding" Value="7"></Setter>
+            <Setter Property="TextBlock.TextAlignment" Value="Left"></Setter>
+            <Setter Property="TextBlock.Padding" Value="5"></Setter>
         </Style>
         <Style x:Key="HeaderTextBlockStyle">
             <Setter Property="TextBlock.Height" Value="40"/>
@@ -54,127 +53,137 @@
             <Setter Property="TextBlock.TextAlignment" Value="Left"></Setter>
             <Setter Property="TextBlock.Padding" Value="7"></Setter>
         </Style>
-        <Style x:Key="ImageStyle">
-            <Setter Property="Image.Height" Value="60"/>
-            <Setter Property="Image.Width" Value="60"/>
-            <Setter Property="Image.HorizontalAlignment" Value="Left"/>
-            <Setter Property="Image.VerticalAlignment" Value="Center"/>
-            <Setter Property="Image.IsEnabled" Value="False"/>
+        <Style x:Key="ImageStyle" TargetType="Image">
+            <Setter Property="Height" Value="85"/>
+            <Setter Property="Width" Value="85"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="IsEnabled" Value="False"/>
         </Style>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="180"></RowDefinition>
+            <RowDefinition Height="180"></RowDefinition>
+            <RowDefinition Height="180"></RowDefinition>
+            <RowDefinition Height="180"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="230"></ColumnDefinition>
+            <ColumnDefinition Width="230"></ColumnDefinition>
+            <ColumnDefinition Width="230"></ColumnDefinition>
+            <ColumnDefinition Width="230"></ColumnDefinition>
+            <ColumnDefinition Width="480"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
-        <TextBox Style="{StaticResource TextBoxStyle}" Grid.ColumnSpan="2"/>
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="1" Height="40" Width="150" HorizontalAlignment="Right" Content="Пошук" Background="MediumBlue"/>
-        
-        <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Їжа"/>
-        <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="4" Grid.Column="0" Text="Напої"/>
-        <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="6" Grid.Column="0" Text="Додаткове"/>
-        
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="0" Background="Red" Command="{Binding OpenSoupViewCommand}" >
-            <StackPanel Orientation="Horizontal">
+
+        <TextBox Style="{StaticResource TextBoxStyle}" Grid.ColumnSpan="4"/>
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="3" Height="40" Width="150" HorizontalAlignment="Right" Content="Пошук" Background="MediumBlue"/>
+
+
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="0" Background="Red" Command="{Binding OpenSoupViewCommand}" >
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
+                <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
+            </StackPanel>
+        </Button>
+
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
+                <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
+            </StackPanel>
+        </Button>
+
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="2">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
+                <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
+            </StackPanel>
+        </Button>
+
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="3">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
+                <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
+            </StackPanel>
+        </Button>
+
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="0">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="2">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
+                <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
+            </StackPanel>
+        </Button>
+
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="3">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="0">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="2">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="0">
-            <StackPanel Orientation="Horizontal">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="3">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="4" Grid.Column="0">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="2">
-            <StackPanel Orientation="Horizontal">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="4" Grid.Column="1">
+            <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="7" Grid.Column="0">
-            <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
-                <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
-            </StackPanel>
-        </Button>
-
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="7" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
-                <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
-            </StackPanel>
-        </Button>
-
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="7" Grid.Column="2">
-            <StackPanel Orientation="Horizontal">
-                <Image Style="{StaticResource ImageStyle}" Source="../Icons/CubeIcon.jpg"/>
-                <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="j" />
-            </StackPanel>
-        </Button>
-
-        <ListBox  Grid.Row="1" Grid.RowSpan="5" Grid.Column="3">
-            
+        <ListBox  Grid.Row="1" Grid.RowSpan="4" Grid.Column="4" HorizontalAlignment="Center"  Width="420" Height="700" >
+            <TextBox></TextBox>    
         </ListBox>
-        
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="7" Grid.Column="3" VerticalAlignment="Top" Content="Зробити заказ" Background="MediumBlue"/>
+
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="4" Height="70" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" Content="Зробити замовлення" Background="MediumBlue"/>
     </Grid>
 </Window>

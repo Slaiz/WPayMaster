@@ -35,7 +35,7 @@
         <TabControl Grid.Row="1" Grid.Column="0">
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock FontSize="18" FontWeight="Bold" Background="YellowGreen" Foreground="White" Text="Активні закази" />
+                    <TextBlock FontSize="18" FontWeight="Bold" Background="YellowGreen" Foreground="White" Text="Активні замовлення" />
                 </TabItem.Header>
                 <TabItem.Content>
                     <TextBlock Text="Content"/>
@@ -43,7 +43,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock FontSize="18" FontWeight="Bold" Background="RoyalBlue" Foreground="White" Text="Завершені закази" />
+                    <TextBlock FontSize="18" FontWeight="Bold" Background="RoyalBlue" Foreground="White" Text="Виконані замовлення" />
                 </TabItem.Header>
                 <TabItem.Content>
                     <TextBlock Text="Content"/>

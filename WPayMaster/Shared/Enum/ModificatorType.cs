@@ -2,6 +2,7 @@
 {
     public enum ModificatorType
     {
-        
+        Закуска,
+        Соус
     }
 }

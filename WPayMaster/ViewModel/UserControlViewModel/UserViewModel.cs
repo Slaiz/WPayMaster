@@ -44,7 +44,9 @@ namespace ViewModel.UserControlViewModel
 
         private void DoOnDeleteUser(object sender, User user)
         {
-            UserList.Remove(user);
+            var newUser = UserList.First(x => x.PassportNumber == user.PassportNumber);
+            UserList.Remove(newUser);
+            Count = UserList.Count;
         }
 
     }
