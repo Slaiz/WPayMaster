@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="AddModificatorView" Height="500" Width="1400">
-    
+
     <Window.Resources>
         <Style x:Key="ButtonStyle">
             <Setter Property="Button.Height" Value="40"/>
@@ -32,7 +32,8 @@
             <Setter Property="TextBox.Background" Value="White"></Setter>
             <Setter Property="TextBox.Foreground" Value="Black"></Setter>
             <Setter Property="TextBox.TextAlignment" Value="Center"></Setter>
-            <Setter Property="TextBox.BorderBrush" Value="Tomato"></Setter>
+            <Setter Property="TextBox.BorderBrush" Value="#fffa00"></Setter>
+            <Setter Property="TextBox.BorderThickness" Value="2"></Setter>
         </Style>
         <Style x:Key="TextBlockStyle">
             <Setter Property="Button.Height" Value="50"/>
@@ -46,7 +47,7 @@
             <Setter Property="TextBlock.Padding" Value="7"></Setter>
         </Style>
     </Window.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -72,9 +73,9 @@
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Text="Вага"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="1" Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="Teal" Command="{Binding AddItemCommand}" Content="Додати" />
+        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="#26ff71" Command="{Binding AddItemCommand}" Content="Додати" />
 
-        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"  Margin="0 0 100 0" Padding="7" Background="#FFD30C0C" Command="{Binding CancelCommand}"  Content="Відмінити" />
+        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"  Margin="0 0 100 0" Padding="7" Background="#FF1919" Command="{Binding CancelCommand}"  Content="Відмінити" />
 
     </Grid>
 </Window>

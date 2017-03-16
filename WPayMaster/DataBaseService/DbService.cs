@@ -270,12 +270,16 @@ namespace DataBaseService
             }
         }
 
-        public void AddWorkingTime(User user, TimeSpan timeSpan)
+        public void AddWorkingTime(User oldUser, TimeSpan timeSpan)
         {
-            //using (var context = new ShopContext())
-            //{
-            //    var user = context.Users.First(x => x.PassportNumber == user.PassportNumber);
-            //}
+            using (var context = new ShopContext())
+            {
+                var user = context.Users.First(x => x.PassportNumber == oldUser.PassportNumber);
+
+                user.WorkingTime += workingTime;
+
+                context.SaveChanges();
+            }
         }
 
         public List<string> CreateTypeList(TypeView typeView)

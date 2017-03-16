@@ -48,33 +48,33 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControl\DrinkUserControl.xaml.cs">
+    <Compile Include="DrinkUserControl.xaml.cs">
       <DependentUpon>DrinkUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\FoodUserControl.xaml.cs">
+    <Compile Include="FoodUserControl.xaml.cs">
       <DependentUpon>FoodUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\ModificatorUserControl.xaml.cs">
+    <Compile Include="ModificatorUserControl.xaml.cs">
       <DependentUpon>ModificatorUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\UserUserControl.xaml.cs">
+    <Compile Include="UserUserControl.xaml.cs">
       <DependentUpon>UserUserControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="UserControl\DrinkUserControl.xaml">
+    <Page Include="DrinkUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControl\FoodUserControl.xaml">
+    <Page Include="FoodUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControl\ModificatorUserControl.xaml">
+    <Page Include="ModificatorUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControl\UserUserControl.xaml">
+    <Page Include="UserUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
