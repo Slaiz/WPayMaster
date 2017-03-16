@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPF_Project.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="AdminView" MinHeight="900" Height="900" MaxHeight="900" MinWidth="1400" Width="1400" MaxWidth="1400">
@@ -23,7 +22,8 @@
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Focusable" Value="False"/>
-            <Setter Property="Background" Value="SlateGray"></Setter>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
         </Style>
         <Style x:Key="MenuButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="90"/>
@@ -41,7 +41,6 @@
             <Setter Property="BorderBrush" Value="White"></Setter>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="IsReadOnly" Value="True"></Setter>
-            <Setter Property="Visibility" Value="Hidden"></Setter>
         </Style>
         <Style x:Key="TableTextBlockStyle" TargetType="TextBlock">
             <Setter Property="Height" Value="30"/>
@@ -117,7 +116,7 @@
         <TextBlock Grid.Row="0" Grid.Column="0" Height="25" Width="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Transparent"
                  FontSize="20" FontWeight="Bold" Text="{Binding CurrentTime, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="0" Background="DodgerBlue" Command="{Binding OpenUserUserControlCommand}" Click="Button_Click">
+        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="0" Background="DodgerBlue" Command="{Binding OpenUserUserControlCommand}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -125,11 +124,11 @@
                 </Grid.RowDefinitions>
                 <Image Style="{StaticResource TableImageStyle}" Grid.Row="0" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource TableTextBlockStyle}" Grid.Row="1" Text="Робітники"/>
-                <TextBox x:Name="TextBox1" Style="{StaticResource TableTextBoxStyle}" Grid.Row="0" Grid.RowSpan="2"/>
+                <TextBox x:Name="TextBox1" Style="{StaticResource TableTextBoxStyle}" Grid.Row="0" Grid.RowSpan="2" Visibility="{Binding UserTextBoxVisibility}" />
             </Grid>
         </Button>
 
-        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="1" Background="PaleVioletRed" Command="{Binding OpenFoodUserControlCommand}" Click="Button_Click_1">
+        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="1" Background="PaleVioletRed" Command="{Binding OpenFoodUserControlCommand}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -137,23 +136,23 @@
                 </Grid.RowDefinitions>
                 <Image Style="{ StaticResource TableImageStyle}" Grid.Row="0" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource TableTextBlockStyle}" Grid.Row="1"  Text="Їжа"/>
-                <TextBox Style="{StaticResource TableTextBoxStyle}" x:Name="TextBox2" Grid.Row="0" Grid.RowSpan="2"/>
+                <TextBox Style="{StaticResource TableTextBoxStyle}" Grid.Row="0" Grid.RowSpan="2" Visibility="{Binding FoodTextBoxVisibility}"/>
             </Grid>
         </Button>
 
-        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="2" Background="SpringGreen" Command="{Binding OpenDrinkUserControlCommand}" Click="Button_Click_2">
+        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="2" Background="SpringGreen" Command="{Binding OpenDrinkUserControlCommand}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Image Style="{ StaticResource TableImageStyle}" Grid.Row="0" Source="../Icons/CubeIcon.jpg"/>
-                <TextBlock Style="{StaticResource TableTextBlockStyle}" Grid.Row="1" Text="Напитки"/>
-                <TextBox Style="{StaticResource TableTextBoxStyle}"  x:Name="TextBox3" Grid.Row="0" Grid.RowSpan="2"/>
+                <TextBlock Style="{StaticResource TableTextBlockStyle}" Grid.Row="1" Text="Напої"/>
+                <TextBox Style="{StaticResource TableTextBoxStyle}" Grid.Row="0" Grid.RowSpan="2" Visibility="{Binding DrinkTextBoxVisibility}" />
             </Grid>
         </Button>
 
-        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="3" Background="SandyBrown" Command="{Binding OpenModificatorUserControlCommand}" Click="Button_Click_3">
+        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="3" Background="SandyBrown" Command="{Binding OpenModificatorUserControlCommand}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -161,7 +160,7 @@
                 </Grid.RowDefinitions>
                 <Image Style="{ StaticResource TableImageStyle}"  Grid.Row="0" Source="../Icons/CubeIcon.jpg"/>
                 <TextBlock Style="{StaticResource TableTextBlockStyle}" Grid.Row="1" Text="Додаткове"/>
-                <TextBox x:Name="TextBox4" Style="{StaticResource TableTextBoxStyle}" Grid.Row="0" Grid.RowSpan="2"/>
+                <TextBox Style="{StaticResource TableTextBoxStyle}" Grid.Row="0" Grid.RowSpan="2" Visibility="{Binding ModificatorTextBoxVisibility}"/>
             </Grid>
         </Button>
 
@@ -175,45 +174,44 @@
             </Rectangle.Fill>
         </Rectangle>
 
-
         <Button Style="{StaticResource MenuButtonStyle}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Command="{Binding OpenAddItemViewCommand}">
             <StackPanel Orientation="Vertical">
-                <Image Style="{StaticResource MenuImageStyle}" Source="../Icons/AddDocIcon.ico" />
+                <Image Style="{StaticResource MenuImageStyle}" Source="../Icons/Add.png" />
                 <TextBlock Style="{StaticResource MenuTextBlockStyle}" FontSize="18" Text=" Додати"/>
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource MenuButtonStyle}" Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Center" Command="{Binding OpenEditItemViewCommand}">
             <StackPanel>
-                <Image Style="{StaticResource MenuImageStyle}" Source="../Icons/EditDocIcon.png"/>
+                <Image Style="{StaticResource MenuImageStyle}" Source="../Icons/Edit.png"/>
                 <TextBlock Style="{StaticResource MenuTextBlockStyle}" FontSize="15" Text=" Редагувати"/>
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource MenuButtonStyle}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Command="{Binding DeleteItemCommand}">
             <StackPanel>
-                <Image Style="{StaticResource MenuImageStyle}" Source="../Icons/DeleteDocIcon.png"/>
+                <Image Style="{StaticResource MenuImageStyle}" Source="../Icons/Delete.png"/>
                 <TextBlock Style="{StaticResource MenuTextBlockStyle}" FontSize="17" Text=" Видалити"/>
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource MenuButtonStyle}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" Command="{Binding LogOutCommand}">
             <StackPanel>
-                <Image Style="{StaticResource MenuImageStyle}" Source="../Icons/ViewDocIcon.png"/>
+                <Image Style="{StaticResource MenuImageStyle}" Source="../Icons/ItemList.png"/>
                 <TextBlock Style="{StaticResource MenuTextBlockStyle}" FontSize="17" Text=" Перегляд"/>
             </StackPanel>
         </Button>
 
         <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Відкрити вікно статистики" Command="{Binding LogOutCommand}" Margin="0 0 65 0">
-            <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/StatisticsIcon.png"/>
+            <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/Statistics.png"/>
         </Button>
 
         <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Вікдрити вікно історії" Command="{Binding LogOutCommand}" Margin="10 0 10 0">
-            <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/HistoryIcon.jpg"/>
+            <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/History.png" />
         </Button>
 
         <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="4" ToolTip="Вийти з панелі адміністратора" Command="{Binding LogOutCommand}">
-            <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/LogOutIcon.png"/>
+            <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/LogOut.png"/>
         </Button>
     </Grid>
 </Window>

@@ -15,5 +15,6 @@ namespace DataBaseService.Model
         public DbSet<Food> Foods { get; set; }
         public DbSet<Drink> Drinks { get; set; }
         public DbSet<Modificator> Modificators { get; set; }
+        public DbSet<History> Story { get; set; }
     }
 }

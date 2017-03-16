@@ -4,6 +4,7 @@ using DataBaseService.Interface;
 using PropertyChanged;
 using Shared;
 using Shared.Enum;
+using Shared.Interface;
 
 namespace ViewModel.MainViewModel
 {

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using System.Drawing;
 using System.Linq;
+using System.Windows;
 using DataBaseService;
 using DataBaseService.Model;
 using PropertyChanged;
-using Shared.Enum;
 
 namespace ViewModel.UserControlViewModel
 {
@@ -13,6 +13,7 @@ namespace ViewModel.UserControlViewModel
     {
         public static User SelectedItem { get; set; }
         public int Count { get; set; }
+
         public ObservableCollection<User> UserList { get; set; }
 
         public DbService DbService = new DbService();
@@ -44,8 +45,9 @@ namespace ViewModel.UserControlViewModel
 
         private void DoOnDeleteUser(object sender, User user)
         {
-            var newUser = UserList.First(x => x.PassportNumber == user.PassportNumber);
-            UserList.Remove(newUser);
+            var oldUser = UserList.First(x => x.PassportNumber == user.PassportNumber);
+
+            UserList.Remove(oldUser);
             Count = UserList.Count;
         }
 

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO.Packaging;
 using System.Windows;
 using System.Windows.Input;
 using DataBaseService;
@@ -7,7 +6,6 @@ using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
 using Shared.Enum;
-using ViewModel.UserControlViewModel;
 
 namespace ViewModel.AdditionalViewModel
 {

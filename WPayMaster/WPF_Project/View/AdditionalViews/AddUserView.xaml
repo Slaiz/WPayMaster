@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen" 
         Title="AddUserView" Height="500" Width="1400">
 
     <Window.Resources>
@@ -31,7 +31,6 @@
             <Setter Property="TextBox.Background" Value="White"></Setter>
             <Setter Property="TextBox.Foreground" Value="Black"></Setter>
             <Setter Property="TextBox.TextAlignment" Value="Center"></Setter>
-            <Setter Property="TextBox.Padding" Value="7"></Setter>
             <Setter Property="TextBox.BorderBrush" Value="Turquoise"></Setter>
         </Style>
         <Style x:Key="TextBlockStyle">
@@ -44,6 +43,13 @@
             <Setter Property="TextBlock.Foreground" Value="Black"></Setter>
             <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
             <Setter Property="TextBlock.Padding" Value="7"></Setter>
+        </Style>
+        <Style x:Key="ImageStyle" TargetType="Image">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="IsEnabled" Value="False"/>
         </Style>
     </Window.Resources>
     
@@ -69,6 +75,8 @@
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Номер паспорта" />
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="0" Text="{Binding PassportNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Image Style="{StaticResource ImageStyle}" Grid.Row="2" Grid.Column="0" Margin="0 0 180 0" Visibility="{Binding PassportNumberImageVisibility}" Source="../Icons/Error.png"/>
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Посада"/>
         <ComboBox Style="{StaticResource TextBoxStyle}" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding UserPostList}" SelectedItem="{Binding Post, UpdateSourceTrigger=PropertyChanged}"/>

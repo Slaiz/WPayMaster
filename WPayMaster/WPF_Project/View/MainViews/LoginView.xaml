@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPF_Project"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
         Title="Login" MinHeight="420" Height="420" MaxHeight="420" MinWidth="650" Width="650" MaxWidth="650" Background="Teal">
@@ -26,8 +25,8 @@
             <Run FontSize="30" Foreground="White" FontWeight="Bold">Вхід</Run>
         </TextBlock>
 
-        <Image Grid.Row="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Source="../Icons/UserIcon.png" Margin="160,0,0,0"/>
-        <Image Grid.Row="3" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Source="../Icons/PasswordIcon.png" Margin="160,0,0,0"/>
+        <Image Grid.Row="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Source="../Icons/Username.png" Margin="155,0,0,0"/>
+        <Image Grid.Row="3" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Source="../Icons/Password.png" Margin="155,0,0,0"/>
 
         <TextBox Grid.Row="2" Height="35" Width="240" HorizontalAlignment="Center" FontSize="22"  Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Row="3" Height="35" Width="240" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" 

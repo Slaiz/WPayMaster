@@ -6,7 +6,6 @@ using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
 using Shared.Enum;
-using ViewModel.UserControlViewModel;
 
 namespace ViewModel.AdditionalViewModel
 {

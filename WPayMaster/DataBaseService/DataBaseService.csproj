@@ -71,9 +71,14 @@
     <Compile Include="Migrations\201703071306025_ModificatorTable.Designer.cs">
       <DependentUpon>201703071306025_ModificatorTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703161555359_StoryTable.cs" />
+    <Compile Include="Migrations\201703161555359_StoryTable.Designer.cs">
+      <DependentUpon>201703161555359_StoryTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Drink.cs" />
     <Compile Include="Model\Food.cs" />
+    <Compile Include="Model\History.cs" />
     <Compile Include="Model\Modificator.cs" />
     <Compile Include="Model\ShopContext.cs" />
     <Compile Include="Model\User.cs" />
@@ -101,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703071306025_ModificatorTable.resx">
       <DependentUpon>201703071306025_ModificatorTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703161555359_StoryTable.resx">
+      <DependentUpon>201703161555359_StoryTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -36,7 +36,6 @@ namespace ViewModel.AdditionalViewModel
         {
             DbService.AddFood(Name, Type, Price, CookTime, Weight);
 
-
             MessageBox.Show("Запис додано", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 

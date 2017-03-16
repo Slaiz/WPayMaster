@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using DataBaseService;
 using DataBaseService.Model;
 using PropertyChanged;
-using Shared.Enum;
 
 namespace ViewModel.UserControlViewModel
 {
@@ -33,18 +31,20 @@ namespace ViewModel.UserControlViewModel
             Count = DrinkList.Count;
         }
 
-        private void DoOnUpdateDrink(Drink oldItem, Drink newItem)
+        private void DoOnUpdateDrink(Drink oldDrink, Drink newDrink)
         {
-            var drink = DrinkList.First(x => x.DrinkId == oldItem.DrinkId);
+            var drink = DrinkList.First(x => x.DrinkId == oldDrink.DrinkId);
             int index = DrinkList.IndexOf(drink);
 
             DrinkList.RemoveAt(index);
-            DrinkList.Insert(index, newItem);
+            DrinkList.Insert(index, newDrink);
         }
 
         private void DoOnDeleteDrink(object sender, Drink drink)
         {
-            DrinkList.Remove(drink);
+            var oldDrink = DrinkList.First(x => x.DrinkId == drink.DrinkId);
+
+            DrinkList.Remove(oldDrink);
             Count = DrinkList.Count;
         }
     }

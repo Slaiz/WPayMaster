@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using DataBaseService;
 using PropertyChanged;
 using Shared;
 using Shared.Enum;
+using Shared.Interface;
 
 namespace ViewModel.AdditionalViewModel
 {
@@ -16,6 +18,7 @@ namespace ViewModel.AdditionalViewModel
         public ICommand AddItemCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
+        public Visibility PassportNumberImageVisibility { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public int PassportNumber { get; set; }
@@ -25,9 +28,12 @@ namespace ViewModel.AdditionalViewModel
 
         public List<string> UserPostList { get; set; }
 
+
         public AddUserViewModel()
         {
             UserPostList = new List<string>(DbService.CreateTypeList(TypeView.AddUserView));
+
+            PassportNumberImageVisibility = Visibility.Hidden;
 
             AddItemCommand = new CommandHandler(arg => AddItem());
             CancelCommand = new CommandHandler(arg => Cancel());
@@ -35,10 +41,16 @@ namespace ViewModel.AdditionalViewModel
 
         private void AddItem()
         {
-            DbService.AddUser(Name, Surname, PassportNumber, Post, Password, Salary);
+            if (PassportNumber >= 100000000 || PassportNumber <= 0 || PassportNumber%100000000 <= 10000000)
+                PassportNumberImageVisibility = Visibility.Visible;
+            else
+            {
+                PassportNumberImageVisibility = Visibility.Hidden;
 
+                DbService.AddUser(Name, Surname, PassportNumber, Post, Password, Salary);
 
-            MessageBox.Show("Запис додано", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Запис додано", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Cancel()

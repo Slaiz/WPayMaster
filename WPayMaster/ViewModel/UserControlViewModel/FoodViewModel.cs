@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using DataBaseService;
 using DataBaseService.Model;
 using PropertyChanged;
-using Shared.Enum;
 
 namespace ViewModel.UserControlViewModel
 {
@@ -44,7 +42,9 @@ namespace ViewModel.UserControlViewModel
 
         private void DoOnDeleteFood(object sender, Food food)
         {
-            FoodList.Remove(food);
+            var oldFood = FoodList.First(x => x.FoodId == food.FoodId);
+
+            FoodList.Remove(oldFood);
             Count = FoodList.Count;
         }
 

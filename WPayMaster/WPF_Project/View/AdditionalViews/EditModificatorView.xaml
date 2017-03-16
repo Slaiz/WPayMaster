@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPF_Project.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="EditModificatorView" Height="500" Width="1400">
@@ -32,7 +31,6 @@
             <Setter Property="TextBox.Background" Value="White"></Setter>
             <Setter Property="TextBox.Foreground" Value="Black"></Setter>
             <Setter Property="TextBox.TextAlignment" Value="Center"></Setter>
-            <Setter Property="TextBox.Padding" Value="7"></Setter>
             <Setter Property="TextBox.BorderBrush" Value="Tomato"></Setter>
         </Style>
         <Style x:Key="TextBlockStyle">

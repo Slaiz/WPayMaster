@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using DataBaseService;
 using DataBaseService.Model;
 using PropertyChanged;
-using Shared.Enum;
 
 namespace ViewModel.UserControlViewModel
 {
@@ -46,7 +44,9 @@ namespace ViewModel.UserControlViewModel
 
         private void DoOnDeleteModificator(object sender, Modificator modificator)
         {
-            ModificatorList.Remove(modificator);
+            var oldModificator = ModificatorList.First(x => x.ModificatorId == modificator.ModificatorId);
+
+            ModificatorList.Remove(oldModificator);
             Count = ModificatorList.Count;
         }
 

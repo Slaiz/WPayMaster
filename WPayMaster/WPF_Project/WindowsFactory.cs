@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Windows;
+using System.Windows.Threading;
 using DataBaseService.Interface;
 using DataBaseService.Model;
 using Shared.Enum;
-using ViewModel;
+using Shared.Interface;
 using ViewModel.AdditionalViewModel;
 using ViewModel.ItemListViewModel;
 using ViewModel.MainViewModel;
@@ -26,6 +26,11 @@ namespace WPF_Project
 
         }
 
+        public static void CloseWindow(Window view)
+        {
+            view.Close();
+        }
+
         public void StartLoginView()
         {
             LoginViewModel.OnLogIn += LoginViewModelOnOnLogIn;
@@ -35,14 +40,14 @@ namespace WPF_Project
             AddView(loginView, null);
         }
 
-        private void LoginViewModelOnOnLogIn(TypeView typeView, string s)
+        private void LoginViewModelOnOnLogIn(TypeView typeView, User user)
         {
             switch (typeView)
             {
                 case TypeView.OrderView:
                     {
                         orderView = new OrderView();
-                        orderView.DataContext = new OrderViewModel(CreateViewAction, s);
+                        orderView.DataContext = new OrderViewModel(CreateViewAction, user);
                         loginView.Close();
                         orderView.Show();
                         AddView(orderView, loginView);
@@ -52,7 +57,7 @@ namespace WPF_Project
                 case TypeView.AdminView:
                     {
                         adminView = new AdminView();
-                        adminView.DataContext = new AdminViewModel(CreateViewAction, s);
+                        adminView.DataContext = new AdminViewModel(CreateViewAction, user);
                         loginView.Close();
                         adminView.Show();
                         AddView(adminView, loginView);
@@ -72,6 +77,11 @@ namespace WPF_Project
             CloseAllView();
             AddView(loginView, null);
             loginView.Show();
+        }
+
+        public static void CloseViewAction(TypeView typeView)
+        {
+            Application.Current.MainWindow.Close();
         }
 
         public static IView CreateViewAction(object o, TypeView typeView)

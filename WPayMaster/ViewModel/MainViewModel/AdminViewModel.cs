@@ -1,14 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 using DataBaseService;
-using DataBaseService.Interface;
 using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
 using Shared.Enum;
+using Shared.Interface;
 using ViewModel.UserControlViewModel;
 using WPF_Project.View.UserControl;
 
@@ -27,15 +28,19 @@ namespace ViewModel.MainViewModel
         public ICommand OpenEditItemViewCommand { get; set; }
         public ICommand DeleteItemCommand { get; set; }
 
-        public UserViewModel userViewModel;
-        public FoodViewModel foodViewModel;
-        public DrinkViewModel drinkViewModel;
-        public ModificatorViewModel modificatorViewModel;
+        private UserViewModel userViewModel;
+        private FoodViewModel foodViewModel;
+        private DrinkViewModel drinkViewModel;
+        private ModificatorViewModel modificatorViewModel;
 
         public DbService DbService = new DbService();
 
         public Func<object, TypeView, IView> CreateViewAction { get; set; }
 
+        public Visibility UserTextBoxVisibility { get; set; }
+        public Visibility FoodTextBoxVisibility { get; set; }
+        public Visibility DrinkTextBoxVisibility { get; set; }
+        public Visibility ModificatorTextBoxVisibility { get; set; }
         public string AdminName { get; set; }
         public DateTime CurrentTime { get; set; }
         public object SelectedItem { get; set; }
@@ -44,11 +49,13 @@ namespace ViewModel.MainViewModel
         private TypeView TypeAddViewItem { get; set; }
         private TypeView TypeEditViewItem { get; set; }
 
-        public AdminViewModel(Func<object, TypeView, IView> createViewAction, string adminName)
+        public AdminViewModel(Func<object, TypeView, IView> createViewAction, User user)
         {
             CreateViewAction = createViewAction;
 
-            AdminName = adminName;
+            UserTextBoxVisibility = Visibility.Visible;
+
+            AdminName = user.UserName + " " + user.Surname;
 
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1),
             DispatcherPriority.Normal,
@@ -187,6 +194,10 @@ namespace ViewModel.MainViewModel
                         CurrentUserControl.DataContext = userViewModel;
                         TypeAddViewItem = TypeView.AddUserView;
                         TypeEditViewItem = TypeView.EditUserView;
+                        UserTextBoxVisibility = Visibility.Visible;
+                        FoodTextBoxVisibility = Visibility.Hidden;
+                        DrinkTextBoxVisibility = Visibility.Hidden;
+                        ModificatorTextBoxVisibility = Visibility.Hidden;
                         break;
                     }
                 case TypeUserControl.FoodUserControl:
@@ -196,6 +207,10 @@ namespace ViewModel.MainViewModel
                         CurrentUserControl.DataContext = foodViewModel;
                         TypeAddViewItem = TypeView.AddFoodView;
                         TypeEditViewItem = TypeView.EditFoodView;
+                        UserTextBoxVisibility = Visibility.Hidden;
+                        FoodTextBoxVisibility = Visibility.Visible;
+                        DrinkTextBoxVisibility = Visibility.Hidden;
+                        ModificatorTextBoxVisibility = Visibility.Hidden;
                         break;
                     }
                 case TypeUserControl.DrinkUserControl:
@@ -205,6 +220,10 @@ namespace ViewModel.MainViewModel
                         CurrentUserControl.DataContext = drinkViewModel;
                         TypeAddViewItem = TypeView.AddDrinkView;
                         TypeEditViewItem = TypeView.EditDrinkView;
+                        UserTextBoxVisibility = Visibility.Hidden;
+                        FoodTextBoxVisibility = Visibility.Hidden;
+                        DrinkTextBoxVisibility = Visibility.Visible;
+                        ModificatorTextBoxVisibility = Visibility.Hidden;
                         break;
                     }
                 case TypeUserControl.ModificatorUserControl:
@@ -214,6 +233,10 @@ namespace ViewModel.MainViewModel
                         CurrentUserControl.DataContext = modificatorViewModel;
                         TypeAddViewItem = TypeView.AddModificatorView;
                         TypeEditViewItem = TypeView.EditModificatorView;
+                        UserTextBoxVisibility = Visibility.Hidden;
+                        FoodTextBoxVisibility = Visibility.Hidden;
+                        DrinkTextBoxVisibility = Visibility.Hidden;
+                        ModificatorTextBoxVisibility = Visibility.Visible;
                         break;
                     }
             }

@@ -3,25 +3,22 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataBaseService.Model
 {
-    public class User
+    public class History
     {
         [Key]
-        public int UserId { get; set; }
+        public int HistoryId { get; set; }
         [MaxLength(50)]
         [Required]
         public string UserName { get; set; }
         [MaxLength(50)]
         [Required]
-        public string Surname{ get; set; }
-        [Required]
-        public int PassportNumber { get; set; }
+        public string Surname { get; set; }
         [MaxLength(50)]
         [Required]
         public string Post { get; set; }
         [MaxLength(10)]
         [Required]
-        public string Password { get; set; }
-        public int Salary { get; set; }
-        public TimeSpan WorkingTime { get; set; }
+        public string ActionName { get; set; }
+        public DateTime DateAction { get; set; }
     }
 }

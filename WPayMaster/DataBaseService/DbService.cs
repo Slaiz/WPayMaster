@@ -74,7 +74,7 @@ namespace DataBaseService
                 user.Post = post;
                 user.Password = password;
                 user.Salary = salary;
-                user.WorkingTime = 0;
+                user.WorkingTime = TimeSpan.Zero;
 
                 context.Users.Add(user);
 
@@ -154,7 +154,7 @@ namespace DataBaseService
                 user.Post = post;
                 user.Password = password;
                 user.Salary = salary;
-                user.WorkingTime = 0;
+                user.WorkingTime = TimeSpan.Zero;
 
                 context.SaveChanges();
 
@@ -268,6 +268,14 @@ namespace DataBaseService
 
                 DoOnDeleteModificator(modificator);
             }
+        }
+
+        public void AddWorkingTime(User user, TimeSpan timeSpan)
+        {
+            //using (var context = new ShopContext())
+            //{
+            //    var user = context.Users.First(x => x.PassportNumber == user.PassportNumber);
+            //}
         }
 
         public List<string> CreateTypeList(TypeView typeView)

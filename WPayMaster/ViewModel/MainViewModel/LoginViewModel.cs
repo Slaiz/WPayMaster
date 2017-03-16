@@ -13,7 +13,7 @@ namespace ViewModel.MainViewModel
     [ImplementPropertyChanged]
     public class LoginViewModel
     {
-        public static event Action<TypeView, string> OnLogIn;
+        public static event Action<TypeView, User> OnLogIn;
 
         public DbService DbService = new DbService();
 
@@ -39,8 +39,8 @@ namespace ViewModel.MainViewModel
                     if (user.UserName.Contains(Login) && user.Password.Contains(Password))
                     {
                         if (user.Post.Contains("Адміністратор"))
-                            DoOnLogIn(TypeView.AdminView, user.UserName + " " + user.Surname);
-                        else DoOnLogIn(TypeView.OrderView, user.UserName + " " + user.Surname);
+                            DoOnLogIn(TypeView.AdminView, user);
+                        else DoOnLogIn(TypeView.OrderView, user);
                         return;
                     }
                 }
@@ -51,9 +51,9 @@ namespace ViewModel.MainViewModel
         }
 
 
-        private static void DoOnLogIn(TypeView arg1, string arg2)
+        private static void DoOnLogIn(TypeView arg1, User user)
         {
-            OnLogIn?.Invoke(arg1, arg2);
+            OnLogIn?.Invoke(arg1, user);
         }
     }
 }

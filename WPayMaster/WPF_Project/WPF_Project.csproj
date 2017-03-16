@@ -195,12 +195,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icons\UserIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\Icons\PasswordIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DataBaseService\DataBaseService.csproj">
       <Project>{0d3675fe-6c0d-4de9-b612-3c70522fdeb0}</Project>
       <Name>DataBaseService</Name>
@@ -224,25 +218,23 @@
     <Resource Include="View\Icons\BreakIcon.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icons\CubeIcon.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\Icons\AddDocIcon.ico" />
-    <Resource Include="View\Icons\DeleteDocIcon.png" />
-    <Resource Include="View\Icons\EditDocIcon.png" />
-    <Resource Include="View\Icons\ViewDocIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\Icons\LogOutIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="View\Icons\TimeBreakIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icons\StatisticsIcon.png" />
+    <Resource Include="View\Icons\Add.png" />
+    <Resource Include="View\Icons\Delete.png" />
+    <Resource Include="View\Icons\Edit.png" />
+    <Resource Include="View\Icons\Error.png" />
+    <Resource Include="View\Icons\History.png" />
+    <Resource Include="View\Icons\ItemList.png" />
+    <Resource Include="View\Icons\LogOut.png" />
+    <Resource Include="View\Icons\Password.png" />
+    <Resource Include="View\Icons\Start.png" />
+    <Resource Include="View\Icons\Statistics.png" />
+    <Resource Include="View\Icons\Username.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icons\HistoryIcon.jpg" />
+    <Resource Include="View\Icons\CubeIcon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

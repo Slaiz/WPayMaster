@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPF_Project.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="OrderView" MinHeight="900" Height="900" MaxHeight="900" MinWidth="1400" Width="1400" MaxWidth="1400">
@@ -54,15 +53,19 @@
         <ToolBarTray Grid.Row="1" Grid.Column="1" Orientation="Vertical" Width="85" HorizontalAlignment="Left">
             <ToolBar HorizontalAlignment="Left" Width="85">
                 <Button Background="Transparent" Focusable="False" Height="70" Width="70" FontSize="20" FontWeight="Bold" Margin="5"
-                        BorderBrush="Red" BorderThickness="2" Command="{Binding LogOutCommand}">
-                    <Image Height="65" Width="65" HorizontalAlignment="Right" VerticalAlignment="Top" Source="../Icons/LogOutIcon.png"/>
+                        BorderBrush="Red" BorderThickness="2" ToolTip="Вийти з панелі касира" Command="{Binding LogOutCommand}">
+                    <Image Height="65" Width="65" HorizontalAlignment="Right" VerticalAlignment="Top" Source="../Icons/LogOut.png"/>
+                </Button>
+                <Button Background="Transparent" Focusable="False" Height="70" Width="70" FontSize="20" FontWeight="Bold" Margin="5"
+                        BorderBrush="Green" BorderThickness="2" ToolTip="Почати зміну" Command="{Binding StartWorkCommand}">
+                    <Image Height="65" Width="65" HorizontalAlignment="Right" VerticalAlignment="Top" Source="../Icons/Start.png"/>
                 </Button>
                 <Button Background="Transparent" Focusable="False" Height="70" Width="70" FontSize="20" FontWeight="Bold" Margin="5" 
-                        BorderBrush="Yellow" BorderThickness="2" Command="{Binding OpenMakeOrderViewCommand}">
+                        BorderBrush="Yellow" BorderThickness="2" ToolTip="Піти на обід" Command="{Binding OpenMakeOrderViewCommand}">
                     <Image Height="55" Width="55" HorizontalAlignment="Right" VerticalAlignment="Top" Source="../Icons/TimeBreakIcon.png"/>
                 </Button>
                 <Button Background="Transparent" Focusable="False" Height="70" Width="70" FontSize="20" FontWeight="Bold" Margin="5"
-                        BorderBrush="YellowGreen" BorderThickness="2" Command="{Binding OpenMakeOrderViewCommand}">
+                        BorderBrush="DarkTurquoise" BorderThickness="2" ToolTip="Зробити замовлення" Command="{Binding OpenMakeOrderViewCommand}">
                     <Image Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Top" Source="../Icons/AddOrderIcon.png"/>
                 </Button>
             </ToolBar>

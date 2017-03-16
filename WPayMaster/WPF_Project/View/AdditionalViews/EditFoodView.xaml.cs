@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using DataBaseService.Interface;
+using Shared.Interface;
 using ViewModel.AdditionalViewModel;
 
 namespace WPF_Project.View
@@ -18,7 +19,12 @@ namespace WPF_Project.View
 
         public void ShowView()
         {
-            Show();
+            ShowDialog();
+        }
+
+        public void CloseView()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

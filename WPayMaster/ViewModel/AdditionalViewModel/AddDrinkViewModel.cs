@@ -28,16 +28,27 @@ namespace ViewModel.AdditionalViewModel
             DrinkTypeList = new List<string>(DbService.CreateTypeList(TypeView.AddDrinkView));
 
             AddItemCommand = new CommandHandler(arg => AddItem());
-            CancelCommand = new CommandHandler(arg =>Cancel());
+            CancelCommand = new CommandHandler(arg => Cancel());
         }
 
         private void AddItem()
         {
-            DbService.AddDrink(Name, Type, Price, Volume);
+            if (Name != null || Type != null || Price != 0 || Volume != 0)
+                if (Price >= 1)
+                {
+                    if (Volume >= 1)
+                    {
+                        DbService.AddDrink(Name, Type, Price, Volume);
 
-            MessageBox.Show("Запис додано","Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                        MessageBox.Show("Запис додано", "Повідомлення", MessageBoxButton.OK,
+                            MessageBoxImage.Information);
+                    }
+                    else MessageBox.Show("Введіть об'єм більше 0", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else MessageBox.Show("Введіть ціну більше 0", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+            else MessageBox.Show("Бідь ласка заповніть всі поля", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
 
         private void Cancel()
         {
