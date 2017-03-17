@@ -92,8 +92,50 @@
     <Compile Include="View\AdditionalViews\EditUserView.xaml.cs">
       <DependentUpon>EditUserView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ItemListViews\SoupView.xaml.cs">
-      <DependentUpon>SoupView.xaml</DependentUpon>
+    <Compile Include="View\ItemListViews\ColdDrinkListView.xaml.cs">
+      <DependentUpon>ColdDrinkListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\DessertListView.xaml.cs">
+      <DependentUpon>DessertListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\FishListView.xaml.cs">
+      <DependentUpon>FishListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\GarnishListView.xaml.cs">
+      <DependentUpon>GarnishListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\HotDrinkListView.xaml.cs">
+      <DependentUpon>HotDrinkListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\JuiceListView.xaml.cs">
+      <DependentUpon>JuiceListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\MealListView.xaml.cs">
+      <DependentUpon>MealListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\MeatDishListView.xaml.cs">
+      <DependentUpon>MeatDishListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\PastaListView.xaml.cs">
+      <DependentUpon>PastaListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\PizzaListView.xaml.cs">
+      <DependentUpon>PizzaListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\SaladListView.xaml.cs">
+      <DependentUpon>SaladListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\SauceListView.xaml.cs">
+      <DependentUpon>SauceListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\SnackListView.xaml.cs">
+      <DependentUpon>SnackListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemListViews\SoupListView.xaml.cs">
+      <DependentUpon>SoupListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainViews\HistoryView.xaml.cs">
+      <DependentUpon>HistoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainViews\MakeOrderView.xaml.cs">
       <DependentUpon>MakeOrderView.xaml</DependentUpon>
@@ -118,7 +160,59 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ItemListViews\SoupView.xaml">
+    <Page Include="View\ItemListViews\ColdDrinkListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\DessertListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\FishListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\GarnishListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\HotDrinkListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\JuiceListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\MealListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\MeatDishListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\PastaListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\PizzaListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\SaladListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\SauceListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\SnackListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\SoupListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,6 +233,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdditionalViews\EditUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainViews\HistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -235,6 +333,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Icons\CubeIcon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\Stop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

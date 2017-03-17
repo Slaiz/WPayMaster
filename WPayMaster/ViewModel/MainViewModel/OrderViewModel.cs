@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Data;
-using System.Diagnostics;
 using System.Windows.Input;
 using System.Windows.Threading;
 using DataBaseService;
-using DataBaseService.Interface;
 using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
@@ -22,6 +19,7 @@ namespace ViewModel.MainViewModel
 
         public ICommand LogOutCommand { get; set; }
         public ICommand StartWorkCommand { get; set; }
+        public ICommand StopWorkCommand { get; set; }
         public ICommand OpenMakeOrderViewCommand { get; set; }
 
         public DbService DbService = new DbService();
@@ -30,7 +28,6 @@ namespace ViewModel.MainViewModel
         public string CashierName { get; set; }
         public DateTime CurrentTime { get; set; }
         public DateTime StartWorkTime { get; set; }
-        public TimeSpan WorkingTime { get; set; }
 
         public OrderViewModel(Func<object, TypeView, IView> createViewAction, User user)
         {
@@ -49,12 +46,18 @@ namespace ViewModel.MainViewModel
 
             LogOutCommand = new CommandHandler(arg => LogOut());
             StartWorkCommand = new CommandHandler(arg => StartWork());
+            StopWorkCommand = new CommandHandler(arg => StopWork());
             OpenMakeOrderViewCommand = new CommandHandler(arg => OpenMakeOrderView());
         }
 
         private void StartWork()
         {
             StartWorkTime = DateTime.Now;
+        }
+
+        private void StopWork()
+        {
+            DbService.AddWorkingTime(Cashier, CurrentTime - StartWorkTime);
         }
 
         private void OpenMakeOrderView()
@@ -64,8 +67,6 @@ namespace ViewModel.MainViewModel
 
         private void LogOut()
         {
-            DbService.AddWorkingTime(Cashier, CurrentTime - StartWorkTime);
-
             DoOnLogOut(TypeView.OrderView);
         }
 

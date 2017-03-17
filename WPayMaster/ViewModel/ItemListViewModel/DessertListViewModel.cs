@@ -1,6 +1,6 @@
 ﻿namespace ViewModel.ItemListViewModel
 {
-    public class SoupViewModel
+    public class DessertListViewModel
     {
          
     }

@@ -57,20 +57,11 @@
             <Setter Property="TextAlignment" Value="Center"></Setter>
             <Setter Property="Padding" Value="7"></Setter>
         </Style>
-        <Style x:Key="ImageTextBlockStyle" TargetType="TextBlock">
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Width" Value="40"/>
-            <Setter Property="HorizontalAlignment" Value="Right"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="IsEnabled" Value="False"/>
-            <Setter Property="Margin" Value="0 0 180 0"/>
-        </Style>
         <Style x:Key="ImageStyle" TargetType="Image">
             <Setter Property="Height" Value="40"/>
             <Setter Property="Width" Value="40"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="IsEnabled" Value="False"/>
             <Setter Property="Margin" Value="0 0 180 0"/>
         </Style>
     </Window.Resources>
@@ -92,19 +83,7 @@
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="0" Text="Ім'я"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="0" Grid.Column="0" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
 
-
-        <!--<TextBlock Style="{StaticResource ImageTextBlockStyle}" Grid.Row="0" Grid.Column="0" Visibility="{Binding NameImageVisibility}">
-            <TextBlock.ToolTip>
-                
-            </TextBlock.ToolTip><Image Style="{StaticResource ImageStyle}" Source="../Icons/Error.png" />
-        </TextBlock>-->
-
-        <Image Style="{StaticResource ImageStyle}" Source="../Icons/Error.png" Grid.Row="0" Grid.Column="0" Visibility="{Binding NameImageVisibility}">
-            <Image.ToolTip>
-                <ToolTip Content="Введіть імя"/>
-            </Image.ToolTip>
-        </Image>
-
+        <Image Style="{StaticResource ImageStyle}" Source="../Icons/Error.png" Grid.Row="0" Grid.Column="0" ToolTip="Введіть імя" Visibility="{Binding NameImageVisibility}"/>
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Прізвище"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="0" Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"/>

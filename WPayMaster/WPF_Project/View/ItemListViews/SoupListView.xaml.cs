@@ -8,9 +8,9 @@ namespace WPF_Project.View.ListOrederView
     /// <summary>
     /// Interaction logic for SoupView.xaml
     /// </summary>
-    public partial class SoupView : Window, IView
+    public partial class SoupListView : Window, IView
     {
-        public SoupView(SoupViewModel soupViewModel)
+        public SoupListView(SoupListViewModel soupViewModel)
         {
             DataContext = soupViewModel;
 
@@ -19,12 +19,7 @@ namespace WPF_Project.View.ListOrederView
 
         public void ShowView()
         {
-            Show();
-        }
-
-        public void CloseView()
-        {
-            throw new System.NotImplementedException();
+            ShowDialog();
         }
     }
 }

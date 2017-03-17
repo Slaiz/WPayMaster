@@ -1,0 +1,34 @@
+﻿<Window x:Class="WPF_Project.View.MainViews.HistoryView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Project.View.MainViews"
+        mc:Ignorable="d"
+        Title="HistoryView" ResizeMode="NoResize" Height="800" Width="1300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0"  AutoGenerateColumns="False" IsReadOnly="True" ItemsSource = "{Binding StoryList}" 
+                  Height="Auto" Width="Auto" Margin="0 10 0 0" FontSize="20" FontWeight="Bold" Foreground="RoyalBlue">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding HistoryId}" Header="Id" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding UserName}" Header="Ім'я користувача" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Surname}" Header="Прізвище користувача" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Post}" Header="Посада" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ActionName}" Header="Дія" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding DateAction, StringFormat=d}" Header="Дата" FontSize="16" FontWeight="Bold" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Height="Auto" Width="Auto">
+            <TextBlock  Height="30" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" FontWeight="Medium" Foreground="DarkGray" 
+                        Text="Count:" Padding="5"/>
+            <TextBlock  Height="30" Width="Auto" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" FontWeight="Medium" Foreground="DarkGray" 
+                        TextAlignment="Center" Padding="5" Text="{Binding Count}"/>
+        </StackPanel>
+    </Grid>
+</Window>

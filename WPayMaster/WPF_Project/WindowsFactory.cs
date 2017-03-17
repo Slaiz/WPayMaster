@@ -10,7 +10,9 @@ using ViewModel.AdditionalViewModel;
 using ViewModel.ItemListViewModel;
 using ViewModel.MainViewModel;
 using WPF_Project.View;
+using WPF_Project.View.ItemListViews;
 using WPF_Project.View.ListOrederView;
+using WPF_Project.View.MainViews;
 
 namespace WPF_Project
 {
@@ -145,9 +147,93 @@ namespace WPF_Project
                         view.ShowView();
                         break;
                     }
-                case TypeView.SoupView:
+                case TypeView.HistoryView:
                     {
-                        view = new SoupView(new SoupViewModel());
+                        view = new HistoryView(new HistoryViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.ColdDrinkListView:
+                    {
+                        view = new ColdDrinkListView(new ColdDrinkListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.DessertListView:
+                    {
+                        view = new DessertListView(new DessertListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.FishListView:
+                    {
+                        view = new FishListView(new FishListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.GarnishListView:
+                    {
+                        view = new GarnishListView(new GarnishListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.HotDrinkListView:
+                    {
+                        view = new HotDrinkListView(new HotDrinkListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.JuiceListView:
+                    {
+                        view = new JuiceListView(new JuiceListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.MealListView:
+                    {
+                        view = new MealListView(new MealListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.MeatDishListView:
+                    {
+                        view = new MeatDishListView(new MeatDishListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.PastaListView:
+                    {
+                        view = new PastaListView(new PastaListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.PizzaListView:
+                    {
+                        view = new PizzaListView(new PizzaListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.SaladListView:
+                    {
+                        view = new SaladListView(new SaladListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.SauceListView:
+                    {
+                        view = new SauceListView(new SauceListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.SnackListView:
+                    {
+                        view = new SnackListView(new SnackListViewModel());
+                        view.ShowView();
+                        break;
+                    }
+                case TypeView.SoupListView:
+                    {
+                        view = new SoupListView(new SoupListViewModel());
                         view.ShowView();
                         break;
                     }

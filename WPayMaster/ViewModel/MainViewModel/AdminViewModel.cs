@@ -19,6 +19,7 @@ namespace ViewModel.MainViewModel
     public class AdminViewModel
     {
         public static event EventHandler<TypeView> OnLogOut;
+        public ICommand OpenHistoryViewCommand { get; set; }
         public ICommand LogOutCommand { get; set; }
         public ICommand OpenUserUserControlCommand { get; set; }
         public ICommand OpenFoodUserControlCommand { get; set; }
@@ -68,6 +69,7 @@ namespace ViewModel.MainViewModel
             OpenUserControl(TypeUserControl.UserUserControl);
 
             LogOutCommand = new CommandHandler(arg => LogOut());
+            OpenHistoryViewCommand = new CommandHandler(arg => OpenHistoryView());
             OpenUserUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.UserUserControl));
             OpenFoodUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.FoodUserControl));
             OpenDrinkUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.DrinkUserControl));
@@ -76,6 +78,11 @@ namespace ViewModel.MainViewModel
             OpenAddItemViewCommand = new CommandHandler(arg => OpenAddItemView());
             OpenEditItemViewCommand = new CommandHandler(arg => OpenEditItemView());
             DeleteItemCommand = new CommandHandler(arg => DeleteItem());
+        }
+
+        private void OpenHistoryView()
+        {
+            CreateViewAction.Invoke(null, TypeView.HistoryView);
         }
 
         private void OpenAddItemView()

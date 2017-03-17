@@ -74,7 +74,7 @@ namespace DataBaseService
                 user.Post = post;
                 user.Password = password;
                 user.Salary = salary;
-                //user.WorkingTime = TimeSpan.Zero;
+                user.WorkingTime = TimeSpan.Zero;
 
                 context.Users.Add(user);
 
@@ -154,7 +154,7 @@ namespace DataBaseService
                 user.Post = post;
                 user.Password = password;
                 user.Salary = salary;
-                //user.WorkingTime = TimeSpan.Zero;
+                user.WorkingTime = TimeSpan.Zero;
 
                 context.SaveChanges();
 
@@ -270,7 +270,12 @@ namespace DataBaseService
             }
         }
 
-        public void AddWorkingTime(User oldUser, TimeSpan timeSpan)
+        public void WriteStory(User worker, TypeStory typeStory)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddWorkingTime(User oldUser, TimeSpan workingTime)
         {
             using (var context = new ShopContext())
             {

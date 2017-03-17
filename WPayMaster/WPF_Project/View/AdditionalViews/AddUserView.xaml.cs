@@ -21,10 +21,5 @@ namespace WPF_Project.View
         {
             ShowDialog();
         }
-
-        public void CloseView()
-        {
-            Close();
-        }
     }
 }

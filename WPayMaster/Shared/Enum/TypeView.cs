@@ -5,6 +5,7 @@
         AdminView,
         LoginView,
         OrderView,
+        HistoryView,
         MakeOrderView,
         AddUserView,
         AddFoodView,
@@ -14,6 +15,19 @@
         EditFoodView,
         EditDrinkView,
         EditModificatorView,
-        SoupView       
+        ColdDrinkListView,
+        DessertListView,
+        FishListView,
+        GarnishListView,
+        HotDrinkListView,
+        JuiceListView,
+        MealListView,
+        MeatDishListView,
+        PastaListView,
+        PizzaListView,
+        SaladListView,
+        SauceListView,
+        SnackListView,
+        SoupListView       
     }
 }

@@ -23,7 +23,8 @@ namespace DataBaseService.Interface
         void DeleteFood(Food item);
         void DeleteDrink(Drink item);
         void DeleteModificator(Modificator item);
-        void AddWorkingTime(User oldUser, TimeSpan timeSpan)
+        void WriteStory(User worker, TypeStory typeStory);
+        void AddWorkingTime(User oldUser, TimeSpan timeSpan);
         List<string> CreateTypeList(TypeView typeView); 
     }
 }

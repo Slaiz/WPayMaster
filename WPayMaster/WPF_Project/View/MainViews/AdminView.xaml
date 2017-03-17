@@ -206,7 +206,7 @@
             <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/Statistics.png"/>
         </Button>
 
-        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Вікдрити вікно історії" Command="{Binding LogOutCommand}" Margin="10 0 10 0">
+        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Вікдрити вікно історії" Command="{Binding OpenHistoryViewCommand}" Margin="10 0 10 0">
             <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/History.png" />
         </Button>
 
