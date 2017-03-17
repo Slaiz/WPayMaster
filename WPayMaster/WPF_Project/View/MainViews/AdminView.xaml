@@ -116,7 +116,7 @@
         <TextBlock Grid.Row="0" Grid.Column="0" Height="25" Width="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Transparent"
                  FontSize="20" FontWeight="Bold" Text="{Binding CurrentTime, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="0" Background="DodgerBlue" Command="{Binding OpenUserUserControlCommand}">
+        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="0" Background="#ff00aaff" Command="{Binding OpenUserUserControlCommand}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -128,7 +128,7 @@
             </Grid>
         </Button>
 
-        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="1" Background="PaleVioletRed" Command="{Binding OpenFoodUserControlCommand}">
+        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="1" Background="#ffFF1900" Command="{Binding OpenFoodUserControlCommand}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -152,7 +152,7 @@
             </Grid>
         </Button>
 
-        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="3" Background="SandyBrown" Command="{Binding OpenModificatorUserControlCommand}">
+        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="3" Background="#fffa00" Command="{Binding OpenModificatorUserControlCommand}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>

@@ -11,7 +11,7 @@ using Shared;
 using Shared.Enum;
 using Shared.Interface;
 using ViewModel.UserControlViewModel;
-using WPF_Project.View.UserControl;
+using UserControl;
 
 namespace ViewModel.MainViewModel
 {
@@ -45,7 +45,7 @@ namespace ViewModel.MainViewModel
         public DateTime CurrentTime { get; set; }
         public object SelectedItem { get; set; }
 
-        public UserControl CurrentUserControl { get; set; }
+        public System.Windows.Controls.UserControl CurrentUserControl { get; set; }
         private TypeView TypeAddViewItem { get; set; }
         private TypeView TypeEditViewItem { get; set; }
 

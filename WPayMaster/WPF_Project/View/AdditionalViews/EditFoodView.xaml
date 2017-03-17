@@ -31,8 +31,8 @@
             <Setter Property="TextBox.FontWeight" Value="Bold"></Setter>
             <Setter Property="TextBox.Background" Value="White"></Setter>
             <Setter Property="TextBox.Foreground" Value="Black"></Setter>
-            <Setter Property="TextBox.TextAlignment" Value="Center"></Setter>
-            <Setter Property="TextBox.BorderBrush" Value="#FF0000"></Setter>
+            <Setter Property="TextBox.BorderBrush" Value="#ff0000"></Setter>
+            <Setter Property="TextBox.BorderThickness" Value="2"></Setter>
         </Style>
         <Style x:Key="TextBlockStyle">
             <Setter Property="Button.Height" Value="50"/>
@@ -75,9 +75,9 @@
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Text="Вага" />
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="1" Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center"  Background="Teal" Command="{Binding SaveItemCommand}" Content="Зберегти" />
+        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center"  Background="#26ff71" Command="{Binding SaveItemCommand}" Content="Зберегти" />
 
-        <Button Style="{StaticResource ButtonStyle}"  HorizontalAlignment="Right" Margin="0 0 100 0" Background="#FFD30C0C" Command="{Binding CancelCommand}"  Content="Відмінити" />
+        <Button Style="{StaticResource ButtonStyle}"  HorizontalAlignment="Right" Margin="0 0 100 0" Background="#FF1919" Command="{Binding CancelCommand}"  Content="Відмінити" />
 
     </Grid>
 </Window>

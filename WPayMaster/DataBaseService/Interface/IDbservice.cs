@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DataBaseService.Model;
 using Shared.Enum;
 
@@ -22,6 +23,7 @@ namespace DataBaseService.Interface
         void DeleteFood(Food item);
         void DeleteDrink(Drink item);
         void DeleteModificator(Modificator item);
+        void AddWorkingTime(User oldUser, TimeSpan timeSpan)
         List<string> CreateTypeList(TypeView typeView); 
     }
 }

@@ -32,10 +32,11 @@ namespace ViewModel.MainViewModel
         public DateTime StartWorkTime { get; set; }
         public TimeSpan WorkingTime { get; set; }
 
-        public OrderViewModel(Func<object, TypeView, IView>  createViewAction, User user)
+        public OrderViewModel(Func<object, TypeView, IView> createViewAction, User user)
         {
             CreateViewAction = createViewAction;
 
+            Cashier = user;
             CashierName = user.UserName + " " + user.Surname;
 
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1),
@@ -46,7 +47,7 @@ namespace ViewModel.MainViewModel
             },
             Dispatcher.CurrentDispatcher);
 
-            LogOutCommand = new CommandHandler(arg =>LogOut());
+            LogOutCommand = new CommandHandler(arg => LogOut());
             StartWorkCommand = new CommandHandler(arg => StartWork());
             OpenMakeOrderViewCommand = new CommandHandler(arg => OpenMakeOrderView());
         }
@@ -63,8 +64,8 @@ namespace ViewModel.MainViewModel
 
         private void LogOut()
         {
-             DbService.AddWorkingTime(Cashier, CurrentTime - StartWorkTime);
-            
+            DbService.AddWorkingTime(Cashier, CurrentTime - StartWorkTime);
+
             DoOnLogOut(TypeView.OrderView);
         }
 
