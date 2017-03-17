@@ -75,6 +75,14 @@
     <Compile Include="Migrations\201703161555359_StoryTable.Designer.cs">
       <DependentUpon>201703161555359_StoryTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703170742509_FixModel1.cs" />
+    <Compile Include="Migrations\201703170742509_FixModel1.Designer.cs">
+      <DependentUpon>201703170742509_FixModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703170743584_FixModel2.cs" />
+    <Compile Include="Migrations\201703170743584_FixModel2.Designer.cs">
+      <DependentUpon>201703170743584_FixModel2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Drink.cs" />
     <Compile Include="Model\Food.cs" />
@@ -109,6 +117,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703161555359_StoryTable.resx">
       <DependentUpon>201703161555359_StoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703170742509_FixModel1.resx">
+      <DependentUpon>201703170742509_FixModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703170743584_FixModel2.resx">
+      <DependentUpon>201703170743584_FixModel2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

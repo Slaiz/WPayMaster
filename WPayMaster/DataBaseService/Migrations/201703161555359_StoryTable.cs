@@ -18,14 +18,11 @@ namespace DataBaseService.Migrations
                         ActionName = c.String(nullable: false, maxLength: 10),
                         DateAction = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.HistoryId);
-            
-            AlterColumn("dbo.Users", "WorkingTime", c => c.Time(nullable: true, precision: 7));
+                .PrimaryKey(t => t.HistoryId);            
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Users", "WorkingTime", c => c.Int(nullable: true));
             DropTable("dbo.Histories");
         }
     }

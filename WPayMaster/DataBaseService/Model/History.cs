@@ -16,7 +16,7 @@ namespace DataBaseService.Model
         [MaxLength(50)]
         [Required]
         public string Post { get; set; }
-        [MaxLength(10)]
+        [MaxLength(100)]
         [Required]
         public string ActionName { get; set; }
         public DateTime DateAction { get; set; }

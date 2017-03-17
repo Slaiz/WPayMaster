@@ -74,7 +74,7 @@ namespace DataBaseService
                 user.Post = post;
                 user.Password = password;
                 user.Salary = salary;
-                user.WorkingTime = TimeSpan.Zero;
+                //user.WorkingTime = TimeSpan.Zero;
 
                 context.Users.Add(user);
 
@@ -154,7 +154,7 @@ namespace DataBaseService
                 user.Post = post;
                 user.Password = password;
                 user.Salary = salary;
-                user.WorkingTime = TimeSpan.Zero;
+                //user.WorkingTime = TimeSpan.Zero;
 
                 context.SaveChanges();
 
