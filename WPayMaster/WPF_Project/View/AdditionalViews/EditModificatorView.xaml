@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="EditModificatorView" Height="500" Width="1400">
+        Title="EditModificatorView" ResizeMode="NoResize" Height="500" Width="1400">
 
     <Window.Resources>
         <Style x:Key="ButtonStyle">

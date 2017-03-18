@@ -5,8 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Project.View.ItemListViews"
         mc:Ignorable="d"
-        Title="SnackListView" Height="300" Width="300">
+        WindowStartupLocation="CenterScreen"
+        Title="SnackListView" ResizeMode="NoResize" Height="Auto" Width="700">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="35"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="#2196F3"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="22"></Setter>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="0 5 0 0"/>
+        </Style>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="450"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontSize" Value="26"></Setter>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="0 5 0 0"/>
+            <Setter Property="IsEnabled" Value="False"/>
+        </Style>
+        <Style x:Key="TableImageStyle" TargetType="Image">
+            <Setter Property="Height" Value="37"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="IsEnabled" Value="False"/>
+            <Setter Property="Margin" Value="7 3 0 0"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <ListBox ItemsSource="{Binding SoupList, UpdateSourceTrigger=PropertyChanged}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Data}" Margin="5"/>
+                <Button Style="{StaticResource ButtonStyle}" Content=" + " Background="#D50000" Margin="5"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Count}" Margin="5"/>
+                <Button Style="{StaticResource ButtonStyle}" Content=" - " Background="#8BC34A" Margin="5"/>
+            </StackPanel>
+        </ListBox>
     </Grid>
 </Window>

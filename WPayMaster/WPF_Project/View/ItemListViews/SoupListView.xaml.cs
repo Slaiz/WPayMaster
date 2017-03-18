@@ -21,5 +21,10 @@ namespace WPF_Project.View.ListOrederView
         {
             ShowDialog();
         }
+
+        public void CloseView()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="OrderView" MinHeight="900" Height="900" MaxHeight="900" MinWidth="1400" Width="1400" MaxWidth="1400">
+        Title="OrderView" ResizeMode="NoResize" Height="800" Width="1400">
     
     <Grid>
         <Grid.RowDefinitions>

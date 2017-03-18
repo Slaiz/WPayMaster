@@ -31,6 +31,7 @@ namespace ViewModel.UserControlViewModel
         private void DoOnAddUser(object sender, User user)
         {
             UserList.Add(user);
+            Count = UserList.Count;
         }
 
 

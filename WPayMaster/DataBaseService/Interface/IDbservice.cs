@@ -11,6 +11,7 @@ namespace DataBaseService.Interface
         List<Food> GetFoodsList();
         List<Drink> GetDrinksList();
         List<Modificator> GetModificatorsList();
+        List<History> GetStoryList(); 
         void AddUser(string name, string surname, int passportNumber, string post, string password, int salary);
         void AddFood(string name, string type, int price, int cookTime, int weight);
         void AddDrink(string name, string type, int price, int volume);

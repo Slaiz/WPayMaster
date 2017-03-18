@@ -62,6 +62,16 @@ namespace DataBaseService
             }
         }
 
+        public List<History> GetStoryList()
+        {
+            using (var context = new ShopContext())
+            {
+                var story = context.Story.ToList();
+
+                return story;
+            }
+        }
+
         public void AddUser(string name, string surname, int passportNumber, string post, string password, int salary)
         {
             using (var context = new ShopContext())
@@ -96,7 +106,7 @@ namespace DataBaseService
                 food.CookTime = cookTime;
                 food.FoodWeight = weight;
 
-                context.Foods.Add(food); 
+                context.Foods.Add(food);
 
                 context.SaveChanges();
 
@@ -166,7 +176,7 @@ namespace DataBaseService
         {
             using (var context = new ShopContext())
             {
-                var food = context.Foods.First( x => x.FoodId == item.FoodId);
+                var food = context.Foods.First(x => x.FoodId == item.FoodId);
 
                 food.FoodName = name;
                 food.FoodType = type;
@@ -184,7 +194,7 @@ namespace DataBaseService
         {
             using (var context = new ShopContext())
             {
-                var drink = context.Drinks.First( x => x.DrinkId == item.DrinkId);
+                var drink = context.Drinks.First(x => x.DrinkId == item.DrinkId);
 
                 drink.DrinkName = name;
                 drink.DrinkType = type;
@@ -201,7 +211,7 @@ namespace DataBaseService
         {
             using (var context = new ShopContext())
             {
-                var modificator = context.Modificators.First( x => x.ModificatorId == item.ModificatorId);
+                var modificator = context.Modificators.First(x => x.ModificatorId == item.ModificatorId);
 
                 modificator.ModificatorName = name;
                 modificator.ModificatorType = type;
@@ -272,7 +282,49 @@ namespace DataBaseService
 
         public void WriteStory(User worker, TypeStory typeStory)
         {
-            throw new NotImplementedException();
+            using (var context = new ShopContext())
+            {
+                var history = new History();
+
+                history.UserName = worker.UserName;
+                history.Surname = worker.Surname;
+                history.Post = worker.Post;
+                history.DateAction = DateTime.Now;
+
+                switch (typeStory)
+                {
+                    case TypeStory.AddItemInDb:
+                        {
+                            history.ActionName = "Додано новий запис";
+                            break;
+                        }
+                    case TypeStory.DeleteItemInDb:
+                        {
+                            history.ActionName = "Видалено запис";
+                            break;
+                        }
+                    case TypeStory.UpdateItemInDb:
+                        {
+                            history.ActionName = "Оновлено запис";
+                            break;
+                        }
+                    case TypeStory.UserLogIn:
+                        {
+                            history.ActionName = "Користувач увійшов в програму";
+                            break;
+                        }
+                    case TypeStory.UserLogOut:
+                        {
+                            history.ActionName = "Користувач вийшов з програму";
+                            break;
+                        }
+                    case TypeStory.CashierStopWork:
+                        {
+                            history.ActionName = "Касир закінчив зміну";
+                            break;
+                        }
+                }
+            }
         }
 
         public void AddWorkingTime(User oldUser, TimeSpan workingTime)

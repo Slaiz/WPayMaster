@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_Project.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="EditUserView" Height="500" Width="1400">
+        Title="EditUserView" ResizeMode="NoResize" Height="500" Width="1400">
 
     <Window.Resources>
         <Style x:Key="ButtonStyle">

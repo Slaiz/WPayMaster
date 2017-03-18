@@ -5,34 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
-        Title="Login" MinHeight="420" Height="420" MaxHeight="420" MinWidth="650" Width="650" MaxWidth="650" Background="Teal">
+        Title="Login" ResizeMode="NoResize" WindowStyle="None" Height="420" Width="650" Background="{Binding BackroundBrushColor, UpdateSourceTrigger=PropertyChanged}">
+    
+    <Window.Resources>
+        <Style x:Key="PanelButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="35"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox" >
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="240"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="22"/>
+        </Style>
+        <Style x:Key="ImageStyle" TargetType="Image">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="35"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="155, 0, 0, 0"></Setter>
+            <Setter Property="IsEnabled" Value="False"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" TextAlignment="Center" Height="Auto" Width="Auto" VerticalAlignment="Bottom">
-            <Run FontSize="70" Foreground="GreenYellow" FontWeight="Bold">W</Run>
-            <Run FontSize="70" Foreground="Aqua" FontWeight="DemiBold" FontStyle="Italic">Pay</Run>
+        <Grid Grid.Row="0" Background="White">
+            <Button Style="{StaticResource PanelButtonStyle}" ToolTip="Вийти з програми" Command="{Binding ExitCommand}" Margin="0 0 5 0">
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/Power-Off.png" Margin="0" />
+            </Button>
+            <Button Style="{StaticResource PanelButtonStyle}" ToolTip="Змінити колір"  Command="{Binding ChangeColorCommand}" Margin="0 0 45 0">
+                <Image Style="{StaticResource ImageStyle}" Source="../Icons/ChangeColor.png" Height="40" Margin="0" />
+            </Button>
+        </Grid>
+        
+        <TextBlock Grid.Row="1" TextAlignment="Center" Height="Auto" Width="Auto" VerticalAlignment="Bottom">
+            <Run FontSize="70" Foreground="#76FF03" FontWeight="Bold">W</Run>
+            <Run FontSize="70" Foreground="#03A9F4" FontWeight="DemiBold" FontStyle="Italic">Pay</Run>
             <Run FontSize="70" Foreground="White" FontWeight="Bold">Master</Run>
         </TextBlock>
 
-        <TextBlock Grid.Row="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="Auto" Width="Auto">
+        <TextBlock Grid.Row="2" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="Auto" Width="Auto">
             <Run FontSize="30" Foreground="White" FontWeight="Bold">Вхід</Run>
         </TextBlock>
 
-        <Image Grid.Row="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Source="../Icons/Username.png" Margin="155,0,0,0"/>
-        <Image Grid.Row="3" Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Source="../Icons/Password.png" Margin="155,0,0,0"/>
+        <Image Style="{StaticResource ImageStyle}" Grid.Row="3" Source="../Icons/Username.png"/>
+        <Image Style="{StaticResource ImageStyle}" Grid.Row="4" VerticalAlignment="Top" Source="../Icons/Password.png"/>
 
-        <TextBox Grid.Row="2" Height="35" Width="240" HorizontalAlignment="Center" FontSize="22"  Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Grid.Row="3" Height="35" Width="240" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" 
+        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="3" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="4" VerticalAlignment="Top" Margin="0,5,0,0"
                  Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
-        
-        <Button Grid.Row="4" Background="Chartreuse" Focusable="False" Content="Увійти" Height="40" Width="120" VerticalAlignment="Top"
+
+        <Button Grid.Row="5" Background="#76FF03" Focusable="False" Content="Увійти" Height="40" Width="120" VerticalAlignment="Top"
                 FontSize="20" FontWeight="Bold" Foreground="WhiteSmoke" Command="{Binding LogInCommand}"/>
     </Grid>
 </Window>

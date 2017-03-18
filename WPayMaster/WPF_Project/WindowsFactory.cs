@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Threading;
 using System.Windows;
-using System.Windows.Threading;
-using DataBaseService.Interface;
 using DataBaseService.Model;
 using Shared.Enum;
 using Shared.Interface;
@@ -21,25 +18,32 @@ namespace WPF_Project
         private LoginView loginView;
         private OrderView orderView;
         private AdminView adminView;
-        private List<Window> ViewList = new List<Window>(); 
+        private List<Window> MainViewList = new List<Window>();
+        private static List<IView> AdditionalViewList = new List<IView>();  
 
         public WindowsFactory()
         {
 
         }
 
-        public static void CloseWindow(Window view)
-        {
-            view.Close();
-        }
-
         public void StartLoginView()
         {
             LoginViewModel.OnLogIn += LoginViewModelOnOnLogIn;
+            LoginViewModel.OnCloseView += LoginViewModelOnOnCloseView;
             loginView = new LoginView();
-            loginView.DataContext = new LoginViewModel();
+            loginView.DataContext = new LoginViewModel(CreateViewAction);
             loginView.Show();
-            AddView(loginView, null);
+            AddMainView(loginView, null);
+        }
+
+        private void LoginViewModelOnOnCloseView()
+        {
+            foreach (var view in AdditionalViewList)
+            {
+                view.CloseView();
+            }
+
+            AdditionalViewList.Clear();
         }
 
         private void LoginViewModelOnOnLogIn(TypeView typeView, User user)
@@ -52,17 +56,17 @@ namespace WPF_Project
                         orderView.DataContext = new OrderViewModel(CreateViewAction, user);
                         loginView.Close();
                         orderView.Show();
-                        AddView(orderView, loginView);
+                        AddMainView(orderView, loginView);
                         OrderViewModel.OnLogOut += MethodOnLogOut;
                         break;
                     }
                 case TypeView.AdminView:
                     {
                         adminView = new AdminView();
-                        adminView.DataContext = new AdminViewModel(CreateViewAction, user);
+                        adminView.DataContext = new AdminViewModel(CreateViewAction, user, LoginViewModel.ThemeBrushColor);
                         loginView.Close();
                         adminView.Show();
-                        AddView(adminView, loginView);
+                        AddMainView(adminView, loginView);
                         AdminViewModel.OnLogOut += MethodOnLogOut;
                         break;
                     }
@@ -75,15 +79,10 @@ namespace WPF_Project
             AdminViewModel.OnLogOut -= MethodOnLogOut;
 
             loginView = new LoginView();
-            loginView.DataContext = new LoginViewModel();
-            CloseAllView();
-            AddView(loginView, null);
+            loginView.DataContext = new LoginViewModel(CreateViewAction);
+            CloseAllMainView();
+            AddMainView(loginView, null);
             loginView.Show();
-        }
-
-        public static void CloseViewAction(TypeView typeView)
-        {
-            Application.Current.MainWindow.Close();
         }
 
         public static IView CreateViewAction(object o, TypeView typeView)
@@ -95,6 +94,7 @@ namespace WPF_Project
                 case TypeView.AddUserView:
                     {
                         view = new AddUserView(new AddUserViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
@@ -151,6 +151,12 @@ namespace WPF_Project
                     {
                         view = new HistoryView(new HistoryViewModel());
                         view.ShowView();
+                        break;
+                    }
+                case TypeView.LoginView:
+                {
+                        view = null;
+                        KillAllView();
                         break;
                     }
                 case TypeView.ColdDrinkListView:
@@ -247,25 +253,30 @@ namespace WPF_Project
             return view;
         }
 
-        public void CloseAllView()
-        {
-            foreach (var view in ViewList)
-            {
-                view.Close();
-            }
-
-            ViewList.Clear();
-        }
-
-        public void KillAllView()
+        public static void KillAllView()
         {
             Application.Current.Shutdown();
         }
 
-        public void AddView(Window view1,Window view2)
+        public void CloseAllMainView()
         {
-            ViewList.Add(view1);
-            ViewList.Remove(view2);
+            foreach (var view in MainViewList)
+            {
+                view.Close();
+            }
+
+            MainViewList.Clear();
+        }
+
+        public void AddMainView(Window view1,Window view2)
+        {
+            MainViewList.Add(view1);
+            MainViewList.Remove(view2);
+        }
+
+        public static void AddAdditionalView(IView view)
+        {
+            AdditionalViewList.Add(view);
         }
     }
 

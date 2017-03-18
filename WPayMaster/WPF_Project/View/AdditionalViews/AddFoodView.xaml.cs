@@ -22,5 +22,9 @@ namespace WPF_Project.View
             ShowDialog();
         }
 
+        public void CloseView()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

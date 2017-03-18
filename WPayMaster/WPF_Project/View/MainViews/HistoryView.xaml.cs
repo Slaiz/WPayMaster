@@ -20,5 +20,10 @@ namespace WPF_Project.View.MainViews
         {
             ShowDialog();
         }
+
+        public void CloseView()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -337,6 +337,38 @@
   <ItemGroup>
     <Resource Include="View\Icons\Stop.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\ColdDrink.png" />
+    <Resource Include="View\Icons\Dessert.png" />
+    <Resource Include="View\Icons\Fish.png" />
+    <Resource Include="View\Icons\Garnish.png" />
+    <Resource Include="View\Icons\Juice.png" />
+    <Resource Include="View\Icons\Meat.png" />
+    <Resource Include="View\Icons\Pasta.png" />
+    <Resource Include="View\Icons\Pizza.png" />
+    <Resource Include="View\Icons\Salad.png" />
+    <Resource Include="View\Icons\Sauce.png" />
+    <Resource Include="View\Icons\Soup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\Cancel.png" />
+    <Resource Include="View\Icons\Power-Off.png" />
+    <Resource Include="View\Icons\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\ChangeColor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\Porridge.png" />
+    <Resource Include="View\Icons\Water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\Meal.png" />
+    <Resource Include="View\Icons\Snack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\HotDrink.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

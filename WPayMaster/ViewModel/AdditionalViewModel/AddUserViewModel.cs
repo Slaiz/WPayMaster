@@ -7,6 +7,7 @@ using PropertyChanged;
 using Shared;
 using Shared.Enum;
 using Shared.Interface;
+using ViewModel.MainViewModel;
 
 namespace ViewModel.AdditionalViewModel
 {
@@ -15,6 +16,7 @@ namespace ViewModel.AdditionalViewModel
     {
         public DbService DbService = new DbService();
 
+        public ICommand CloseCommand { get; set; }
         public ICommand AddItemCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
@@ -45,8 +47,14 @@ namespace ViewModel.AdditionalViewModel
             PasswordImageVisibility = Visibility.Hidden;
             SalaryImageVisibility = Visibility.Hidden;
 
+            CloseCommand = new CommandHandler(arg => Close());
             AddItemCommand = new CommandHandler(arg => AddItem());
             CancelCommand = new CommandHandler(arg => Cancel());
+        }
+
+        private void Close()
+        {
+            LoginViewModel.DoOnCloseView();
         }
 
         private void AddItem()

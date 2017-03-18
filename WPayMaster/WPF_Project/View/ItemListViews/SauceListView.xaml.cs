@@ -32,5 +32,10 @@ namespace WPF_Project.View.ItemListViews
         {
             ShowDialog();
         }
+
+        public void CloseView()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

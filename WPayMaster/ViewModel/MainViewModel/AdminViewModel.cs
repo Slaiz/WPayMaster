@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Threading;
 using DataBaseService;
 using DataBaseService.Model;
@@ -19,6 +20,8 @@ namespace ViewModel.MainViewModel
     public class AdminViewModel
     {
         public static event EventHandler<TypeView> OnLogOut;
+
+        public ICommand ChangeColorCommand { get; set; }
         public ICommand OpenHistoryViewCommand { get; set; }
         public ICommand LogOutCommand { get; set; }
         public ICommand OpenUserUserControlCommand { get; set; }
@@ -45,12 +48,20 @@ namespace ViewModel.MainViewModel
         public string AdminName { get; set; }
         public DateTime CurrentTime { get; set; }
         public object SelectedItem { get; set; }
+        public Brush PanelBrushColor { get; set; }
+
+        private Color[] Colors = new Color[]
+        {
+            Color.FromRgb(33, 150, 243), Color.FromRgb(29, 233, 182), Color.FromRgb(233, 30, 99),
+            Color.FromRgb(255, 152, 0), Color.FromRgb(255, 87, 34),Color.FromRgb(96, 125, 139),
+            Color.FromRgb(213, 0, 0), Color.FromRgb(103, 58, 183), Color.FromRgb(0, 0, 0)
+        };
 
         public System.Windows.Controls.UserControl CurrentUserControl { get; set; }
         private TypeView TypeAddViewItem { get; set; }
         private TypeView TypeEditViewItem { get; set; }
 
-        public AdminViewModel(Func<object, TypeView, IView> createViewAction, User user)
+        public AdminViewModel(Func<object, TypeView, IView> createViewAction, User user, Brush themeBrush)
         {
             CreateViewAction = createViewAction;
 
@@ -66,10 +77,13 @@ namespace ViewModel.MainViewModel
             },
             Dispatcher.CurrentDispatcher);
 
+            PanelBrushColor = themeBrush;
+
             OpenUserControl(TypeUserControl.UserUserControl);
 
-            LogOutCommand = new CommandHandler(arg => LogOut());
+            ChangeColorCommand = new CommandHandler(arg => ChangeColor());
             OpenHistoryViewCommand = new CommandHandler(arg => OpenHistoryView());
+            LogOutCommand = new CommandHandler(arg => LogOut());
             OpenUserUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.UserUserControl));
             OpenFoodUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.FoodUserControl));
             OpenDrinkUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.DrinkUserControl));
@@ -78,6 +92,13 @@ namespace ViewModel.MainViewModel
             OpenAddItemViewCommand = new CommandHandler(arg => OpenAddItemView());
             OpenEditItemViewCommand = new CommandHandler(arg => OpenEditItemView());
             DeleteItemCommand = new CommandHandler(arg => DeleteItem());
+        }
+
+        private void ChangeColor()
+        {
+            Random r = new Random();
+
+            PanelBrushColor = new SolidColorBrush(Colors[r.Next(1, 7)]);
         }
 
         private void OpenHistoryView()
