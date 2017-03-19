@@ -35,7 +35,7 @@ namespace WPF_Project
             splashScreenView.DataContext = new SplashScreenViewModel();
             splashScreenView.Show();
             //SplashScreenViewModel.DoOnStartUp();
-            Thread.Sleep(300);
+            Thread.Sleep(200);
 
             LoginViewModel.OnLogIn += LoginViewModelOnOnLogIn;
             LoginViewModel.OnCloseView += LoginViewModelOnOnCloseView;

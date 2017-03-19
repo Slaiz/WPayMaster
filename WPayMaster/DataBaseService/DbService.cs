@@ -72,6 +72,28 @@ namespace DataBaseService
             }
         }
 
+        public List<Food> GetTypeFoodList(FoodType foodType)
+        {
+            using (var context = new ShopContext())
+            {
+                var food = context.Foods.Where(x => x.FoodType == foodType.ToString())
+                    .ToList();
+
+                return food;
+            }
+        }
+
+        public List<Drink> GetTypeDrinkList(DrinkType drinkType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Modificator> GetTypeModificatorList(ModificatorType modificatorType)
+        {
+            throw new NotImplementedException();
+        }
+
+        #region AddItem
         public void AddUser(string name, string surname, int passportNumber, string post, string password, int salary)
         {
             using (var context = new ShopContext())
@@ -151,7 +173,9 @@ namespace DataBaseService
                 DoOnAddModificator(modificator);
             }
         }
+        #endregion
 
+        #region UpdateItem
         public void UpdateUser(User item, string name, string surname, int passportNumber, string post, string password, int salary)
         {
             using (var context = new ShopContext())
@@ -223,7 +247,9 @@ namespace DataBaseService
                 DoOnUpdateModificator(item, modificator);
             }
         }
+        #endregion
 
+        #region DeleteItem
         public void DeleteUser(User item)
         {
             using (var context = new ShopContext())
@@ -279,6 +305,8 @@ namespace DataBaseService
                 DoOnDeleteModificator(modificator);
             }
         }
+        #endregion
+
 
         public void WriteStory(User worker, TypeStory typeStory)
         {

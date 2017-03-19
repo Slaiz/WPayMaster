@@ -51,13 +51,17 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <ListBox ItemsSource="{Binding SoupList, UpdateSourceTrigger=PropertyChanged}">
+        
+        <ListBox Grid.Row="1">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Data}" Margin="5"/>
-                <Button Style="{StaticResource ButtonStyle}" Content=" + " Background="#D50000" Margin="5"/>
-                <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Count}" Margin="5"/>
-                <Button Style="{StaticResource ButtonStyle}" Content=" - " Background="#8BC34A" Margin="5"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Text="content" Margin="5"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Text="content" Width="100"  Margin="5"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Text="content" Width="100"  Margin="5"/>
+                <Button Style="{StaticResource ButtonStyle}" Background="#D50000" Margin="5" Content=" + " Command="{Binding PlusCommand}"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" Text="0" Margin="5"/>
+                <Button Style="{StaticResource ButtonStyle}" Background="#8BC34A" Margin="5" Content=" - " Command="{Binding MinusCommand}"/>
             </StackPanel>
         </ListBox>
+        
     </Grid>
 </Window>

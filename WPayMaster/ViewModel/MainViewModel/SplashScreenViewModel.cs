@@ -70,7 +70,7 @@ namespace ViewModel.MainViewModel
         {
             Random r = new Random();
 
-            BackroundBrushColor = new SolidColorBrush(Colors[r.Next(1, 9)]);
+            BackroundBrushColor = new SolidColorBrush(Colors[r.Next(1, 8)]);
 
             LoginViewModel.ThemeBrushColor = BackroundBrushColor;
         }

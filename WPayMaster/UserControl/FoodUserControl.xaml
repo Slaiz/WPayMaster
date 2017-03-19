@@ -19,7 +19,7 @@
                 <DataGridTextColumn Binding="{Binding FoodType}" Header="Тип" FontSize="16" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding FoodPrice}" Header="Ціна" FontSize="16" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding CookTime}" Header="Час приготування" FontSize="16" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding Weight}" Header="Вага" FontSize="16" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding FoodWeight}" Header="Вага" FontSize="16" FontWeight="Bold" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
 

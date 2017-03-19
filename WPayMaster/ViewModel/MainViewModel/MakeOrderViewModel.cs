@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using System.Windows.Media;
 using DataBaseService.Interface;
 using PropertyChanged;
 using Shared;
@@ -30,9 +31,13 @@ namespace ViewModel.MainViewModel
         public ICommand OpenSoupListViewCommand { get; set; }
         #endregion
 
+        public Brush PanelBrushColor { get; set; }
+
         public MakeOrderViewModel(Func<object, TypeView, IView> createViewAction)
         {
             CreateViewAction = createViewAction;
+
+            PanelBrushColor = LoginViewModel.ThemeBrushColor;
 
             OpenColdDrinkListViewCommand = new CommandHandler(arg => OpenColdDrinkListView());
             OpenDessertListViewCommand = new CommandHandler(arg => OpenDessertListView());

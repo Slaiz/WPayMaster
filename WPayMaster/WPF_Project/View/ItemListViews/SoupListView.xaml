@@ -3,10 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPF_Project.View.ListOrederView"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="SoupListView" ResizeMode="NoResize" Height="Auto" Width="700">
+        Title="SoupListView" ResizeMode="NoResize" Height="Auto" Width="800">
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="35"/>
@@ -32,7 +31,7 @@
         </Style>
         <Style x:Key="TextBlockStyle" TargetType="TextBlock">
             <Setter Property="Height" Value="40"/>
-            <Setter Property="Width" Value="450"/>
+            <Setter Property="Width" Value="350"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Bottom"/>
             <Setter Property="Foreground" Value="Black"/>
@@ -52,16 +51,31 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <ListBox ItemsSource="{Binding SoupList, UpdateSourceTrigger=PropertyChanged}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 10 0 0">
+            <TextBlock Style="{StaticResource TextBlockStyle}" Width="90" HorizontalAlignment="Left" Text="Назва" Margin="10 0 0 0"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" Width="90" HorizontalAlignment="Left" Text="Вага" Margin="300 0 0 0"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" Width="90" HorizontalAlignment="Left" Text="Ціна" Margin="5 0 0 0"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" Width="90" HorizontalAlignment="Left" Text="К-ість" Margin="50 0 0 0"/>
+        </StackPanel>
+
+        <ListBox Grid.Row="1" ItemsSource="{Binding SoupList, UpdateSourceTrigger=PropertyChanged}">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Data}" Margin="5"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Name}" Margin="5"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Width="100" Text="{Binding Weight}" Margin="5"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Width="100" Text="{Binding Price}" Margin="5"/>
                 <Button Style="{StaticResource ButtonStyle}" Content=" + " Background="#D50000" Margin="5"/>
                 <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Count}" Margin="5"/>
                 <Button Style="{StaticResource ButtonStyle}" Content=" - " Background="#8BC34A" Margin="5"/>
             </StackPanel>
         </ListBox>
 
-        <Button Style="{StaticResource ButtonStyle}" VerticalAlignment="Bottom" Height="50" Width="150" Background="#4CAF50" Foreground="White" 
-                Content="Готово" Margin="0 0 0 20" Command="{Binding AddItemsCommand}"/>
+        <Button Grid.Row="2" Style="{StaticResource ButtonStyle}" VerticalAlignment="Bottom" Height="50" Width="150" Background="#4CAF50" Foreground="White" 
+                Content="Готово" Margin="0 10 0 20" Command="{Binding AddItemsCommand}"/>
     </Grid>
 </Window>

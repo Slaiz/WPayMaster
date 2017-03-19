@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Project.View.ItemListViews"
         mc:Ignorable="d"
-        Title="SauceListView" ResizeMode="NoResize" Height="300" Width="300">
+        Title="SauceListView" ResizeMode="NoResize" Height="700" Width="420">
     <Grid>
-        
+
     </Grid>
 </Window>
