@@ -54,14 +54,14 @@ namespace ViewModel.MainViewModel
         {
             Color.FromRgb(33, 150, 243), Color.FromRgb(29, 233, 182), Color.FromRgb(233, 30, 99),
             Color.FromRgb(255, 152, 0), Color.FromRgb(255, 87, 34),Color.FromRgb(96, 125, 139),
-            Color.FromRgb(213, 0, 0), Color.FromRgb(103, 58, 183), Color.FromRgb(0, 0, 0)
+            Color.FromRgb(213, 0, 0), Color.FromRgb(103, 58, 183)
         };
 
         public System.Windows.Controls.UserControl CurrentUserControl { get; set; }
         private TypeView TypeAddViewItem { get; set; }
         private TypeView TypeEditViewItem { get; set; }
 
-        public AdminViewModel(Func<object, TypeView, IView> createViewAction, User user, Brush themeBrush)
+        public AdminViewModel(Func<object, TypeView, IView> createViewAction, User user)
         {
             CreateViewAction = createViewAction;
 
@@ -77,7 +77,7 @@ namespace ViewModel.MainViewModel
             },
             Dispatcher.CurrentDispatcher);
 
-            PanelBrushColor = themeBrush;
+            PanelBrushColor = LoginViewModel.ThemeBrushColor;
 
             OpenUserControl(TypeUserControl.UserUserControl);
 
@@ -98,7 +98,9 @@ namespace ViewModel.MainViewModel
         {
             Random r = new Random();
 
-            PanelBrushColor = new SolidColorBrush(Colors[r.Next(1, 7)]);
+            PanelBrushColor = new SolidColorBrush(Colors[r.Next(1, 8)]);
+
+            LoginViewModel.ThemeBrushColor = PanelBrushColor;
         }
 
         private void OpenHistoryView()

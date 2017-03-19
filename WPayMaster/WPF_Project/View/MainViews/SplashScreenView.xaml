@@ -1,0 +1,28 @@
+﻿<Window x:Class="WPF_Project.View.MainViews.SplashScreenView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Project.View.MainViews"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="SplashScreen" ResizeMode="NoResize" WindowStyle="None" Height="420" Width="650">
+
+    <Grid Background="{Binding BackroundBrushColor, UpdateSourceTrigger=PropertyChanged}">
+
+        <TextBlock TextAlignment="Center" Height="Auto" Width="80" VerticalAlignment="Center" Margin="0 0 350 0"
+                   Visibility="{Binding FirstVisibility, UpdateSourceTrigger=PropertyChanged}">
+            <Run FontSize="70" Foreground="#76FF03" FontWeight="Bold">W</Run>
+        </TextBlock>
+
+        <TextBlock TextAlignment="Center" Height="Auto" Width="150" VerticalAlignment="Center" Margin="0 0 150 0"
+                   Visibility="{Binding SecondVisibility, UpdateSourceTrigger=PropertyChanged}">
+            <Run FontSize="70" Foreground="#03A9F4" FontWeight="DemiBold" FontStyle="Italic">Pay</Run>
+        </TextBlock>
+
+        <TextBlock TextAlignment="Center" Height="Auto" Width="250" VerticalAlignment="Center" Margin="200 0 0 0"
+                   Visibility="{Binding ThridVisibility, UpdateSourceTrigger=PropertyChanged}">
+            <Run FontSize="70" Foreground="White" FontWeight="Bold">Master</Run>
+        </TextBlock>
+    </Grid>
+</Window>

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Windows;
 using DataBaseService.Model;
 using Shared.Enum;
@@ -15,6 +17,7 @@ namespace WPF_Project
 {
     public class WindowsFactory
     {
+        private SplashScreenView splashScreenView;
         private LoginView loginView;
         private OrderView orderView;
         private AdminView adminView;
@@ -28,10 +31,19 @@ namespace WPF_Project
 
         public void StartLoginView()
         {
+            splashScreenView = new SplashScreenView();
+            splashScreenView.DataContext = new SplashScreenViewModel();
+            splashScreenView.Show();
+            //SplashScreenViewModel.DoOnStartUp();
+            Thread.Sleep(300);
+
             LoginViewModel.OnLogIn += LoginViewModelOnOnLogIn;
             LoginViewModel.OnCloseView += LoginViewModelOnOnCloseView;
             loginView = new LoginView();
             loginView.DataContext = new LoginViewModel(CreateViewAction);
+
+            splashScreenView.Close();
+
             loginView.Show();
             AddMainView(loginView, null);
         }
@@ -63,7 +75,7 @@ namespace WPF_Project
                 case TypeView.AdminView:
                     {
                         adminView = new AdminView();
-                        adminView.DataContext = new AdminViewModel(CreateViewAction, user, LoginViewModel.ThemeBrushColor);
+                        adminView.DataContext = new AdminViewModel(CreateViewAction, user);
                         loginView.Close();
                         adminView.Show();
                         AddMainView(adminView, loginView);

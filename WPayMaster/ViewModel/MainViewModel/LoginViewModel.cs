@@ -40,7 +40,7 @@ namespace ViewModel.MainViewModel
         {
             Color.FromRgb(33, 150, 243), Color.FromRgb(29, 233, 182), Color.FromRgb(233, 30, 99),
             Color.FromRgb(255, 152, 0), Color.FromRgb(255, 87, 34),Color.FromRgb(96, 125, 139),
-            Color.FromRgb(213, 0, 0), Color.FromRgb(103, 58, 183), Color.FromRgb(0, 0, 0)
+            Color.FromRgb(213, 0, 0), Color.FromRgb(103, 58, 183)
         };
 
         public LoginViewModel(Func<object, TypeView, IView> createViewAction)
@@ -49,7 +49,7 @@ namespace ViewModel.MainViewModel
             CreateViewAction = createViewAction;
             UserList = new ObservableCollection<User>(DbService.GetUsersList());
 
-            ChangeColor();
+            BackroundBrushColor = ThemeBrushColor;
 
             ExitCommand = new CommandHandler(arg => Exit());
             ChangeColorCommand = new CommandHandler(arg => ChangeColor());
@@ -60,7 +60,7 @@ namespace ViewModel.MainViewModel
         {
             Random r = new Random();
 
-            BackroundBrushColor = new SolidColorBrush(Colors[r.Next(1,7)]);
+            BackroundBrushColor = new SolidColorBrush(Colors[r.Next(1,8)]);
 
             ThemeBrushColor = BackroundBrushColor;
         }
