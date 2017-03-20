@@ -10,6 +10,8 @@ namespace DataBaseService.Model
         [Required]
         public int ItemId{ get; set; }
         [Required]
+        public string ItemName { get; set; }
+        [Required]
         public string ItemType { get; set; }
         [Required]
         public int ItemWeight { get; set; }

@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using DataBaseService.Interface;
 using Shared.Interface;
 using ViewModel.ItemListViewModel;
 
@@ -24,7 +23,7 @@ namespace WPF_Project.View.ListOrederView
 
         public void CloseView()
         {
-            throw new System.NotImplementedException();
+            Close();
         }
     }
 }

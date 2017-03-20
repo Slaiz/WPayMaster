@@ -5,6 +5,7 @@ using DataBaseService;
 using PropertyChanged;
 using Shared;
 using Shared.Enum;
+using ViewModel.MainViewModel;
 
 namespace ViewModel.AdditionalViewModel
 {
@@ -15,7 +16,7 @@ namespace ViewModel.AdditionalViewModel
 
         public ICommand CloseCommand { get; set; }
         public ICommand AddItemCommand { get; set; }
-        public ICommand CancelCommand { get; set; }
+        public ICommand ClearCommand { get; set; }
 
         public string Name { get; set; }
         public string Type { get; set; }
@@ -28,8 +29,22 @@ namespace ViewModel.AdditionalViewModel
         {
             DrinkTypeList = new List<string>(DbService.CreateTypeList(TypeView.AddDrinkView));
 
+            CloseCommand = new CommandHandler(arg => Close());
             AddItemCommand = new CommandHandler(arg => AddItem());
-            CancelCommand = new CommandHandler(arg => Cancel());
+            ClearCommand = new CommandHandler(arg => Clear());
+        }
+
+        private void Clear()
+        {
+            Name = " ";
+            Type = null;
+            Price = 0;
+            Volume = 0;
+        }
+
+        private void Close()
+        {
+            LoginViewModel.DoOnCloseView();
         }
 
         private void AddItem()
@@ -48,15 +63,6 @@ namespace ViewModel.AdditionalViewModel
                 }
                 else MessageBox.Show("Введіть ціну більше 0", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             else MessageBox.Show("Бідь ласка заповніть всі поля", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-
-
-        private void Cancel()
-        {
-            Name = " ";
-            Type = null;
-            Price = 0;
-            Volume = 0;
         }
     }
 }

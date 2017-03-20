@@ -24,7 +24,7 @@ namespace WPF_Project.View.ItemListViews
 
         public void CloseView()
         {
-            throw new NotImplementedException();
+            Close();
         }
     }
 }

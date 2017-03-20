@@ -6,6 +6,7 @@ using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
 using Shared.Enum;
+using ViewModel.MainViewModel;
 using ViewModel.UserControlViewModel;
 
 namespace ViewModel.AdditionalViewModel
@@ -15,8 +16,9 @@ namespace ViewModel.AdditionalViewModel
     {
         public DbService DbService = new DbService();
 
+        public ICommand CloseCommand { get; set; }
         public ICommand SaveItemCommand { get; set; }
-        public ICommand CancelCommand { get; set; }
+        public ICommand ClearCommand { get; set; }
 
         public Modificator SelectedItem { get; set; }
         public string Name { get; set; }
@@ -37,8 +39,22 @@ namespace ViewModel.AdditionalViewModel
 
             ModificatorTypeList = new List<string>(DbService.CreateTypeList(TypeView.AddModificatorView));
 
+            CloseCommand = new CommandHandler(arg => Close());
             SaveItemCommand = new CommandHandler(arg => SaveItem());
-            CancelCommand = new CommandHandler(arg => Cancel());
+            ClearCommand = new CommandHandler(arg => Clear());
+        }
+
+        private void Clear()
+        {
+            Name = " ";
+            Type = null;
+            Price = 0;
+            Weight = 0;
+        }
+
+        private void Close()
+        {
+            LoginViewModel.DoOnCloseView();
         }
 
         private void SaveItem()
@@ -46,14 +62,6 @@ namespace ViewModel.AdditionalViewModel
             DbService.UpdateModificator(ModificatorViewModel.SelectedItem, Name, Type, Price, Weight);
 
             MessageBox.Show("Запис оновлено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        private void Cancel()
-        {
-            Name = " ";
-            Type = null;
-            Price = 0;
-            Weight = 0;
         }
     }
 }

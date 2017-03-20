@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using Shared.Interface;
 using ViewModel.ItemListViewModel;
 
@@ -24,7 +23,7 @@ namespace WPF_Project.View.ItemListViews
 
         public void CloseView()
         {
-            throw new NotImplementedException();
+            Close();
         }
     }
 }

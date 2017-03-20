@@ -6,6 +6,7 @@ using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
 using Shared.Enum;
+using ViewModel.MainViewModel;
 
 namespace ViewModel.AdditionalViewModel
 {
@@ -14,14 +15,14 @@ namespace ViewModel.AdditionalViewModel
     {
         public DbService DbService = new DbService();
 
+        public ICommand CloseCommand { get; set; }
         public ICommand SaveItemCommand { get; set; }
-        public ICommand CancelCommand { get; set; }
+        public ICommand ClearCommand { get; set; }
 
         public Food SelectedItem { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public int Price { get; set; }
-        public int CookTime { get; set; }
         public int Weight { get; set; }
 
         public List<string> FoodTypeList { get; set;}
@@ -37,24 +38,29 @@ namespace ViewModel.AdditionalViewModel
 
             FoodTypeList = new List<string>(DbService.CreateTypeList(TypeView.AddFoodView));
 
+            CloseCommand = new CommandHandler(arg => Close());
             SaveItemCommand = new CommandHandler(arg => SaveItem());
-            CancelCommand = new CommandHandler(arg => Cancel());
+            ClearCommand = new CommandHandler(arg => Clear());
         }
 
-        private void SaveItem()
-        {
-            DbService.UpdateFood(SelectedItem, Name, Type, Price, CookTime, Weight);
-
-            MessageBox.Show("Запис оновлено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        private void Cancel()
+        private void Clear()
         {
             Name = " ";
             Type = null;
             Price = 0;
-            CookTime = 0;
             Weight = 0;
+        }
+
+        private void Close()
+        {
+            LoginViewModel.DoOnCloseView();
+        }
+
+        private void SaveItem()
+        {
+            DbService.UpdateFood(SelectedItem, Name, Type, Price, Weight);
+
+            MessageBox.Show("Запис оновлено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

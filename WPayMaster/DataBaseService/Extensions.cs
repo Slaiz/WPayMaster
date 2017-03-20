@@ -9,6 +9,7 @@ namespace DataBaseService
             return new Order
             {
                 ItemId = food.FoodId,
+                ItemName = food.FoodName,
                 ItemType = food.FoodType,
                 ItemWeight = food.FoodWeight,
                 ItemPrice = food.FoodPrice,
@@ -21,6 +22,7 @@ namespace DataBaseService
             return new Order()
             {
                 ItemId = drink.DrinkId,
+                ItemName = drink.DrinkName,
                 ItemType = drink.DrinkType,
                 ItemWeight = drink.Volume,
                 ItemPrice = drink.DrinkPrice,
@@ -33,6 +35,7 @@ namespace DataBaseService
             return new Order()
             {
                 ItemId = modificator.ModificatorId,
+                ItemName = modificator.ModificatorName,
                 ItemType = modificator.ModificatorType,
                 ItemWeight = modificator.ModificatorWeight,
                 ItemPrice = modificator.ModificatorPrice,

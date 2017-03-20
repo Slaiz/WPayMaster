@@ -175,84 +175,98 @@ namespace WPF_Project
                 case TypeView.ColdDrinkListView:
                     {
                         view = new ColdDrinkListView(new ColdDrinkListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.DessertListView:
                     {
                         view = new DessertListView(new DessertListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.FishListView:
                     {
                         view = new FishListView(new FishListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.GarnishListView:
                     {
                         view = new GarnishListView(new GarnishListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.HotDrinkListView:
                     {
                         view = new HotDrinkListView(new HotDrinkListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.JuiceListView:
                     {
                         view = new JuiceListView(new JuiceListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.MealListView:
                     {
                         view = new MealListView(new MealListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.MeatDishListView:
                     {
                         view = new MeatDishListView(new MeatDishListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.PastaListView:
                     {
                         view = new PastaListView(new PastaListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.PizzaListView:
                     {
                         view = new PizzaListView(new PizzaListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.SaladListView:
                     {
                         view = new SaladListView(new SaladListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.SauceListView:
                     {
                         view = new SauceListView(new SauceListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.SnackListView:
                     {
                         view = new SnackListView(new SnackListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.SoupListView:
                     {
                         view = new SoupListView(new SoupListViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }

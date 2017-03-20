@@ -327,15 +327,11 @@
     <Resource Include="View\Icons\ItemList.png" />
     <Resource Include="View\Icons\LogOut.png" />
     <Resource Include="View\Icons\Password.png" />
-    <Resource Include="View\Icons\Start.png" />
     <Resource Include="View\Icons\Statistics.png" />
     <Resource Include="View\Icons\Username.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Icons\CubeIcon.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\Icons\Stop.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Icons\ColdDrink.png" />
@@ -371,6 +367,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Icons\CheckHistory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\Start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\Check.png" />
+    <Resource Include="View\Icons\Clear.png" />
+    <Resource Include="View\Icons\Find.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

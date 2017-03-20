@@ -77,29 +77,20 @@ namespace DataBaseService
         {
             using (var context = new ShopContext())
             {
-               var a = context.Foods.Where(x => x.FoodType == foodType.ToString());
-                    
-                var orders =  a.Select(FoodToOrder)
-                     .ToList();
+               var orders = context.Foods.AsEnumerable()
+                    .Where(x => x.FoodType == foodType.ToString())
+                    .Select(food => food.FoodToOrder())
+                    .ToList();
+
                 return orders;
             }
-        }
-        public static Order FoodToOrder( Food food)
-        {
-            return new Order
-            {
-                ItemId = food.FoodId,
-                ItemType = food.FoodType,
-                ItemWeight = food.FoodWeight,
-                ItemPrice = food.FoodPrice,
-                Count = 0
-            };
         }
         public List<Order> GetDrinkOrderList(DrinkType drinkType)
         {
             using (var contex = new ShopContext())
             {
-                var orders = contex.Drinks.Where(x => x.DrinkType == drinkType.ToString())
+                var orders = contex.Drinks.AsEnumerable()
+                    .Where(x => x.DrinkType == drinkType.ToString())
                     .Select(drink => drink.DrinkToOrder())
                     .ToList();
 
@@ -111,7 +102,8 @@ namespace DataBaseService
         {
             using (var context = new ShopContext())
             {
-                var orders = context.Modificators.Where(x => x.ModificatorType == modificatorType.ToString())
+                var orders = context.Modificators.AsEnumerable()
+                    .Where(x => x.ModificatorType == modificatorType.ToString())
                     .Select(modificator => modificator.ModificatorToOrder())
                     .ToList();
 
@@ -142,7 +134,7 @@ namespace DataBaseService
             }
         }
 
-        public void AddFood(string name, string type, int price, int cookTime, int weight)
+        public void AddFood(string name, string type, int price, int weight)
         {
             using (var context = new ShopContext())
             {
@@ -221,7 +213,7 @@ namespace DataBaseService
             }
         }
 
-        public void UpdateFood(Food item, string name, string type, int price, int cookTime, int weight)
+        public void UpdateFood(Food item, string name, string type, int price, int weight)
         {
             using (var context = new ShopContext())
             {

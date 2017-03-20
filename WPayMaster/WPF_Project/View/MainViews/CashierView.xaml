@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="CashierView" ResizeMode="NoResize" WindowStyle="None" Height="850" Width="1400">
+        Title="CashierView" ResizeMode="NoResize" WindowStyle="None" BorderBrush="{Binding PanelBrushColor}" BorderThickness="2" Height="850" Width="1400">
 
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
@@ -19,8 +19,8 @@
             <Setter Property="Padding" Value="5"></Setter>
         </Style>
         <Style x:Key="PanelButtonStyle" TargetType="Button">
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="Width" Value="45"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Focusable" Value="False"/>
@@ -103,39 +103,44 @@
 
         <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Height="50" Width="1400" HorizontalAlignment="Center" VerticalAlignment="Top" Fill="{Binding PanelBrushColor}"/>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Height="60" Orientation="Horizontal">
-            <TextBlock  Height="30" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
+        <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Height="50" Width="220" Orientation="Vertical">
+            <TextBlock  Height="25" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
                  FontSize="20" FontWeight="Bold" Text="{Binding CashierName}"/>
 
-            <TextBlock Height="30" Width="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Transparent"
+            <TextBlock Height="24" Width="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Transparent" Margin="0 0 0 0"
                  FontSize="20" FontWeight="Bold" Text="{Binding CurrentTime, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Width="220" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" >
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Width="245" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" >
             <Button Style="{StaticResource PanelButtonStyle}" ToolTip="Почати зміну" Command="{Binding StartWorkCommand}">
-            <Image Height="55" Width="55" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Icons/Start.png"/>
+                <Image Height="40" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Icons/Start.png"/>
             </Button>
 
             <Button Style="{StaticResource PanelButtonStyle}" ToolTip="Закінчити зміну" Command="{Binding StopWorkCommand}">
-                <Image Height="35" Width="33" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Icons/Stop.png"/>
+                <Image Height="40" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Icons/Stop.png"/>
             </Button>
-            <Button Style="{StaticResource PanelButtonStyle}" ToolTip="Зробити замовлення" Command="{Binding ChangeColorCommand}">
-                <Image Height="45" Width="45" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Icons/ChangeColor.png"/>
+            
+            <Button Style="{StaticResource PanelButtonStyle}" ToolTip="Змінити колір" Command="{Binding ChangeColorCommand}">
+                <Image Height="60" Width="45" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Icons/ChangeColor.png"/>
             </Button>
-            <Button Style="{StaticResource PanelButtonStyle}" ToolTip="Зробити замовлення" Command="{Binding OpenCheckHistoryViewCommand}">
-                <Image Height="35" Width="34" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Icons/CheckHistory.png"/>
+            
+            <Button Style="{StaticResource PanelButtonStyle}" ToolTip="Відкрити історію замовлень" Command="{Binding OpenCheckHistoryViewCommand}">
+                <Image Height="50" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Icons/CheckHistory.png"/>
             </Button>
+            
             <Button Style="{StaticResource PanelButtonStyle}" ToolTip="Вийти з панелі касира" Command="{Binding LogOutCommand}">
-                <Image Height="35" Width="35" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Icons/LogOut.png"/>
+                <Image Height="43" Width="43" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Icons/LogOut.png"/>
             </Button>
         </StackPanel>
 
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.ColumnSpan="4" Margin="0 45 0 0"/>
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="3" Height="40" Width="150" HorizontalAlignment="Right" Margin="0 45 0 0"
-                Content="Пошук" Background="MediumBlue"/>
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="3" Height="62" Width="65" HorizontalAlignment="Right" Margin="0 45 70 0"
+                Background="Transparent">
+            <Image Style="{StaticResource ImageStyle}" Source="../Icons/Find.png" Height="50" Width="55"/>
+        </Button>
 
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="0" Background="#2196F3" Command="{Binding OpenSoupListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="0" Background="#2196F3" Command="{Binding OpenSoupListViewCommand}" Margin="4 0 0 0">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Soup.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" TextWrapping="Wrap" Text="Перші страви" />
@@ -163,7 +168,7 @@
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="0" Background="#FF9800" Command="{Binding OpenGarnishListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="0" Background="#FF9800" Command="{Binding OpenGarnishListViewCommand}" Margin="4 0 0 0">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Porridge.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Гарніри" />
@@ -191,7 +196,7 @@
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="0" Background="#E91E63" Command="{Binding OpenDessertListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="0" Background="#E91E63" Command="{Binding OpenDessertListViewCommand}" Margin="4 0 0 0">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Dessert.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Десерти" />
@@ -219,7 +224,7 @@
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="4" Grid.Column="0" Background="#4CAF50" Command="{Binding OpenSnackListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="4" Grid.Column="0" Background="#4CAF50" Command="{Binding OpenSnackListViewCommand}" Margin="4 0 0 0">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Snack.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Закуски" />
@@ -233,23 +238,35 @@
             </StackPanel>
         </Button>
 
-        <Rectangle Grid.Row="1" Grid.RowSpan="5" Grid.Column="4" Height="720" Width="5" Margin="5"
+        <Rectangle Grid.Row="1" Grid.RowSpan="4" Grid.Column="4" Height="600" Width="5" Margin="5"
                    HorizontalAlignment="Left" VerticalAlignment="Center" Fill="{Binding PanelBrushColor}"/>
+
+        <Rectangle Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" Height="17" Width="1400" Margin="0 0 0 -27"
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom" Fill="{Binding PanelBrushColor}"/>
 
         <ListBox  Grid.Row="1" Grid.RowSpan="4" Grid.Column="4" HorizontalAlignment="Center"  Width="490" Height="600">
             <StackPanel Orientation="Horizontal">
                 <Button Height="45" Width="45" Background="Transparent" ToolTip="Відмінити заказ" Command="{Binding CancelCommand}">
                     <Image Style="{StaticResource ImageStyle}" Height="40" Width="40"  Source="../Icons/Cancel.png"/>
                 </Button>
-                <TextBlock Style="{StaticResource ListTextBlockStyle}" Text="content content" Margin="5"/>
+                <TextBlock Style="{StaticResource ListTextBlockStyle}" Foreground="Blue" Text="content content" Margin="5"/>
                 <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Foreground="Blue" Text="X" Margin="2 0 0 0"/>
                 <TextBox Style="{StaticResource TextBoxStyle}" Height="45" Width="40" Foreground="Red" Text="3" Margin="2 0 0 0"/>
-                <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Text="=" Margin="2 0 0 0"/>
-                <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="75" TextAlignment="Center" Text="140" Margin="2 0 0 0"/>
-                <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="45" TextAlignment="Center" Text="грн" Margin="2 0 0 0"/>
+                <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Foreground="Blue" Text="=" Margin="2 0 0 0"/>
+                <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="75" Foreground="Red" TextAlignment="Center" Text="140" Margin="2 0 0 0"/>
+                <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="45" Foreground="Blue" TextAlignment="Center" Text="грн" Margin="2 0 0 0"/>
             </StackPanel>
         </ListBox>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="4" Height="70" Width="220" Margin="0 10 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Content="Зробити замовлення" Background="MediumBlue"/>
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="4" Height="90" Width="100" 
+                Margin="180 10 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Transparent">
+            <Image Style="{StaticResource ImageStyle}" Source="../Icons/Check.png"/>
+        </Button>
+        
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="4" Height="90" Width="100" 
+                Margin="0 10 180 0" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Transparent">
+            <Image Style="{StaticResource ImageStyle}" Source="../Icons/Clear.png"/>
+        </Button>
+
     </Grid>
 </Window>

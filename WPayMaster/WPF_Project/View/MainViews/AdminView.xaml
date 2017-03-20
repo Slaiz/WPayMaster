@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="AdminView" ResizeMode="NoResize" WindowStyle="None" Height="800" Width="1400">
+        Title="AdminView" ResizeMode="NoResize" WindowStyle="None" BorderBrush="{Binding PanelBrushColor}" BorderThickness="2" Height="800" Width="1400">
 
     <Window.Resources>
         <Style x:Key="TableButtonStyle" TargetType="Button">
@@ -17,16 +17,16 @@
             <Setter Property="Cursor" Value="Hand"></Setter>
         </Style>
         <Style x:Key="PanelButtonStyle" TargetType="Button">
-            <Setter Property="Height" Value="45"/>
-            <Setter Property="Width" Value="45"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Width" Value="60"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Focusable" Value="False"/>
             <Setter Property="Background" Value="Transparent"/>
         </Style>
         <Style x:Key="MenuButtonStyle" TargetType="Button">
-            <Setter Property="Height" Value="90"/>
-            <Setter Property="Width" Value="90"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="Width" Value="80"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Focusable" Value="False"/>
             <Setter Property="Background" Value="Transparent"/>
@@ -72,10 +72,10 @@
             <Setter Property="Margin" Value="7 3 0 0"/>
         </Style>
         <Style x:Key="PanelImageStyle" TargetType="Image">
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Width" Value="40"/>
-            <Setter Property="HorizontalAlignment" Value="Right"/>
-            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="IsEnabled" Value="False"/>
         </Style>
         <Style x:Key="MenuImageStyle" TargetType="Image">
@@ -88,26 +88,25 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="520"></RowDefinition>
-            <RowDefinition Height="95"></RowDefinition>
+            <RowDefinition Height="530"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="45"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Height="55" VerticalAlignment="Top" Fill="{Binding PanelBrushColor}"/>
+        <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Height="70" VerticalAlignment="Top" Fill="{Binding PanelBrushColor}"/>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Height="30" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
-                 FontSize="20" FontWeight="Bold" Text="{Binding AdminName}"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Height="35" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
+                 FontSize="22" FontWeight="Bold" Text="{Binding AdminName}"/>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Height="25" Width="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Transparent"
-                 FontSize="20" FontWeight="Bold" Text="{Binding CurrentTime, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Height="30" Width="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Transparent"
+                 FontSize="22" FontWeight="Bold" Text="{Binding CurrentTime, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="0" Background="#ff00aaff" Command="{Binding OpenUserUserControlCommand}">
             <Grid>
@@ -157,9 +156,9 @@
             </Grid>
         </Button>
 
-        <ContentPresenter Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Height="520" Width="1300" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding CurrentUserControl}"/>
+        <ContentPresenter Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Height="550" Width="1350" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding CurrentUserControl}"/>
 
-        <Rectangle Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" Fill="{Binding PanelBrushColor}"/>
+        <Rectangle Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Fill="{Binding PanelBrushColor}"/>
 
         <Button Style="{StaticResource MenuButtonStyle}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Command="{Binding OpenAddItemViewCommand}">
             <StackPanel Orientation="Vertical">
@@ -189,20 +188,20 @@
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Змінити колір" Command="{Binding ChangeColorCommand}" Margin="0 0 120 0">
-            <Image Style="{StaticResource PanelImageStyle}" Height="50" Source="../Icons/ChangeColor.png"/>
+        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Змінити колір" Command="{Binding ChangeColorCommand}" Margin="0 0 195 0">
+            <Image Style="{StaticResource PanelImageStyle}" Height="60" Width="50" Source="../Icons/ChangeColor.png"/>
         </Button>
         
-        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Відкрити вікно статистики" Command="{Binding LogOutCommand}" Margin="0 0 65 0">
+        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Відкрити вікно статистики" Command="{Binding LogOutCommand}" Margin="0 0 130 0">
             <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/Statistics.png"/>
         </Button>
 
-        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Вікдрити вікно історії" Command="{Binding OpenHistoryViewCommand}" Margin="10 0 10 0">
+        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Вікдрити вікно історії" Command="{Binding OpenHistoryViewCommand}" Margin="10 0 65 0">
             <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/History.png" />
         </Button>
 
-        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="4" ToolTip="Вийти з панелі адміністратора" Command="{Binding LogOutCommand}">
-            <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/LogOut.png"/>
+        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Вийти з панелі адміністратора" Command="{Binding LogOutCommand}" Margin="0 0 2 0">
+            <Image Style="{StaticResource PanelImageStyle}" Height="50" Width="50" Source="../Icons/LogOut.png"/>
         </Button>
     </Grid>
 </Window>

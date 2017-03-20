@@ -82,12 +82,12 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Text="{Binding FoodName}" Margin="5"/>
-                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="100" Text="{Binding FoodWeight}" Margin="5"/>
-                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="100" Text="{Binding FoodPrice}" Margin="5"/>
-                        <Button Style="{StaticResource ButtonStyle}" Content=" + " Background="#D50000" Margin="5"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Text="{Binding ItemName}" Margin="5"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="100" Text="{Binding ItemWeight}" Margin="5"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="100" Text="{Binding ItemPrice}" Margin="5"/>
+                        <Button Style="{StaticResource ButtonStyle}" Content=" - " Background="#D50000" Margin="5"/>
                         <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Count}" Margin="5"/>
-                        <Button Style="{StaticResource ButtonStyle}" Content=" - " Background="#8BC34A" Margin="5"/>
+                        <Button Style="{StaticResource ButtonStyle}" Content=" + " Background="#8BC34A" Margin="5"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
