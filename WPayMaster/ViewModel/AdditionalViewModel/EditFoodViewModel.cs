@@ -33,7 +33,6 @@ namespace ViewModel.AdditionalViewModel
             Name = item.FoodName;
             Type = item.FoodType;
             Price = item.FoodPrice;
-            CookTime = item.CookTime;
             Weight = item.FoodWeight;
 
             FoodTypeList = new List<string>(DbService.CreateTypeList(TypeView.AddFoodView));

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Drawing;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -80,7 +79,7 @@ namespace ViewModel.MainViewModel
                     {
                         if (user.Post.Contains("Адміністратор"))
                             DoOnLogIn(TypeView.AdminView, user);
-                        else DoOnLogIn(TypeView.OrderView, user);
+                        else DoOnLogIn(TypeView.CashierView, user);
                         return;
                     }
                 }

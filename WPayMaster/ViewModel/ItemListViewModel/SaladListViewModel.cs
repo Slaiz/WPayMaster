@@ -9,11 +9,11 @@ namespace ViewModel.ItemListViewModel
     {
         public DbService DbService = new DbService();
 
-        public ObservableCollection<Food> SaladList { get; set; }
+        public ObservableCollection<Order> SaladList { get; set; }
 
         public SaladListViewModel()
         {
-            SaladList = new ObservableCollection<Food>(DbService.GetTypeFoodList(FoodType.Салат));
+            SaladList = new ObservableCollection<Order>(DbService.GetFoodOrderList(FoodType.Салат));
 
         }
     }

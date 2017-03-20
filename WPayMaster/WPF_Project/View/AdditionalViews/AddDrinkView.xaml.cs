@@ -23,7 +23,7 @@ namespace WPF_Project.View
 
         public void CloseView()
         {
-            throw new System.NotImplementedException();
+            Close();
         }
     }
 }

@@ -145,7 +145,7 @@
             </Grid>
         </Button>
 
-        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="3" Background="#fffa00" Command="{Binding OpenModificatorUserControlCommand}">
+        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="3" Background="#ff9800" Command="{Binding OpenModificatorUserControlCommand}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>

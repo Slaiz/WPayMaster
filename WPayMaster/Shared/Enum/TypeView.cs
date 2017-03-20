@@ -2,11 +2,10 @@
 {
     public enum TypeView
     {
-        AdminView,
         LoginView,
-        OrderView,
+        AdminView,
+        CashierView,
         HistoryView,
-        MakeOrderView,
         AddUserView,
         AddFoodView,
         AddDrinkView,

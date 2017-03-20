@@ -15,8 +15,6 @@ namespace DataBaseService.Model
         [Required]
         public int FoodPrice { get; set; }
         [Required]
-        public int CookTime { get; set; }
-        [Required]
         public int FoodWeight { get; set; }
     }
 }

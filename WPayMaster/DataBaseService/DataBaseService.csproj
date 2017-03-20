@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbService.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Interface\IDbservice.cs" />
     <Compile Include="Migrations\201703021302553_InitialCreate.cs" />
     <Compile Include="Migrations\201703021302553_InitialCreate.Designer.cs">
@@ -83,11 +84,24 @@
     <Compile Include="Migrations\201703170743584_FixModel2.Designer.cs">
       <DependentUpon>201703170743584_FixModel2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703201200026_TableOrder.cs" />
+    <Compile Include="Migrations\201703201200026_TableOrder.Designer.cs">
+      <DependentUpon>201703201200026_TableOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703201214020_FixModel3.cs" />
+    <Compile Include="Migrations\201703201214020_FixModel3.Designer.cs">
+      <DependentUpon>201703201214020_FixModel3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703201245099_FixModel4.cs" />
+    <Compile Include="Migrations\201703201245099_FixModel4.Designer.cs">
+      <DependentUpon>201703201245099_FixModel4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Drink.cs" />
     <Compile Include="Model\Food.cs" />
     <Compile Include="Model\History.cs" />
     <Compile Include="Model\Modificator.cs" />
+    <Compile Include="Model\Order.cs" />
     <Compile Include="Model\ShopContext.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +137,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703170743584_FixModel2.resx">
       <DependentUpon>201703170743584_FixModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703201200026_TableOrder.resx">
+      <DependentUpon>201703201200026_TableOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703201214020_FixModel3.resx">
+      <DependentUpon>201703201214020_FixModel3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703201245099_FixModel4.resx">
+      <DependentUpon>201703201245099_FixModel4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -76,12 +76,11 @@
     <Compile Include="ItemListViewModel\SnackListViewModel.cs" />
     <Compile Include="ItemListViewModel\SoupListViewModel.cs" />
     <Compile Include="MainViewModel\HistoryViewModel.cs" />
-    <Compile Include="MainViewModel\MakeOrderViewModel.cs" />
+    <Compile Include="MainViewModel\CashierViewModel.cs" />
     <Compile Include="MainViewModel\SplashScreenViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MainViewModel\AdminViewModel.cs" />
     <Compile Include="MainViewModel\LoginViewModel.cs" />
-    <Compile Include="MainViewModel\OrderViewModel.cs" />
     <Compile Include="UserControlViewModel\DrinkViewModel.cs" />
     <Compile Include="UserControlViewModel\FoodViewModel.cs" />
     <Compile Include="UserControlViewModel\ModificatorViewModel.cs" />

@@ -4,6 +4,7 @@ using System.Linq;
 using DataBaseService.Interface;
 using DataBaseService.Model;
 using Shared.Enum;
+using DataBaseService;
 
 namespace DataBaseService
 {
@@ -72,25 +73,50 @@ namespace DataBaseService
             }
         }
 
-        public List<Food> GetTypeFoodList(FoodType foodType)
+        public List<Order> GetFoodOrderList(FoodType foodType)
         {
             using (var context = new ShopContext())
             {
-                var food = context.Foods.Where(x => x.FoodType == foodType.ToString())
+               var a = context.Foods.Where(x => x.FoodType == foodType.ToString());
+                    
+                var orders =  a.Select(FoodToOrder)
+                     .ToList();
+                return orders;
+            }
+        }
+        public static Order FoodToOrder( Food food)
+        {
+            return new Order
+            {
+                ItemId = food.FoodId,
+                ItemType = food.FoodType,
+                ItemWeight = food.FoodWeight,
+                ItemPrice = food.FoodPrice,
+                Count = 0
+            };
+        }
+        public List<Order> GetDrinkOrderList(DrinkType drinkType)
+        {
+            using (var contex = new ShopContext())
+            {
+                var orders = contex.Drinks.Where(x => x.DrinkType == drinkType.ToString())
+                    .Select(drink => drink.DrinkToOrder())
                     .ToList();
 
-                return food;
+                return orders;
             }
         }
 
-        public List<Drink> GetTypeDrinkList(DrinkType drinkType)
+        public List<Order> GetModificatorOrderList(ModificatorType modificatorType)
         {
-            throw new NotImplementedException();
-        }
+            using (var context = new ShopContext())
+            {
+                var orders = context.Modificators.Where(x => x.ModificatorType == modificatorType.ToString())
+                    .Select(modificator => modificator.ModificatorToOrder())
+                    .ToList();
 
-        public List<Modificator> GetTypeModificatorList(ModificatorType modificatorType)
-        {
-            throw new NotImplementedException();
+                return orders;
+            }
         }
 
         #region AddItem
@@ -125,7 +151,6 @@ namespace DataBaseService
                 food.FoodName = name;
                 food.FoodType = type;
                 food.FoodPrice = price;
-                food.CookTime = cookTime;
                 food.FoodWeight = weight;
 
                 context.Foods.Add(food);
@@ -205,7 +230,6 @@ namespace DataBaseService
                 food.FoodName = name;
                 food.FoodType = type;
                 food.FoodPrice = price;
-                food.CookTime = cookTime;
                 food.FoodWeight = weight;
 
                 context.SaveChanges();
@@ -381,34 +405,39 @@ namespace DataBaseService
                     }
                 case TypeView.AddFoodView:
                     {
-                        list.Add("Салат");
-                        list.Add("Перша страва");
-                        list.Add("М'ясна страва");
-                        list.Add("Рибна страва");
-                        list.Add("Гарнір");
-                        list.Add("Піца");
-                        list.Add("Паста");
-                        list.Add("Борошняний виріб");
-                        list.Add("Десерт");
+                        list.Add(FoodType.Салат.ToString());
+                        list.Add(FoodType.Першастрава.ToString());
+                        list.Add(FoodType.Мяснастрава.ToString());
+                        list.Add(FoodType.Рибнастрава.ToString());
+                        list.Add(FoodType.Гарнір.ToString());
+                        list.Add(FoodType.Піца.ToString());
+                        list.Add(FoodType.Паста.ToString());
+                        list.Add(FoodType.Борошнянийвиріб.ToString());
+                        list.Add(FoodType.Десерт.ToString());
                         break;
                     }
                 case TypeView.AddDrinkView:
                     {
-                        list.Add("Сік");
-                        list.Add("Гарячий напій");
-                        list.Add("Холодний напій");
+                        list.Add(DrinkType.Сік.ToString());
+                        list.Add(DrinkType.Гарячінапій.ToString());
+                        list.Add(DrinkType.Холоднінапій.ToString());
                         break;
                     }
                 case TypeView.AddModificatorView:
                     {
-                        list.Add("Закуска");
-                        list.Add("Соуси");
+                        list.Add(ModificatorType.Закуска.ToString());
+                        list.Add(ModificatorType.Соус.ToString());
                         break;
                     }
 
             }
 
             return list;
+        }
+
+        public static void ConvertString(FoodType foodType)
+        {
+
         }
 
         private static void DoOnAddUser(User e)

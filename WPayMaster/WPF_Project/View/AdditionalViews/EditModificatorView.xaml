@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="EditModificatorView" ResizeMode="NoResize" Height="500" Width="1400">
+        Title="EditModificatorView" ResizeMode="NoResize" WindowStyle="None" Height="500" Width="1400">
 
     <Window.Resources>
         <Style x:Key="ButtonStyle">
@@ -17,7 +17,6 @@
             <Setter Property="Button.FontSize" Value="20"></Setter>
             <Setter Property="Button.FontWeight" Value="Bold"></Setter>
             <Setter Property="Button.Foreground" Value="White"></Setter>
-            <Setter Property="Button.Padding" Value="5"></Setter>
             <Setter Property="Grid.Row" Value="3"></Setter>
             <Setter Property="Grid.Column" Value="1"></Setter>
         </Style>
@@ -31,7 +30,7 @@
             <Setter Property="TextBox.Background" Value="White"></Setter>
             <Setter Property="TextBox.Foreground" Value="Black"></Setter>
             <Setter Property="TextBox.TextAlignment" Value="Center"></Setter>
-            <Setter Property="TextBox.BorderBrush" Value="#fffa00"></Setter>
+            <Setter Property="TextBox.BorderBrush" Value="#ff9800"></Setter>
             <Setter Property="TextBox.BorderThickness" Value="2"></Setter>
         </Style>
         <Style x:Key="TextBlockStyle">
@@ -44,6 +43,13 @@
             <Setter Property="TextBlock.Foreground" Value="Black"></Setter>
             <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
             <Setter Property="TextBlock.Padding" Value="7"></Setter>
+        </Style>
+        <Style x:Key="ImageStyle" TargetType="Image">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0 0 180 0"/>
         </Style>
     </Window.Resources>
 
@@ -74,7 +80,11 @@
 
         <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="#26ff71" Command="{Binding SaveItemCommand}" Content="Зберегти" />
 
-        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"  Margin="0 0 100 0" Padding="7" Background="#FF1919" Command="{Binding CancelCommand}"  Content="Відмінити" />
+        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"  Margin="0 0 100 0" Background="#03a9f4" Command="{Binding ClearCommand}" Content="Очистити" />
 
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" HorizontalAlignment="Right"  Margin="0 0 5 80" Height="45" Width="45" 
+                Background="Transparent" Command="{Binding CloseCommand}">
+            <Image Style="{StaticResource ImageStyle}" Source="../Icons/Cancel.png" Height="35" Width="30" Margin="0 0 0 0"/>
+        </Button>
     </Grid>
 </Window>

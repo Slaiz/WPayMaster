@@ -12,9 +12,9 @@ namespace DataBaseService.Interface
         List<Drink> GetDrinksList();
         List<Modificator> GetModificatorsList();
         List<History> GetStoryList();
-        List<Food> GetTypeFoodList(FoodType foodType);
-        List<Drink> GetTypeDrinkList(DrinkType drinkType);
-        List<Modificator> GetTypeModificatorList(ModificatorType modificatorType); 
+        List<Order> GetFoodOrderList(FoodType foodType);
+        List<Order> GetDrinkOrderList(DrinkType drinkType);
+        List<Order> GetModificatorOrderList(ModificatorType modificatorType);
         void AddUser(string name, string surname, int passportNumber, string post, string password, int salary);
         void AddFood(string name, string type, int price, int cookTime, int weight);
         void AddDrink(string name, string type, int price, int volume);

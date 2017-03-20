@@ -19,7 +19,7 @@ namespace WPF_Project
     {
         private SplashScreenView splashScreenView;
         private LoginView loginView;
-        private OrderView orderView;
+        private CashierView cashierView;
         private AdminView adminView;
         private List<Window> MainViewList = new List<Window>();
         private static List<IView> AdditionalViewList = new List<IView>();  
@@ -62,14 +62,14 @@ namespace WPF_Project
         {
             switch (typeView)
             {
-                case TypeView.OrderView:
+                case TypeView.CashierView:
                     {
-                        orderView = new OrderView();
-                        orderView.DataContext = new OrderViewModel(CreateViewAction, user);
+                        cashierView = new CashierView();
+                        cashierView.DataContext = new CashierViewModel(CreateViewAction, user);
                         loginView.Close();
-                        orderView.Show();
-                        AddMainView(orderView, loginView);
-                        OrderViewModel.OnLogOut += MethodOnLogOut;
+                        cashierView.Show();
+                        AddMainView(cashierView, loginView);
+                        CashierViewModel.OnLogOut += MethodOnLogOut;
                         break;
                     }
                 case TypeView.AdminView:
@@ -87,7 +87,7 @@ namespace WPF_Project
 
         private void MethodOnLogOut(object sender, TypeView typeView)
         {
-            OrderViewModel.OnLogOut -= MethodOnLogOut;
+            CashierViewModel.OnLogOut -= MethodOnLogOut;
             AdminViewModel.OnLogOut -= MethodOnLogOut;
 
             loginView = new LoginView();
@@ -114,48 +114,49 @@ namespace WPF_Project
                 case TypeView.AddFoodView:
                     {
                         view = new AddFoodView(new AddFoodViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.AddDrinkView:
                     {
                         view = new AddDrinkView(new AddDrinkViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.AddModificatorView:
                     {
                         view = new AddModificatorView(new AddModificatorViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.EditUserView:
                     {
                         view = new EditUserView(new EditUserViewModel((User)o));
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.EditFoodView:
                     {
                         view = new EditFoodView(new EditFoodViewModel((Food)o));
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.EditDrinkView:
                     {
                         view = new EditDrinkView(new EditDrinkViewModel((Drink)o));
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
                 case TypeView.EditModificatorView:
                     {
                         view = new EditModificatorView(new EditModificatorViewModel((Modificator)o));
-                        view.ShowView();
-                        break;
-                    }
-                case TypeView.MakeOrderView:
-                    {
-                        view = new MakeOrderView(new MakeOrderViewModel(CreateViewAction));
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }

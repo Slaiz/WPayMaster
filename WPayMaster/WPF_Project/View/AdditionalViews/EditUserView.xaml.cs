@@ -1,5 +1,4 @@
-﻿using System.Windows;       
-using DataBaseService.Interface;
+﻿using System.Windows;
 using Shared.Interface;
 using ViewModel.AdditionalViewModel;
 
@@ -24,7 +23,7 @@ namespace WPF_Project.View
 
         public void CloseView()
         {
-            throw new System.NotImplementedException();
+            Close();
         }
     }
 }

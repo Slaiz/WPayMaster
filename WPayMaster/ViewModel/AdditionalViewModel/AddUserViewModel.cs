@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using DataBaseService;
 using PropertyChanged;
 using Shared;
 using Shared.Enum;
-using Shared.Interface;
 using ViewModel.MainViewModel;
 
 namespace ViewModel.AdditionalViewModel
@@ -18,7 +16,7 @@ namespace ViewModel.AdditionalViewModel
 
         public ICommand CloseCommand { get; set; }
         public ICommand AddItemCommand { get; set; }
-        public ICommand CancelCommand { get; set; }
+        public ICommand ClearCommand { get; set; }
 
         public Visibility NameImageVisibility { get; set; }
         public Visibility SurnameImageVisibility { get; set; }
@@ -49,7 +47,17 @@ namespace ViewModel.AdditionalViewModel
 
             CloseCommand = new CommandHandler(arg => Close());
             AddItemCommand = new CommandHandler(arg => AddItem());
-            CancelCommand = new CommandHandler(arg => Cancel());
+            ClearCommand = new CommandHandler(arg => Clear());
+        }
+
+        private void Clear()
+        {
+            Name = " ";
+            Surname = " ";
+            PassportNumber = 0;
+            Post = null;
+            Password = " ";
+            Salary = 0;
         }
 
         private void Close()
@@ -115,16 +123,6 @@ namespace ViewModel.AdditionalViewModel
             }
 
             return flag;
-        }
-
-        private void Cancel()
-        {
-            Name = " ";
-            Surname = " ";
-            PassportNumber = 0;
-            Post = null;
-            Password = " ";
-            Salary = 0;
         }
     }
 }

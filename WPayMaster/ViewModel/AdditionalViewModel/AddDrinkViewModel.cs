@@ -13,6 +13,7 @@ namespace ViewModel.AdditionalViewModel
     {
         public DbService DbService = new DbService();
 
+        public ICommand CloseCommand { get; set; }
         public ICommand AddItemCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 

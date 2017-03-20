@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
-        Title="AddUserView" ResizeMode="NoResize" Height="500" Width="1400">
+        Title="AddUserView" ResizeMode="NoResize" WindowStyle="None" Height="500" Width="1400">
 
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
@@ -17,7 +17,6 @@
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="Padding" Value="5"></Setter>
             <Setter Property="Grid.Row" Value="4"></Setter>
             <Setter Property="Grid.Column" Value="1"></Setter>
         </Style>
@@ -112,7 +111,12 @@
 
         <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="#26ff71" Command="{Binding AddItemCommand}" Content="Додати" />
 
-        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"  Margin="0 0 100 0" Background="#FF1919" Command="{Binding CloseCommand}" Content="Відмінити" />
+        <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"  Margin="0 0 100 0" Background="#03a9f4" Command="{Binding ClearCommand}" Content="Очистити" />
+
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" HorizontalAlignment="Right"  Margin="0 0 5 50" Height="45" Width="45" 
+                Background="Transparent" Command="{Binding CloseCommand}">
+            <Image Style="{StaticResource ImageStyle}" Source="../Icons/Cancel.png" Height="35" Width="30" Margin="0 0 0 0"/>
+            </Button>
 
     </Grid>
 </Window>
