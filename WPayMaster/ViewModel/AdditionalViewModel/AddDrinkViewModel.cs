@@ -27,7 +27,7 @@ namespace ViewModel.AdditionalViewModel
 
         public AddDrinkViewModel()
         {
-            DrinkTypeList = new List<string>(DbService.CreateTypeList(TypeView.AddDrinkView));
+            DrinkTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddDrinkView));
 
             CloseCommand = new CommandHandler(arg => Close());
             AddItemCommand = new CommandHandler(arg => AddItem());
@@ -56,8 +56,7 @@ namespace ViewModel.AdditionalViewModel
                     {
                         DbService.AddDrink(Name, Type, Price, Volume);
 
-                        MessageBox.Show("Запис додано", "Повідомлення", MessageBoxButton.OK,
-                            MessageBoxImage.Information);
+                        MessageBox.Show("Запис додано", "Повідомлення", MessageBoxButton.OK,MessageBoxImage.Information);
                     }
                     else MessageBox.Show("Введіть об'єм більше 0", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }

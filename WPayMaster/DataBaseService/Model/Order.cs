@@ -19,5 +19,6 @@ namespace DataBaseService.Model
         public int Count { get; set; }
         [Required]
         public int ItemPrice { get; set; }
+        public int Sum { get; set; }
     }
 }

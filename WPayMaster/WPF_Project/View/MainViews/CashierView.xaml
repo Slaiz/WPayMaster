@@ -134,9 +134,10 @@
         </StackPanel>
 
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.ColumnSpan="4" Margin="0 45 0 0"/>
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="3" Height="62" Width="65" HorizontalAlignment="Right" Margin="0 45 70 0"
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="3" Height="62" Width="65" Command="{Binding FindCommand}"
+                HorizontalAlignment="Right" Margin="0 45 70 0"
                 Background="Transparent">
-            <Image Style="{StaticResource ImageStyle}" Source="../Icons/Find.png" Height="50" Width="55"/>
+            <Image Style="{StaticResource ImageStyle}" Source="../Icons/Find.png" Height="48" Width="55"/>
         </Button>
 
 
@@ -161,7 +162,7 @@
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="3" Background="#3F51B5" Command="{Binding OpenFishListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="3" Background="#0277bd" Command="{Binding OpenFishListViewCommand}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Fish.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Рибні страви" />
@@ -244,28 +245,42 @@
         <Rectangle Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" Height="17" Width="1400" Margin="0 0 0 -27"
                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Fill="{Binding PanelBrushColor}"/>
 
-        <ListBox  Grid.Row="1" Grid.RowSpan="4" Grid.Column="4" HorizontalAlignment="Center"  Width="490" Height="600">
-            <StackPanel Orientation="Horizontal">
-                <Button Height="45" Width="45" Background="Transparent" ToolTip="Відмінити заказ" Command="{Binding CancelCommand}">
-                    <Image Style="{StaticResource ImageStyle}" Height="40" Width="40"  Source="../Icons/Cancel.png"/>
-                </Button>
-                <TextBlock Style="{StaticResource ListTextBlockStyle}" Foreground="Blue" Text="content content" Margin="5"/>
-                <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Foreground="Blue" Text="X" Margin="2 0 0 0"/>
-                <TextBox Style="{StaticResource TextBoxStyle}" Height="45" Width="40" Foreground="Red" Text="3" Margin="2 0 0 0"/>
-                <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Foreground="Blue" Text="=" Margin="2 0 0 0"/>
-                <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="75" Foreground="Red" TextAlignment="Center" Text="140" Margin="2 0 0 0"/>
-                <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="45" Foreground="Blue" TextAlignment="Center" Text="грн" Margin="2 0 0 0"/>
-            </StackPanel>
+        <ListBox ItemsSource="{Binding OrdersList, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1" Grid.RowSpan="4" Grid.Column="4" 
+                 HorizontalAlignment="Center" VerticalAlignment="Top"  Width="490" Height="500">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                <Button Height="45" Width="45" Background="Transparent" ToolTip="Відмінити заказ" Command="{Binding DeleteItemCheckCommand}">
+                                <Image Style="{StaticResource ImageStyle}" Height="35" Width="35"  Source="../Icons/RedCancel.png"/>
+                            </Button>
+                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Foreground="Blue" Text="{Binding ItemName}" Margin="5"/>
+                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Foreground="Blue" Text="X" Margin="2 0 0 0"/>
+                            <TextBox Style="{StaticResource TextBoxStyle}" Height="45" Width="40" Foreground="Red" Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Margin="2 0 0 0"/>
+                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Foreground="Blue" Text="=" Margin="2 0 0 0"/>
+                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="75" Foreground="Red" TextAlignment="Center" Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged}" Margin="2 0 0 0"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="45" Foreground="Blue" TextAlignment="Center" Text="грн" Margin="2 0 0 0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="4" Height="90" Width="100" 
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <TextBlock  Style="{StaticResource ButtonTextBlockStyle}" Height="90" Width="240"
+                   TextAlignment="Left" Foreground="Blue" FontSize="38"  Text="Сума:"/>
+        <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Height="90" Width="140"
+                   TextAlignment="Left" Foreground="Red" FontSize="38"  Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Height="90" Width="110"
+                   TextAlignment="Left" Foreground="Blue" FontSize="38"  Text="грн"/>
+        </StackPanel>
+
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="4" Height="90" Width="100" Command="{Binding CheckCommand}"
                 Margin="180 10 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Transparent">
             <Image Style="{StaticResource ImageStyle}" Source="../Icons/Check.png"/>
         </Button>
-        
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="4" Height="90" Width="100" 
+
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="4" Height="90" Width="100" Command="{Binding CleanCheckCommand}"
                 Margin="0 10 180 0" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Transparent">
-            <Image Style="{StaticResource ImageStyle}" Source="../Icons/Clear.png"/>
+            <Image Style="{StaticResource ImageStyle}" Source="../Icons/RedDelete.png"/>
         </Button>
 
     </Grid>

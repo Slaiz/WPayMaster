@@ -30,7 +30,7 @@
             <Setter Property="Background" Value="White"></Setter>
             <Setter Property="Foreground" Value="Black"></Setter>
             <Setter Property="TextAlignment" Value="Center"></Setter>
-            <Setter Property="BorderBrush" Value="#ff1500ff"></Setter>
+            <Setter Property="BorderBrush" Value="#ff00aaff"></Setter>
             <Setter Property="BorderThickness" Value="2"></Setter>
         </Style>
         <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
@@ -42,7 +42,7 @@
             <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="Background" Value="White"></Setter>
             <Setter Property="Foreground" Value="Black"></Setter>
-            <Setter Property="BorderBrush" Value="#ff1500ff"></Setter>
+            <Setter Property="BorderBrush" Value="#ff00aaff"></Setter>
             <Setter Property="BorderThickness" Value="2"></Setter>
         </Style>
         <Style x:Key="TextBlockStyle" TargetType="TextBlock">

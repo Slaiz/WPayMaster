@@ -15,6 +15,7 @@ namespace DataBaseService.Interface
         List<Order> GetFoodOrderList(FoodType foodType);
         List<Order> GetDrinkOrderList(DrinkType drinkType);
         List<Order> GetModificatorOrderList(ModificatorType modificatorType);
+        void AddOrder(List<Order> itemList);
         void AddUser(string name, string surname, int passportNumber, string post, string password, int salary);
         void AddFood(string name, string type, int price, int weight);
         void AddDrink(string name, string type, int price, int volume);
@@ -27,8 +28,8 @@ namespace DataBaseService.Interface
         void DeleteFood(Food item);
         void DeleteDrink(Drink item);
         void DeleteModificator(Modificator item);
-        void WriteStory(User worker, TypeStory typeStory);
+        void WriteStory(User worker, StoryType storyType);
         void AddWorkingTime(User oldUser, TimeSpan timeSpan);
-        List<string> CreateTypeList(TypeView typeView); 
+        List<string> CreateTypeList(ViewType viewType); 
     }
 }

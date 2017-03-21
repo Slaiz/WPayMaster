@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -14,8 +18,8 @@ namespace ViewModel.MainViewModel
     [ImplementPropertyChanged]
     public class CashierViewModel
     {
-        public static event EventHandler<TypeView> OnLogOut;
-        public Func<object, TypeView, IView> CreateViewAction { get; set; }
+        public static event EventHandler<ViewType> OnLogOut;
+        public Func<object, ViewType, IView> CreateViewAction { get; set; }
 
         #region Command
         public ICommand LogOutCommand { get; set; }
@@ -23,6 +27,10 @@ namespace ViewModel.MainViewModel
         public ICommand StopWorkCommand { get; set; }
         public ICommand ChangeColorCommand { get; set; }
         public ICommand OpenCheckHistoryViewCommand { get; set; }
+        public ICommand FindCommand { get; set; }
+        public ICommand CheckCommand { get; set; }
+        public ICommand CleanCheckCommand { get; set; }
+        public ICommand DeleteItemCheckCommand { get; set; }
         public ICommand OpenColdDrinkListViewCommand { get; set; }
         public ICommand OpenDessertListViewCommand { get; set; }
         public ICommand OpenFishListViewCommand { get; set; }
@@ -41,11 +49,14 @@ namespace ViewModel.MainViewModel
 
         public DbService DbService = new DbService();
 
+        public ObservableCollection<Order> OrdersList { get; set; }
+
         public User Cashier { get; set; }
         public string CashierName { get; set; }
         public DateTime CurrentTime { get; set; }
         public DateTime StartWorkTime { get; set; }
         public Brush PanelBrushColor { get; set; }
+        public int Sum { get; set; }
 
         private Color[] Colors = new Color[]
         {
@@ -54,9 +65,11 @@ namespace ViewModel.MainViewModel
             Color.FromRgb(213, 0, 0), Color.FromRgb(103, 58, 183)
         };
 
-        public CashierViewModel(Func<object, TypeView, IView> createViewAction, User user)
+        public CashierViewModel(Func<object, ViewType, IView> createViewAction, User user)
         {
             CreateViewAction = createViewAction;
+
+            OrdersList = new ObservableCollection<Order>();
 
             PanelBrushColor = LoginViewModel.ThemeBrushColor;
 
@@ -71,11 +84,18 @@ namespace ViewModel.MainViewModel
             },
             Dispatcher.CurrentDispatcher);
 
+            DbService.OnAddOrders += DbServiceOnOnAddOrders;
+
             LogOutCommand = new CommandHandler(arg => LogOut());
             StartWorkCommand = new CommandHandler(arg => StartWork());
             StopWorkCommand = new CommandHandler(arg => StopWork());
             ChangeColorCommand = new CommandHandler(arg => ChangeColor());
             OpenCheckHistoryViewCommand = new CommandHandler(arg => OpenCheckHistoryView());
+
+            FindCommand = new CommandHandler(arg => Find());
+            CheckCommand = new CommandHandler(arg => Check());
+            CleanCheckCommand = new CommandHandler(arg => CleanCheck());
+            DeleteItemCheckCommand = new CommandHandler(arg => DeleteItemCheck());
 
             OpenColdDrinkListViewCommand = new CommandHandler(arg => OpenColdDrinkListView());
             OpenDessertListViewCommand = new CommandHandler(arg => OpenDessertListView());
@@ -93,6 +113,53 @@ namespace ViewModel.MainViewModel
             OpenSoupListViewCommand = new CommandHandler(arg => OpenSoupListView());
         }
 
+        private void DeleteItemCheck()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DbServiceOnOnAddOrders(object sender, List<Order> ordersList)
+        {
+            foreach (var order in ordersList)
+            {
+                var item = OrdersList.FirstOrDefault(x => x.ItemName == order.ItemName);
+
+                if (item != null)
+                {
+                    int index = OrdersList.IndexOf(item);
+
+                    item.Count += order.Count;
+                    item.Sum += order.Count*order.ItemPrice;
+
+                    OrdersList.RemoveAt(index);
+                    OrdersList.Insert(index, item);
+                }
+                else OrdersList.Add(order);
+
+                Sum += order.Sum;
+            }
+        }
+
+        private void CleanCheck()
+        {
+            OrdersList.Clear();
+            Sum = 0;
+        }
+
+        private void Check()
+        {
+            DbService.AddOrder(OrdersList.ToList());
+
+            OrdersList.Clear();
+
+            MessageBox.Show("Заказ принято", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void Find()
+        {
+            throw new NotImplementedException();
+        }
+
         private void ChangeColor()
         {
             Random r = new Random();
@@ -104,7 +171,7 @@ namespace ViewModel.MainViewModel
 
         private void LogOut()
         {
-            DoOnLogOut(TypeView.CashierView);
+            DoOnLogOut(ViewType.CashierView);
         }
 
         private void StartWork()
@@ -119,83 +186,83 @@ namespace ViewModel.MainViewModel
 
         private void OpenCheckHistoryView()
         {
-            throw new NotImplementedException();
+            CreateViewAction.Invoke(null, ViewType.CheckHistoryView);
         }
 
         #region MethodOpenItemListView
-        private static void DoOnLogOut(TypeView e)
+        private static void DoOnLogOut(ViewType e)
         {
             OnLogOut?.Invoke(null, e);
         }
 
         private void OpenSnackListView()
         {
-            CreateViewAction.Invoke(null, TypeView.SnackListView);
+            CreateViewAction.Invoke(null, ViewType.SnackListView);
         }
 
         private void OpenSauceListView()
         {
-            CreateViewAction.Invoke(null, TypeView.SauceListView);
+            CreateViewAction.Invoke(null, ViewType.SauceListView);
         }
 
         private void OpenSaladListView()
         {
-            CreateViewAction.Invoke(null, TypeView.SaladListView);
+            CreateViewAction.Invoke(null, ViewType.SaladListView);
         }
 
         private void OpenPizzaListView()
         {
-            CreateViewAction.Invoke(null, TypeView.PizzaListView);
+            CreateViewAction.Invoke(null, ViewType.PizzaListView);
         }
 
         private void OpenPastaListView()
         {
-            CreateViewAction.Invoke(null, TypeView.PastaListView);
+            CreateViewAction.Invoke(null, ViewType.PastaListView);
         }
 
         private void OpenMeatDishListView()
         {
-            CreateViewAction.Invoke(null, TypeView.MeatDishListView);
+            CreateViewAction.Invoke(null, ViewType.MeatDishListView);
         }
 
         private void OpenMealListView()
         {
-            CreateViewAction.Invoke(null, TypeView.MealListView);
+            CreateViewAction.Invoke(null, ViewType.MealListView);
         }
 
         private void OpenJuiceListView()
         {
-            CreateViewAction.Invoke(null, TypeView.JuiceListView);
+            CreateViewAction.Invoke(null, ViewType.JuiceListView);
         }
 
         private void OpenHotDrinkListView()
         {
-            CreateViewAction.Invoke(null, TypeView.HotDrinkListView);
+            CreateViewAction.Invoke(null, ViewType.HotDrinkListView);
         }
 
         private void OpenGarnishListView()
         {
-            CreateViewAction.Invoke(null, TypeView.GarnishListView);
+            CreateViewAction.Invoke(null, ViewType.GarnishListView);
         }
 
         private void OpenFishListView()
         {
-            CreateViewAction.Invoke(null, TypeView.FishListView);
+            CreateViewAction.Invoke(null, ViewType.FishListView);
         }
 
         private void OpenDessertListView()
         {
-            CreateViewAction.Invoke(null, TypeView.DessertListView);
+            CreateViewAction.Invoke(null, ViewType.DessertListView);
         }
 
         private void OpenColdDrinkListView()
         {
-            CreateViewAction.Invoke(null, TypeView.ColdDrinkListView);
+            CreateViewAction.Invoke(null, ViewType.ColdDrinkListView);
         }
 
         private void OpenSoupListView()
         {
-            CreateViewAction.Invoke(null, TypeView.SoupListView);
+            CreateViewAction.Invoke(null, ViewType.SoupListView);
         }
         #endregion
     }

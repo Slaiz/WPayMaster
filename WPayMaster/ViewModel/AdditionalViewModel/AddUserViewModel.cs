@@ -36,7 +36,7 @@ namespace ViewModel.AdditionalViewModel
 
         public AddUserViewModel()
         {
-            UserPostList = new List<string>(DbService.CreateTypeList(TypeView.AddUserView));
+            UserPostList = new List<string>(DbService.CreateTypeList(ViewType.AddUserView));
 
             NameImageVisibility = Visibility.Hidden;
             SurnameImageVisibility = Visibility.Hidden;

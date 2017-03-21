@@ -13,7 +13,8 @@ namespace DataBaseService
                 ItemType = food.FoodType,
                 ItemWeight = food.FoodWeight,
                 ItemPrice = food.FoodPrice,
-                Count = 0
+                Count = 0, 
+                Sum = 0
             };
         }
 
@@ -26,7 +27,8 @@ namespace DataBaseService
                 ItemType = drink.DrinkType,
                 ItemWeight = drink.Volume,
                 ItemPrice = drink.DrinkPrice,
-                Count = 0
+                Count = 0,
+                Sum = 0
             };
         }
 
@@ -39,7 +41,8 @@ namespace DataBaseService
                 ItemType = modificator.ModificatorType,
                 ItemWeight = modificator.ModificatorWeight,
                 ItemPrice = modificator.ModificatorPrice,
-                Count = 0
+                Count = 0,
+                Sum = 0
             };
         }
     }

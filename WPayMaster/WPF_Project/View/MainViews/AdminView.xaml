@@ -132,7 +132,7 @@
             </Grid>
         </Button>
 
-        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="2" Background="SpringGreen" Command="{Binding OpenDrinkUserControlCommand}">
+        <Button Style="{StaticResource TableButtonStyle}" Grid.Row="1" Grid.Column="2" Background="#4caf50" Command="{Binding OpenDrinkUserControlCommand}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>

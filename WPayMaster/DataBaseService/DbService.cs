@@ -22,6 +22,7 @@ namespace DataBaseService
         public static event EventHandler<Food> OnDeleteFood;
         public static event EventHandler<Drink> OnDeleteDrink;
         public static event EventHandler<Modificator> OnDeleteModificator;
+        public static event EventHandler<List<Order>> OnAddOrders; 
 
         public List<User> GetUsersList()
         {
@@ -108,6 +109,35 @@ namespace DataBaseService
                     .ToList();
 
                 return orders;
+            }
+        }
+
+        public void AddOrder(List<Order> itemList)
+        {
+            using (var context = new ShopContext())
+            {
+                var lastItem = context.Orders.LastOrDefault();
+                int checkNumber = 1;
+
+                if (lastItem != null)
+                    checkNumber = lastItem.CheckId;
+
+                foreach (var item in itemList)
+                {
+                    var order = new Order();
+
+                    order.CheckId = checkNumber;
+                    order.ItemName = item.ItemName;
+                    order.ItemType = item.ItemType;
+                    order.ItemWeight = item.ItemWeight;
+                    order.ItemPrice = item.ItemPrice;
+                    order.Count = item.Count;
+                    order.Sum = item.Sum;
+
+                    context.Orders.Add(order);
+                }
+
+                context.SaveChanges();
             }
         }
 
@@ -323,8 +353,7 @@ namespace DataBaseService
         }
         #endregion
 
-
-        public void WriteStory(User worker, TypeStory typeStory)
+        public void WriteStory(User worker, StoryType storyType)
         {
             using (var context = new ShopContext())
             {
@@ -335,34 +364,34 @@ namespace DataBaseService
                 history.Post = worker.Post;
                 history.DateAction = DateTime.Now;
 
-                switch (typeStory)
+                switch (storyType)
                 {
-                    case TypeStory.AddItemInDb:
+                    case StoryType.AddItemInDb:
                         {
                             history.ActionName = "Додано новий запис";
                             break;
                         }
-                    case TypeStory.DeleteItemInDb:
+                    case StoryType.DeleteItemInDb:
                         {
                             history.ActionName = "Видалено запис";
                             break;
                         }
-                    case TypeStory.UpdateItemInDb:
+                    case StoryType.UpdateItemInDb:
                         {
                             history.ActionName = "Оновлено запис";
                             break;
                         }
-                    case TypeStory.UserLogIn:
+                    case StoryType.UserLogIn:
                         {
                             history.ActionName = "Користувач увійшов в програму";
                             break;
                         }
-                    case TypeStory.UserLogOut:
+                    case StoryType.UserLogOut:
                         {
                             history.ActionName = "Користувач вийшов з програму";
                             break;
                         }
-                    case TypeStory.CashierStopWork:
+                    case StoryType.CashierStopWork:
                         {
                             history.ActionName = "Касир закінчив зміну";
                             break;
@@ -383,19 +412,19 @@ namespace DataBaseService
             }
         }
 
-        public List<string> CreateTypeList(TypeView typeView)
+        public List<string> CreateTypeList(ViewType viewType)
         {
             List<string> list = new List<string>();
 
-            switch (typeView)
+            switch (viewType)
             {
-                case TypeView.AddUserView:
+                case ViewType.AddUserView:
                     {
                         list.Add(UserPost.Адміністратор.ToString());
                         list.Add(UserPost.Касир.ToString());
                         break;
                     }
-                case TypeView.AddFoodView:
+                case ViewType.AddFoodView:
                     {
                         list.Add(FoodType.Салат.ToString());
                         list.Add(FoodType.Першастрава.ToString());
@@ -408,14 +437,14 @@ namespace DataBaseService
                         list.Add(FoodType.Десерт.ToString());
                         break;
                     }
-                case TypeView.AddDrinkView:
+                case ViewType.AddDrinkView:
                     {
                         list.Add(DrinkType.Сік.ToString());
                         list.Add(DrinkType.Гарячінапій.ToString());
                         list.Add(DrinkType.Холоднінапій.ToString());
                         break;
                     }
-                case TypeView.AddModificatorView:
+                case ViewType.AddModificatorView:
                     {
                         list.Add(ModificatorType.Закуска.ToString());
                         list.Add(ModificatorType.Соус.ToString());
@@ -490,6 +519,11 @@ namespace DataBaseService
         private static void DoOnDeleteModificator(Modificator e)
         {
             OnDeleteModificator?.Invoke(null, e);
+        }
+
+        public static void DoOnAddOrders(List<Order> e)
+        {
+            OnAddOrders?.Invoke(null, e);
         }
     }
 }

@@ -40,7 +40,7 @@ namespace ViewModel.AdditionalViewModel
             Password = item.Password;
             Salary = item.Salary;
 
-            UserPostList = new List<string>(DbService.CreateTypeList(TypeView.AddUserView));
+            UserPostList = new List<string>(DbService.CreateTypeList(ViewType.AddUserView));
 
             CloseCommand = new CommandHandler(arg => Close());
             SaveItemCommand = new CommandHandler(arg => SaveItem());

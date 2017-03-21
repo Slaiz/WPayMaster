@@ -1,6 +1,6 @@
 ﻿namespace Shared.Enum
 {
-    public enum TypeStory
+    public enum StoryType
     {
         AddItemInDb,
         UpdateItemInDb,

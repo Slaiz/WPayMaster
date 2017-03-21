@@ -1,6 +1,6 @@
 ﻿namespace Shared.Enum
 {
-    public enum TypeUserControl
+    public enum UserControlType
     {
         DrinkUserControl,
         FoodUserControl,

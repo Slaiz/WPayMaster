@@ -45,9 +45,9 @@
     <Compile Include="Enum\DrinkType.cs" />
     <Compile Include="Enum\FoodType.cs" />
     <Compile Include="Enum\ModificatorType.cs" />
-    <Compile Include="Enum\TypeStory.cs" />
-    <Compile Include="Enum\TypeUserControl.cs" />
-    <Compile Include="Enum\TypeView.cs" />
+    <Compile Include="Enum\StoryType.cs" />
+    <Compile Include="Enum\UserControlType.cs" />
+    <Compile Include="Enum\ViewType.cs" />
     <Compile Include="Enum\UserPost.cs" />
     <Compile Include="Interface\IView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

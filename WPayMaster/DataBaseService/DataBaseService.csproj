@@ -100,6 +100,10 @@
     <Compile Include="Migrations\201703201706139_FixModel5.Designer.cs">
       <DependentUpon>201703201706139_FixModel5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703211157123_FixModel6.cs" />
+    <Compile Include="Migrations\201703211157123_FixModel6.Designer.cs">
+      <DependentUpon>201703211157123_FixModel6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Drink.cs" />
     <Compile Include="Model\Food.cs" />
@@ -153,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703201706139_FixModel5.resx">
       <DependentUpon>201703201706139_FixModel5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703211157123_FixModel6.resx">
+      <DependentUpon>201703211157123_FixModel6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

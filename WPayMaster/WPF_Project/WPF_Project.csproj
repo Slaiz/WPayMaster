@@ -80,6 +80,9 @@
     <Compile Include="View\AdditionalViews\AddUserView.xaml.cs">
       <DependentUpon>AddUserView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AdditionalViews\CheckHistoryView.xaml.cs">
+      <DependentUpon>CheckHistoryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdditionalViews\EditDrinkView.xaml.cs">
       <DependentUpon>EditDrinkView.xaml</DependentUpon>
     </Compile>
@@ -134,8 +137,8 @@
     <Compile Include="View\ItemListViews\SoupListView.xaml.cs">
       <DependentUpon>SoupListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainViews\HistoryView.xaml.cs">
-      <DependentUpon>HistoryView.xaml</DependentUpon>
+    <Compile Include="View\AdditionalViews\ActivityHistoryView.xaml.cs">
+      <DependentUpon>ActivityHistoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainViews\CashierView.xaml.cs">
       <DependentUpon>CashierView.xaml</DependentUpon>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdditionalViews\AddUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdditionalViews\CheckHistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -236,7 +243,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainViews\HistoryView.xaml">
+    <Page Include="View\AdditionalViews\ActivityHistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -375,9 +382,13 @@
     <Resource Include="View\Icons\Stop.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icons\Check.png" />
     <Resource Include="View\Icons\Clear.png" />
     <Resource Include="View\Icons\Find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\Check.png" />
+    <Resource Include="View\Icons\RedCancel.png" />
+    <Resource Include="View\Icons\RedDelete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -27,7 +27,7 @@ namespace ViewModel.AdditionalViewModel
 
         public AddFoodViewModel()
         {
-            FoodTypeList = new List<string>(DbService.CreateTypeList(TypeView.AddFoodView));
+            FoodTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddFoodView));
                 
             CloseCommand = new CommandHandler(arg => Close());
             AddItemCommand = new CommandHandler(arg => AddItem());

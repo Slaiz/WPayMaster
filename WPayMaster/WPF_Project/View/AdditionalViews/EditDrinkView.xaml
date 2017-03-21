@@ -31,7 +31,7 @@
             <Setter Property="TextBox.Background" Value="White"></Setter>
             <Setter Property="TextBox.Foreground" Value="Black"></Setter>
             <Setter Property="TextBox.TextAlignment" Value="Center"></Setter>
-            <Setter Property="TextBox.BorderBrush" Value="SpringGreen"/>
+            <Setter Property="TextBox.BorderBrush" Value="#4caf50"/>
             <Setter Property="TextBox.BorderThickness" Value="2"/>
         </Style>
         <Style x:Key="TextBlockStyle">

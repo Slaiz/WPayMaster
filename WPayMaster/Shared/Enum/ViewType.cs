@@ -1,11 +1,12 @@
 ﻿namespace Shared.Enum
 {
-    public enum TypeView
+    public enum ViewType
     {
         LoginView,
         AdminView,
         CashierView,
-        HistoryView,
+        ActivityHistoryView,
+        CheckHistoryView,
         AddUserView,
         AddFoodView,
         AddDrinkView,

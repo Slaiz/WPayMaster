@@ -17,7 +17,7 @@ namespace ViewModel.MainViewModel
     [ImplementPropertyChanged]
     public class AdminViewModel
     {
-        public static event EventHandler<TypeView> OnLogOut;
+        public static event EventHandler<ViewType> OnLogOut;
 
         public ICommand ChangeColorCommand { get; set; }
         public ICommand OpenHistoryViewCommand { get; set; }
@@ -37,7 +37,7 @@ namespace ViewModel.MainViewModel
 
         public DbService DbService = new DbService();
 
-        public Func<object, TypeView, IView> CreateViewAction { get; set; }
+        public Func<object, ViewType, IView> CreateViewAction { get; set; }
 
         public Visibility UserTextBoxVisibility { get; set; }
         public Visibility FoodTextBoxVisibility { get; set; }
@@ -56,10 +56,10 @@ namespace ViewModel.MainViewModel
         };
 
         public System.Windows.Controls.UserControl CurrentUserControl { get; set; }
-        private TypeView TypeAddViewItem { get; set; }
-        private TypeView TypeEditViewItem { get; set; }
+        private ViewType ViewTypeAddItem { get; set; }
+        private ViewType ViewTypeEditItem { get; set; }
 
-        public AdminViewModel(Func<object, TypeView, IView> createViewAction, User user)
+        public AdminViewModel(Func<object, ViewType, IView> createViewAction, User user)
         {
             CreateViewAction = createViewAction;
 
@@ -77,15 +77,15 @@ namespace ViewModel.MainViewModel
 
             PanelBrushColor = LoginViewModel.ThemeBrushColor;
 
-            OpenUserControl(TypeUserControl.UserUserControl);
+            OpenUserControl(UserControlType.UserUserControl);
 
             ChangeColorCommand = new CommandHandler(arg => ChangeColor());
             OpenHistoryViewCommand = new CommandHandler(arg => OpenHistoryView());
             LogOutCommand = new CommandHandler(arg => LogOut());
-            OpenUserUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.UserUserControl));
-            OpenFoodUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.FoodUserControl));
-            OpenDrinkUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.DrinkUserControl));
-            OpenModificatorUserControlCommand = new CommandHandler(arg => OpenUserControl(TypeUserControl.ModificatorUserControl));
+            OpenUserUserControlCommand = new CommandHandler(arg => OpenUserControl(UserControlType.UserUserControl));
+            OpenFoodUserControlCommand = new CommandHandler(arg => OpenUserControl(UserControlType.FoodUserControl));
+            OpenDrinkUserControlCommand = new CommandHandler(arg => OpenUserControl(UserControlType.DrinkUserControl));
+            OpenModificatorUserControlCommand = new CommandHandler(arg => OpenUserControl(UserControlType.ModificatorUserControl));
 
             OpenAddItemViewCommand = new CommandHandler(arg => OpenAddItemView());
             OpenEditItemViewCommand = new CommandHandler(arg => OpenEditItemView());
@@ -103,53 +103,53 @@ namespace ViewModel.MainViewModel
 
         private void OpenHistoryView()
         {
-            CreateViewAction.Invoke(null, TypeView.HistoryView);
+            CreateViewAction.Invoke(null, ViewType.ActivityHistoryView);
         }
 
         private void OpenAddItemView()
         {
-            CreateViewAction.Invoke(null, TypeAddViewItem);
+            CreateViewAction.Invoke(null, ViewTypeAddItem);
         }
 
         private void OpenEditItemView()
         {
-            switch (TypeEditViewItem)
+            switch (ViewTypeEditItem)
             {
-                case TypeView.EditUserView:
+                case ViewType.EditUserView:
                     {
                         if (UserViewModel.SelectedItem != null)
                         {
-                            CreateViewAction.Invoke(UserViewModel.SelectedItem, TypeEditViewItem);
+                            CreateViewAction.Invoke(UserViewModel.SelectedItem, ViewTypeEditItem);
                             UserViewModel.SelectedItem = null;
                         }
                         else MessageBox.Show("Будь ласка виберіть користувача", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     }
-                case TypeView.EditFoodView:
+                case ViewType.EditFoodView:
                     {
                         if (FoodViewModel.SelectedItem != null)
                         {
-                            CreateViewAction.Invoke(FoodViewModel.SelectedItem, TypeEditViewItem);
+                            CreateViewAction.Invoke(FoodViewModel.SelectedItem, ViewTypeEditItem);
                             FoodViewModel.SelectedItem = null;
                         }
                         else MessageBox.Show("Будь ласка виберіть їжу", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     }
-                case TypeView.EditDrinkView:
+                case ViewType.EditDrinkView:
                     {
                         if (DrinkViewModel.SelectedItem != null)
                         {
-                            CreateViewAction.Invoke(DrinkViewModel.SelectedItem, TypeEditViewItem);
+                            CreateViewAction.Invoke(DrinkViewModel.SelectedItem, ViewTypeEditItem);
                             DrinkViewModel.SelectedItem = null;
                         }
                         else MessageBox.Show("Будь ласка виберіть напиток", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     }
-                case TypeView.EditModificatorView:
+                case ViewType.EditModificatorView:
                     {
                         if (ModificatorViewModel.SelectedItem != null)
                         {
-                            CreateViewAction.Invoke(ModificatorViewModel.SelectedItem, TypeEditViewItem);
+                            CreateViewAction.Invoke(ModificatorViewModel.SelectedItem, ViewTypeEditItem);
                             ModificatorViewModel.SelectedItem = null;
                         }
                         else MessageBox.Show("Будь ласка виберіть додаткове", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -160,9 +160,9 @@ namespace ViewModel.MainViewModel
 
         private void DeleteItem()
         {
-            switch (TypeEditViewItem)
+            switch (ViewTypeEditItem)
             {
-                case TypeView.EditUserView:
+                case ViewType.EditUserView:
                     {
                         if (UserViewModel.SelectedItem != null)
                         {
@@ -173,7 +173,7 @@ namespace ViewModel.MainViewModel
                         else MessageBox.Show("Будь ласка виберіть користувача", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     }
-                case TypeView.EditFoodView:
+                case ViewType.EditFoodView:
                     {
                         if (FoodViewModel.SelectedItem != null)
                         {
@@ -184,7 +184,7 @@ namespace ViewModel.MainViewModel
                         else MessageBox.Show("Будь ласка виберіть їжу", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     }
-                case TypeView.EditDrinkView:
+                case ViewType.EditDrinkView:
                     {
                         if (DrinkViewModel.SelectedItem != null)
                         {
@@ -195,7 +195,7 @@ namespace ViewModel.MainViewModel
                         else MessageBox.Show("Будь ласка виберіть напиток", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
                         break;
                     }
-                case TypeView.EditModificatorView:
+                case ViewType.EditModificatorView:
                     {
                         if (ModificatorViewModel.SelectedItem != null)
                         {
@@ -211,56 +211,56 @@ namespace ViewModel.MainViewModel
             MessageBox.Show("Запис видалено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void OpenUserControl(TypeUserControl typeUserControl)
+        private void OpenUserControl(UserControlType userControlType)
         {
-            switch (typeUserControl)
+            switch (userControlType)
             {
-                case TypeUserControl.UserUserControl:
+                case UserControlType.UserUserControl:
                     {
                         CurrentUserControl = new UserUserControl();
                         userViewModel = new UserViewModel();
                         CurrentUserControl.DataContext = userViewModel;
-                        TypeAddViewItem = TypeView.AddUserView;
-                        TypeEditViewItem = TypeView.EditUserView;
+                        ViewTypeAddItem = ViewType.AddUserView;
+                        ViewTypeEditItem = ViewType.EditUserView;
                         UserTextBoxVisibility = Visibility.Visible;
                         FoodTextBoxVisibility = Visibility.Hidden;
                         DrinkTextBoxVisibility = Visibility.Hidden;
                         ModificatorTextBoxVisibility = Visibility.Hidden;
                         break;
                     }
-                case TypeUserControl.FoodUserControl:
+                case UserControlType.FoodUserControl:
                     {
                         CurrentUserControl = new FoodUserControl();
                         foodViewModel = new FoodViewModel();
                         CurrentUserControl.DataContext = foodViewModel;
-                        TypeAddViewItem = TypeView.AddFoodView;
-                        TypeEditViewItem = TypeView.EditFoodView;
+                        ViewTypeAddItem = ViewType.AddFoodView;
+                        ViewTypeEditItem = ViewType.EditFoodView;
                         UserTextBoxVisibility = Visibility.Hidden;
                         FoodTextBoxVisibility = Visibility.Visible;
                         DrinkTextBoxVisibility = Visibility.Hidden;
                         ModificatorTextBoxVisibility = Visibility.Hidden;
                         break;
                     }
-                case TypeUserControl.DrinkUserControl:
+                case UserControlType.DrinkUserControl:
                     {
                         CurrentUserControl = new DrinkUserControl();
                         drinkViewModel = new DrinkViewModel();
                         CurrentUserControl.DataContext = drinkViewModel;
-                        TypeAddViewItem = TypeView.AddDrinkView;
-                        TypeEditViewItem = TypeView.EditDrinkView;
+                        ViewTypeAddItem = ViewType.AddDrinkView;
+                        ViewTypeEditItem = ViewType.EditDrinkView;
                         UserTextBoxVisibility = Visibility.Hidden;
                         FoodTextBoxVisibility = Visibility.Hidden;
                         DrinkTextBoxVisibility = Visibility.Visible;
                         ModificatorTextBoxVisibility = Visibility.Hidden;
                         break;
                     }
-                case TypeUserControl.ModificatorUserControl:
+                case UserControlType.ModificatorUserControl:
                     {
                         CurrentUserControl = new ModificatorUserControl();
                         modificatorViewModel = new ModificatorViewModel();
                         CurrentUserControl.DataContext = modificatorViewModel;
-                        TypeAddViewItem = TypeView.AddModificatorView;
-                        TypeEditViewItem = TypeView.EditModificatorView;
+                        ViewTypeAddItem = ViewType.AddModificatorView;
+                        ViewTypeEditItem = ViewType.EditModificatorView;
                         UserTextBoxVisibility = Visibility.Hidden;
                         FoodTextBoxVisibility = Visibility.Hidden;
                         DrinkTextBoxVisibility = Visibility.Hidden;
@@ -272,10 +272,10 @@ namespace ViewModel.MainViewModel
 
         private void LogOut()
         {
-            DoOnLogOut(TypeView.AdminView);
+            DoOnLogOut(ViewType.AdminView);
         }
 
-        private static void DoOnLogOut(TypeView e)
+        private static void DoOnLogOut(ViewType e)
         {
             OnLogOut?.Invoke(null, e);
         }

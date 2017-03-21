@@ -17,7 +17,7 @@ namespace ViewModel.MainViewModel
     [ImplementPropertyChanged]
     public class LoginViewModel
     {
-        public static event Action<TypeView, User> OnLogIn;
+        public static event Action<ViewType, User> OnLogIn;
         public static event Action OnCloseView;
 
         public DbService DbService = new DbService();
@@ -26,7 +26,7 @@ namespace ViewModel.MainViewModel
         public ICommand ChangeColorCommand { get; set; }
         public ICommand LogInCommand { get; set; }
 
-        public Func<object, TypeView, IView> CreateViewAction { get; set; }
+        public Func<object, ViewType, IView> CreateViewAction { get; set; }
 
         private ObservableCollection<User> UserList { get; set; }
 
@@ -42,7 +42,7 @@ namespace ViewModel.MainViewModel
             Color.FromRgb(213, 0, 0), Color.FromRgb(103, 58, 183)
         };
 
-        public LoginViewModel(Func<object, TypeView, IView> createViewAction)
+        public LoginViewModel(Func<object, ViewType, IView> createViewAction)
         {
 
             CreateViewAction = createViewAction;
@@ -66,7 +66,7 @@ namespace ViewModel.MainViewModel
 
         private void Exit()
         {
-            CreateViewAction(null, TypeView.LoginView);
+            CreateViewAction(null, ViewType.LoginView);
         }
 
         private void LogIn()
@@ -78,8 +78,8 @@ namespace ViewModel.MainViewModel
                     if (user.UserName.Contains(Login) && user.Password.Contains(Password))
                     {
                         if (user.Post.Contains("Адміністратор"))
-                            DoOnLogIn(TypeView.AdminView, user);
-                        else DoOnLogIn(TypeView.CashierView, user);
+                            DoOnLogIn(ViewType.AdminView, user);
+                        else DoOnLogIn(ViewType.CashierView, user);
                         return;
                     }
                 }
@@ -90,7 +90,7 @@ namespace ViewModel.MainViewModel
         }
 
 
-        private static void DoOnLogIn(TypeView arg1, User user)
+        private static void DoOnLogIn(ViewType arg1, User user)
         {
             OnLogIn?.Invoke(arg1, user);
         }

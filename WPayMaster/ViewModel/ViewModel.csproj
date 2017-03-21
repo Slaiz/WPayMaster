@@ -57,6 +57,7 @@
     <Compile Include="AdditionalViewModel\AddFoodViewModel.cs" />
     <Compile Include="AdditionalViewModel\AddModificatorViewModel.cs" />
     <Compile Include="AdditionalViewModel\AddUserViewModel.cs" />
+    <Compile Include="AdditionalViewModel\CheckHistoryViewModel.cs" />
     <Compile Include="AdditionalViewModel\EditDrinkViewModel.cs" />
     <Compile Include="AdditionalViewModel\EditFoodViewModel.cs" />
     <Compile Include="AdditionalViewModel\EditModificatorViewModel.cs" />
@@ -75,7 +76,7 @@
     <Compile Include="ItemListViewModel\SauceListViewModel.cs" />
     <Compile Include="ItemListViewModel\SnackListViewModel.cs" />
     <Compile Include="ItemListViewModel\SoupListViewModel.cs" />
-    <Compile Include="MainViewModel\HistoryViewModel.cs" />
+    <Compile Include="AdditionalViewModel\ActivityHistoryViewModel.cs" />
     <Compile Include="MainViewModel\CashierViewModel.cs" />
     <Compile Include="MainViewModel\SplashScreenViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

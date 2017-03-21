@@ -9,6 +9,7 @@ using ViewModel.AdditionalViewModel;
 using ViewModel.ItemListViewModel;
 using ViewModel.MainViewModel;
 using WPF_Project.View;
+using WPF_Project.View.AdditionalViews;
 using WPF_Project.View.ItemListViews;
 using WPF_Project.View.ListOrederView;
 using WPF_Project.View.MainViews;
@@ -58,11 +59,11 @@ namespace WPF_Project
             AdditionalViewList.Clear();
         }
 
-        private void LoginViewModelOnOnLogIn(TypeView typeView, User user)
+        private void LoginViewModelOnOnLogIn(ViewType viewType, User user)
         {
-            switch (typeView)
+            switch (viewType)
             {
-                case TypeView.CashierView:
+                case ViewType.CashierView:
                     {
                         cashierView = new CashierView();
                         cashierView.DataContext = new CashierViewModel(CreateViewAction, user);
@@ -72,7 +73,7 @@ namespace WPF_Project
                         CashierViewModel.OnLogOut += MethodOnLogOut;
                         break;
                     }
-                case TypeView.AdminView:
+                case ViewType.AdminView:
                     {
                         adminView = new AdminView();
                         adminView.DataContext = new AdminViewModel(CreateViewAction, user);
@@ -85,7 +86,7 @@ namespace WPF_Project
             }
         }
 
-        private void MethodOnLogOut(object sender, TypeView typeView)
+        private void MethodOnLogOut(object sender, ViewType viewType)
         {
             CashierViewModel.OnLogOut -= MethodOnLogOut;
             AdminViewModel.OnLogOut -= MethodOnLogOut;
@@ -97,13 +98,13 @@ namespace WPF_Project
             loginView.Show();
         }
 
-        public static IView CreateViewAction(object o, TypeView typeView)
+        public static IView CreateViewAction(object o, ViewType viewType)
         {
             IView view;
 
-            switch (typeView)
+            switch (viewType)
             {
-                case TypeView.AddUserView:
+                case ViewType.AddUserView:
                     {
                         view = new AddUserView(new AddUserViewModel());
                         AddAdditionalView(view);
@@ -111,159 +112,167 @@ namespace WPF_Project
                         break;
                     }
 
-                case TypeView.AddFoodView:
+                case ViewType.AddFoodView:
                     {
                         view = new AddFoodView(new AddFoodViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.AddDrinkView:
+                case ViewType.AddDrinkView:
                     {
                         view = new AddDrinkView(new AddDrinkViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.AddModificatorView:
+                case ViewType.AddModificatorView:
                     {
                         view = new AddModificatorView(new AddModificatorViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.EditUserView:
+                case ViewType.EditUserView:
                     {
                         view = new EditUserView(new EditUserViewModel((User)o));
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.EditFoodView:
+                case ViewType.EditFoodView:
                     {
                         view = new EditFoodView(new EditFoodViewModel((Food)o));
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.EditDrinkView:
+                case ViewType.EditDrinkView:
                     {
                         view = new EditDrinkView(new EditDrinkViewModel((Drink)o));
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.EditModificatorView:
+                case ViewType.EditModificatorView:
                     {
                         view = new EditModificatorView(new EditModificatorViewModel((Modificator)o));
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.HistoryView:
+                case ViewType.ActivityHistoryView:
                     {
-                        view = new HistoryView(new HistoryViewModel());
+                        view = new ActivityHistoryView(new ActivityHistoryViewModel());
+                        AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.LoginView:
+                case ViewType.CheckHistoryView:
+                    {
+                        view = new CheckHistoryView(new CheckHistoryViewModel());
+                        AddAdditionalView(view);
+                        view.ShowView();
+                        break;
+                    }
+                case ViewType.LoginView:
                 {
                         view = null;
                         KillAllView();
                         break;
                     }
-                case TypeView.ColdDrinkListView:
+                case ViewType.ColdDrinkListView:
                     {
                         view = new ColdDrinkListView(new ColdDrinkListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.DessertListView:
+                case ViewType.DessertListView:
                     {
                         view = new DessertListView(new DessertListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.FishListView:
+                case ViewType.FishListView:
                     {
                         view = new FishListView(new FishListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.GarnishListView:
+                case ViewType.GarnishListView:
                     {
                         view = new GarnishListView(new GarnishListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.HotDrinkListView:
+                case ViewType.HotDrinkListView:
                     {
                         view = new HotDrinkListView(new HotDrinkListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.JuiceListView:
+                case ViewType.JuiceListView:
                     {
                         view = new JuiceListView(new JuiceListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.MealListView:
+                case ViewType.MealListView:
                     {
                         view = new MealListView(new MealListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.MeatDishListView:
+                case ViewType.MeatDishListView:
                     {
                         view = new MeatDishListView(new MeatDishListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.PastaListView:
+                case ViewType.PastaListView:
                     {
                         view = new PastaListView(new PastaListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.PizzaListView:
+                case ViewType.PizzaListView:
                     {
                         view = new PizzaListView(new PizzaListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.SaladListView:
+                case ViewType.SaladListView:
                     {
                         view = new SaladListView(new SaladListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.SauceListView:
+                case ViewType.SauceListView:
                     {
                         view = new SauceListView(new SauceListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.SnackListView:
+                case ViewType.SnackListView:
                     {
                         view = new SnackListView(new SnackListViewModel());
                         AddAdditionalView(view);
                         view.ShowView();
                         break;
                     }
-                case TypeView.SoupListView:
+                case ViewType.SoupListView:
                     {
                         view = new SoupListView(new SoupListViewModel());
                         AddAdditionalView(view);

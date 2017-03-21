@@ -36,7 +36,7 @@ namespace ViewModel.AdditionalViewModel
             Price = item.FoodPrice;
             Weight = item.FoodWeight;
 
-            FoodTypeList = new List<string>(DbService.CreateTypeList(TypeView.AddFoodView));
+            FoodTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddFoodView));
 
             CloseCommand = new CommandHandler(arg => Close());
             SaveItemCommand = new CommandHandler(arg => SaveItem());
