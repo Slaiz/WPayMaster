@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DataBaseService.Context;
 using DataBaseService.Model;
 using Shared.Enum;
 
@@ -12,10 +13,10 @@ namespace DataBaseService.Interface
         List<Drink> GetDrinksList();
         List<Modificator> GetModificatorsList();
         List<History> GetStoryList();
-        List<Order> GetFoodOrderList(FoodType foodType);
-        List<Order> GetDrinkOrderList(DrinkType drinkType);
-        List<Order> GetModificatorOrderList(ModificatorType modificatorType);
-        void AddOrder(List<Order> itemList);
+        List<OrderModel> GetFoodOrderList(FoodType foodType);
+        List<OrderModel> GetDrinkOrderList(DrinkType drinkType);
+        List<OrderModel> GetModificatorOrderList(ModificatorType modificatorType);
+        void AddOrder(List<OrderModel> itemList);
         void AddUser(string name, string surname, int passportNumber, string post, string password, int salary);
         void AddFood(string name, string type, int price, int weight);
         void AddDrink(string name, string type, int price, int volume);

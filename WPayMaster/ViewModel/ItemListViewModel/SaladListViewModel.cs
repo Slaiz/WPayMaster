@@ -3,49 +3,45 @@ using System.Collections.ObjectModel;
 using System.Windows.Documents;
 using System.Windows.Input;
 using DataBaseService;
+using DataBaseService.Context;
 using DataBaseService.Model;
+using PropertyChanged;
 using Shared;
 using Shared.Enum;
 using ViewModel.MainViewModel;
 
 namespace ViewModel.ItemListViewModel
 {
+    [ImplementPropertyChanged]
     public class SaladListViewModel
     {
         public DbService DbService = new DbService();
 
         public ICommand CloseCommand { get; set; }
         public ICommand AddOrderToCheckCommand { get; set; }
-        public ICommand PlusCommand { get; set; }
-        public ICommand MinusCommand { get; set; }
 
-        public ObservableCollection<Order> SaladsList { get; set; }
-
-        public Order SelectedItem { get; set; }
+        public ObservableCollection<OrderModel> SaladsList { get; set; }
 
         public SaladListViewModel()
         {
-            SaladsList = new ObservableCollection<Order>(DbService.GetFoodOrderList(FoodType.Салат));
+            SaladsList = new ObservableCollection<OrderModel>(DbService.GetFoodOrderList(FoodType.Салат));
 
             CloseCommand = new CommandHandler(arg => Close());
             AddOrderToCheckCommand = new CommandHandler(arg => AddOrderToCheck());
-            PlusCommand = new CommandHandler(arg => Plus());
-            MinusCommand = new CommandHandler(arg => Minus());
 
-            SelectedItem = SaladsList[0];
         }
 
         private void AddOrderToCheck()
         {
-            var orderList = new List<Order>();
+            var orderList = new List<OrderModel>();
 
             foreach (var salad in SaladsList)
             {
-                if (salad.Count >= 1)
+                if (salad.Count.ItemCount >= 1)
                 {
-                    salad.Sum = salad.ItemPrice*salad.Count;
+                    salad.Sum = salad.ItemPrice * salad.Count.ItemCount;
                     orderList.Add(salad);
-                }                
+                }
             }
 
             DbService.DoOnAddOrders(orderList);
@@ -56,16 +52,6 @@ namespace ViewModel.ItemListViewModel
         private void Close()
         {
             LoginViewModel.DoOnCloseView();
-        }
-
-        private void Minus()
-        {
-            SelectedItem.Count -= 1;
-        }
-
-        private void Plus()
-        {
-            SelectedItem.Count += 1;
         }
     }
 }

@@ -98,6 +98,9 @@
     <Compile Include="View\ItemListViews\ColdDrinkListView.xaml.cs">
       <DependentUpon>ColdDrinkListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ItemListViews\CountUserControl.xaml.cs">
+      <DependentUpon>CountUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ItemListViews\DessertListView.xaml.cs">
       <DependentUpon>DessertListView.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
     <Page Include="View\ItemListViews\ColdDrinkListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemListViews\CountUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\ItemListViews\DessertListView.xaml">
       <SubType>Designer</SubType>

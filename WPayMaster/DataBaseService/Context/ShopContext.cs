@@ -1,9 +1,8 @@
-namespace DataBaseService.Model
-{
-    using System;
-    using System.Data.Entity;
-    using System.Linq;
+using System.Data.Entity;
+using DataBaseService.Model;
 
+namespace DataBaseService.Context
+{
     public class ShopContext : DbContext
     {
         public ShopContext()

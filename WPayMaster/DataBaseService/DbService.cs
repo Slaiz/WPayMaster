@@ -5,6 +5,7 @@ using DataBaseService.Interface;
 using DataBaseService.Model;
 using Shared.Enum;
 using DataBaseService;
+using DataBaseService.Context;
 
 namespace DataBaseService
 {
@@ -22,7 +23,7 @@ namespace DataBaseService
         public static event EventHandler<Food> OnDeleteFood;
         public static event EventHandler<Drink> OnDeleteDrink;
         public static event EventHandler<Modificator> OnDeleteModificator;
-        public static event EventHandler<List<Order>> OnAddOrders; 
+        public static event EventHandler<List<OrderModel>> OnAddOrders; 
 
         public List<User> GetUsersList()
         {
@@ -74,45 +75,45 @@ namespace DataBaseService
             }
         }
 
-        public List<Order> GetFoodOrderList(FoodType foodType)
+        public List<OrderModel> GetFoodOrderList(FoodType foodType)
         {
             using (var context = new ShopContext())
             {
                var orders = context.Foods.AsEnumerable()
                     .Where(x => x.FoodType == foodType.ToString())
-                    .Select(food => food.FoodToOrder())
+                    .Select(food => food.FoodToOrderModel())
                     .ToList();
 
                 return orders;
             }
         }
-        public List<Order> GetDrinkOrderList(DrinkType drinkType)
+        public List<OrderModel> GetDrinkOrderList(DrinkType drinkType)
         {
             using (var contex = new ShopContext())
             {
                 var orders = contex.Drinks.AsEnumerable()
                     .Where(x => x.DrinkType == drinkType.ToString())
-                    .Select(drink => drink.DrinkToOrder())
+                    .Select(drink => drink.DrinkToOrderModel())
                     .ToList();
 
                 return orders;
             }
         }
 
-        public List<Order> GetModificatorOrderList(ModificatorType modificatorType)
+        public List<OrderModel> GetModificatorOrderList(ModificatorType modificatorType)
         {
             using (var context = new ShopContext())
             {
                 var orders = context.Modificators.AsEnumerable()
                     .Where(x => x.ModificatorType == modificatorType.ToString())
-                    .Select(modificator => modificator.ModificatorToOrder())
+                    .Select(modificator => modificator.ModificatorToOrderModel())
                     .ToList();
 
                 return orders;
             }
         }
 
-        public void AddOrder(List<Order> itemList)
+        public void AddOrder(List<OrderModel> itemList)
         {
             using (var context = new ShopContext())
             {
@@ -131,7 +132,7 @@ namespace DataBaseService
                     order.ItemType = item.ItemType;
                     order.ItemWeight = item.ItemWeight;
                     order.ItemPrice = item.ItemPrice;
-                    order.Count = item.Count;
+                    order.Count = item.Count.ItemCount;
                     order.Sum = item.Sum;
 
                     context.Orders.Add(order);
@@ -521,7 +522,7 @@ namespace DataBaseService
             OnDeleteModificator?.Invoke(null, e);
         }
 
-        public static void DoOnAddOrders(List<Order> e)
+        public static void DoOnAddOrders(List<OrderModel> e)
         {
             OnAddOrders?.Invoke(null, e);
         }

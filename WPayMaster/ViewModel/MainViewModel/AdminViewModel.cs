@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using DataBaseService;
+using DataBaseService.Context;
 using DataBaseService.Model;
 using PropertyChanged;
 using Shared;

@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using DataBaseService;
+using DataBaseService.Context;
 using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
@@ -49,10 +50,11 @@ namespace ViewModel.MainViewModel
 
         public DbService DbService = new DbService();
 
-        public ObservableCollection<Order> OrdersList { get; set; }
+        public ObservableCollection<OrderModel> OrdersList { get; set; }
 
         public User Cashier { get; set; }
         public string CashierName { get; set; }
+        public OrderModel SelectedItem { get; set; }
         public DateTime CurrentTime { get; set; }
         public DateTime StartWorkTime { get; set; }
         public Brush PanelBrushColor { get; set; }
@@ -69,7 +71,7 @@ namespace ViewModel.MainViewModel
         {
             CreateViewAction = createViewAction;
 
-            OrdersList = new ObservableCollection<Order>();
+            OrdersList = new ObservableCollection<OrderModel>();
 
             PanelBrushColor = LoginViewModel.ThemeBrushColor;
 
@@ -115,10 +117,10 @@ namespace ViewModel.MainViewModel
 
         private void DeleteItemCheck()
         {
-            throw new NotImplementedException();
+            OrdersList.Remove(SelectedItem);
         }
 
-        private void DbServiceOnOnAddOrders(object sender, List<Order> ordersList)
+        private void DbServiceOnOnAddOrders(object sender, List<OrderModel> ordersList)
         {
             foreach (var order in ordersList)
             {
@@ -128,14 +130,20 @@ namespace ViewModel.MainViewModel
                 {
                     int index = OrdersList.IndexOf(item);
 
-                    item.Count += order.Count;
-                    item.Sum += order.Count*order.ItemPrice;
+                    item.Sum = item.Count.ItemCount * item.ItemPrice;
+                    item.Count.ItemCount += order.Count.ItemCount;                 
+                    item.Sum += order.Count.ItemCount * item.ItemPrice;
 
                     OrdersList.RemoveAt(index);
                     OrdersList.Insert(index, item);
                 }
                 else OrdersList.Add(order);
+            }
 
+            Sum = 0;
+
+            foreach (var order in OrdersList)
+            {
                 Sum += order.Sum;
             }
         }

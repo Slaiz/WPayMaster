@@ -14,8 +14,8 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Focusable" Value="False"/>
             <Setter Property="FontSize" Value="20"></Setter>
-            <Setter Property="FontWeight" Value="Bold"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="Padding" Value="5"></Setter>
         </Style>
         <Style x:Key="PanelButtonStyle" TargetType="Button">
@@ -48,11 +48,11 @@
             <Setter Property="Width" Value="205"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="28"></Setter>
-            <Setter Property="FontWeight" Value="Bold"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="TextAlignment" Value="Left"></Setter>
-            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="TextAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="5"/>
         </Style>
         <Style x:Key="ListTextBlockStyle" TargetType="TextBlock">
             <Setter Property="Height" Value="45"/>
@@ -245,17 +245,17 @@
         <Rectangle Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" Height="17" Width="1400" Margin="0 0 0 -27"
                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Fill="{Binding PanelBrushColor}"/>
 
-        <ListBox ItemsSource="{Binding OrdersList, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1" Grid.RowSpan="4" Grid.Column="4" 
-                 HorizontalAlignment="Center" VerticalAlignment="Top"  Width="490" Height="500">
+        <ListBox ItemsSource="{Binding OrdersList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="1" Grid.RowSpan="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top"  Width="490" Height="500">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                <Button Height="45" Width="45" Background="Transparent" ToolTip="Відмінити заказ" Command="{Binding DeleteItemCheckCommand}">
-                                <Image Style="{StaticResource ImageStyle}" Height="35" Width="35"  Source="../Icons/RedCancel.png"/>
+                        <Button Height="35" Width="35" Background="Transparent" Focusable="False" ToolTip="Видалити замовлення" Command="{Binding DeleteItemCheckCommand}">
+                                <Image Style="{StaticResource ImageStyle}" Height="25" Width="25"  Source="../Icons/RedCancel.png"/>
                             </Button>
                             <TextBlock Style="{StaticResource ListTextBlockStyle}" Foreground="Blue" Text="{Binding ItemName}" Margin="5"/>
                             <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Foreground="Blue" Text="X" Margin="2 0 0 0"/>
-                            <TextBox Style="{StaticResource TextBoxStyle}" Height="45" Width="40" Foreground="Red" Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Margin="2 0 0 0"/>
+                            <TextBox Style="{StaticResource TextBoxStyle}" Height="45" Width="40" Foreground="Red" Text="{Binding Count.ItemCount, UpdateSourceTrigger=PropertyChanged}" Margin="2 0 0 0"/>
                             <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Foreground="Blue" Text="=" Margin="2 0 0 0"/>
                             <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="75" Foreground="Red" TextAlignment="Center" Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged}" Margin="2 0 0 0"/>
                         <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="45" Foreground="Blue" TextAlignment="Center" Text="грн" Margin="2 0 0 0"/>
