@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DataBaseService.Context;
 using DataBaseService.Interface;
 using DataBaseService.Model;
 using Shared.Enum;
-using DataBaseService;
-using DataBaseService.Context;
 
 namespace DataBaseService
 {
@@ -23,7 +22,7 @@ namespace DataBaseService
         public static event EventHandler<Food> OnDeleteFood;
         public static event EventHandler<Drink> OnDeleteDrink;
         public static event EventHandler<Modificator> OnDeleteModificator;
-        public static event EventHandler<List<OrderModel>> OnAddOrders; 
+        public static event EventHandler<List<OrderModel>> OnAddOrders;
 
         public List<User> GetUsersList()
         {
@@ -81,6 +80,20 @@ namespace DataBaseService
             {
                 var orders = context.Orders.ToList();
 
+                //List<CheckModel> CheckList = new List<CheckModel>();
+
+                //foreach (var order in context.Orders)
+                //{
+                //    foreach (var orderItem in context.Orders)
+                //    {
+                //        if (orderItem.CheckId == order.CheckId)
+                //        {
+                //            orderItem.Count += 1;
+                //            orderItem.
+                //        }
+                //    }
+                //}
+
                 return orders;
             }
         }
@@ -89,10 +102,10 @@ namespace DataBaseService
         {
             using (var context = new ShopContext())
             {
-               var orders = context.Foods.AsEnumerable()
-                    .Where(x => x.FoodType == foodType.ToString())
-                    .Select(food => food.FoodToOrderModel())
-                    .ToList();
+                var orders = context.Foods.AsEnumerable()
+                     .Where(x => x.FoodType == foodType.ToString())
+                     .Select(food => food.FoodToOrderModel())
+                     .ToList();
 
                 return orders;
             }

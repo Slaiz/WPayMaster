@@ -5,8 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Project.View.ItemListViews"
         mc:Ignorable="d"
-        Title="MeatDishListView" ResizeMode="NoResize" Height="300" Width="300">
+        WindowStartupLocation="CenterScreen"
+        Title="MeatDishListView" ResizeMode="NoResize" WindowStyle="None" BorderBrush="Black" BorderThickness="2" Height="Auto" Width="800">
+
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="35"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="ListTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="350"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Foreground" Value="#F44336"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontSize" Value="26"></Setter>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="0 5 0 0"/>
+            <Setter Property="IsEnabled" Value="False"/>
+        </Style>
+        <Style x:Key="HeaderTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontSize" Value="26"></Setter>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="0 5 0 0"/>
+            <Setter Property="IsEnabled" Value="False"/>
+        </Style>
+        <Style x:Key="ImageStyle" TargetType="Image">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 0 0 10" 
+                Background="Transparent" Command="{Binding CloseCommand}">
+            <Image Style="{StaticResource ImageStyle}" Source="../Icons/Cancel.png"/>
+        </Button>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 10 0 0">
+            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Назва" Margin="10 0 0 0"/>
+            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Вага" Margin="270 0 0 0"/>
+            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Ціна" Margin="15 0 0 0"/>
+            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="К-ість" Margin="70 0 0 0"/>
+        </StackPanel>
+
+        <ListBox Grid.Row="1" ItemsSource="{Binding MeatDishsList, UpdateSourceTrigger=PropertyChanged}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Text="{Binding ItemName}" Margin="5"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="100" Text="{Binding ItemWeight}" Margin="5"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="100" Text="{Binding ItemPrice}" Margin="5"/>
+                        <local:CountUserControl  DataContext="{Binding Count}" ></local:CountUserControl>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button Grid.Row="2" Style="{StaticResource ButtonStyle}" Height="55" Width="170" VerticalAlignment="Bottom" Background="#4CAF50" Foreground="White" 
+                Content="Готово" Margin="0 10 0 20" Command="{Binding AddOrderToCheckCommand}"/>
     </Grid>
 </Window>
+

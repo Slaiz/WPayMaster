@@ -116,6 +116,7 @@
     <Compile Include="Context\Order.cs" />
     <Compile Include="Context\ShopContext.cs" />
     <Compile Include="Context\User.cs" />
+    <Compile Include="Model\CheckModel.cs" />
     <Compile Include="Model\OrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

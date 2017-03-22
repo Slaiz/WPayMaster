@@ -15,7 +15,8 @@ namespace WPF_Project.View.ItemListViews
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CountTextBox.Text = (Convert.ToInt32(CountTextBox.Text) - 1).ToString();
+            if (Convert.ToInt32(CountTextBox.Text) > 0)
+                CountTextBox.Text = (Convert.ToInt32(CountTextBox.Text) - 1).ToString();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
