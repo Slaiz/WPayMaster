@@ -75,6 +75,16 @@ namespace DataBaseService
             }
         }
 
+        public List<Order> GetCheckList()
+        {
+            using (var context = new ShopContext())
+            {
+                var orders = context.Orders.ToList();
+
+                return orders;
+            }
+        }
+
         public List<OrderModel> GetFoodOrderList(FoodType foodType)
         {
             using (var context = new ShopContext())
@@ -117,7 +127,7 @@ namespace DataBaseService
         {
             using (var context = new ShopContext())
             {
-                var lastItem = context.Orders.LastOrDefault();
+                var lastItem = context.Orders.AsEnumerable().LastOrDefault();
                 int checkNumber = 1;
 
                 if (lastItem != null)
@@ -354,7 +364,7 @@ namespace DataBaseService
         }
         #endregion
 
-        public void WriteStory(User worker, StoryType storyType)
+        public void WriteStory(User worker, string actionName)
         {
             using (var context = new ShopContext())
             {
@@ -364,40 +374,11 @@ namespace DataBaseService
                 history.Surname = worker.Surname;
                 history.Post = worker.Post;
                 history.DateAction = DateTime.Now;
+                history.ActionName = actionName;
 
-                switch (storyType)
-                {
-                    case StoryType.AddItemInDb:
-                        {
-                            history.ActionName = "Додано новий запис";
-                            break;
-                        }
-                    case StoryType.DeleteItemInDb:
-                        {
-                            history.ActionName = "Видалено запис";
-                            break;
-                        }
-                    case StoryType.UpdateItemInDb:
-                        {
-                            history.ActionName = "Оновлено запис";
-                            break;
-                        }
-                    case StoryType.UserLogIn:
-                        {
-                            history.ActionName = "Користувач увійшов в програму";
-                            break;
-                        }
-                    case StoryType.UserLogOut:
-                        {
-                            history.ActionName = "Користувач вийшов з програму";
-                            break;
-                        }
-                    case StoryType.CashierStopWork:
-                        {
-                            history.ActionName = "Касир закінчив зміну";
-                            break;
-                        }
-                }
+                context.Story.Add(history);
+
+                context.SaveChanges();
             }
         }
 

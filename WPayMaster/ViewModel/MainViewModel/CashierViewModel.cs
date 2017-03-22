@@ -160,6 +160,8 @@ namespace ViewModel.MainViewModel
 
             OrdersList.Clear();
 
+            Sum = 0;
+
             MessageBox.Show("Заказ принято", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
