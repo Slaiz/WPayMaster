@@ -245,6 +245,19 @@
         <Rectangle Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" Height="17" Width="1400" Margin="0 0 0 -27"
                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Fill="{Binding PanelBrushColor}"/>
 
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock  Style="{StaticResource ButtonTextBlockStyle}" Height="70" Width="240"
+                   TextAlignment="Left" Foreground="Blue" FontSize="38"  Text="Номер чека"/>
+            <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Height="70" Width="140"
+                   TextAlignment="Left" Foreground="Red" FontSize="38"  Text="{Binding CheckNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+        <Button Grid.Row="0" Grid.Column="4" Height="35" Width="35" Background="Transparent" Focusable="False" ToolTip="Видалити замовлення"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20" Command="{Binding DeleteItemCheckCommand}">
+            <Image Style="{StaticResource ImageStyle}" Height="25" Width="25"  Source="../Icons/RedCancel.png"/>
+        </Button>
+
         <ListBox ItemsSource="{Binding OrdersList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}"
                  Grid.Row="1" Grid.RowSpan="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top"  Width="490" Height="500">
             <ListBox.ItemTemplate>

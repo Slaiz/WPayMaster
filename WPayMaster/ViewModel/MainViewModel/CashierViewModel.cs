@@ -55,6 +55,7 @@ namespace ViewModel.MainViewModel
 
         public User Cashier { get; set; }
         public string CashierName { get; set; }
+        public int CheckNumber { get; set; }
         public OrderModel SelectedItem { get; set; }
         public DateTime CurrentTime { get; set; }
         public DateTime? StartWorkTime { get; set; }
@@ -78,6 +79,8 @@ namespace ViewModel.MainViewModel
 
             Cashier = user;
             CashierName = user.UserName + " " + user.Surname;
+
+            CheckNumber = 1;
 
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1),
             DispatcherPriority.Normal,
@@ -167,6 +170,8 @@ namespace ViewModel.MainViewModel
 
                 MessageBox.Show("Замовлення принято", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
             } else MessageBox.Show("Спершу зробіть замовлення", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            CheckNumber += 1;
         }
 
         private void Find()

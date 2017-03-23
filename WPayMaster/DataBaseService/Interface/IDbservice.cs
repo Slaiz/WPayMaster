@@ -13,7 +13,7 @@ namespace DataBaseService.Interface
         List<Drink> GetDrinksList();
         List<Modificator> GetModificatorsList();
         List<History> GetStoryList();
-        List<Order> GetCheckList();
+        List<CheckModel> GetCheckList();
         List<OrderModel> GetFoodOrderList(FoodType foodType);
         List<OrderModel> GetDrinkOrderList(DrinkType drinkType);
         List<OrderModel> GetModificatorOrderList(ModificatorType modificatorType);

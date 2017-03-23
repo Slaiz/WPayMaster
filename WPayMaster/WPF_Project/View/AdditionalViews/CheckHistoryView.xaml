@@ -41,21 +41,21 @@
             <Image Style="{StaticResource ImageStyle}" Source="../Icons/Cancel.png" />
         </Button>
 
-        <DataGrid Grid.Row="1" Name="EmployeesDataGrid" ItemsSource="{Binding CheckList}" AutoGenerateColumns="False" IsReadOnly="True"
+        <DataGrid Grid.Row="1" ItemsSource="{Binding List}" AutoGenerateColumns="False" IsReadOnly="True"
                   Height="Auto" Width="Auto" Margin="0 10 0 0" FontSize="22" FontWeight="Bold" Foreground="RoyalBlue">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding ItemName}" Header="Назва"/>
-                <DataGridTextColumn Binding="{Binding ItemType}" Header="Тип"/>
-                <DataGridTextColumn Binding="{Binding ItemPrice}" Header="Ціна"/>
-                <DataGridTextColumn Binding="{Binding Count}" Header="Кількість"/>
-                <DataGridTextColumn Binding="{Binding Sum}" Header="Сума"/>
+                <DataGridTextColumn Binding="{Binding Path=OrderList.ItemName}" Header="Назва"/>
+                <DataGridTextColumn Binding="{Binding Path=OrderList.ItemType}" Header="Тип"/>
+                <DataGridTextColumn Binding="{Binding Path=OrderList.ItemPrice}" Header="Ціна"/>
+                <DataGridTextColumn Binding="{Binding Path=OrderList.Count}" Header="Кількість"/>
+                <DataGridTextColumn Binding="{Binding Path=OrderList.Sum}" Header="Сума"/>
             </DataGrid.Columns>
 
             <DataGrid.GroupStyle>
                 <GroupStyle>
                     <GroupStyle.HeaderTemplate>
                         <DataTemplate>
-                            <StackPanel>
+                            <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding CheckId}" FontWeight="Bold"/>
                             </StackPanel>
                         </DataTemplate>
@@ -69,12 +69,14 @@
                                             <Expander.Header>
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Text="Чек номер: " FontWeight="Bold"/>
-                                                    <TextBlock Text="{Binding Path=Name}" Margin="3 0 3 0"/>
-                                                    <TextBlock Text=" Елемент(ів):"/>
-                                                    <TextBlock Text="2" FontWeight="Bold"/>
-                                                    <TextBlock Text=" Загальна сума:"/>
-                                                    <TextBlock Text="500" FontWeight="Bold"/>
+                                                    <TextBlock Text="{Binding Path=Name}" FontWeight="Bold"/>
+                                                    <TextBlock Text=" Елемент(ів):" FontWeight="Bold"/>
+                                                    <TextBlock Text="{Binding Path=TotalCount}" FontWeight="Bold" Height="20" Width="20"/>
+                                                    <TextBlock Text=" Загальна сума:" FontWeight="Bold"/>
+                                                    <TextBlock Text="{Binding Path=TotalSum}" FontWeight="Bold" Height="20" Width="20"/>
                                                     <TextBlock Text="грн" FontWeight="Bold"/>
+                                                    <TextBlock Text=" Касир:" FontWeight="Bold" Foreground="Black"/>
+                                                    <TextBlock Text="{Binding Path=OrderList.CashierName}" Foreground="Black" FontWeight="Bold" Height="20" Width="20"/>
                                                 </StackPanel>
                                             </Expander.Header>
                                             <ItemsPresenter />

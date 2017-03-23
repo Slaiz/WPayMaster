@@ -74,27 +74,32 @@ namespace DataBaseService
             }
         }
 
-        public List<Order> GetCheckList()
+        public List<CheckModel> GetCheckList()
         {
             using (var context = new ShopContext())
             {
+                List<CheckModel> checkList = new List<CheckModel>();
+
                 var orders = context.Orders.ToList();
+                var groups = orders.GroupBy(order => order.CheckId);
 
-                //List<CheckModel> CheckList = new List<CheckModel>();
+                foreach (var group in groups)
+                {
+                    var check = new CheckModel();
+                    check.CheckId = group.Key;
+                    check.TotalSum = group.Sum(order => order.Sum);
+                    check.TotalCount = group.Count();
+                    check.OrderList = new List<Order>();
 
-                //foreach (var order in context.Orders)
-                //{
-                //    foreach (var orderItem in context.Orders)
-                //    {
-                //        if (orderItem.CheckId == order.CheckId)
-                //        {
-                //            orderItem.Count += 1;
-                //            orderItem.
-                //        }
-                //    }
-                //}
+                    foreach (var item in group)
+                    {
+                        check.OrderList.Add(item);    
+                    }
 
-                return orders;
+                    checkList.Add(check);
+                }
+
+                return checkList;
             }
         }
 
@@ -144,7 +149,7 @@ namespace DataBaseService
                 int checkNumber = 1;
 
                 if (lastItem != null)
-                    checkNumber = lastItem.CheckId;
+                    checkNumber = lastItem.CheckId+1;
 
                 foreach (var item in itemList)
                 {
@@ -152,6 +157,7 @@ namespace DataBaseService
 
                     order.CashierName = cashierName;
                     order.CheckId = checkNumber;
+                    order.ItemId = item.ItemId;
                     order.ItemName = item.ItemName;
                     order.ItemType = item.ItemType;
                     order.ItemWeight = item.ItemWeight;

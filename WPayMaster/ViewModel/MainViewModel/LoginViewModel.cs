@@ -79,8 +79,15 @@ namespace ViewModel.MainViewModel
                     if (user.UserName.Contains(Login) && user.Password.Contains(Password))
                     {
                         if (user.Post.Contains("Адміністратор"))
+                        {
                             DoOnLogIn(ViewType.AdminView, user);
-                        else DoOnLogIn(ViewType.CashierView, user);
+                            //DbService.WriteStory(user, @"Увійшов в програму");
+                        }
+                        else
+                        {
+                            DoOnLogIn(ViewType.CashierView, user);
+                            //DbService.WriteStory(user, @"Увійшов в програму");
+                        }
                         return;
                     }
                 }

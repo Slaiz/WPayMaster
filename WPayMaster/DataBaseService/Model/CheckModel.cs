@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using DataBaseService.Context;
+using PropertyChanged;
 
 namespace DataBaseService.Model
 {
-    class CheckModel
-    {
-        public int OrderId { get; set; }
+    [ImplementPropertyChanged]
+    public class CheckModel
+    {       
         public int CheckId { get; set; }
-        public int ItemId { get; set; }
-        public string ItemName { get; set; }
-        public string ItemType { get; set; }
-        public int ItemWeight { get; set; }
-        public Counting Count { get; set; }
-        public int ItemPrice { get; set; }
-        public int Sum { get; set; }
+        public List<Order> OrderList { get; set; }
         public int TotalCount { get; set; }
         public int TotalSum { get; set; }
     }
