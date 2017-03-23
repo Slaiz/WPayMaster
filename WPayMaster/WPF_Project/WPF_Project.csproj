@@ -315,6 +315,10 @@
       <Project>{1DDC6B60-6F74-41EF-80C7-0AACAEBF48D4}</Project>
       <Name>Shared</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UserControl\UserControl.csproj">
+      <Project>{0252b376-50ec-4bd6-b3f9-1414d0f057a0}</Project>
+      <Name>UserControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
       <Project>{7a064dd1-cb6c-4156-820f-bef4ca5dc911}</Project>
       <Name>ViewModel</Name>

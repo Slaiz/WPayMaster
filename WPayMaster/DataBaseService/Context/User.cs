@@ -22,6 +22,6 @@ namespace DataBaseService.Context
         [Required]
         public string Password { get; set; }
         public int Salary { get; set; }
-        public TimeSpan WorkingTime { get; set; }
+        public TimeSpan? WorkingTime { get; set; }
     }
 }

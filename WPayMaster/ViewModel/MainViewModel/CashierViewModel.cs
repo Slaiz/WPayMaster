@@ -5,13 +5,14 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Navigation;
 using System.Windows.Threading;
 using DataBaseService;
 using DataBaseService.Context;
 using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
-using Shared.Enum;
+using Shared.Enums;
 using Shared.Interface;
 
 namespace ViewModel.MainViewModel
@@ -56,7 +57,7 @@ namespace ViewModel.MainViewModel
         public string CashierName { get; set; }
         public OrderModel SelectedItem { get; set; }
         public DateTime CurrentTime { get; set; }
-        public DateTime StartWorkTime { get; set; }
+        public DateTime? StartWorkTime { get; set; }
         public Brush PanelBrushColor { get; set; }
         public int Sum { get; set; }
 
@@ -156,13 +157,16 @@ namespace ViewModel.MainViewModel
 
         private void Check()
         {
-            DbService.AddOrder(OrdersList.ToList());
+            if (OrdersList != null)
+            {
+                DbService.AddOrder(OrdersList.ToList(), CashierName);
 
-            OrdersList.Clear();
+                OrdersList.Clear();
 
-            Sum = 0;
+                Sum = 0;
 
-            MessageBox.Show("Заказ принято", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Замовлення принято", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
+            } else MessageBox.Show("Спершу зробіть замовлення", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Find()
@@ -186,12 +190,29 @@ namespace ViewModel.MainViewModel
 
         private void StartWork()
         {
-            StartWorkTime = DateTime.Now;
+            if (StartWorkTime == null)
+            {
+                StartWorkTime = DateTime.Now;
+                MessageBox.Show("Робочу змігу розпочато", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Робоча зміна почалась", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void StopWork()
         {
-            DbService.AddWorkingTime(Cashier, CurrentTime - StartWorkTime);
+            if (StartWorkTime != null)
+            {
+                DbService.AddWorkingTime(Cashier, CurrentTime - StartWorkTime);
+                StartWorkTime = null;
+                MessageBox.Show("Робочу зміну закінчено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Спершу розпочніть робочу зміну", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void OpenCheckHistoryView()
@@ -200,6 +221,12 @@ namespace ViewModel.MainViewModel
         }
 
         #region MethodOpenItemListView
+
+        private bool CheckStartWork()
+        {
+            return StartWorkTime != null ? true : false;
+        }
+
         private static void DoOnLogOut(ViewType e)
         {
             OnLogOut?.Invoke(null, e);
@@ -207,7 +234,9 @@ namespace ViewModel.MainViewModel
 
         private void OpenSnackListView()
         {
-            CreateViewAction.Invoke(null, ViewType.SnackListView);
+            if (CheckStartWork())
+                CreateViewAction.Invoke(null, ViewType.SnackListView);
+            else MessageBox.Show("Спершу розпочніть робочу зміну", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void OpenSauceListView()

@@ -4,7 +4,7 @@ using System.Windows.Input;
 using DataBaseService;
 using DataBaseService.Model;
 using Shared;
-using Shared.Enum;
+using Shared.Enums;
 using ViewModel.MainViewModel;
 
 namespace ViewModel.ItemListViewModel

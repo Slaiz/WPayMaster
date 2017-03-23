@@ -8,7 +8,7 @@ using DataBaseService.Context;
 using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
-using Shared.Enum;
+using Shared.Enums;
 using Shared.Interface;
 using ViewModel.UserControlViewModel;
 using UserControl;

@@ -4,7 +4,7 @@ using System.Threading;
 using System.Windows;
 using DataBaseService.Context;
 using DataBaseService.Model;
-using Shared.Enum;
+using Shared.Enums;
 using Shared.Interface;
 using ViewModel.AdditionalViewModel;
 using ViewModel.ItemListViewModel;

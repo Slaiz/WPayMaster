@@ -4,8 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UserControl"
+             xmlns:converter="clr-namespace:Shared.Converter;assembly=Shared"
              mc:Ignorable="d" 
             d:DesignHeight="550" d:DesignWidth="1350">
+    <UserControl.Resources>
+        <converter:ModificatorTypeEnumDescriptionValueConverter x:Key="ModificatorTypeConverter" />
+    </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -17,7 +22,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ModificatorId}" Header="Id" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding ModificatorName}" Header="Назва" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding ModificatorType}" Header="Тип" FontSize="18" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorType, Converter={StaticResource ModificatorTypeConverter}}" Header="Тип" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding ModificatorPrice}" Header="Ціна" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding ModificatorWeight}" Header="Вага" FontSize="18" FontWeight="Bold" Width="Auto"/>
             </DataGrid.Columns>

@@ -8,7 +8,7 @@ using DataBaseService.Context;
 using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
-using Shared.Enum;
+using Shared.Enums;
 using Shared.Interface;
 using Brush = System.Windows.Media.Brush;
 using Color = System.Windows.Media.Color;

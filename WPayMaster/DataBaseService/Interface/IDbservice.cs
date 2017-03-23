@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using DataBaseService.Context;
 using DataBaseService.Model;
-using Shared.Enum;
+using Shared.Enums;
 
 namespace DataBaseService.Interface
 {
@@ -17,7 +17,7 @@ namespace DataBaseService.Interface
         List<OrderModel> GetFoodOrderList(FoodType foodType);
         List<OrderModel> GetDrinkOrderList(DrinkType drinkType);
         List<OrderModel> GetModificatorOrderList(ModificatorType modificatorType);
-        void AddOrder(List<OrderModel> itemList);
+        void AddOrder(List<OrderModel> itemList,string cashierName);
         void AddUser(string name, string surname, int passportNumber, string post, string password, int salary);
         void AddFood(string name, string type, int price, int weight);
         void AddDrink(string name, string type, int price, int volume);
@@ -31,7 +31,7 @@ namespace DataBaseService.Interface
         void DeleteDrink(Drink item);
         void DeleteModificator(Modificator item);
         void WriteStory(User worker, string actionName);
-        void AddWorkingTime(User oldUser, TimeSpan timeSpan);
+        void AddWorkingTime(User oldUser, TimeSpan? timeSpan);
         List<string> CreateTypeList(ViewType viewType); 
     }
 }

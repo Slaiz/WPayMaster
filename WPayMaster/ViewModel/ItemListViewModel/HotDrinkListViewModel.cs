@@ -4,7 +4,7 @@ using System.Windows.Input;
 using DataBaseService;
 using DataBaseService.Model;
 using Shared;
-using Shared.Enum;
+using Shared.Enums;
 using ViewModel.MainViewModel;
 
 namespace ViewModel.ItemListViewModel
@@ -20,7 +20,7 @@ namespace ViewModel.ItemListViewModel
 
         public HotDrinkListViewModel()
         {
-            HotDrinksList = new ObservableCollection<OrderModel>(DbService.GetDrinkOrderList(DrinkType.Гарячінапій));
+            HotDrinksList = new ObservableCollection<OrderModel>(DbService.GetDrinkOrderList(DrinkType.Гарячийнапій));
 
             CloseCommand = new CommandHandler(arg => Close());
             AddOrderToCheckCommand = new CommandHandler(arg => AddOrderToCheck());

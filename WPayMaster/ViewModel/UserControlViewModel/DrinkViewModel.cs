@@ -18,7 +18,7 @@ namespace ViewModel.UserControlViewModel
 
         public DrinkViewModel()
         {
-            DrinkList = new ObservableCollection<Drink>();
+            DrinkList = new ObservableCollection<Drink>(DbService.GetDrinksList());
             Count = DrinkList.Count;
 
             DbService.OnAddDrink += DoOnAddDrink;

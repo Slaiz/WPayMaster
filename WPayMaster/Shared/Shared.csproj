@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,13 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandHandler.cs" />
-    <Compile Include="Enum\DrinkType.cs" />
-    <Compile Include="Enum\FoodType.cs" />
-    <Compile Include="Enum\ModificatorType.cs" />
-    <Compile Include="Enum\StoryType.cs" />
-    <Compile Include="Enum\UserControlType.cs" />
-    <Compile Include="Enum\ViewType.cs" />
-    <Compile Include="Enum\UserPost.cs" />
+    <Compile Include="Converter\DrinkTypeEnumDescriptionValueConverter.cs" />
+    <Compile Include="Converter\EnumGetDescription.cs" />
+    <Compile Include="Converter\FoodTypeEnumDescriptionValueConverter.cs" />
+    <Compile Include="Converter\ModificatorTypeEnumDescriptionValueConverter.cs" />
+    <Compile Include="Enums\DrinkType.cs" />
+    <Compile Include="Enums\FoodType.cs" />
+    <Compile Include="Enums\ModificatorType.cs" />
+    <Compile Include="Enums\StoryType.cs" />
+    <Compile Include="Enums\UserControlType.cs" />
+    <Compile Include="Enums\ViewType.cs" />
+    <Compile Include="Enums\UserPost.cs" />
     <Compile Include="Interface\IView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

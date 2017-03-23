@@ -4,7 +4,7 @@ using System.Linq;
 using DataBaseService.Context;
 using DataBaseService.Interface;
 using DataBaseService.Model;
-using Shared.Enum;
+using Shared.Enums;
 
 namespace DataBaseService
 {
@@ -136,7 +136,7 @@ namespace DataBaseService
             }
         }
 
-        public void AddOrder(List<OrderModel> itemList)
+        public void AddOrder(List<OrderModel> itemList, string cashierName)
         {
             using (var context = new ShopContext())
             {
@@ -150,6 +150,7 @@ namespace DataBaseService
                 {
                     var order = new Order();
 
+                    order.CashierName = cashierName;
                     order.CheckId = checkNumber;
                     order.ItemName = item.ItemName;
                     order.ItemType = item.ItemType;
@@ -395,7 +396,7 @@ namespace DataBaseService
             }
         }
 
-        public void AddWorkingTime(User oldUser, TimeSpan workingTime)
+        public void AddWorkingTime(User oldUser, TimeSpan? workingTime)
         {
             using (var context = new ShopContext())
             {
@@ -435,8 +436,8 @@ namespace DataBaseService
                 case ViewType.AddDrinkView:
                     {
                         list.Add(DrinkType.Сік.ToString());
-                        list.Add(DrinkType.Гарячінапій.ToString());
-                        list.Add(DrinkType.Холоднінапій.ToString());
+                        list.Add(DrinkType.Гарячийнапій.ToString());
+                        list.Add(DrinkType.Холоднийнапій.ToString());
                         break;
                     }
                 case ViewType.AddModificatorView:

@@ -21,22 +21,36 @@
             <Setter Property="Grid.Row" Value="4"/>
             <Setter Property="Grid.Column" Value="1"/>
         </Style>
-        <Style x:Key="TextBoxStyle">
-            <Setter Property="TextBox.Height" Value="40"/>
-            <Setter Property="TextBox.Width" Value="200"/>
-            <Setter Property="TextBox.HorizontalAlignment" Value="Center"/>
-            <Setter Property="TextBox.VerticalAlignment" Value="Center"/>
-            <Setter Property="TextBox.FontSize" Value="20"></Setter>
-            <Setter Property="TextBox.FontWeight" Value="Bold"></Setter>
-            <Setter Property="TextBox.Background" Value="White"></Setter>
-            <Setter Property="TextBox.Foreground" Value="Black"></Setter>
-            <Setter Property="TextBox.TextAlignment" Value="Center"></Setter>
-            <Setter Property="TextBox.BorderBrush" Value="#ff00aaff"></Setter>
-            <Setter Property="TextBox.BorderThickness" Value="2"></Setter>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+            <Setter Property="BorderBrush" Value="#ff00aaff"></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Margin" Value="20 0 0 0"></Setter>
+        </Style>
+        <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="BorderBrush" Value="#ff00aaff"></Setter>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Margin" Value="20 0 0 0"></Setter>
         </Style>
         <Style x:Key="TextBlockStyle">
             <Setter Property="Button.Height" Value="50"/>
-            <Setter Property="TextBlock.Width" Value="180"/>
+            <Setter Property="TextBlock.Width" Value="200"/>
             <Setter Property="TextBlock.HorizontalAlignment" Value="Left"/>
             <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
             <Setter Property="TextBlock.FontSize" Value="24"></Setter>
@@ -50,7 +64,7 @@
             <Setter Property="Width" Value="40"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="0 0 180 0"/>
+            <Setter Property="Margin" Value="0 0 150 0"/>
         </Style>
     </Window.Resources>
 
@@ -78,7 +92,7 @@
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="0" Text="{Binding PassportNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Посада"/>
-        <ComboBox Style="{StaticResource TextBoxStyle}" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding UserPostList}" SelectedItem="{Binding Post, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox Style="{StaticResource ComboBoxStyle}" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding UserPostList}" SelectedItem="{Binding Post, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Text="Пароль"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="1" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>

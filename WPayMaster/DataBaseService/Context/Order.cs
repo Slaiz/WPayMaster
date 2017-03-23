@@ -6,6 +6,7 @@ namespace DataBaseService.Context
     {
         [Key]
         public int OrderId { get; set; }
+        public string CashierName { get; set; }
         public int CheckId { get; set; }
         [Required]
         public int ItemId{ get; set; }
