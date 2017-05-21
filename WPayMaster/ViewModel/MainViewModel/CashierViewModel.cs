@@ -12,6 +12,7 @@ using DataBaseService.Context;
 using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
+using Shared.Commands;
 using Shared.Enums;
 using Shared.Interface;
 
@@ -23,7 +24,7 @@ namespace ViewModel.MainViewModel
         public static event EventHandler<ViewType> OnLogOut;
         public Func<object, ViewType, IView> CreateViewAction { get; set; }
 
-        #region Command
+        #region Commands
         public ICommand LogOutCommand { get; set; }
         public ICommand StartWorkCommand { get; set; }
         public ICommand StopWorkCommand { get; set; }
@@ -32,7 +33,8 @@ namespace ViewModel.MainViewModel
         public ICommand FindCommand { get; set; }
         public ICommand CheckCommand { get; set; }
         public ICommand CleanCheckCommand { get; set; }
-        public ICommand DeleteItemCheckCommand { get; set; }
+        public ICommand DeleteItemFromOrderListCommand { get; set; }
+        public ICommand UpdateItemFromOrderListCommand { get; set; }
         public ICommand OpenColdDrinkListViewCommand { get; set; }
         public ICommand OpenDessertListViewCommand { get; set; }
         public ICommand OpenFishListViewCommand { get; set; }
@@ -92,54 +94,94 @@ namespace ViewModel.MainViewModel
 
             DbService.OnAddOrders += DbServiceOnOnAddOrders;
 
-            LogOutCommand = new CommandHandler(arg => LogOut());
-            StartWorkCommand = new CommandHandler(arg => StartWork());
-            StopWorkCommand = new CommandHandler(arg => StopWork());
-            ChangeColorCommand = new CommandHandler(arg => ChangeColor());
-            OpenCheckHistoryViewCommand = new CommandHandler(arg => OpenCheckHistoryView());
+            LogOutCommand = new Command(arg => LogOut());
+            StartWorkCommand = new Command(arg => StartWork());
+            StopWorkCommand = new Command(arg => StopWork());
+            ChangeColorCommand = new Command(arg => ChangeColor());
+            OpenCheckHistoryViewCommand = new Command(arg => OpenCheckHistoryView());
 
-            FindCommand = new CommandHandler(arg => Find());
-            CheckCommand = new CommandHandler(arg => Check());
-            CleanCheckCommand = new CommandHandler(arg => CleanCheck());
-            DeleteItemCheckCommand = new CommandHandler(arg => DeleteItemCheck());
+            FindCommand = new Command(arg => Find());
+            CheckCommand = new Command(arg => Check());
+            CleanCheckCommand = new Command(arg => CleanCheck());
+            DeleteItemFromOrderListCommand = new CommandWithParameters(DeleteItemFromOrderList, true);
+            UpdateItemFromOrderListCommand = new CommandWithParameters(UpdateItemFromOrderList, true);
 
-            OpenColdDrinkListViewCommand = new CommandHandler(arg => OpenColdDrinkListView());
-            OpenDessertListViewCommand = new CommandHandler(arg => OpenDessertListView());
-            OpenFishListViewCommand = new CommandHandler(arg => OpenFishListView());
-            OpenGarnishListViewCommand = new CommandHandler(arg => OpenGarnishListView());
-            OpenHotDrinkListViewCommand = new CommandHandler(arg => OpenHotDrinkListView());
-            OpenJuiceListViewCommand = new CommandHandler(arg => OpenJuiceListView());
-            OpenMealListViewCommand = new CommandHandler(arg => OpenMealListView());
-            OpenMeatDishListViewCommand = new CommandHandler(arg => OpenMeatDishListView());
-            OpenPastaListViewCommand = new CommandHandler(arg => OpenPastaListView());
-            OpenPizzaListViewCommand = new CommandHandler(arg => OpenPizzaListView());
-            OpenSaladListViewCommand = new CommandHandler(arg => OpenSaladListView());
-            OpenSauceListViewCommand = new CommandHandler(arg => OpenSauceListView());
-            OpenSnackListViewCommand = new CommandHandler(arg => OpenSnackListView());
-            OpenSoupListViewCommand = new CommandHandler(arg => OpenSoupListView());
+            OpenColdDrinkListViewCommand = new Command(arg => OpenColdDrinkListView());
+            OpenDessertListViewCommand = new Command(arg => OpenDessertListView());
+            OpenFishListViewCommand = new Command(arg => OpenFishListView());
+            OpenGarnishListViewCommand = new Command(arg => OpenGarnishListView());
+            OpenHotDrinkListViewCommand = new Command(arg => OpenHotDrinkListView());
+            OpenJuiceListViewCommand = new Command(arg => OpenJuiceListView());
+            OpenMealListViewCommand = new Command(arg => OpenMealListView());
+            OpenMeatDishListViewCommand = new Command(arg => OpenMeatDishListView());
+            OpenPastaListViewCommand = new Command(arg => OpenPastaListView());
+            OpenPizzaListViewCommand = new Command(arg => OpenPizzaListView());
+            OpenSaladListViewCommand = new Command(arg => OpenSaladListView());
+            OpenSauceListViewCommand = new Command(arg => OpenSauceListView());
+            OpenSnackListViewCommand = new Command(arg => OpenSnackListView());
+            OpenSoupListViewCommand = new Command(arg => OpenSoupListView());
         }
 
-        private void DeleteItemCheck()
+        private void UpdateItemFromOrderList(object selectedOrder)
         {
-            OrdersList.Remove(SelectedItem);
+            OrderModel tempOrder = (OrderModel)selectedOrder;
+
+            foreach (var order in OrdersList)
+            {
+                var newOrder = OrdersList.FirstOrDefault(x => x.ItemName == tempOrder.ItemName);
+
+                if (newOrder != null) newOrder.Sum = newOrder.Count.ItemCount * newOrder.ItemPrice;
+
+                break;
+            }
+
+            Sum = 0;
+
+            foreach (var order in OrdersList)
+            {
+                Sum += order.Sum;
+            }
+        }
+
+        private void DeleteItemFromOrderList(object selectedOrder)
+        {
+            OrderModel tempOrder = (OrderModel) selectedOrder; 
+
+            foreach (var order in OrdersList.ToList())
+            {
+                var oldOrder = OrdersList.FirstOrDefault(x => x.ItemName == tempOrder.ItemName);
+
+                int index = OrdersList.IndexOf(oldOrder);
+
+                OrdersList.RemoveAt(index);
+
+                break;
+            }
+
+            Sum = 0;
+
+            foreach (var order in OrdersList)
+            {
+                Sum += order.Sum;
+            }
         }
 
         private void DbServiceOnOnAddOrders(object sender, List<OrderModel> ordersList)
         {
             foreach (var order in ordersList)
             {
-                var item = OrdersList.FirstOrDefault(x => x.ItemName == order.ItemName);
+                var newOrder = OrdersList.FirstOrDefault(x => x.ItemName == order.ItemName);
 
-                if (item != null)
+                if (newOrder != null)
                 {
-                    int index = OrdersList.IndexOf(item);
+                    int index = OrdersList.IndexOf(newOrder);
 
-                    item.Sum = item.Count.ItemCount * item.ItemPrice;
-                    item.Count.ItemCount += order.Count.ItemCount;                 
-                    item.Sum += order.Count.ItemCount * item.ItemPrice;
+                    newOrder.Sum = newOrder.Count.ItemCount * newOrder.ItemPrice;
+                    newOrder.Count.ItemCount += order.Count.ItemCount;                 
+                    newOrder.Sum += order.Count.ItemCount * newOrder.ItemPrice;
 
                     OrdersList.RemoveAt(index);
-                    OrdersList.Insert(index, item);
+                    OrdersList.Insert(index, newOrder);
                 }
                 else OrdersList.Add(order);
             }
@@ -225,7 +267,7 @@ namespace ViewModel.MainViewModel
             CreateViewAction.Invoke(null, ViewType.CheckHistoryView);
         }
 
-        #region MethodOpenItemListView
+        #region MethodsOpenItemListView
 
         private bool CheckStartWork()
         {

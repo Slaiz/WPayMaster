@@ -43,9 +43,9 @@ namespace ViewModel.AdditionalViewModel
 
             UserPostList = new List<string>(DbService.CreateTypeList(ViewType.AddUserView));
 
-            CloseCommand = new CommandHandler(arg => Close());
-            SaveItemCommand = new CommandHandler(arg => SaveItem());
-            ClearCommand = new CommandHandler(arg => Clear());
+            CloseCommand = new Command(arg => Close());
+            SaveItemCommand = new Command(arg => SaveItem());
+            ClearCommand = new Command(arg => Clear());
         }
 
         private void Clear()

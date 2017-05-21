@@ -3,9 +3,9 @@ using System.Windows.Input;
 
 namespace Shared
 {
-    public class CommandHandler : ICommand
+    public class Command : ICommand
     {
-        public CommandHandler(Action<object> action)
+        public Command(Action<object> action)
         {
             ExecuteDelegate = action;
         }

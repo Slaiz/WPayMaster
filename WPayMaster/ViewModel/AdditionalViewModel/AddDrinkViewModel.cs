@@ -29,9 +29,9 @@ namespace ViewModel.AdditionalViewModel
         {
             DrinkTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddDrinkView));
 
-            CloseCommand = new CommandHandler(arg => Close());
-            AddItemCommand = new CommandHandler(arg => AddItem());
-            ClearCommand = new CommandHandler(arg => Clear());
+            CloseCommand = new Command(arg => Close());
+            AddItemCommand = new Command(arg => AddItem());
+            ClearCommand = new Command(arg => Clear());
         }
 
         private void Clear()

@@ -239,7 +239,7 @@
             </StackPanel>
         </Button>
 
-        <Rectangle Grid.Row="1" Grid.RowSpan="4" Grid.Column="4" Height="600" Width="5" Margin="5"
+        <Rectangle Grid.Row="1" Grid.RowSpan="5" Grid.Column="4" Height="680" Width="5" Margin="5"
                    HorizontalAlignment="Left" VerticalAlignment="Center" Fill="{Binding PanelBrushColor}"/>
 
         <Rectangle Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" Height="17" Width="1400" Margin="0 0 0 -27"
@@ -253,24 +253,28 @@
                    TextAlignment="Left" Foreground="Red" FontSize="38"  Text="{Binding CheckNumber, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
-        <Button Grid.Row="0" Grid.Column="4" Height="35" Width="35" Background="Transparent" Focusable="False" ToolTip="Видалити замовлення"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20" Command="{Binding DeleteItemCheckCommand}">
-            <Image Style="{StaticResource ImageStyle}" Height="25" Width="25"  Source="../Icons/RedCancel.png"/>
+        <Button Grid.Row="0" Grid.Column="4" Height="45" Width="45" Background="Transparent" Focusable="False" ToolTip="Видалити замовлення"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20, 15, 80 ,20" Command="{Binding UpdateItemFromOrderListCommand}"
+                CommandParameter="{Binding ElementName=ListBox1,Path=SelectedItem}">
+            <Image Style="{StaticResource ImageStyle}" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center"  Source="../Icons/GreenCheck.png"/>
         </Button>
 
-        <ListBox ItemsSource="{Binding OrdersList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}"
+        <Button Grid.Row="0" Grid.Column="4" Height="45" Width="45" Background="Transparent" Focusable="False" ToolTip="Видалити замовлення"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20, 15, 20 ,20" Command="{Binding DeleteItemFromOrderListCommand}"
+                CommandParameter="{Binding ElementName=ListBox1,Path=SelectedItem}">
+            <Image Style="{StaticResource ImageStyle}" Height="30" Width="30"  Source="../Icons/RedCancel.png"/>
+        </Button>
+
+        <ListBox x:Name="ListBox1"  ItemsSource="{Binding OrdersList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}"
                  Grid.Row="1" Grid.RowSpan="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top"  Width="490" Height="500">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Button Height="35" Width="35" Background="Transparent" Focusable="False" ToolTip="Видалити замовлення" Command="{Binding DeleteItemCheckCommand}">
-                                <Image Style="{StaticResource ImageStyle}" Height="25" Width="25"  Source="../Icons/RedCancel.png"/>
-                            </Button>
-                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Foreground="Blue" Text="{Binding ItemName}" Margin="5"/>
-                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Foreground="Blue" Text="X" Margin="2 0 0 0"/>
-                            <TextBox Style="{StaticResource TextBoxStyle}" Height="45" Width="40" Foreground="Red" Text="{Binding Count.ItemCount, UpdateSourceTrigger=PropertyChanged}" Margin="2 0 0 0"/>
-                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Foreground="Blue" Text="=" Margin="2 0 0 0"/>
-                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="75" Foreground="Red" TextAlignment="Center" Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged}" Margin="2 0 0 0"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Foreground="Blue" Text="{Binding ItemName}" Margin="5"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Foreground="Blue" Text="X" Margin="2 0 0 0"/>
+                        <TextBox Style="{StaticResource TextBoxStyle}" Height="45" Width="40" Foreground="Red" Text="{Binding Count.ItemCount, UpdateSourceTrigger=PropertyChanged}" Margin="2 0 0 0"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="25" Foreground="Blue" Text="=" Margin="2 0 0 0"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="75" Foreground="Red" TextAlignment="Center" Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged}" Margin="2 0 0 0"/>
                         <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="45" Foreground="Blue" TextAlignment="Center" Text="грн" Margin="2 0 0 0"/>
                     </StackPanel>
                 </DataTemplate>

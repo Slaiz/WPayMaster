@@ -45,9 +45,9 @@ namespace ViewModel.AdditionalViewModel
             PasswordImageVisibility = Visibility.Hidden;
             SalaryImageVisibility = Visibility.Hidden;
 
-            CloseCommand = new CommandHandler(arg => Close());
-            AddItemCommand = new CommandHandler(arg => AddItem());
-            ClearCommand = new CommandHandler(arg => Clear());
+            CloseCommand = new Command(arg => Close());
+            AddItemCommand = new Command(arg => AddItem());
+            ClearCommand = new Command(arg => Clear());
         }
 
         private void Clear()

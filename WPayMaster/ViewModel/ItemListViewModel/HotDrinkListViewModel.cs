@@ -22,8 +22,8 @@ namespace ViewModel.ItemListViewModel
         {
             HotDrinksList = new ObservableCollection<OrderModel>(DbService.GetDrinkOrderList(DrinkType.Гарячийнапій));
 
-            CloseCommand = new CommandHandler(arg => Close());
-            AddOrderToCheckCommand = new CommandHandler(arg => AddOrderToCheck());
+            CloseCommand = new Command(arg => Close());
+            AddOrderToCheckCommand = new Command(arg => AddOrderToCheck());
 
         }
 

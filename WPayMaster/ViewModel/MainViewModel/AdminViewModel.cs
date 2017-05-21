@@ -80,17 +80,17 @@ namespace ViewModel.MainViewModel
 
             OpenUserControl(UserControlType.UserUserControl);
 
-            ChangeColorCommand = new CommandHandler(arg => ChangeColor());
-            OpenHistoryViewCommand = new CommandHandler(arg => OpenHistoryView());
-            LogOutCommand = new CommandHandler(arg => LogOut());
-            OpenUserUserControlCommand = new CommandHandler(arg => OpenUserControl(UserControlType.UserUserControl));
-            OpenFoodUserControlCommand = new CommandHandler(arg => OpenUserControl(UserControlType.FoodUserControl));
-            OpenDrinkUserControlCommand = new CommandHandler(arg => OpenUserControl(UserControlType.DrinkUserControl));
-            OpenModificatorUserControlCommand = new CommandHandler(arg => OpenUserControl(UserControlType.ModificatorUserControl));
+            ChangeColorCommand = new Command(arg => ChangeColor());
+            OpenHistoryViewCommand = new Command(arg => OpenHistoryView());
+            LogOutCommand = new Command(arg => LogOut());
+            OpenUserUserControlCommand = new Command(arg => OpenUserControl(UserControlType.UserUserControl));
+            OpenFoodUserControlCommand = new Command(arg => OpenUserControl(UserControlType.FoodUserControl));
+            OpenDrinkUserControlCommand = new Command(arg => OpenUserControl(UserControlType.DrinkUserControl));
+            OpenModificatorUserControlCommand = new Command(arg => OpenUserControl(UserControlType.ModificatorUserControl));
 
-            OpenAddItemViewCommand = new CommandHandler(arg => OpenAddItemView());
-            OpenEditItemViewCommand = new CommandHandler(arg => OpenEditItemView());
-            DeleteItemCommand = new CommandHandler(arg => DeleteItem());
+            OpenAddItemViewCommand = new Command(arg => OpenAddItemView());
+            OpenEditItemViewCommand = new Command(arg => OpenEditItemView());
+            DeleteItemCommand = new Command(arg => DeleteItem());
         }
 
         private void ChangeColor()

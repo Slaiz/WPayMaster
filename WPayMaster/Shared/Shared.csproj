@@ -42,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandHandler.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\CommandWithParametr.cs" />
     <Compile Include="Converter\DrinkTypeEnumDescriptionValueConverter.cs" />
     <Compile Include="Converter\EnumGetDescription.cs" />
     <Compile Include="Converter\FoodTypeEnumDescriptionValueConverter.cs" />

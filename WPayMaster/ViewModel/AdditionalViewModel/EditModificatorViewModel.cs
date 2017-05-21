@@ -40,9 +40,9 @@ namespace ViewModel.AdditionalViewModel
 
             ModificatorTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddModificatorView));
 
-            CloseCommand = new CommandHandler(arg => Close());
-            SaveItemCommand = new CommandHandler(arg => SaveItem());
-            ClearCommand = new CommandHandler(arg => Clear());
+            CloseCommand = new Command(arg => Close());
+            SaveItemCommand = new Command(arg => SaveItem());
+            ClearCommand = new Command(arg => Clear());
         }
 
         private void Clear()

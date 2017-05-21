@@ -22,8 +22,8 @@ namespace ViewModel.ItemListViewModel
         {
             SaucesList = new ObservableCollection<OrderModel>(DbService.GetModificatorOrderList(ModificatorType.Соус));
 
-            CloseCommand = new CommandHandler(arg => Close());
-            AddOrderToCheckCommand = new CommandHandler(arg => AddOrderToCheck());
+            CloseCommand = new Command(arg => Close());
+            AddOrderToCheckCommand = new Command(arg => AddOrderToCheck());
 
         }
 

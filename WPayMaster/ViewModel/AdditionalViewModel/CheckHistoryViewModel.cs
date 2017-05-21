@@ -31,7 +31,7 @@ namespace ViewModel.AdditionalViewModel
 
             Count = CheckList.Count;
 
-            CloseCommand = new CommandHandler(arg => Close());
+            CloseCommand = new Command(arg => Close());
         }
 
         private void Close()

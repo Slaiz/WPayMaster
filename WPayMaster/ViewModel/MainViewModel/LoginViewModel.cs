@@ -51,9 +51,9 @@ namespace ViewModel.MainViewModel
 
             BackroundBrushColor = ThemeBrushColor;
 
-            ExitCommand = new CommandHandler(arg => Exit());
-            ChangeColorCommand = new CommandHandler(arg => ChangeColor());
-            LogInCommand = new CommandHandler(arg => LogIn());
+            ExitCommand = new Command(arg => Exit());
+            ChangeColorCommand = new Command(arg => ChangeColor());
+            LogInCommand = new Command(arg => LogIn());
         }
 
         private void ChangeColor()
