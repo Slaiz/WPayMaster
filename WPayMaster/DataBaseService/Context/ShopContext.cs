@@ -8,6 +8,7 @@ namespace DataBaseService.Context
         public ShopContext()
             : base("name=ShopContext")
         {
+            Database.SetInitializer<ShopContext>(null);
         }
 
         public DbSet<User> Users { get; set; }
