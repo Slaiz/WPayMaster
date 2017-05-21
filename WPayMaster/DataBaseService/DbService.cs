@@ -85,18 +85,20 @@ namespace DataBaseService
 
                 foreach (var group in groups)
                 {
-                    var check = new CheckModel();
-                    check.CheckId = group.Key;
-                    check.TotalSum = group.Sum(order => order.Sum);
-                    check.TotalCount = group.Count();
-                    check.OrderList = new List<Order>();
-
                     foreach (var item in group)
                     {
-                        check.OrderList.Add(item);    
-                    }
+                        var check = new CheckModel();
+                        check.CheckId = group.Key;
+                        check.TotalSum = group.Sum(order => order.Sum);
+                        check.TotalCount = group.Count();
+                        check.Count = item.Count;
+                        check.ItemName = item.ItemName;
+                        check.ItemPrice = item.ItemPrice;
+                        check.OrderId = item.OrderId;
+                        check.Sum = item.Sum;
 
-                    checkList.Add(check);
+                        checkList.Add(check);
+                    }
                 }
 
                 return checkList;

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_Project.View.AdditionalViews"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="CheckHistoryView" WindowStyle="None" BorderBrush="Black" BorderThickness="2" Height="650" Width="1400">
+        Title="CheckHistoryView" WindowStyle="None" BorderBrush="Black" BorderThickness="2" Height="840" Width="1400">
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="35"/>
@@ -42,24 +42,27 @@
         </Button>
 
         <DataGrid Grid.Row="1" ItemsSource="{Binding List}" AutoGenerateColumns="False" IsReadOnly="True"
-                  Height="Auto" Width="Auto" Margin="0 10 0 0" FontSize="22" FontWeight="Bold" Foreground="RoyalBlue">
+                  Height="Auto" Width="Auto" Margin="0 10 0 0" FontSize="22" FontWeight="Bold" Foreground="RoyalBlue"
+                  IsSynchronizedWithCurrentItem="True"
+                  AlternatingRowBackground="Silver"
+                  VirtualizingStackPanel.VirtualizationMode="Recycling"
+                  VirtualizingStackPanel.IsVirtualizing="True"
+                  HeadersVisibility="Column" 
+                  CanUserResizeColumns="True"
+                  CanUserSortColumns="True"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"     >
+
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=OrderList.ItemName}" Header="Назва"/>
-                <DataGridTextColumn Binding="{Binding Path=OrderList.ItemType}" Header="Тип"/>
-                <DataGridTextColumn Binding="{Binding Path=OrderList.ItemPrice}" Header="Ціна"/>
-                <DataGridTextColumn Binding="{Binding Path=OrderList.Count}" Header="Кількість"/>
-                <DataGridTextColumn Binding="{Binding Path=OrderList.Sum}" Header="Сума"/>
+                <DataGridTextColumn Binding="{Binding ItemName, Mode=OneWay}" Header="Назва" FontSize="18" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Count, Mode=OneWay}" Header="Кількість" FontSize="18" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ItemPrice, Mode=OneWay}" Header="Ціна" FontSize="18" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Sum, Mode=OneWay}" Header="Сума замовлення" FontSize="18" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding TotalSum, Mode=OneWay}" Header="Сума чеку" FontSize="18" FontWeight="Bold" Width="Auto"/>
             </DataGrid.Columns>
 
             <DataGrid.GroupStyle>
                 <GroupStyle>
-                    <GroupStyle.HeaderTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding CheckId}" FontWeight="Bold"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </GroupStyle.HeaderTemplate>
                     <GroupStyle.ContainerStyle>
                         <Style TargetType="{x:Type GroupItem}">
                             <Setter Property="Template">
@@ -68,15 +71,10 @@
                                         <Expander>
                                             <Expander.Header>
                                                 <StackPanel Orientation="Horizontal">
-                                                    <TextBlock Text="Чек номер: " FontWeight="Bold"/>
-                                                    <TextBlock Text="{Binding Path=Name}" FontWeight="Bold"/>
-                                                    <TextBlock Text=" Елемент(ів):" FontWeight="Bold"/>
-                                                    <TextBlock Text="{Binding Path=TotalCount}" FontWeight="Bold" Height="20" Width="20"/>
-                                                    <TextBlock Text=" Загальна сума:" FontWeight="Bold"/>
-                                                    <TextBlock Text="{Binding Path=TotalSum}" FontWeight="Bold" Height="20" Width="20"/>
-                                                    <TextBlock Text="грн" FontWeight="Bold"/>
-                                                    <TextBlock Text=" Касир:" FontWeight="Bold" Foreground="Black"/>
-                                                    <TextBlock Text="{Binding Path=OrderList.CashierName}" Foreground="Black" FontWeight="Bold" Height="20" Width="20"/>
+                                                    <TextBlock Text="Номер чеку: " FontWeight="Bold"/>
+                                                    <TextBlock Text="{Binding Name, Mode=OneWay}" FontWeight="Bold"/>
+                                                    <TextBlock Text=" Кількість замовлень: " FontWeight="Bold"/>
+                                                    <TextBlock Text="{Binding ItemCount, Mode=OneWay}" FontWeight="Bold"/>
                                                 </StackPanel>
                                             </Expander.Header>
                                             <ItemsPresenter />

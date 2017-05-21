@@ -188,20 +188,24 @@
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Змінити колір" Command="{Binding ChangeColorCommand}" Margin="0 0 195 0">
-            <Image Style="{StaticResource PanelImageStyle}" Height="60" Width="50" Source="../Icons/ChangeColor.png"/>
+        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Змінити колір" Command="{Binding ChangeColorCommand}" Margin="0 0 265 0">
+            <Image Style="{StaticResource PanelImageStyle}" Height="60" Source="../Icons/ChangeColor.png"/>
         </Button>
-        
-        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Відкрити вікно статистики" Command="{Binding LogOutCommand}" Margin="0 0 130 0">
+
+        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Відкрити вікно статистики" Command="{Binding LogOutCommand}" Margin="0 0 195 0">
             <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/Statistics.png"/>
         </Button>
 
-        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Вікдрити вікно історії" Command="{Binding OpenHistoryViewCommand}" Margin="10 0 65 0">
+        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Вікдрити вікно історії" Command="{Binding OpenHistoryViewCommand}" Margin="0 0 130 0">
             <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/History.png" />
         </Button>
 
+        <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Відкрити історію чеків" Command="{Binding OpenCheckHistoryViewCommand}" Margin="10 0 65 0">
+            <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/CheckHistory.png"/>
+        </Button>
+
         <Button Style="{StaticResource PanelButtonStyle}" Grid.Row="0" Grid.Column="3" ToolTip="Вийти з панелі адміністратора" Command="{Binding LogOutCommand}" Margin="0 0 2 0">
-            <Image Style="{StaticResource PanelImageStyle}" Height="50" Width="50" Source="../Icons/LogOut.png"/>
+            <Image Style="{StaticResource PanelImageStyle}" Source="../Icons/LogOut.png"/>
         </Button>
     </Grid>
 </Window>

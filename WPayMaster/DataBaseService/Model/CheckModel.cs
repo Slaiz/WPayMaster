@@ -8,7 +8,11 @@ namespace DataBaseService.Model
     public class CheckModel
     {       
         public int CheckId { get; set; }
-        public List<Order> OrderList { get; set; }
+        public int OrderId { get; set; }
+        public string ItemName { get; set; }
+        public int Count { get; set; }
+        public int ItemPrice { get; set; }
+        public int Sum { get; set; }
         public int TotalCount { get; set; }
         public int TotalSum { get; set; }
     }

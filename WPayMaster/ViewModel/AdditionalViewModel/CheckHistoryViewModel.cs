@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows.Data;
 using System.Windows.Input;
 using DataBaseService;
+using DataBaseService.Context;
 using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
@@ -18,7 +19,7 @@ namespace ViewModel.AdditionalViewModel
         public ICommand CloseCommand { get; set; }
 
         public ObservableCollection<CheckModel> CheckList { get; set; }
-        public ICollectionView List { get; set; }
+        public ListCollectionView List { get; set; }
 
         public int Count { get; set; }
 
@@ -26,7 +27,7 @@ namespace ViewModel.AdditionalViewModel
         {
             CheckList = new ObservableCollection<CheckModel>(DbService.GetCheckList());
 
-            List = CollectionViewSource.GetDefaultView(CheckList);
+            List = new ListCollectionView(CheckList); 
             List.GroupDescriptions.Add(new PropertyGroupDescription("CheckId"));
 
             Count = CheckList.Count;
