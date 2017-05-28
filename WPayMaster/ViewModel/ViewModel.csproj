@@ -85,6 +85,7 @@
     <Compile Include="UserControlViewModel\DrinkViewModel.cs" />
     <Compile Include="UserControlViewModel\FoodViewModel.cs" />
     <Compile Include="UserControlViewModel\ModificatorViewModel.cs" />
+    <Compile Include="UserControlViewModel\SearchViewModel.cs" />
     <Compile Include="UserControlViewModel\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -47,6 +47,7 @@
     <Compile Include="Converter\DrinkTypeEnumDescriptionValueConverter.cs" />
     <Compile Include="Converter\EnumGetDescription.cs" />
     <Compile Include="Converter\FoodTypeEnumDescriptionValueConverter.cs" />
+    <Compile Include="Converter\InverseBooleanConverter.cs" />
     <Compile Include="Converter\ModificatorTypeEnumDescriptionValueConverter.cs" />
     <Compile Include="Enums\DrinkType.cs" />
     <Compile Include="Enums\FoodType.cs" />

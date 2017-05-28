@@ -22,7 +22,7 @@ namespace DataBaseService
         public static event EventHandler<Food> OnDeleteFood;
         public static event EventHandler<Drink> OnDeleteDrink;
         public static event EventHandler<Modificator> OnDeleteModificator;
-        public static event EventHandler<List<OrderModel>> OnAddOrders;
+        public static event Action<List<OrderModel>, int> OnAddOrders;
 
         public List<User> GetUsersList()
         {
@@ -102,6 +102,43 @@ namespace DataBaseService
                 }
 
                 return checkList;
+            }
+        }
+
+        public List<OrderModel> GetSearchOrderList()
+        {
+            using (var context = new ShopContext())
+            {
+                List<OrderModel> orders = new List<OrderModel>();
+
+                var foodOrders = context.Foods.AsEnumerable()
+                            .Select(food => food.FoodToOrderModel())
+                            .ToList();
+
+                foreach (var foodOrder in foodOrders)
+                {
+                    orders.Add(foodOrder);
+                }
+
+                var drinkOrders = context.Drinks.AsEnumerable()
+                                .Select(drink => drink.DrinkToOrderModel())
+                                .ToList();
+
+                foreach (var drinkOrder in drinkOrders)
+                {
+                    orders.Add(drinkOrder);
+                }
+
+                var modidficatorOrders = context.Modificators.AsEnumerable()
+                                        .Select(modificator => modificator.ModificatorToOrderModel())
+                                        .ToList();
+
+                foreach (var modidficatorOrderOrder in modidficatorOrders)
+                {
+                    orders.Add(modidficatorOrderOrder);
+                }
+
+                return orders;
             }
         }
 
@@ -538,9 +575,9 @@ namespace DataBaseService
             OnDeleteModificator?.Invoke(null, e);
         }
 
-        public static void DoOnAddOrders(List<OrderModel> e)
+        public static void DoOnAddOrders(List<OrderModel> arg1, int arg2)
         {
-            OnAddOrders?.Invoke(null, e);
+            OnAddOrders?.Invoke(arg1, arg2);
         }
     }
 }

@@ -40,7 +40,7 @@ namespace ViewModel.ItemListViewModel
                 }
             }
 
-            DbService.DoOnAddOrders(orderList);
+            DbService.DoOnAddOrders(orderList, 0);
 
             LoginViewModel.DoOnCloseView();
         }

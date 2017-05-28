@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:converter="clr-namespace:Shared.Converter;assembly=Shared"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="CashierView" ResizeMode="NoResize" WindowStyle="None" BorderBrush="{Binding PanelBrushColor}" BorderThickness="2" Height="850" Width="1400">
 
     <Window.Resources>
+        <converter:InverseBooleanConverter x:Key="InverseBooleanConverter" />
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="150"/>
             <Setter Property="Width" Value="220"/>
@@ -133,106 +135,123 @@
             </Button>
         </StackPanel>
 
-        <TextBox Style="{StaticResource TextBoxStyle}" Grid.ColumnSpan="4" Margin="0 45 0 0"/>
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="3" Height="62" Width="65" Command="{Binding FindCommand}"
+        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 Grid.ColumnSpan="4" Margin="0 45 0 0" FontSize="24" TextAlignment="Left" Padding="0"/>
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="3" Height="62" Width="65" Command="{Binding SearchCommand}"
                 HorizontalAlignment="Right" Margin="0 45 70 0"
                 Background="Transparent">
             <Image Style="{StaticResource ImageStyle}" Source="../Icons/Find.png" Height="48" Width="55"/>
         </Button>
 
+        <ContentPresenter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="4" Height="600" Width="900" HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Content="{Binding UserControl}" Visibility="{Binding SearchVisibility}"/>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="0" Background="#2196F3" Command="{Binding OpenSoupListViewCommand}" Margin="4 0 0 0">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="0" Background="#2196F3" Command="{Binding OpenSoupListViewCommand}" 
+                Margin="4 0 0 0" Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Soup.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" TextWrapping="Wrap" Text="Перші страви" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="1" Background="#4CAF50" Command="{Binding OpenSaladListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="1" Background="#4CAF50" Command="{Binding OpenSaladListViewCommand}"
+                Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Salad.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Салати" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="2" Background="#F44336" Command="{Binding OpenMeatDishListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="2" Background="#F44336" Command="{Binding OpenMeatDishListViewCommand}"
+                Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Meat.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" FontSize="27" Text="М'ясні страви" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="3" Background="#0277bd" Command="{Binding OpenFishListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="1" Grid.Column="3" Background="#0277bd" Command="{Binding OpenFishListViewCommand}"
+                Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Fish.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Рибні страви" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="0" Background="#FF9800" Command="{Binding OpenGarnishListViewCommand}" Margin="4 0 0 0">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="0" Background="#FF9800" Command="{Binding OpenGarnishListViewCommand}" 
+                Margin="4 0 0 0" Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Porridge.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Гарніри" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="1" Background="#EF6C00" Command="{Binding OpenPizzaListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="1" Background="#EF6C00" Command="{Binding OpenPizzaListViewCommand}"
+                Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Pizza.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Піци" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="2" Background="#CDDC39" Command="{Binding OpenPastaListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="2" Background="#CDDC39" Command="{Binding OpenPastaListViewCommand}"
+                Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Pasta.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Пасти" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="3" Background="#FFEA00" Command="{Binding OpenMealListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="3" Background="#FFEA00" Command="{Binding OpenMealListViewCommand}"
+                Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Meal.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" FontSize="22" TextWrapping="Wrap" Text="Борошняні вироби" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="0" Background="#E91E63" Command="{Binding OpenDessertListViewCommand}" Margin="4 0 0 0">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="0" Background="#E91E63" Command="{Binding OpenDessertListViewCommand}" 
+                Margin="4 0 0 0" Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Dessert.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Десерти" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="1" Background="#ffd600" Command="{Binding OpenJuiceListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="1" Background="#ffd600" Command="{Binding OpenJuiceListViewCommand}"
+                Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Juice.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Соки" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="2" Background="#5D4037" Command="{Binding OpenHotDrinkListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="2" Background="#5D4037" Command="{Binding OpenHotDrinkListViewCommand}"
+                Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/HotDrink.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Гарячі напої" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="3" Background="#00BCD4" Command="{Binding OpenColdDrinkListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="3" Grid.Column="3" Background="#00BCD4" Command="{Binding OpenColdDrinkListViewCommand}"
+                Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Water.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" FontSize="26" Text="Холодні напої" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="4" Grid.Column="0" Background="#4CAF50" Command="{Binding OpenSnackListViewCommand}" Margin="4 0 0 0">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="4" Grid.Column="0" Background="#4CAF50" Command="{Binding OpenSnackListViewCommand}" 
+                Margin="4 0 0 0" Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Snack.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Закуски" />
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="4" Grid.Column="1" Background="#FF5722" Command="{Binding OpenSauceListViewCommand}">
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="4" Grid.Column="1" Background="#FF5722" Command="{Binding OpenSauceListViewCommand}"
+                Visibility="{Binding ButtonVisibility}">
             <StackPanel Orientation="Vertical" Height="160" Width="190">
                 <Image Style="{StaticResource ImageStyle}" Source="../Icons/Sauce.png"/>
                 <TextBlock Style="{StaticResource ButtonTextBlockStyle}" Text="Соуси" />

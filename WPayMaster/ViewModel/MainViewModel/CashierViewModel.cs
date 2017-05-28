@@ -15,6 +15,8 @@ using Shared;
 using Shared.Commands;
 using Shared.Enums;
 using Shared.Interface;
+using UserControl;
+using ViewModel.UserControlViewModel;
 
 namespace ViewModel.MainViewModel
 {
@@ -30,7 +32,7 @@ namespace ViewModel.MainViewModel
         public ICommand StopWorkCommand { get; set; }
         public ICommand ChangeColorCommand { get; set; }
         public ICommand OpenCheckHistoryViewCommand { get; set; }
-        public ICommand FindCommand { get; set; }
+        public ICommand SearchCommand { get; set; }
         public ICommand CheckCommand { get; set; }
         public ICommand CleanCheckCommand { get; set; }
         public ICommand DeleteItemFromOrderListCommand { get; set; }
@@ -55,9 +57,13 @@ namespace ViewModel.MainViewModel
 
         public ObservableCollection<OrderModel> OrdersList { get; set; }
 
+        public System.Windows.Controls.UserControl UserControl { get; set; }
         public User Cashier { get; set; }
         public string CashierName { get; set; }
+        public string SearchText { get; set; }
         public int CheckNumber { get; set; }
+        public Visibility SearchVisibility { get; set; }
+        public Visibility ButtonVisibility { get; set; }
         public OrderModel SelectedItem { get; set; }
         public DateTime CurrentTime { get; set; }
         public DateTime? StartWorkTime { get; set; }
@@ -100,7 +106,7 @@ namespace ViewModel.MainViewModel
             ChangeColorCommand = new Command(arg => ChangeColor());
             OpenCheckHistoryViewCommand = new Command(arg => OpenCheckHistoryView());
 
-            FindCommand = new Command(arg => Find());
+            SearchCommand = new Command(arg => Search());
             CheckCommand = new Command(arg => Check());
             CleanCheckCommand = new Command(arg => CleanCheck());
             DeleteItemFromOrderListCommand = new CommandWithParameters(DeleteItemFromOrderList, true);
@@ -122,6 +128,18 @@ namespace ViewModel.MainViewModel
             OpenSoupListViewCommand = new Command(arg => OpenSoupListView());
         }
 
+        private void Search()
+        {
+            SearchVisibility = Visibility.Visible;
+            ButtonVisibility = Visibility.Hidden;
+
+            UserControl = new SearchUserControl();
+            var searchViewModel = new SearchViewModel(SearchText);
+            UserControl.DataContext = searchViewModel;
+        }
+
+        #region MethodOnEvent
+
         private void UpdateItemFromOrderList(object selectedOrder)
         {
             OrderModel tempOrder = (OrderModel)selectedOrder;
@@ -142,10 +160,9 @@ namespace ViewModel.MainViewModel
                 Sum += order.Sum;
             }
         }
-
         private void DeleteItemFromOrderList(object selectedOrder)
         {
-            OrderModel tempOrder = (OrderModel) selectedOrder; 
+            OrderModel tempOrder = (OrderModel)selectedOrder;
 
             foreach (var order in OrdersList.ToList())
             {
@@ -165,9 +182,14 @@ namespace ViewModel.MainViewModel
                 Sum += order.Sum;
             }
         }
-
-        private void DbServiceOnOnAddOrders(object sender, List<OrderModel> ordersList)
+        private void DbServiceOnOnAddOrders(List<OrderModel> ordersList, int type)
         {
+            if (type == 1)
+            {
+                SearchVisibility = Visibility.Hidden;
+                ButtonVisibility = Visibility.Visible;
+            }
+
             foreach (var order in ordersList)
             {
                 var newOrder = OrdersList.FirstOrDefault(x => x.ItemName == order.ItemName);
@@ -177,7 +199,7 @@ namespace ViewModel.MainViewModel
                     int index = OrdersList.IndexOf(newOrder);
 
                     newOrder.Sum = newOrder.Count.ItemCount * newOrder.ItemPrice;
-                    newOrder.Count.ItemCount += order.Count.ItemCount;                 
+                    newOrder.Count.ItemCount += order.Count.ItemCount;
                     newOrder.Sum += order.Count.ItemCount * newOrder.ItemPrice;
 
                     OrdersList.RemoveAt(index);
@@ -193,6 +215,7 @@ namespace ViewModel.MainViewModel
                 Sum += order.Sum;
             }
         }
+        #endregion
 
         private void CleanCheck()
         {
@@ -211,7 +234,8 @@ namespace ViewModel.MainViewModel
                 Sum = 0;
 
                 MessageBox.Show("Замовлення принято", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
-            } else MessageBox.Show("Спершу зробіть замовлення", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else MessageBox.Show("Спершу зробіть замовлення", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
 
             CheckNumber += 1;
         }

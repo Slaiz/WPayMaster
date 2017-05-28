@@ -14,6 +14,7 @@ namespace DataBaseService.Interface
         List<Modificator> GetModificatorsList();
         List<History> GetStoryList();
         List<CheckModel> GetCheckList();
+        List<OrderModel> GetSearchOrderList();
         List<OrderModel> GetFoodOrderList(FoodType foodType);
         List<OrderModel> GetDrinkOrderList(DrinkType drinkType);
         List<OrderModel> GetModificatorOrderList(ModificatorType modificatorType);

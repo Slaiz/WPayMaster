@@ -20,6 +20,7 @@ namespace ViewModel.MainViewModel
     {
         public static event EventHandler<ViewType> OnLogOut;
 
+        #region Commands
         public ICommand ChangeColorCommand { get; set; }
         public ICommand OpenHistoryViewCommand { get; set; }
         public ICommand LogOutCommand { get; set; }
@@ -30,6 +31,8 @@ namespace ViewModel.MainViewModel
         public ICommand OpenAddItemViewCommand { get; set; }
         public ICommand OpenEditItemViewCommand { get; set; }
         public ICommand DeleteItemCommand { get; set; }
+        #endregion
+
 
         private UserViewModel userViewModel;
         private FoodViewModel foodViewModel;
