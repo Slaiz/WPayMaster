@@ -68,11 +68,11 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="0" Text="Назва"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="0" Grid.Column="0" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Назва"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="0" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Тип"/>
-        <ComboBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ModificatorTypeList}" SelectedItem="{Binding Type}">
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Тип"/>
+        <ComboBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="0" ItemsSource="{Binding ModificatorTypeList}" SelectedItem="{Binding Type}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <ContentPresenter Content="{Binding Converter={StaticResource ModificatorTypeConverter}}"/>

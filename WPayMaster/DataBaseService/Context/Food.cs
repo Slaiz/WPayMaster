@@ -12,6 +12,8 @@ namespace DataBaseService.Context
         [MaxLength(50)]
         [Required]
         public string FoodType { get; set; }
+        [MaxLength(100)]
+        public string Recipe { get; set; }
         [Required]
         public int FoodPrice { get; set; }
         [Required]

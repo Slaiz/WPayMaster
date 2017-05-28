@@ -23,6 +23,7 @@
                 <DataGridTextColumn Binding="{Binding FoodId}" Header="Id" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding FoodName}" Header="Назва" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding FoodType, Converter={StaticResource FoodTypeConverter}}" Header="Тип" FontSize="18" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Recipe}" Header="Рецепт" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding FoodPrice}" Header="Ціна" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding FoodWeight}" Header="Вага" FontSize="18" FontWeight="Bold" Width="Auto"/>
             </DataGrid.Columns>

@@ -21,22 +21,26 @@ namespace ViewModel.AdditionalViewModel
         public Visibility NameImageVisibility { get; set; }
         public Visibility SurnameImageVisibility { get; set; }
         public Visibility PassportNumberImageVisibility { get; set; }
+        public Visibility SexImageVisibility { get; set; }
         public Visibility PostImageVisibility { get; set; }
         public Visibility PasswordImageVisibility { get; set; }
         public Visibility SalaryImageVisibility { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public int PassportNumber { get; set; }
+        public string Sex { get; set; }
         public string Post { get; set; }
         public string Password { get; set; }
         public int Salary { get; set; }
 
         public List<string> UserPostList { get; set; }
+        public List<string> UserSexList { get; set; }
 
 
         public AddUserViewModel()
         {
-            UserPostList = new List<string>(DbService.CreateTypeList(ViewType.AddUserView));
+            UserPostList = new List<string>(DbService.CreateTypeList(ViewType.AddUserView, 1));
+            UserSexList = new List<string>(DbService.CreateTypeList(ViewType.AddUserView, 0));
 
             NameImageVisibility = Visibility.Hidden;
             SurnameImageVisibility = Visibility.Hidden;
@@ -55,6 +59,7 @@ namespace ViewModel.AdditionalViewModel
             Name = " ";
             Surname = " ";
             PassportNumber = 0;
+            Sex = null;
             Post = null;
             Password = " ";
             Salary = 0;
@@ -69,7 +74,7 @@ namespace ViewModel.AdditionalViewModel
         {
             if (CheckData())
             {
-                DbService.AddUser(Name, Surname, PassportNumber, Post, Password, Salary);
+                DbService.AddUser(Name, Surname, PassportNumber, Sex, Post, Password, Salary);
                 MessageBox.Show("Запис додано", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else MessageBox.Show("Введіть всі поля правильно", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -99,6 +104,13 @@ namespace ViewModel.AdditionalViewModel
             {
                 flag = false;
                 PassportNumberImageVisibility = Visibility.Visible; ;
+            }
+
+            if (Sex != null) PostImageVisibility = Visibility.Hidden;
+            else
+            {
+                flag = false;
+                SexImageVisibility = Visibility.Visible;
             }
 
             if (Post != null) PostImageVisibility = Visibility.Hidden;

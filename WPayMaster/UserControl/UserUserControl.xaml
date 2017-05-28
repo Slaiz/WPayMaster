@@ -17,6 +17,7 @@
                 <DataGridTextColumn Binding="{Binding UserId}" Header="Id" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding UserName}" Header="Ім'я" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding Surname}" Header="Прізвище" FontSize="18" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Sex}" Header="Стать" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding PassportNumber}" Header="Серія паспорта" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding Post}" Header="Посада" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding Password}" Header="Пароль" FontSize="18" FontWeight="Bold" Width="Auto"/>

@@ -112,6 +112,14 @@
     <Compile Include="Migrations\201703230943119_FixModel7.Designer.cs">
       <DependentUpon>201703230943119_FixModel7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705281710202_AddNewField.cs" />
+    <Compile Include="Migrations\201705281710202_AddNewField.Designer.cs">
+      <DependentUpon>201705281710202_AddNewField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705281759136_FixField.cs" />
+    <Compile Include="Migrations\201705281759136_FixField.Designer.cs">
+      <DependentUpon>201705281759136_FixField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Context\Drink.cs" />
     <Compile Include="Context\Food.cs" />
@@ -174,9 +182,18 @@
     <EmbeddedResource Include="Migrations\201703230943119_FixModel7.resx">
       <DependentUpon>201703230943119_FixModel7.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705281710202_AddNewField.resx">
+      <DependentUpon>201705281710202_AddNewField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705281759136_FixField.resx">
+      <DependentUpon>201705281759136_FixField.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.2\build\dotnet\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\dotnet\Fody.targets')" />

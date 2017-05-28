@@ -23,6 +23,7 @@ namespace ViewModel.AdditionalViewModel
         public Food SelectedItem { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
+        public string Recipe { get; set; }
         public int Price { get; set; }
         public int Weight { get; set; }
 
@@ -34,10 +35,11 @@ namespace ViewModel.AdditionalViewModel
 
             Name = item.FoodName;
             Type = item.FoodType;
+            Recipe = item.Recipe;
             Price = item.FoodPrice;
             Weight = item.FoodWeight;
 
-            FoodTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddFoodView));
+            FoodTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddFoodView, 0));
 
             CloseCommand = new Command(arg => Close());
             SaveItemCommand = new Command(arg => SaveItem());
@@ -48,6 +50,7 @@ namespace ViewModel.AdditionalViewModel
         {
             Name = " ";
             Type = null;
+            Recipe = " ";
             Price = 0;
             Weight = 0;
         }
@@ -59,7 +62,7 @@ namespace ViewModel.AdditionalViewModel
 
         private void SaveItem()
         {
-            DbService.UpdateFood(SelectedItem, Name, Type, Price, Weight);
+            DbService.UpdateFood(SelectedItem, Name, Type, Recipe, Price, Weight);
 
             MessageBox.Show("Запис оновлено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }

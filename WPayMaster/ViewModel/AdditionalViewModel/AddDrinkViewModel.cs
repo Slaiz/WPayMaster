@@ -27,7 +27,7 @@ namespace ViewModel.AdditionalViewModel
 
         public AddDrinkViewModel()
         {
-            DrinkTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddDrinkView));
+            DrinkTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddDrinkView, 0));
 
             CloseCommand = new Command(arg => Close());
             AddItemCommand = new Command(arg => AddItem());

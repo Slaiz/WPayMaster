@@ -20,6 +20,7 @@ namespace ViewModel.AdditionalViewModel
 
         public string Name { get; set; }
         public string Type { get; set; }
+        public string Recipe { get; set; }
         public int Price { get; set; }
         public int Weight { get; set; }
 
@@ -27,7 +28,7 @@ namespace ViewModel.AdditionalViewModel
 
         public AddFoodViewModel()
         {
-            FoodTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddFoodView));
+            FoodTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddFoodView, 0));
                 
             CloseCommand = new Command(arg => Close());
             AddItemCommand = new Command(arg => AddItem());
@@ -41,7 +42,7 @@ namespace ViewModel.AdditionalViewModel
 
         private void AddItem()
         {
-            DbService.AddFood(Name, Type, Price, Weight);
+            DbService.AddFood(Name, Type, Recipe, Price, Weight);
 
             MessageBox.Show("Запис додано", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -50,6 +51,7 @@ namespace ViewModel.AdditionalViewModel
         {
             Name = " ";
             Type = null;
+            Recipe = " ";
             Price = 0;
             Weight = 0;
         }

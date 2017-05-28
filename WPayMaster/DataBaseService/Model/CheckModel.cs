@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DataBaseService.Context;
 using PropertyChanged;
 
@@ -13,7 +14,7 @@ namespace DataBaseService.Model
         public int Count { get; set; }
         public int ItemPrice { get; set; }
         public int Sum { get; set; }
-        public int TotalCount { get; set; }
+        public DateTime CheckDate { get; set; }
         public int TotalSum { get; set; }
     }
 }

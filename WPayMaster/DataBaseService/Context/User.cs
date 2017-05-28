@@ -13,6 +13,9 @@ namespace DataBaseService.Context
         [MaxLength(50)]
         [Required]
         public string Surname{ get; set; }
+        [MaxLength(50)]
+        [Required]
+        public string Sex { get; set; }
         [Required]
         public int PassportNumber { get; set; }
         [MaxLength(50)]

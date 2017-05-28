@@ -90,11 +90,11 @@ namespace DataBaseService
                         var check = new CheckModel();
                         check.CheckId = group.Key;
                         check.TotalSum = group.Sum(order => order.Sum);
-                        check.TotalCount = group.Count();
                         check.Count = item.Count;
                         check.ItemName = item.ItemName;
                         check.ItemPrice = item.ItemPrice;
                         check.OrderId = item.OrderId;
+                        check.CheckDate = item.CheckDate;
                         check.Sum = item.Sum;
 
                         checkList.Add(check);
@@ -164,6 +164,7 @@ namespace DataBaseService
                     order.ItemType = item.ItemType;
                     order.ItemWeight = item.ItemWeight;
                     order.ItemPrice = item.ItemPrice;
+                    order.CheckDate = DateTime.Now;
                     order.Count = item.Count.ItemCount;
                     order.Sum = item.Sum;
 
@@ -175,7 +176,7 @@ namespace DataBaseService
         }
 
         #region AddItem
-        public void AddUser(string name, string surname, int passportNumber, string post, string password, int salary)
+        public void AddUser(string name, string surname, int passportNumber, string sex, string post, string password, int salary)
         {
             using (var context = new ShopContext())
             {
@@ -184,6 +185,7 @@ namespace DataBaseService
                 user.UserName = name;
                 user.Surname = surname;
                 user.PassportNumber = passportNumber;
+                user.Sex = sex;
                 user.Post = post;
                 user.Password = password;
                 user.Salary = salary;
@@ -197,7 +199,7 @@ namespace DataBaseService
             }
         }
 
-        public void AddFood(string name, string type, int price, int weight)
+        public void AddFood(string name, string type, string recipe, int price, int weight)
         {
             using (var context = new ShopContext())
             {
@@ -205,6 +207,7 @@ namespace DataBaseService
 
                 food.FoodName = name;
                 food.FoodType = type;
+                food.Recipe = recipe;
                 food.FoodPrice = price;
                 food.FoodWeight = weight;
 
@@ -256,7 +259,7 @@ namespace DataBaseService
         #endregion
 
         #region UpdateItem
-        public void UpdateUser(User item, string name, string surname, int passportNumber, string post, string password, int salary)
+        public void UpdateUser(User item, string name, string surname, int passportNumber, string sex, string post, string password, int salary)
         {
             using (var context = new ShopContext())
             {
@@ -265,6 +268,7 @@ namespace DataBaseService
                 user.UserName = name;
                 user.Surname = surname;
                 user.PassportNumber = passportNumber;
+                user.Sex = sex;
                 user.Post = post;
                 user.Password = password;
                 user.Salary = salary;
@@ -276,7 +280,7 @@ namespace DataBaseService
             }
         }
 
-        public void UpdateFood(Food item, string name, string type, int price, int weight)
+        public void UpdateFood(Food item, string name, string type, string recipe, int price, int weight)
         {
             using (var context = new ShopContext())
             {
@@ -284,6 +288,7 @@ namespace DataBaseService
 
                 food.FoodName = name;
                 food.FoodType = type;
+                food.Recipe = recipe;
                 food.FoodPrice = price;
                 food.FoodWeight = weight;
 
@@ -416,7 +421,7 @@ namespace DataBaseService
             }
         }
 
-        public List<string> CreateTypeList(ViewType viewType)
+        public List<string> CreateTypeList(ViewType viewType, int type)
         {
             List<string> list = new List<string>();
 
@@ -424,8 +429,16 @@ namespace DataBaseService
             {
                 case ViewType.AddUserView:
                     {
-                        list.Add(UserPost.Адміністратор.ToString());
-                        list.Add(UserPost.Касир.ToString());
+                        if (type == 1)
+                        {
+                            list.Add(UserPost.Адміністратор.ToString());
+                            list.Add(UserPost.Касир.ToString());
+                        }
+                        else
+                        {
+                            list.Add(UserSex.Чоловік.ToString());
+                            list.Add(UserSex.Жінка.ToString());
+                        }
                         break;
                     }
                 case ViewType.AddFoodView:

@@ -53,6 +53,7 @@
     <Compile Include="Enums\ModificatorType.cs" />
     <Compile Include="Enums\StoryType.cs" />
     <Compile Include="Enums\UserControlType.cs" />
+    <Compile Include="Enums\UserSex.cs" />
     <Compile Include="Enums\ViewType.cs" />
     <Compile Include="Enums\UserPost.cs" />
     <Compile Include="Interface\IView.cs" />

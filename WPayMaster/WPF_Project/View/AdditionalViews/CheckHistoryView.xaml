@@ -58,6 +58,7 @@
                 <DataGridTextColumn Binding="{Binding Count, Mode=OneWay}" Header="Кількість" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding ItemPrice, Mode=OneWay}" Header="Ціна" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding Sum, Mode=OneWay}" Header="Сума замовлення" FontSize="18" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding CheckDate, Mode=OneWay}" Header="Дата замовлення" FontSize="18" FontWeight="Bold" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding TotalSum, Mode=OneWay}" Header="Сума чеку" FontSize="18" FontWeight="Bold" Width="Auto"/>
             </DataGrid.Columns>
 

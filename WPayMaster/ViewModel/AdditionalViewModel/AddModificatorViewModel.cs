@@ -27,7 +27,7 @@ namespace ViewModel.AdditionalViewModel
 
         public AddModificatorViewModel()
         {
-            ModificatorTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddModificatorView));
+            ModificatorTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddModificatorView, 0));
 
             CloseCommand = new Command(arg => Close());
             AddItemCommand = new Command(arg => AddItem());

@@ -37,7 +37,7 @@ namespace ViewModel.AdditionalViewModel
             Price = item.DrinkPrice;
             Volume = item.Volume;
 
-            DrinkTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddDrinkView));
+            DrinkTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddDrinkView, 0));
             
             CloseCommand = new Command(arg => Close());
             SaveItemCommand = new Command(arg => SaveItem());

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataBaseService.Context
 {
@@ -20,6 +21,7 @@ namespace DataBaseService.Context
         public int Count { get; set; }
         [Required]
         public int ItemPrice { get; set; }
+        public DateTime CheckDate { get; set; }
         public int Sum { get; set; }
     }
 }

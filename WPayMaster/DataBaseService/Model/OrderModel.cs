@@ -1,4 +1,5 @@
-﻿using PropertyChanged;
+﻿using System;
+using PropertyChanged;
 
 namespace DataBaseService.Model
 {
@@ -11,6 +12,7 @@ namespace DataBaseService.Model
         public string ItemName { get; set; }
         public string ItemType { get; set; }
         public int ItemWeight { get; set; }
+        public DateTime CheckDate { get; set; }
         public Counting Count { get; set; }
         public int ItemPrice { get; set; }
         public int Sum { get; set; }

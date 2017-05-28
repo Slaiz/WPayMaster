@@ -38,7 +38,7 @@ namespace ViewModel.AdditionalViewModel
             Price = item.ModificatorPrice;
             Weight = item.ModificatorWeight;
 
-            ModificatorTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddModificatorView));
+            ModificatorTypeList = new List<string>(DbService.CreateTypeList(ViewType.AddModificatorView, 0));
 
             CloseCommand = new Command(arg => Close());
             SaveItemCommand = new Command(arg => SaveItem());

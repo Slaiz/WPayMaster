@@ -17,7 +17,7 @@
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Grid.Row" Value="4"/>
+            <Setter Property="Grid.Row" Value="5"/>
             <Setter Property="Grid.Column" Value="1"/>
         </Style>
         <Style x:Key="TextBoxStyle" TargetType="TextBox">
@@ -74,6 +74,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -81,20 +82,25 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="0" Text="Ім'я"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="0" Grid.Column="0" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Ім'я"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="0" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Image Style="{StaticResource ImageStyle}" Source="../Icons/Error.png" Grid.Row="0" Grid.Column="0" ToolTip="Введіть імя" Visibility="{Binding NameImageVisibility}"/>
+        <Image Style="{StaticResource ImageStyle}" Source="../Icons/Error.png" Grid.Row="1" Grid.Column="0" ToolTip="Введіть імя" Visibility="{Binding NameImageVisibility}"/>
 
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Прізвище"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="0" Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Прізвище"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="0" Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Image Style="{StaticResource ImageStyle}" Grid.Row="1" Grid.Column="0" ToolTip="Введіть прізвище" Visibility="{Binding SurnameImageVisibility}" Source="../Icons/Error.png"/>
+        <Image Style="{StaticResource ImageStyle}" Grid.Row="2" Grid.Column="0" ToolTip="Введіть прізвище" Visibility="{Binding SurnameImageVisibility}" Source="../Icons/Error.png"/>
 
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Номер паспорта" />
-        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="0" Text="{Binding PassportNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="0" Text="Номер паспорта" />
+        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="3" Grid.Column="0" Text="{Binding PassportNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Image Style="{StaticResource ImageStyle}" Grid.Row="2" Grid.Column="0" ToolTip="Введіть номер паспорта не більше і не більше 9 цифр" Visibility="{Binding PassportNumberImageVisibility}" Source="../Icons/Error.png"/>
+        <Image Style="{StaticResource ImageStyle}" Grid.Row="3" Grid.Column="0" ToolTip="Введіть номер паспорта не більше і не більше 9 цифр" Visibility="{Binding PassportNumberImageVisibility}" Source="../Icons/Error.png"/>
+        
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="4" Grid.Column="0" Text="Стать"/>
+        <ComboBox Style="{StaticResource ComboBoxStyle}" Grid.Row="4" Grid.Column="0" ItemsSource="{Binding UserSexList}" SelectedItem="{Binding Sex, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Image Style="{StaticResource ImageStyle}" Grid.Row="4" Grid.Column="0" ToolTip="Виберіть стать" Visibility="{Binding SexImageVisibility}" Source="../Icons/Error.png"/>
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Посада"/>
         <ComboBox Style="{StaticResource ComboBoxStyle}" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding UserPostList}" SelectedItem="{Binding Post, UpdateSourceTrigger=PropertyChanged}"/>

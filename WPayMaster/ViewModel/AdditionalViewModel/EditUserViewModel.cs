@@ -24,11 +24,13 @@ namespace ViewModel.AdditionalViewModel
         public string Name { get; set; }
         public string Surname { get; set; }
         public int PassportNumber { get; set; }
+        public string Sex { get; set; }
         public string Post { get; set; }
         public string Password { get; set; }
         public int Salary { get; set; }
 
         public List<string> UserPostList { get; set; }
+        public List<string> UserSexList { get; set; }
 
         public EditUserViewModel(User item)
         {
@@ -37,11 +39,13 @@ namespace ViewModel.AdditionalViewModel
             Name = item.UserName;
             Surname = item.Surname;
             PassportNumber = item.PassportNumber;
+            Sex = item.Sex;
             Post = item.Post;
             Password = item.Password;
             Salary = item.Salary;
 
-            UserPostList = new List<string>(DbService.CreateTypeList(ViewType.AddUserView));
+            UserPostList = new List<string>(DbService.CreateTypeList(ViewType.AddUserView, 1));
+            UserSexList = new List<string>(DbService.CreateTypeList(ViewType.AddUserView, 1));
 
             CloseCommand = new Command(arg => Close());
             SaveItemCommand = new Command(arg => SaveItem());
@@ -53,6 +57,7 @@ namespace ViewModel.AdditionalViewModel
             Name = " ";
             Surname = " ";
             PassportNumber = 0;
+            Sex = null;
             Post = null;
             Password = " ";
             Salary = 0;
@@ -65,7 +70,7 @@ namespace ViewModel.AdditionalViewModel
 
         private void SaveItem()
         {
-            DbService.UpdateUser(SelectedItem, Name, Surname, PassportNumber, Post, Password, Salary);
+            DbService.UpdateUser(SelectedItem, Name, Surname, PassportNumber, Sex, Post, Password, Salary);
 
             MessageBox.Show("Запис оновлено", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
         }
