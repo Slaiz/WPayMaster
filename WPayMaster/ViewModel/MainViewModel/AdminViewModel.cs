@@ -31,6 +31,7 @@ namespace ViewModel.MainViewModel
         public ICommand OpenAddItemViewCommand { get; set; }
         public ICommand OpenEditItemViewCommand { get; set; }
         public ICommand DeleteItemCommand { get; set; }
+        public ICommand OpenPreviewItemCommand { get; set; }
         #endregion
 
 
@@ -94,6 +95,17 @@ namespace ViewModel.MainViewModel
             OpenAddItemViewCommand = new Command(arg => OpenAddItemView());
             OpenEditItemViewCommand = new Command(arg => OpenEditItemView());
             DeleteItemCommand = new Command(arg => DeleteItem());
+            OpenPreviewItemCommand = new Command(arg => OpenPreviewItem());
+        }
+
+        private void OpenPreviewItem()
+        {
+            if (UserViewModel.SelectedItem != null)
+            {
+                CreateViewAction.Invoke(UserViewModel.SelectedItem, ViewType.PreviewUserView);
+                UserViewModel.SelectedItem = null;
+            }
+            else MessageBox.Show("Будь ласка виберіть користувача", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void ChangeColor()

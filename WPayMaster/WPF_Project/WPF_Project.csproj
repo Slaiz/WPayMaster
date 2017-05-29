@@ -95,6 +95,9 @@
     <Compile Include="View\AdditionalViews\EditUserView.xaml.cs">
       <DependentUpon>EditUserView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AdditionalViews\PreviewUserView.xaml.cs">
+      <DependentUpon>PreviewUserView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ItemListViews\ColdDrinkListView.xaml.cs">
       <DependentUpon>ColdDrinkListView.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdditionalViews\CheckHistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdditionalViews\PreviewUserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -403,6 +410,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Icons\GreenCheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\Eye.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

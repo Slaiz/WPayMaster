@@ -80,7 +80,13 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        
+
+        <Image Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
+               VerticalAlignment="Center" Height="130" Width="170" Margin="50, 0, 0, 0"/>
+        <Button Grid.Row="0" Grid.Column="0" Height="45" Style="{StaticResource ButtonStyle}" Width="220" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0, 0, 200, 0"
+                Foreground="Black" Background="White" Content="Загрузити фотографію" FontSize="18" Command="{Binding UploadCommand}" 
+                BorderBrush="#4caf50" BorderThickness="2"/>
+
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Ціна"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="0" Grid.Column="1" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" />
 

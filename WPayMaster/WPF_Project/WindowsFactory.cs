@@ -14,6 +14,7 @@ using WPF_Project.View.AdditionalViews;
 using WPF_Project.View.ItemListViews;
 using WPF_Project.View.ListOrederView;
 using WPF_Project.View.MainViews;
+using EditUserView = WPF_Project.View.AdditionalViews.EditUserView;
 
 namespace WPF_Project
 {
@@ -162,6 +163,13 @@ namespace WPF_Project
                         view.ShowView();
                         break;
                     }
+                case ViewType.PreviewUserView:
+                {
+                    view = new PreviewUserView(new PreviewUserViewModel((User)o));
+                    AddAdditionalView(view);
+                    view.ShowView();
+                    break;
+                }
                 case ViewType.ActivityHistoryView:
                     {
                         view = new ActivityHistoryView(new ActivityHistoryViewModel());

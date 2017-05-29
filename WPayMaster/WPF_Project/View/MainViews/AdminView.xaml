@@ -181,9 +181,9 @@
             </StackPanel>
         </Button>
 
-        <Button Style="{StaticResource MenuButtonStyle}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" Command="{Binding LogOutCommand}">
+        <Button Style="{StaticResource MenuButtonStyle}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" Command="{Binding OpenPreviewItemCommand}">
             <StackPanel>
-                <Image Style="{StaticResource MenuImageStyle}" Source="../Icons/ItemList.png"/>
+                <Image Style="{StaticResource MenuImageStyle}" Source="../Icons/Eye.png"/>
                 <TextBlock Style="{StaticResource MenuTextBlockStyle}" FontSize="17" Text=" Перегляд"/>
             </StackPanel>
         </Button>

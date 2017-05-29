@@ -78,6 +78,9 @@
                         <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="100" Text="{Binding ItemWeight}" Margin="5"/>
                         <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="100" Text="{Binding ItemPrice}" Margin="5"/>
                         <local:CountUserControl  DataContext="{Binding Count}" ></local:CountUserControl>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="300" Text="{Binding Recipe}" Margin="5"/>
+                        </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

@@ -14,6 +14,7 @@ namespace DataBaseService
                 ItemType = food.FoodType,
                 ItemWeight = food.FoodWeight,
                 ItemPrice = food.FoodPrice,
+                Recipe = food.Recipe,
                 Count = new Counting(0),
                 Sum = 0
             };

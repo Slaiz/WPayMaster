@@ -1,17 +1,18 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using Shared.Interface;
 using ViewModel.AdditionalViewModel;
 
 namespace WPF_Project.View.AdditionalViews
 {
     /// <summary>
-    /// Interaction logic for EditUserView.xaml
+    /// Interaction logic for PreviewUserView.xaml
     /// </summary>
-    public partial class EditUserView : Window, IView
+    public partial class PreviewUserView : Window, IView
     {
-        public EditUserView(EditUserViewModel editUserViewModel)
+        public PreviewUserView(PreviewUserViewModel previewUserViewModel  )
         {
-            DataContext = editUserViewModel;
+            DataContext = previewUserViewModel;
 
             InitializeComponent();
         }

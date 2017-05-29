@@ -12,6 +12,7 @@ namespace DataBaseService.Model
         public string ItemName { get; set; }
         public string ItemType { get; set; }
         public int ItemWeight { get; set; }
+        public string Recipe { get; set; }
         public DateTime CheckDate { get; set; }
         public Counting Count { get; set; }
         public int ItemPrice { get; set; }
