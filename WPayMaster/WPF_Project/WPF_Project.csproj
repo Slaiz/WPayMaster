@@ -98,6 +98,9 @@
     <Compile Include="View\AdditionalViews\PreviewUserView.xaml.cs">
       <DependentUpon>PreviewUserView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AdditionalViews\StatisticView.xaml.cs">
+      <DependentUpon>StatisticView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ItemListViews\ColdDrinkListView.xaml.cs">
       <DependentUpon>ColdDrinkListView.xaml</DependentUpon>
     </Compile>
@@ -174,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdditionalViews\PreviewUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdditionalViews\StatisticView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

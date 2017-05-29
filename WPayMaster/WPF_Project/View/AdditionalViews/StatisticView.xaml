@@ -1,0 +1,109 @@
+﻿<Window x:Class="WPF_Project.View.AdditionalViews.StatisticView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Project.View.AdditionalViews"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="ActivityHistoryView" ResizeMode="NoResize" WindowStyle="None" BorderBrush="Black" BorderThickness="2" Height="650" Width="1400">
+
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="35"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Grid.Row" Value="4"/>
+            <Setter Property="Grid.Column" Value="1"/>
+        </Style>
+        <Style x:Key="ImageStyle" TargetType="Image">
+            <Setter Property="Height" Value="27"/>
+            <Setter Property="Width" Value="27"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0 0 0 0"/>
+        </Style>
+        <Style x:Key="TextBlockStyle">
+            <Setter Property="Button.Height" Value="60"/>
+            <Setter Property="TextBlock.Width" Value="300"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.FontSize" Value="24"></Setter>
+            <Setter Property="TextBlock.FontWeight" Value="Bold"></Setter>
+            <Setter Property="TextBlock.Foreground" Value="Black"></Setter>
+            <Setter Property="TextBlock.TextAlignment" Value="Left"></Setter>
+            <Setter Property="TextBlock.Padding" Value="7"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="4" Margin="150 0 0 10" HorizontalAlignment="Right" VerticalAlignment="Top"
+                Background="Transparent" Command="{Binding CloseCommand}">
+            <Image Style="{StaticResource ImageStyle}" Source="../Icons/Cancel.png" />
+        </Button>
+
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="0" Text="Касир місяця" TextAlignment="Left"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Мінімальна ціна чеку" TextAlignment="Left"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Максимальна ціна чеку" />
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="0" Text="Середня ціна чеку" TextAlignment="Left"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="4" Grid.Column="0" Text="Назва таблиці" TextAlignment="Left"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="5" Grid.Column="0" Text="Кількість полів" TextAlignment="Left"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="6" Grid.Column="0" Text="Максимальна ціна" TextAlignment="Left"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="7" Grid.Column="0" Text="Мінімальна ціна" TextAlignment="Left"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="8" Grid.Column="0" Text="Найпопулярніше" TextAlignment="Left"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="9" Grid.Column="0" Text="Непопулярне" TextAlignment="Left"/>
+
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding BestCashier}"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"  Text="{Binding MinSumCheck}"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding MaxSumCheck}"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding AverageSumCheck}"/>
+
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="4" Grid.Column="1" Text="Їжа" TextAlignment="Center" Background="Red" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="5" Grid.Column="1" Text="{Binding FoodItemCount}" Background="Red" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="6" Grid.Column="1" Text="{Binding MaxValueFood}" Background="Red" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="7" Grid.Column="1" Text="{Binding MinValueFood}" Background="Red" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="8" Grid.Column="1" Text="{Binding PopularFood}" Background="Red" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="9" Grid.Column="1" Text="{Binding UnPopularFood}" Background="Red" Foreground="White"/>
+
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="4" Grid.Column="2" Text="Напитки" TextAlignment="Center" Background="#4caf50" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="5" Grid.Column="2" Text="{Binding DrinkItemCount}" Background="#4caf50" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="6" Grid.Column="2" Text="{Binding MaxValueDrink}" Background="#4caf50" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="7" Grid.Column="2" Text="{Binding MinValueDrink}" Background="#4caf50" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="8" Grid.Column="2" Text="{Binding PopularDrink}" Background="#4caf50" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="9" Grid.Column="2" Text="{Binding UnPopularDrink}" Background="#4caf50" Foreground="White"/>
+
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="4" Grid.Column="3" Text="Додаткове" TextAlignment="Center" Background="#ff9800" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="5" Grid.Column="3" Text="{Binding ModificatorItemCount}" Background="#ff9800" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="6" Grid.Column="3" Text="{Binding MaxValueModificator}" Background="#ff9800" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="7" Grid.Column="3" Text="{Binding MinValueModificator}" Background="#ff9800" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="8" Grid.Column="3" Text="{Binding PopularModificator}" Background="#ff9800" Foreground="White"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="9" Grid.Column="3" Text="{Binding UnPopularModificator}" Background="#ff9800" Foreground="White"/>
+
+    </Grid>
+</Window>

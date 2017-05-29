@@ -7,6 +7,7 @@
         CashierView,
         ActivityHistoryView,
         CheckHistoryView,
+        StatisticView,
         AddUserView,
         AddFoodView,
         AddDrinkView,

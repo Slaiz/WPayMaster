@@ -78,6 +78,9 @@
         <TextBlock Style="{StaticResource LeftTextBlockStyle}" Grid.Row="3" Grid.Column="0" Text="Номер паспорта" />
         <TextBlock Style="{StaticResource RightTextBlockStyle}" Grid.Row="3" Grid.Column="0" Text="{Binding PassportNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
+        <TextBlock Style="{StaticResource LeftTextBlockStyle}" Grid.Row="4" Grid.Column="0" Text="Тарифна ставка"/>
+        <TextBlock Style="{StaticResource RightTextBlockStyle}" Grid.Row="4" Grid.Column="0" Text="{Binding TariffRate, UpdateSourceTrigger=PropertyChanged}"/>
+
         <TextBlock Style="{StaticResource LeftTextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Посада"/>
         <TextBlock Style="{StaticResource RightTextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="{Binding Post, UpdateSourceTrigger=PropertyChanged}"/>
 
@@ -85,10 +88,13 @@
         <TextBlock Style="{StaticResource RightTextBlockStyle}" Grid.Row="1" Grid.Column="1" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Style="{StaticResource LeftTextBlockStyle}" Grid.Row="2" Grid.Column="1" Text="Зарплата"/>
-        <TextBlock Style="{StaticResource RightTextBlockStyle}" Grid.Row="2" Grid.Column="1" Text="{Binding Salary, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Style="{StaticResource RightTextBlockStyle}" Grid.Row="2" Grid.Column="1"  Text="{Binding Salary, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Style="{StaticResource LeftTextBlockStyle}" Grid.Row="3" Grid.Column="1" Text="Стать"/>
         <TextBlock Style="{StaticResource RightTextBlockStyle}" Grid.Row="3" Grid.Column="1"  Text="{Binding Sex, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Style="{StaticResource LeftTextBlockStyle}" Grid.Row="4" Grid.Column="1" Text="Робочі години"/>
+        <TextBlock Style="{StaticResource RightTextBlockStyle}" Grid.Row="4" Grid.Column="1" Text="{Binding WorkingTime, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" HorizontalAlignment="Right"  Margin="0 0 0 70" Height="45" Width="45" 
                 Background="Transparent" Command="{Binding CloseCommand}">

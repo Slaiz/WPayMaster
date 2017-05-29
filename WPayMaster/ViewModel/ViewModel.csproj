@@ -63,6 +63,7 @@
     <Compile Include="AdditionalViewModel\EditModificatorViewModel.cs" />
     <Compile Include="AdditionalViewModel\EditUserViewModel.cs" />
     <Compile Include="AdditionalViewModel\PreviewUserViewModel.cs" />
+    <Compile Include="AdditionalViewModel\StatisticViewModel.cs" />
     <Compile Include="ItemListViewModel\ColdDrinkListViewModel.cs" />
     <Compile Include="ItemListViewModel\DessertListViewModel.cs" />
     <Compile Include="ItemListViewModel\FishListViewModel.cs" />

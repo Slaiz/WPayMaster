@@ -19,11 +19,11 @@ namespace DataBaseService.Interface
         List<OrderModel> GetDrinkOrderList(DrinkType drinkType);
         List<OrderModel> GetModificatorOrderList(ModificatorType modificatorType);
         void AddOrder(List<OrderModel> itemList,string cashierName);
-        void AddUser(string name, string surname, int passportNumber, string sex, string post, string password, int salary);
+        void AddUser(string name, string surname, int passportNumber, string sex, string post, string password, int tariffRate);
         void AddFood(string name, string type, string recipe, int price, int weight);
         void AddDrink(string name, string type, int price, int volume);
         void AddModificator(string name, string type, int price, int weight);
-        void UpdateUser(User item, string name, string surname, int passportNumber, string sex, string post, string password, int salary);
+        void UpdateUser(User item, string name, string surname, int passportNumber, string sex, string post, string password, int tariffRate);
         void UpdateFood(Food item, string name, string type, string recipe, int price, int weight);
         void UpdateDrink(Drink item, string name, string type, int price, int volume);
         void UpdateModificator(Modificator item, string name, string type, int price, int weight);

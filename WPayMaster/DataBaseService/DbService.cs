@@ -213,7 +213,7 @@ namespace DataBaseService
         }
 
         #region AddItem
-        public void AddUser(string name, string surname, int passportNumber, string sex, string post, string password, int salary)
+        public void AddUser(string name, string surname, int passportNumber, string sex, string post, string password, int tariffRate)
         {
             using (var context = new ShopContext())
             {
@@ -225,7 +225,8 @@ namespace DataBaseService
                 user.Sex = sex;
                 user.Post = post;
                 user.Password = password;
-                user.Salary = salary;
+                user.TariffRate = tariffRate;
+                user.Salary = 0;
                 user.WorkingTime = TimeSpan.Zero;
 
                 context.Users.Add(user);
@@ -296,7 +297,7 @@ namespace DataBaseService
         #endregion
 
         #region UpdateItem
-        public void UpdateUser(User item, string name, string surname, int passportNumber, string sex, string post, string password, int salary)
+        public void UpdateUser(User item, string name, string surname, int passportNumber, string sex, string post, string password, int tariffRate)
         {
             using (var context = new ShopContext())
             {
@@ -308,7 +309,8 @@ namespace DataBaseService
                 user.Sex = sex;
                 user.Post = post;
                 user.Password = password;
-                user.Salary = salary;
+                user.TariffRate = tariffRate;
+                user.Salary = 0;
                 user.WorkingTime = TimeSpan.Zero;
 
                 context.SaveChanges();

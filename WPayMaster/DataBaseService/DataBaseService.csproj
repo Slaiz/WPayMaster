@@ -59,7 +59,8 @@
   <ItemGroup>
     <Compile Include="DbService.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="Interface\IDbservice.cs" />
+    <Compile Include="Interface\IDbService.cs" />
+    <Compile Include="Interface\IStatisticService.cs" />
     <Compile Include="Migrations\201703021302553_InitialCreate.cs" />
     <Compile Include="Migrations\201703021302553_InitialCreate.Designer.cs">
       <DependentUpon>201703021302553_InitialCreate.cs</DependentUpon>
@@ -120,6 +121,10 @@
     <Compile Include="Migrations\201705281759136_FixField.Designer.cs">
       <DependentUpon>201705281759136_FixField.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705291421236_AddFieldTariffRate.cs" />
+    <Compile Include="Migrations\201705291421236_AddFieldTariffRate.Designer.cs">
+      <DependentUpon>201705291421236_AddFieldTariffRate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Context\Drink.cs" />
     <Compile Include="Context\Food.cs" />
@@ -131,6 +136,7 @@
     <Compile Include="Model\CheckModel.cs" />
     <Compile Include="Model\OrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatisticService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705281759136_FixField.resx">
       <DependentUpon>201705281759136_FixField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705291421236_AddFieldTariffRate.resx">
+      <DependentUpon>201705291421236_AddFieldTariffRate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -184,6 +184,13 @@ namespace WPF_Project
                         view.ShowView();
                         break;
                     }
+                case ViewType.StatisticView:
+                    {
+                        view = new StatisticView(new StatisticViewModel());
+                        AddAdditionalView(view);
+                        view.ShowView();
+                        break;
+                    }
                 case ViewType.LoginView:
                 {
                         view = null;

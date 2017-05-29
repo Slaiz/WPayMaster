@@ -26,14 +26,14 @@ namespace ViewModel.AdditionalViewModel
         public Visibility SexImageVisibility { get; set; }
         public Visibility PostImageVisibility { get; set; }
         public Visibility PasswordImageVisibility { get; set; }
-        public Visibility SalaryImageVisibility { get; set; }
+        public Visibility TariffRateImageVisibility { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public int PassportNumber { get; set; }
         public string Sex { get; set; }
         public string Post { get; set; }
         public string Password { get; set; }
-        public int Salary { get; set; }
+        public int TariffRate { get; set; }
         public string ImagePath { get; set; }
 
         public List<string> UserPostList { get; set; }
@@ -48,9 +48,10 @@ namespace ViewModel.AdditionalViewModel
             NameImageVisibility = Visibility.Hidden;
             SurnameImageVisibility = Visibility.Hidden;
             PassportNumberImageVisibility = Visibility.Hidden;
+            SexImageVisibility = Visibility.Hidden;
             PostImageVisibility = Visibility.Hidden;
             PasswordImageVisibility = Visibility.Hidden;
-            SalaryImageVisibility = Visibility.Hidden;
+            TariffRateImageVisibility = Visibility.Hidden;
 
             CloseCommand = new Command(arg => Close());
             AddItemCommand = new Command(arg => AddItem());
@@ -76,7 +77,7 @@ namespace ViewModel.AdditionalViewModel
             Sex = null;
             Post = null;
             Password = " ";
-            Salary = 0;
+            TariffRate = 1;
         }
 
         private void Close()
@@ -88,7 +89,7 @@ namespace ViewModel.AdditionalViewModel
         {
             if (CheckData())
             {
-                DbService.AddUser(Name, Surname, PassportNumber, Sex, Post, Password, Salary);
+                DbService.AddUser(Name, Surname, PassportNumber, Sex, Post, Password, TariffRate);
                 MessageBox.Show("Запис додано", "Повідомлення", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else MessageBox.Show("Введіть всі поля правильно", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -141,11 +142,11 @@ namespace ViewModel.AdditionalViewModel
                 PasswordImageVisibility = Visibility.Visible;
             }
 
-            if (Salary >= 1) SalaryImageVisibility = Visibility.Hidden;
+            if (TariffRate >= 1) TariffRateImageVisibility = Visibility.Hidden;
             else
             {
                 flag = false;
-                SalaryImageVisibility = Visibility.Visible;
+                TariffRateImageVisibility = Visibility.Visible;
             }
 
             return flag;

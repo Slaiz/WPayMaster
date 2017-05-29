@@ -100,14 +100,14 @@
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="4" Grid.Column="0" Text="Стать"/>
         <ComboBox Style="{StaticResource ComboBoxStyle}" Grid.Row="4" Grid.Column="0" ItemsSource="{Binding UserSexList}" SelectedItem="{Binding Sex, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Посада"/>
-        <ComboBox Style="{StaticResource ComboBoxStyle}" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding UserPostList}" SelectedItem="{Binding Post, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Text="Посада"/>
+        <ComboBox Style="{StaticResource ComboBoxStyle}" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding UserPostList}" SelectedItem="{Binding Post, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Text="Пароль"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="1" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="1" Text="Зарплата"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="1" Text="{Binding Salary, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="1" Text="Пароль"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="2" Grid.Column="1" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="1" Text="Таривна ставка"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="3" Grid.Column="1" Text="{Binding TariffRate, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="#26ff71" Command="{Binding SaveItemCommand}" Content="Зберегти" />
 

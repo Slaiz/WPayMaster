@@ -53,6 +53,7 @@
     <Compile Include="Enums\FoodType.cs" />
     <Compile Include="Enums\ModificatorType.cs" />
     <Compile Include="Enums\StoryType.cs" />
+    <Compile Include="Enums\TableName.cs" />
     <Compile Include="Enums\UserControlType.cs" />
     <Compile Include="Enums\UserSex.cs" />
     <Compile Include="Enums\ViewType.cs" />
