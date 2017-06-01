@@ -120,8 +120,8 @@
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="1" Text="Таривна ставка"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="3" Grid.Column="1" Text="{Binding TariffRate, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Image Style="{StaticResource ImageStyle}" Grid.Row="3" Grid.Column="1" ToolTip="Введіть зарплату не менше нуля" Visibility="{Binding SalaryImageVisibility}" Source="../Icons/Error.png"/>
+        
+        <Image Style="{StaticResource ImageStyle}" Grid.Row="3" Grid.Column="1" ToolTip="Введіть зарплату не менше нуля" Visibility="{Binding TariffRateImageVisibility}" Source="../Icons/Error.png"/>
 
         <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="#26ff71" Command="{Binding AddItemCommand}" Content="Додати" />
 

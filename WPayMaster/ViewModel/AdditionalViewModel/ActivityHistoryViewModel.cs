@@ -2,7 +2,6 @@
 using System.Windows.Input;
 using DataBaseService;
 using DataBaseService.Context;
-using DataBaseService.Model;
 using Shared;
 using ViewModel.MainViewModel;
 

@@ -16,5 +16,6 @@ namespace DataBaseService.Context
         public int ModificatorPrice { get; set; }
         [Required]
         public int ModificatorWeight { get; set; }
+        public byte[] Image { get; set; }
     }
 }

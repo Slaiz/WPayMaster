@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_Project.View.ItemListViews"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="SauceListView" ResizeMode="NoResize" WindowStyle="None" BorderBrush="Black" BorderThickness="2" Height="Auto" Width="800">
+        Title="SauceListView" ResizeMode="NoResize" WindowStyle="None" BorderBrush="Black" BorderThickness="2" Height="700" Width="900">
 
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
@@ -65,18 +65,18 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 10 0 0">
             <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Назва" Margin="10 0 0 0"/>
-            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Вага" Margin="270 0 0 0"/>
-            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Ціна" Margin="15 0 0 0"/>
-            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="К-ість" Margin="70 0 0 0"/>
+            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Вага" Margin="300 0 0 0"/>
+            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Ціна" Margin="30 0 0 0"/>
+            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="К-ість" Margin="120 0 0 0"/>
         </StackPanel>
 
         <ListBox Grid.Row="1" ItemsSource="{Binding SaucesList, UpdateSourceTrigger=PropertyChanged}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Text="{Binding ItemName}" Margin="5"/>
-                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="100" Text="{Binding ItemWeight}" Margin="5"/>
-                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="100" Text="{Binding ItemPrice}" Margin="5"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="380"  Text="{Binding ItemName}" Margin="5"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="130" Text="{Binding ItemWeight}" Margin="5"/>
+                        <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="150" Text="{Binding ItemPrice}" Margin="5"/>
                         <local:CountUserControl  DataContext="{Binding Count}" ></local:CountUserControl>
                     </StackPanel>
                 </DataTemplate>

@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Input;
 using DataBaseService;
 using DataBaseService.Context;
-using DataBaseService.Model;
 using Microsoft.Win32;
 using PropertyChanged;
 using Shared;

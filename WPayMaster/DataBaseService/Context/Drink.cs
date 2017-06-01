@@ -16,5 +16,6 @@ namespace DataBaseService.Context
         public int DrinkPrice { get; set; }
         [Required]
         public int Volume { get; set; }
+        public byte[] Image { get; set; }
     }
 }

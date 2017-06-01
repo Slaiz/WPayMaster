@@ -18,5 +18,6 @@ namespace DataBaseService.Context
         public int FoodPrice { get; set; }
         [Required]
         public int FoodWeight { get; set; }
+        public byte[] Image { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace ViewModel.AdditionalViewModel
         public string Sex { get; set; }
         public string Post { get; set; }
         public string Password { get; set; }
-        public int TariffRate { get; set; }
+        public double TariffRate { get; set; }
         public int Salary { get; set; }
         public TimeSpan? WorkingTime { get; set; }
         public string ImagePath { get; set; }

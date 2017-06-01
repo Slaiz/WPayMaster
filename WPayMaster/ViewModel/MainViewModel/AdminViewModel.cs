@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using DataBaseService;
 using DataBaseService.Context;
-using DataBaseService.Model;
 using PropertyChanged;
 using Shared;
 using Shared.Enums;
@@ -25,6 +23,7 @@ namespace ViewModel.MainViewModel
         public ICommand ChangeColorCommand { get; set; }
         public ICommand OpenHistoryViewCommand { get; set; }
         public ICommand OpenStatisticViewCommand { get; set; }
+        public ICommand OpenCheckHistoryViewCommand { get; set; }
         public ICommand LogOutCommand { get; set; }
         public ICommand OpenUserUserControlCommand { get; set; }
         public ICommand OpenFoodUserControlCommand { get; set; }
@@ -91,6 +90,7 @@ namespace ViewModel.MainViewModel
             ChangeColorCommand = new Command(arg => ChangeColor());
             OpenHistoryViewCommand = new Command(arg => OpenHistoryView());
             OpenStatisticViewCommand = new Command(arg => OpenStatisticView());
+            OpenCheckHistoryViewCommand = new Command(arg => OpenCheckHistoryView());
             LogOutCommand = new Command(arg => LogOut());
             OpenUserUserControlCommand = new Command(arg => OpenUserControl(UserControlType.UserUserControl));
             OpenFoodUserControlCommand = new Command(arg => OpenUserControl(UserControlType.FoodUserControl));
@@ -101,6 +101,11 @@ namespace ViewModel.MainViewModel
             OpenEditItemViewCommand = new Command(arg => OpenEditItemView());
             DeleteItemCommand = new Command(arg => DeleteItem());
             OpenPreviewItemCommand = new Command(arg => OpenPreviewItem());
+        }
+
+        private void OpenCheckHistoryView()
+        {
+            CreateViewAction.Invoke(null, ViewType.CheckHistoryView);
         }
 
         private void OpenStatisticView()

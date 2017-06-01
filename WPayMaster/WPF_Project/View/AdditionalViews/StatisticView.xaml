@@ -31,7 +31,7 @@
         </Style>
         <Style x:Key="TextBlockStyle">
             <Setter Property="Button.Height" Value="60"/>
-            <Setter Property="TextBlock.Width" Value="300"/>
+            <Setter Property="TextBlock.Width" Value="320"/>
             <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
             <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
             <Setter Property="TextBlock.FontSize" Value="24"></Setter>
@@ -56,14 +56,14 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="320"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="4" Margin="150 0 0 10" HorizontalAlignment="Right" VerticalAlignment="Top"
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="4" Margin="80 0 0 10" HorizontalAlignment="Center" VerticalAlignment="Top"
                 Background="Transparent" Command="{Binding CloseCommand}">
             <Image Style="{StaticResource ImageStyle}" Source="../Icons/Cancel.png" />
         </Button>
@@ -80,9 +80,9 @@
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="9" Grid.Column="0" Text="Непопулярне" TextAlignment="Left"/>
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding BestCashier}"/>
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"  Text="{Binding MinSumCheck}"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding MinSumCheck}"/>
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding MaxSumCheck}"/>
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding AverageSumCheck}"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding AverageSumCheck, StringFormat={}{0:#.##}}"/>
 
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="4" Grid.Column="1" Text="Їжа" TextAlignment="Center" Background="Red" Foreground="White"/>
         <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="5" Grid.Column="1" Text="{Binding FoodItemCount}" Background="Red" Foreground="White"/>

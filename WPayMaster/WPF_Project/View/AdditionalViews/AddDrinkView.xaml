@@ -86,10 +86,10 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Ціна"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" Text="Ціна, грн"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="0" Grid.Column="1" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" />
 
-        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Text="Об'єм"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="1" Text="Об'єм, мл"/>
         <TextBox Style="{StaticResource TextBoxStyle}" Grid.Row="1" Grid.Column="1" Text="{Binding Volume, UpdateSourceTrigger=PropertyChanged}" />
 
         <Button Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="#26ff71" Content="Додати" Command="{Binding AddItemCommand}" />

@@ -33,7 +33,7 @@ namespace ViewModel.AdditionalViewModel
         public string Sex { get; set; }
         public string Post { get; set; }
         public string Password { get; set; }
-        public int TariffRate { get; set; }
+        public double TariffRate { get; set; }
         public string ImagePath { get; set; }
 
         public List<string> UserPostList { get; set; }
@@ -77,7 +77,7 @@ namespace ViewModel.AdditionalViewModel
             Sex = null;
             Post = null;
             Password = " ";
-            TariffRate = 1;
+            TariffRate = 1.0;
         }
 
         private void Close()

@@ -6,8 +6,9 @@ using Shared.Enums;
 
 namespace DataBaseService
 {
-    public class StatisticService : IStatisticService
+    public class StatisticService :IStatisticService
     {
+        public DbService DdService = new DbService();
         public string GetBestCashier()
         {
             throw new NotImplementedException();
@@ -15,17 +16,20 @@ namespace DataBaseService
 
         public int GetMaxSumCheck()
         {
-            throw new NotImplementedException();
+            var check = DdService.GetCheckList().ToList();
+            return check.Max(item => item.TotalSum);
         }
 
         public int GetMinSumCheck()
         {
-            throw new NotImplementedException();
+            var check = DdService.GetCheckList().ToList();
+            return check.Min(item => item.TotalSum);
         }
 
-        public int GetAvarageSumCheck()
+        public double GetAvarageSumCheck()
         {
-            throw new NotImplementedException();
+            var check = DdService.GetCheckList().ToList();
+            return check.Average(item => item.TotalSum);
         }
 
         public int GetItemCount(TableName tableName)
@@ -64,14 +68,87 @@ namespace DataBaseService
         }
 
 
-        public int GetMaxValueItem(TableName tableName)
+        public string GetMaxValueItem(TableName tableName)
         {
-            throw new NotImplementedException();
+            switch (tableName)
+            {
+                case TableName.Food:
+                {
+                    using (var context = new ShopContext())
+                    {
+                        var foods = context.Foods.ToList();
+                        var price = foods.Max(item => item.FoodPrice);
+                        var food = foods.FirstOrDefault(item => item.FoodPrice == price);
+
+                        return $"{food.FoodName}, {price} грн";
+                    }
+                }
+                case TableName.Drink:
+                    {
+                        using (var context = new ShopContext())
+                        {
+                            var drinks = context.Drinks.ToList();
+                            var price = drinks.Max(item => item.DrinkPrice);
+                            var drink = drinks.FirstOrDefault(item => item.DrinkPrice == price);
+
+                            return $"{drink.DrinkName}, {price} грн";
+                        }
+                    }
+                case TableName.Modificator:
+                    {
+                        using (var context = new ShopContext())
+                        {
+                            var modificators = context.Modificators.ToList();
+                            var price = modificators.Max(item => item.ModificatorPrice);
+                            var modificator = modificators.FirstOrDefault(item => item.ModificatorPrice == price);
+
+                            return $"{modificator.ModificatorName}, {price} грн";
+                        }
+                    }
+                default: return " ";
+            }
         }
 
-        public int GetMinValueItem(TableName tableName)
+        public string GetMinValueItem(TableName tableName)
         {
-            throw new NotImplementedException();
+            switch (tableName)
+            {
+                case TableName.Food:
+                {
+                    using (var context = new ShopContext())
+                    {
+                        var foods = context.Foods.ToList();
+
+                        var price = foods.Min(item => item.FoodPrice);
+                        var food = foods.FirstOrDefault(item => item.FoodPrice == price);
+
+                        return $"{food.FoodName}, {price} грн";
+                        }
+                }
+                case TableName.Drink:
+                {
+                    using (var context = new ShopContext())
+                    {
+                        var drinks = context.Drinks.ToList();
+                        var price = drinks.Min(item => item.DrinkPrice);
+                        var drink = drinks.FirstOrDefault(item => item.DrinkPrice == price);
+
+                        return $"{drink.DrinkName}, {price} грн";
+                        }
+                }
+                case TableName.Modificator:
+                {
+                    using (var context = new ShopContext())
+                    {
+                        var modificators = context.Modificators.ToList();
+                        var price = modificators.Min(item => item.ModificatorPrice);
+                        var modificator = modificators.FirstOrDefault(item => item.ModificatorPrice == price);
+
+                        return $"{modificator.ModificatorName}, {price} грн";
+                        }
+                }
+                default: return "";
+            }
         }
 
         public string GetPopularItem(TableName tableName)

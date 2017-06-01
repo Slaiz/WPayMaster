@@ -1,5 +1,4 @@
 using System.Data.Entity;
-using DataBaseService.Model;
 
 namespace DataBaseService.Context
 {

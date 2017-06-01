@@ -12,17 +12,18 @@
         </Grid.RowDefinitions>
 
         <DataGrid Grid.Row="0"  AutoGenerateColumns="False" IsReadOnly="True" ItemsSource = "{Binding UserList}" 
-                  SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" Height="Auto" Width="Auto" Margin="0 10 0 0" FontSize="22" FontWeight="Bold" Foreground="#ff00aaff">
+                  SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" Height="Auto" Width="Auto" Margin="0 10 0 0" FontSize="24" FontWeight="Bold" Foreground="#ff00aaff">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding UserId}" Header="Id" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding UserName}" Header="Ім'я" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding Surname}" Header="Прізвище" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding Sex}" Header="Стать" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding PassportNumber}" Header="Серія паспорта" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding Post}" Header="Посада" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding Password}" Header="Пароль" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding Salary}" Header="Зарплата" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding WorkingTime, StringFormat=hh\\:mm\\:ss}" Header="Відпрацьовані години" FontSize="18" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding UserId}" Header="Id" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding UserName}" Header="Ім'я" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Surname}" Header="Прізвище" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Sex}" Header="Стать" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding PassportNumber}" Header="Серія паспорта" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Post}" Header="Посада" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Password}" Header="Пароль" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding TariffRate}" Header="Тарифна ставка" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Salary}" Header="Зарплата" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding WorkingTime, StringFormat=hh\\:mm\\:ss}" Header="Робочі години" FontSize="20" FontWeight="Bold" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
 

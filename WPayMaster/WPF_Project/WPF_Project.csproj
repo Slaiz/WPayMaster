@@ -344,11 +344,7 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icons\AddOrderIcon.png" />
     <Resource Include="View\Icons\BreakIcon.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\Icons\TimeBreakIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Icons\Add.png" />
@@ -407,7 +403,6 @@
     <Resource Include="View\Icons\Stop.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icons\Clear.png" />
     <Resource Include="View\Icons\Find.png" />
   </ItemGroup>
   <ItemGroup>

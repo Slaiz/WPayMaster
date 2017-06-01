@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using DataBaseService.Context;
 using PropertyChanged;
 
 namespace DataBaseService.Model

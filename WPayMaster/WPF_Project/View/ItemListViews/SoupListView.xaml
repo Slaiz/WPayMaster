@@ -75,13 +75,13 @@
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="380"  Text="{Binding ItemName}" Margin="5"/>
+                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="380" Text="{Binding ItemName}" Margin="5"/>
                             <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="130" Text="{Binding ItemWeight}" Margin="5"/>
                             <TextBlock Style="{StaticResource ListTextBlockStyle}" Width="150" Text="{Binding ItemPrice}" Margin="5"/>
                             <itemListViews:CountUserControl  DataContext="{Binding Count}" ></itemListViews:CountUserControl>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Height="30">
-                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Height="25" Width="800" TextAlignment="Center" FontSize="16" Foreground="Black"
+                            <TextBlock Style="{StaticResource ListTextBlockStyle}" Height="25" Width="800" TextAlignment="Left" FontSize="16" Foreground="Black"
                                        Text="{Binding Recipe}" Margin="5"/>
                         </StackPanel>
                     </StackPanel>

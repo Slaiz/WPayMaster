@@ -18,13 +18,13 @@
         </Grid.RowDefinitions>
 
         <DataGrid Grid.Row="0"  AutoGenerateColumns="False" IsReadOnly="True" ItemsSource = "{Binding ModificatorList, UpdateSourceTrigger=PropertyChanged}" 
-                  SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" Height="Auto" Width="Auto" Margin="0 10 0 0" FontSize="22" FontWeight="Bold" Foreground="#ff9800">
+                  SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}" Height="Auto" Width="Auto" Margin="0 10 0 0" FontSize="24" FontWeight="Bold" Foreground="#ff9800">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding ModificatorId}" Header="Id" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding ModificatorName}" Header="Назва" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding ModificatorType, Converter={StaticResource ModificatorTypeConverter}}" Header="Тип" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding ModificatorPrice}" Header="Ціна" FontSize="18" FontWeight="Bold" Width="Auto"/>
-                <DataGridTextColumn Binding="{Binding ModificatorWeight}" Header="Вага" FontSize="18" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorId}" Header="Id" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorName}" Header="Назва" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorType, Converter={StaticResource ModificatorTypeConverter}}" Header="Тип" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorPrice}" Header="Ціна, грн" FontSize="20" FontWeight="Bold" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding ModificatorWeight}" Header="Вага, г" FontSize="20" FontWeight="Bold" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
 

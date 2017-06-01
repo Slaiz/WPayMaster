@@ -213,7 +213,7 @@ namespace DataBaseService
         }
 
         #region AddItem
-        public void AddUser(string name, string surname, int passportNumber, string sex, string post, string password, int tariffRate)
+        public void AddUser(string name, string surname, int passportNumber, string sex, string post, string password, double tariffRate)
         {
             using (var context = new ShopContext())
             {
@@ -297,7 +297,7 @@ namespace DataBaseService
         #endregion
 
         #region UpdateItem
-        public void UpdateUser(User item, string name, string surname, int passportNumber, string sex, string post, string password, int tariffRate)
+        public void UpdateUser(User item, string name, string surname, int passportNumber, string sex, string post, string password, double tariffRate)
         {
             using (var context = new ShopContext())
             {
