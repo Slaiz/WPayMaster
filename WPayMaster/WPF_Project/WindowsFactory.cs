@@ -168,6 +168,27 @@ namespace WPF_Project
                     view.ShowView();
                     break;
                 }
+                case ViewType.PreviewDrinkView:
+                {
+                    view = new PreviewDrinkView(new PreviewDrinkViewModel((Drink)o));
+                    AddAdditionalView(view);
+                    view.ShowView();
+                    break;
+                }
+                case ViewType.PreviewFoodView:
+                {
+                    view = new PreviewFoodView(new PreviewFoodViewModel((Food)o));
+                    AddAdditionalView(view);
+                    view.ShowView();
+                    break;
+                }
+                case ViewType.PreviewModificatorView:
+                {
+                    view = new PreviewModificatorView(new PreviewModificatorViewModel((Modificator)o));
+                    AddAdditionalView(view);
+                    view.ShowView();
+                    break;
+                }
                 case ViewType.ActivityHistoryView:
                     {
                         view = new ActivityHistoryView(new ActivityHistoryViewModel());

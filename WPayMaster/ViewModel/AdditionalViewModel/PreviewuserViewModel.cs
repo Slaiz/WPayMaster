@@ -9,8 +9,6 @@ namespace ViewModel.AdditionalViewModel
 {
     public class PreviewUserViewModel
     {
-        public DbService DbService = new DbService();
-
         public ICommand CloseCommand { get; set; }
 
         public User SelectedItem { get; set; }
@@ -38,6 +36,7 @@ namespace ViewModel.AdditionalViewModel
             TariffRate = item.TariffRate;
             WorkingTime = item.WorkingTime;
             Salary = item.Salary;
+            ImagePath = "E:\\Download\\Foto\\Coca Cola.jpg";
 
             CloseCommand = new Command(arg => Close());
         }

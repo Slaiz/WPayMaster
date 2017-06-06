@@ -28,8 +28,8 @@
         </DataGrid>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Height="Auto" Width="Auto">
-            <TextBlock  Height="30" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" FontWeight="Medium" Foreground="DarkGray" 
-                        Text="Count:" Padding="5"/>
+            <TextBlock  Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" FontWeight="Medium" Foreground="DarkGray" 
+                        Text="Кількість полів:" Padding="5"/>
             <TextBlock  Height="30" Width="Auto" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="12" FontWeight="Medium" Foreground="DarkGray" 
                         TextAlignment="Center" Padding="5" Text="{Binding Count}"/>
         </StackPanel>

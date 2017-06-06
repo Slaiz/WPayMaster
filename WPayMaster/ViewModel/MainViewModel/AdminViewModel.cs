@@ -115,12 +115,49 @@ namespace ViewModel.MainViewModel
 
         private void OpenPreviewItem()
         {
-            if (UserViewModel.SelectedItem != null)
+            switch (ViewTypeEditItem)
             {
-                CreateViewAction.Invoke(UserViewModel.SelectedItem, ViewType.PreviewUserView);
-                UserViewModel.SelectedItem = null;
+                case ViewType.EditUserView:
+                {
+                    if (UserViewModel.SelectedItem != null)
+                    {
+                        CreateViewAction.Invoke(UserViewModel.SelectedItem, ViewType.PreviewUserView);
+                        UserViewModel.SelectedItem = null;
+                    }
+                    else MessageBox.Show("Будь ласка виберіть користувача", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+                }
+                case ViewType.EditFoodView:
+                {
+                    if (FoodViewModel.SelectedItem != null)
+                    {
+                        CreateViewAction.Invoke(FoodViewModel.SelectedItem, ViewType.PreviewFoodView);
+                        FoodViewModel.SelectedItem = null;
+                    }
+                    else MessageBox.Show("Будь ласка виберіть їжу", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+                }
+                case ViewType.EditDrinkView:
+                {
+                    if (DrinkViewModel.SelectedItem != null)
+                    {
+                        CreateViewAction.Invoke(DrinkViewModel.SelectedItem, ViewType.PreviewDrinkView);
+                        DrinkViewModel.SelectedItem = null;
+                    }
+                    else MessageBox.Show("Будь ласка виберіть напиток", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+                }
+                case ViewType.EditModificatorView:
+                {
+                    if (ModificatorViewModel.SelectedItem != null)
+                    {
+                        CreateViewAction.Invoke(ModificatorViewModel.SelectedItem, ViewType.PreviewModificatorView);
+                        ModificatorViewModel.SelectedItem = null;
+                    }
+                    else MessageBox.Show("Будь ласка виберіть додаткове", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+                }
             }
-            else MessageBox.Show("Будь ласка виберіть користувача", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void ChangeColor()

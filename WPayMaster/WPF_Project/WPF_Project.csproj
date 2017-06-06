@@ -95,6 +95,15 @@
     <Compile Include="View\AdditionalViews\EditUserView.xaml.cs">
       <DependentUpon>EditUserView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AdditionalViews\PreviewDrinkView.xaml.cs">
+      <DependentUpon>PreviewDrinkView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdditionalViews\PreviewFoodView.xaml.cs">
+      <DependentUpon>PreviewFoodView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdditionalViews\PreviewModificatorView.xaml.cs">
+      <DependentUpon>PreviewModificatorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdditionalViews\PreviewUserView.xaml.cs">
       <DependentUpon>PreviewUserView.xaml</DependentUpon>
     </Compile>
@@ -173,6 +182,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdditionalViews\CheckHistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdditionalViews\PreviewDrinkView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdditionalViews\PreviewFoodView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdditionalViews\PreviewModificatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
